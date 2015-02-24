@@ -13,6 +13,7 @@ public class NewBounce : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		spawnTime = Time.time;
+//		Debug.Log ("forward: " + transform.forward.normalized);
 		this.rigidbody.AddForce(transform.forward.normalized * initialForce);
 	}
 
@@ -39,6 +40,6 @@ public class NewBounce : MonoBehaviour {
 		}
 		if (Mathf.Abs(this.rigidbody.velocity.x) < maxVelocity) {
 			rigidbody.AddForce(rigidbody.velocity.normalized, ForceMode.Impulse);		
-			}
 		}
 	}
+}
