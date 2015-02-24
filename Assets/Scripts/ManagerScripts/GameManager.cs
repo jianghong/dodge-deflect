@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using XboxCtrlrInput;
 
 public class GameManager : MonoBehaviour {
 
@@ -26,12 +27,8 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void restartGame () {
-		if (gameIsOver && (Input.GetAxisRaw ("Jump") > 0)) {
-//			timeManager.resetTimer ();
-//			timeManager.startTimer ();
-//			ballManager.restartSpawner();
-//			player.resetPosition();
-//			gameIsOver = false;
+
+		if (gameIsOver && (XCI.GetButtonUp(XboxButton.Start, 1))) {
 			Application.LoadLevel (Application.loadedLevelName);
 		}
 	}
