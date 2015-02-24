@@ -5,6 +5,7 @@ public class NewBounce : MonoBehaviour {
 		
 	public float initialForce = 500f;
 	public float maxVelocity = 50f;
+	public float blockerForce = 50f;
 	public GameObject BlackHole;
 	public GameObject Ball;
 	float spawnTime;
@@ -13,8 +14,7 @@ public class NewBounce : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		spawnTime = Time.time;
-//		Debug.Log ("forward: " + transform.forward.normalized);
-		this.rigidbody.AddForce(transform.forward.normalized * initialForce);
+//		this.rigidbody.AddForce(transform.forward.normalized * initialForce);
 	}
 
 	void Update () {
@@ -34,8 +34,12 @@ public class NewBounce : MonoBehaviour {
 			Destroy(this.gameObject);
 		}
 		if (collision.collider.gameObject.tag == "Blocker") {
-			Vector3 newBallPos = new Vector3(this.gameObject.transform.position.x, 0, this.gameObject.transform.position.z);
-			Instantiate(Ball, newBallPos, collision.transform.rotation);
+			Transform shooterPos = collision.gameObject.GetComponentInChildren<Transform>();
+			Vector3 newBallPos = new Vector3(shooterPos.position.x, 0.5f, shooterPos.position.z);
+			GameObject createdBall = GameObject.Instantiate(Ball, newBallPos, collision.transform.rotation) as GameObject;
+
+			createdBall.rigidbody.AddForce(createdBall.transform.forward.normalized*blockerForce, ForceMode.Impulse);
+
 			Destroy(this.gameObject);
 		}
 		if (Mathf.Abs(this.rigidbody.velocity.x) < maxVelocity) {

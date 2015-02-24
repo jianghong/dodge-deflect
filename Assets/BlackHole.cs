@@ -14,7 +14,8 @@ public class BlackHole : MonoBehaviour {
 	void Update() {
 		if (Time.time > spawnTime + 5) {
 			while (starCounter > 0) {
-				Instantiate(ballPrefab, this.transform.position, Random.rotation);
+				GameObject createdBall = GameObject.Instantiate(ballPrefab, this.transform.position, Random.rotation) as GameObject;
+				createdBall.rigidbody.AddForce(createdBall.transform.forward.normalized*30f, ForceMode.Impulse);
 				starCounter -= 1;
 			}
 			Destroy (this.gameObject);

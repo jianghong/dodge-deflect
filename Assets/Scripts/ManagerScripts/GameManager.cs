@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour {
 
 	void restartGame () {
 
-		if (gameIsOver && (XCI.GetButtonUp(XboxButton.Start, 1))) {
+		if (gameIsOver && (XCI.GetButtonUp(XboxButton.Start, 2))) {
 			Application.LoadLevel (Application.loadedLevelName);
 		}
 	}

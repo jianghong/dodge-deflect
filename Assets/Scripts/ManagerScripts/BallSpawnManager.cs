@@ -33,7 +33,7 @@ public class BallSpawnManager : MonoBehaviour {
 	}
 	
 	void spawnBall() {
-		Instantiate(ballPrefab, new Vector3(0f, 0f, 0f), Random.rotation);
+		Instantiate(ballPrefab, new Vector3(Random.Range (-17f, 17f), 0.5f, Random.Range (-12f, 12f)), Random.rotation);
 	}
 
 	public void restartSpawner() {

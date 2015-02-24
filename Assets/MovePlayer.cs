@@ -8,6 +8,7 @@ public class MovePlayer : MonoBehaviour
 	public float BlockTime = 0f;				// Cooldown on blocking a ball.
 	public GameObject Block;			// Placeholder to block the ball.
 	public float speed = 6f;
+	public float blockCD = 1f;
 
 	public int playerNumber = 0;
 	
@@ -114,23 +115,21 @@ public class MovePlayer : MonoBehaviour
 
 	void Rotate(float x, float y)
 	{
-		transform.LookAt(transform.position + new Vector3(x, 0.0f, y), -Vector3.forward);
-		
+		transform.LookAt(transform.position + new Vector3(x, 0.0f, y), Vector3.up);
 	}
 	
 
 	void Deflect() {
-		float rightTrigger = XCI.GetAxis (XboxAxis.RightTrigger, playerNumber);
-		if (rightTrigger > 0) {
+		if (XCI.GetButtonDown(XboxButton.RightBumper, playerNumber)) {
 			if (BlockTime == 0f) {
 				BlockTime = Time.time;
-				Block.transform.localScale += new Vector3 (0f, 0f, .9f);
+				Block.transform.localScale += new Vector3 (1.5f, 0f, 1.5f);
 			}
 		}
 		if (Time.time > BlockTime + .5) {
-			Block.transform.localScale = new Vector3 (0.9f, 0.9f, 0.1f);
+			Block.transform.localScale = new Vector3 (1f, 1f, 1f);
 		}
-		if (Time.time > BlockTime + 2) {
+		if (Time.time > BlockTime + blockCD) {
 			BlockTime = 0f;
 		}
 	}
