@@ -45,9 +45,6 @@ public class PlayerMovement : MonoBehaviour
 
 	void Rotate(float x, float y) 
 	{
-		Debug.Log("X: " + x);
-		Debug.Log("Y: " + y);
-
 		transform.LookAt(transform.position + new Vector3(x, 0.0f, y), -Vector3.forward);
 
 	}

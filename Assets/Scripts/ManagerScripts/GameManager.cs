@@ -27,11 +27,12 @@ public class GameManager : MonoBehaviour {
 
 	void restartGame () {
 		if (gameIsOver && (Input.GetAxisRaw ("Jump") > 0)) {
-			timeManager.resetTimer ();
-			timeManager.startTimer ();
-			ballManager.restartSpawner();
-			player.resetPosition();
-			gameIsOver = false;
+//			timeManager.resetTimer ();
+//			timeManager.startTimer ();
+//			ballManager.restartSpawner();
+//			player.resetPosition();
+//			gameIsOver = false;
+			Application.LoadLevel (Application.loadedLevelName);
 		}
 	}
 
