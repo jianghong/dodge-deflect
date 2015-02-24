@@ -8,6 +8,7 @@ public class NewBounce : MonoBehaviour {
 	public float blockerForce = 50f;
 	public GameObject BlackHole;
 	public GameObject Ball;
+	Vector3 shooterPos;
 	float spawnTime;
 	bool canCollide = false;
 	
@@ -34,12 +35,14 @@ public class NewBounce : MonoBehaviour {
 			Destroy(this.gameObject);
 		}
 		if (collision.collider.gameObject.tag == "Blocker") {
-			Transform shooterPos = collision.gameObject.GetComponentInChildren<Transform>();
-			Vector3 newBallPos = new Vector3(shooterPos.position.x, 0.5f, shooterPos.position.z);
+
+			Component[] trans = collision.gameObject.GetComponentsInChildren<Transform>();
+			foreach (Transform tran in trans) {
+				shooterPos = tran.position;
+			}
+			Vector3 newBallPos = new Vector3(shooterPos.x, 0.5f, shooterPos.z);
 			GameObject createdBall = GameObject.Instantiate(Ball, newBallPos, collision.transform.rotation) as GameObject;
-
 			createdBall.rigidbody.AddForce(createdBall.transform.forward.normalized*blockerForce, ForceMode.Impulse);
-
 			Destroy(this.gameObject);
 		}
 		if (Mathf.Abs(this.rigidbody.velocity.x) < maxVelocity) {

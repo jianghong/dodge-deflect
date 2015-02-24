@@ -127,7 +127,7 @@ public class MovePlayer : MonoBehaviour
 			}
 		}
 		if (Time.time > BlockTime + .5) {
-			Block.transform.localScale = new Vector3 (1f, 1f, 1f);
+			Block.transform.localScale = new Vector3 (0.9f, 0.9f, 0.9f);
 		}
 		if (Time.time > BlockTime + blockCD) {
 			BlockTime = 0f;
