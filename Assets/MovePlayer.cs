@@ -25,6 +25,8 @@ public class MovePlayer : MonoBehaviour
 	Vector3 shooterPos;
 	public GameObject ballPrefab;
 	Blocker blockerScript;
+	shooterScript shooter;
+	BallIndicatorControl ballControl;
 
 	bool isHoldingProjectile = false;
 
@@ -37,6 +39,7 @@ public class MovePlayer : MonoBehaviour
 //		playerRigidbody = GetComponent <Rigidbody> ();
 		controller = GetComponent<CharacterController>();
 		blockerScript = Block.GetComponent<Blocker> ();
+		ballControl = this.GetComponentInChildren<BallIndicatorControl> ();
 	}
 	// Start
 	void Start ()
@@ -136,14 +139,12 @@ public class MovePlayer : MonoBehaviour
 		}
 
 		if (XCI.GetButtonUp (XboxButton.RightBumper, playerNumber) && isHoldingProjectile) {
-			Component[] trans = collider.gameObject.GetComponentsInChildren<Transform>();
-			foreach (Transform tran in trans) {
-				shooterPos = tran.position;
-			}
+			shooter = collider.gameObject.GetComponentInChildren<shooterScript>();
+			shooterPos = shooter.getTransform().position;
 			Vector3 newBallPos = new Vector3(shooterPos.x, 0.5f, shooterPos.z);
 			GameObject createdBall = GameObject.Instantiate(ballPrefab, newBallPos, collider.transform.rotation) as GameObject;
 			createdBall.rigidbody.AddForce(createdBall.transform.forward.normalized*blockerForce, ForceMode.Impulse);
-			isHoldingProjectile = false;
+			unsetIsHoldingProjectile();
 		}
 		if (Time.time > BlockTime + blockerTTL) {
 			blockerScript.deactivate();
@@ -157,8 +158,13 @@ public class MovePlayer : MonoBehaviour
 
 	public void setIsHoldingProjectile() {
 		isHoldingProjectile = true;
+		ballControl.show ();
 	}
 
+	public void unsetIsHoldingProjectile() {
+		isHoldingProjectile = false;
+		ballControl.hide ();
+	}
 	public void enableController() {
 		controllerIsEnabled = true;
 	}
