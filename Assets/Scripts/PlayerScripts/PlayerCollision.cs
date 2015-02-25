@@ -17,7 +17,8 @@ public class PlayerCollision : MonoBehaviour {
 	void Update () {
 		
 	}
-	void OnTriggerEnter(Collider collision)
+
+	void OnCollisionEnter(Collision collision)
 	{
 		// If the entering collider is the player...
 		if(collision.collider.gameObject.tag == "Ball")

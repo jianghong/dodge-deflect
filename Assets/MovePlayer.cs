@@ -111,6 +111,7 @@ public class MovePlayer : MonoBehaviour
 		
 		// Move the player to it's current position plus the movement.
 		playerRigidbody.MovePosition (transform.position + movement);
+
 	}
 
 	void Rotate(float x, float y)
