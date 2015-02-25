@@ -23,7 +23,6 @@ public class BallSpawnManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log ("Star count: " + starCount);
 		currTime = timeManager.currTime;
 		if ((currTime - previousTime) > spawnInterval && starCount < starLimit) {
 //			Vector3 randDirection = new Vector3 (0f, Random.Range(0f, 360f), 0f);

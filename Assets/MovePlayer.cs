@@ -9,6 +9,7 @@ public class MovePlayer : MonoBehaviour
 	public GameObject Block;			// Placeholder to block the ball.
 	public float speed = 6f;
 	public float blockCD = 1f;
+	public float blockerForce = 50f;
 
 	public int playerNumber = 0;
 	
@@ -19,8 +20,13 @@ public class MovePlayer : MonoBehaviour
 	
 	public GameObject triggerLeftPrefab;
 	public GameObject triggerRightPrefab;
-
+	public float blockerTTL = 0.5f;
 	private static bool didQueryNumOfCtrlrs = false;
+	Vector3 shooterPos;
+	public GameObject ballPrefab;
+	Blocker blockerScript;
+
+	bool isHoldingProjectile = false;
 
 	Vector3 movement;                   // The vector to store the direction of the player's movement.
 //	Rigidbody playerRigidbody;
@@ -30,6 +36,7 @@ public class MovePlayer : MonoBehaviour
 	void Awake() {
 //		playerRigidbody = GetComponent <Rigidbody> ();
 		controller = GetComponent<CharacterController>();
+		blockerScript = Block.GetComponent<Blocker> ();
 	}
 	// Start
 	void Start ()
@@ -108,14 +115,6 @@ public class MovePlayer : MonoBehaviour
 	{
 		Vector3 moveDirection = new Vector3(h, 0f, v);
 		moveDirection *= speed;
-//		// Set the movement vector based on the axis input.
-//		movement.Set (h, 0f, v);
-//		
-//		// Normalise the movement vector and make it proportional to the speed per second.
-//		movement = movement.normalized * speed * Time.deltaTime;
-		
-		// Move the player to it's current position plus the movement.
-//		playerRigidbody.AddForce (movement);
 
 		controller.Move(moveDirection * Time.deltaTime);
 
@@ -128,18 +127,36 @@ public class MovePlayer : MonoBehaviour
 	
 
 	void Deflect() {
-		if (XCI.GetButtonDown(XboxButton.RightBumper, playerNumber)) {
+		if (XCI.GetButton(XboxButton.RightBumper, playerNumber) && !isHoldingProjectile) {
 			if (BlockTime == 0f) {
 				BlockTime = Time.time;
+				blockerScript.activate();
 				Block.transform.localScale += new Vector3 (1.5f, 0f, 1.5f);
 			}
 		}
-		if (Time.time > BlockTime + .5) {
+
+		if (XCI.GetButtonUp (XboxButton.RightBumper, playerNumber) && isHoldingProjectile) {
+			Component[] trans = collider.gameObject.GetComponentsInChildren<Transform>();
+			foreach (Transform tran in trans) {
+				shooterPos = tran.position;
+			}
+			Vector3 newBallPos = new Vector3(shooterPos.x, 0.5f, shooterPos.z);
+			GameObject createdBall = GameObject.Instantiate(ballPrefab, newBallPos, collider.transform.rotation) as GameObject;
+			createdBall.rigidbody.AddForce(createdBall.transform.forward.normalized*blockerForce, ForceMode.Impulse);
+			isHoldingProjectile = false;
+		}
+		if (Time.time > BlockTime + blockerTTL) {
+			blockerScript.deactivate();
 			Block.transform.localScale = new Vector3 (0.9f, 0.9f, 0.9f);
 		}
 		if (Time.time > BlockTime + blockCD) {
 			BlockTime = 0f;
 		}
+
+	}
+
+	public void setIsHoldingProjectile() {
+		isHoldingProjectile = true;
 	}
 
 	public void enableController() {

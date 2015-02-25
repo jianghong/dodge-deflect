@@ -41,6 +41,9 @@ public class PlayerCollision : MonoBehaviour {
 		{
 			death ();
 		}
+//		if (collider.gameObject.tag == "Ball") {
+//			Debug.Log ("player collided with ball");
+//		}
 	}
 
 	void OnCollisionEnter(Collision collision)
@@ -48,6 +51,7 @@ public class PlayerCollision : MonoBehaviour {
 		// If the entering collider is the player...
 		if(collision.collider.gameObject.tag == "Ball")
 		{
+			Debug.Log ("taking damage");
 			Destroy(collision.gameObject);
 			if(!isImmune) {
 
