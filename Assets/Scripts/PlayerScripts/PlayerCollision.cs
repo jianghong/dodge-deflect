@@ -10,10 +10,12 @@ public class PlayerCollision : MonoBehaviour {
 	float hitCount = 0.0f;
 	float immuneStartTime = 0.0f;
 	bool isImmune = false;
+	MovePlayer playerMovementScript;
 
 
 	void Awake() {
 		gameManager = GameObject.FindWithTag ("GameManager").GetComponent<GameManager> ();
+		playerMovementScript = this.GetComponent<MovePlayer> ();
 	}
 	// Use this for initialization
 	void Start () {
@@ -28,10 +30,16 @@ public class PlayerCollision : MonoBehaviour {
 		}
 	}
 
+	void death() {
+		int pNum = playerMovementScript.playerNumber;
+		gameManager.playerDied (pNum);
+		Destroy (this.gameObject);
+	}
+
 	void OnTriggerEnter(Collider collider) {
 		if(collider.gameObject.tag == "BlackHole")
 		{
-			Destroy(this.gameObject);
+			death ();
 		}
 	}
 
@@ -40,13 +48,13 @@ public class PlayerCollision : MonoBehaviour {
 		// If the entering collider is the player...
 		if(collision.collider.gameObject.tag == "Ball")
 		{
-			Destroy(collision.gameObject);
 			if(!isImmune) {
+				Destroy(collision.gameObject);
 				hitCount += 1f;
 				immuneStartTime = Time.time;
 				
 				if(hitCount >= hitThreshold) {
-					Destroy(this.gameObject);
+					death();
 				}
 				
 				isImmune = true;

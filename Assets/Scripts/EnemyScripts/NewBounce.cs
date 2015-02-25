@@ -3,7 +3,7 @@ using System.Collections;
 
 public class NewBounce : MonoBehaviour {
 		
-	public float initialForce = 500f;
+	public float initialForce = 20f;
 	public float maxVelocity = 50f;
 	public float blockerForce = 50f;
 	public GameObject BlackHole;
@@ -16,7 +16,7 @@ public class NewBounce : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		spawnTime = Time.time;
-//		this.rigidbody.AddForce(transform.forward.normalized * initialForce);
+		this.rigidbody.AddForce(transform.forward.normalized * initialForce);
 	}
 
 	void Update () {

@@ -9,10 +9,8 @@ public class GameManager : MonoBehaviour {
 	int numPlayers;
 	int[] playersBitmap = {0, 0, 0, 0};
 	Vector3[] playerPositions = {new Vector3(-11f, 0.5f, 17f), new Vector3(27f, 0.5f, 17f), new Vector3(25f, 0.5f, -13f), new Vector3(-9f, 0.5f, -13f)};
-	int maxPlayers = 4;
 	bool joiningGame = true;
 	bool beginningGame = false;
-
 	bool gameIsOver = false;
 
 	void Awake() {
@@ -25,13 +23,14 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		timeManager.currTime = 5f;
+		timeManager.currTime = 1f;
 		timeManager.setCountdown ();
 		timeManager.stopTimer ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		// manages beginning of game
 		if (numPlayers >= 2) {
 			timeManager.startTimer ();		
 		}
@@ -44,6 +43,10 @@ public class GameManager : MonoBehaviour {
 			beginGame();
 		}
 
+		// check game over
+		if (numPlayers <= 1 && beginningGame) {
+			gameOver();		
+		}
 		
 		restartGame ();
 	}
@@ -89,6 +92,13 @@ public class GameManager : MonoBehaviour {
 			}
 		}
 	}
+
+	public void playerDied(int playerNum) {
+		numPlayers -= 1;
+		playersBitmap [playerNum - 1] = 0;
+		Debug.Log ("num players: " + numPlayers);
+	}
+
 	void restartGame () {
 
 		if (gameIsOver && (XCI.GetButtonUp(XboxButton.Start, 1))) {
