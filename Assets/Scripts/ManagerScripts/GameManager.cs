@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (numPlayers >= 1) {
+		if (numPlayers >= 2) {
 			timeManager.startTimer ();		
 		}
 		if (joiningGame) {
