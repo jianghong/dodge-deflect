@@ -5,13 +5,11 @@ using XboxCtrlrInput;
 public class GameManager : MonoBehaviour {
 
 	TimeManager timeManager;
-	BallSpawnManager ballManager;
 	PlayerAttributes player;
 	bool gameIsOver = false;
 
 	void Awake() {
 		timeManager = GameObject.FindWithTag ("TimeManager").GetComponent<TimeManager> ();
-		ballManager = GameObject.FindWithTag ("BallSpawnManager").GetComponent<BallSpawnManager> ();
 		player = GameObject.FindWithTag ("Player").GetComponent<PlayerAttributes> ();
 
 	}
@@ -28,7 +26,19 @@ public class GameManager : MonoBehaviour {
 
 	void restartGame () {
 
+		if (gameIsOver && (XCI.GetButtonUp(XboxButton.Start, 1))) {
+			Application.LoadLevel (Application.loadedLevelName);
+		}
+
 		if (gameIsOver && (XCI.GetButtonUp(XboxButton.Start, 2))) {
+			Application.LoadLevel (Application.loadedLevelName);
+		}
+
+		if (gameIsOver && (XCI.GetButtonUp(XboxButton.Start, 3))) {
+			Application.LoadLevel (Application.loadedLevelName);
+		}
+
+		if (gameIsOver && (XCI.GetButtonUp(XboxButton.Start, 4))) {
 			Application.LoadLevel (Application.loadedLevelName);
 		}
 	}
