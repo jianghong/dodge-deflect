@@ -4,9 +4,11 @@ using XboxCtrlrInput;
 
 public class GameManager : MonoBehaviour {
 
+	public GameObject playerPrefab;
 	TimeManager timeManager;
 	int numPlayers;
 	int[] playersBitmap = {0, 0, 0, 0};
+	Vector3[] playerPositions = {new Vector3(-11f, 0.5f, 17f), new Vector3(27f, 0.5f, 17f), new Vector3(25f, 0.5f, -13f), new Vector3(-9f, 0.5f, -13f)};
 	int maxPlayers = 4;
 	bool joiningGame = true;
 	bool beginningGame = false;
@@ -35,7 +37,6 @@ public class GameManager : MonoBehaviour {
 			joinGamePhase ();
 		}
 		if (timeManager.currTime <= 0f) {
-			Debug.Log (timeManager.currTime);
 			timeManager.stopTimer();
 			joiningGame = false;
 			beginGame();
@@ -74,8 +75,16 @@ public class GameManager : MonoBehaviour {
 		timeManager.currTime = 0f;
 		timeManager.setCountup ();
 		Debug.Log ("num players: " + numPlayers);
+		spawnPlayers (numPlayers);
 	}
 
+
+	void spawnPlayers(int n) {
+		for (int i = 0; i < numPlayers; i++) {
+			GameObject p = GameObject.Instantiate(playerPrefab, playerPositions[i], Quaternion.identity) as GameObject;
+			p.GetComponent<MovePlayer>().playerNumber = i+1;
+		}
+	}
 	void restartGame () {
 
 		if (gameIsOver && (XCI.GetButtonUp(XboxButton.Start, 1))) {
