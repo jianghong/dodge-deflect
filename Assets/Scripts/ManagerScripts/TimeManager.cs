@@ -5,7 +5,8 @@ using System.Collections;
 public class TimeManager : MonoBehaviour {
 
 	public float maxTime = 300f;
-	public float currTime = 0f;
+	public float currTime = 5f;
+	bool countdown = false;
 	Text text;
 	bool timeStopped = true;
 
@@ -20,8 +21,10 @@ public class TimeManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		text.text = this.currTime.ToString ("F2");
-		if (!timeStopped) {
-			this.currTime += Time.deltaTime;		
+		if (!timeStopped && countdown) {
+			this.currTime -= Time.deltaTime;		
+		} else if (!timeStopped && !countdown){
+			this.currTime += Time.deltaTime;
 		}
 	}
 
@@ -31,6 +34,14 @@ public class TimeManager : MonoBehaviour {
 
 	public void stopTimer() {
 		timeStopped = true;
+	}
+
+	public void setCountdown() {
+		countdown = true;
+	}
+
+	public void setCountup() {
+		countdown = false;
 	}
 
 	public void resetTimer() {

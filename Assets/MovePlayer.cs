@@ -25,6 +25,7 @@ public class MovePlayer : MonoBehaviour
 	Vector3 movement;                   // The vector to store the direction of the player's movement.
 //	Rigidbody playerRigidbody;
 	CharacterController controller;
+	bool controllerIsEnabled = true;
 
 	void Awake() {
 //		playerRigidbody = GetComponent <Rigidbody> ();
@@ -70,18 +71,20 @@ public class MovePlayer : MonoBehaviour
 	// Update
 	void Update ()
 	{
-		float axisX = XCI.GetAxis(XboxAxis.LeftStickX, playerNumber);
-		float axisY = XCI.GetAxis(XboxAxis.LeftStickY, playerNumber);
+		if (controllerIsEnabled) {
+			float axisX = XCI.GetAxis (XboxAxis.LeftStickX, playerNumber);
+			float axisY = XCI.GetAxis (XboxAxis.LeftStickY, playerNumber);
 
-		// Left stick movement
-		Move (axisX, axisY);
-		
-		// Right stick movement
-		axisX = XCI.GetAxis(XboxAxis.RightStickX, playerNumber);
-		axisY = XCI.GetAxis(XboxAxis.RightStickY, playerNumber);
-		Rotate (axisX, axisY);
+			// Left stick movement
+			Move (axisX, axisY);
 
-		Deflect ();
+			// Right stick movement
+			axisX = XCI.GetAxis (XboxAxis.RightStickX, playerNumber);
+			axisY = XCI.GetAxis (XboxAxis.RightStickY, playerNumber);
+			Rotate (axisX, axisY);
+
+			Deflect ();
+		}
 	}
 	
 	// Gizmo Drawing
@@ -137,5 +140,13 @@ public class MovePlayer : MonoBehaviour
 		if (Time.time > BlockTime + blockCD) {
 			BlockTime = 0f;
 		}
+	}
+
+	public void enableController() {
+		controllerIsEnabled = true;
+	}
+
+	public void disableController() {
+		controllerIsEnabled = false;
 	}
 }
