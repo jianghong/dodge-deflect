@@ -27,12 +27,14 @@ public class GameManager : MonoBehaviour {
 	void Start () {
 		timeManager.currTime = 5f;
 		timeManager.setCountdown ();
-		timeManager.startTimer ();
+		timeManager.stopTimer ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
+		if (numPlayers >= 1) {
+			timeManager.startTimer ();		
+		}
 		if (joiningGame) {
 			joinGamePhase ();
 		}
@@ -80,9 +82,11 @@ public class GameManager : MonoBehaviour {
 
 
 	void spawnPlayers(int n) {
-		for (int i = 0; i < numPlayers; i++) {
-			GameObject p = GameObject.Instantiate(playerPrefab, playerPositions[i], Quaternion.identity) as GameObject;
-			p.GetComponent<MovePlayer>().playerNumber = i+1;
+		for (int i = 0; i < playersBitmap.Length; i++) {
+			if (playersBitmap[i] == 1) {
+				GameObject p = GameObject.Instantiate(playerPrefab, playerPositions[i], Quaternion.identity) as GameObject;
+				p.GetComponent<MovePlayer>().playerNumber = i+1;
+			}
 		}
 	}
 	void restartGame () {
