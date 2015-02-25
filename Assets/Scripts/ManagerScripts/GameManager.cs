@@ -5,13 +5,11 @@ using XboxCtrlrInput;
 public class GameManager : MonoBehaviour {
 
 	TimeManager timeManager;
-	PlayerAttributes player;
+
 	bool gameIsOver = false;
 
 	void Awake() {
 		timeManager = GameObject.FindWithTag ("TimeManager").GetComponent<TimeManager> ();
-		player = GameObject.FindWithTag ("Player").GetComponent<PlayerAttributes> ();
-
 	}
 
 	// Use this for initialization

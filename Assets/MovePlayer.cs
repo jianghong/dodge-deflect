@@ -19,15 +19,16 @@ public class MovePlayer : MonoBehaviour
 	
 	public GameObject triggerLeftPrefab;
 	public GameObject triggerRightPrefab;
-	
-	private Vector3 newPosition;
+
 	private static bool didQueryNumOfCtrlrs = false;
 
 	Vector3 movement;                   // The vector to store the direction of the player's movement.
-	Rigidbody playerRigidbody;
+//	Rigidbody playerRigidbody;
+	CharacterController controller;
 
 	void Awake() {
-		playerRigidbody = GetComponent <Rigidbody> ();
+//		playerRigidbody = GetComponent <Rigidbody> ();
+		controller = GetComponent<CharacterController>();
 	}
 	// Start
 	void Start ()
@@ -41,8 +42,7 @@ public class MovePlayer : MonoBehaviour
 		case 3: renderer.material = matBlue; break;
 		case 4: renderer.material = matYellow; break;
 		}
-		
-		newPosition = transform.position;
+
 		
 		if(!didQueryNumOfCtrlrs)
 		{
@@ -103,14 +103,18 @@ public class MovePlayer : MonoBehaviour
 
 	void Move (float h, float v)
 	{
-		// Set the movement vector based on the axis input.
-		movement.Set (h, 0f, v);
-		
-		// Normalise the movement vector and make it proportional to the speed per second.
-		movement = movement.normalized * speed * Time.deltaTime;
+		Vector3 moveDirection = new Vector3(h, 0f, v);
+		moveDirection *= speed;
+//		// Set the movement vector based on the axis input.
+//		movement.Set (h, 0f, v);
+//		
+//		// Normalise the movement vector and make it proportional to the speed per second.
+//		movement = movement.normalized * speed * Time.deltaTime;
 		
 		// Move the player to it's current position plus the movement.
-		playerRigidbody.MovePosition (transform.position + movement);
+//		playerRigidbody.AddForce (movement);
+
+		controller.Move(moveDirection * Time.deltaTime);
 
 	}
 

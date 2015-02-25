@@ -8,6 +8,7 @@ public class NewBounce : MonoBehaviour {
 	public float blockerForce = 50f;
 	public GameObject BlackHole;
 	public GameObject Ball;
+	public float TTL = 0.4f;
 	Vector3 shooterPos;
 	float spawnTime;
 	bool canCollide = false;
@@ -19,7 +20,7 @@ public class NewBounce : MonoBehaviour {
 	}
 
 	void Update () {
-		if ((Time.time - spawnTime) > 0.5f) {
+		if ((Time.time - spawnTime) > TTL) {
 			canCollide = true;		
 		}
 	}
@@ -41,7 +42,7 @@ public class NewBounce : MonoBehaviour {
 	void OnCollisionEnter(Collision collision) {
 		if (collision.collider.gameObject.tag == "Ball" && canCollide) {
 			if (this.transform.position.x > collision.transform.position.x) {
-				Instantiate (BlackHole, new Vector3 (this.transform.position.x, 0f, this.transform.position.z), Quaternion.identity);
+				Instantiate (BlackHole, new Vector3 (this.transform.position.x, 0.5f, this.transform.position.z), Quaternion.identity);
 			}
 			Destroy(this.gameObject);
 		}
