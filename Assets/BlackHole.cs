@@ -6,7 +6,8 @@ public class BlackHole : MonoBehaviour {
 	public GameObject ballPrefab;
 	public float starCounter = 2f;
 	public float spawnTime = 0f;
-
+	BallSpawnManager ballSpawnManager;
+	
 	void Start() {
 		spawnTime = Time.time;
 	}

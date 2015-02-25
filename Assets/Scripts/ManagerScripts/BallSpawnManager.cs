@@ -8,7 +8,8 @@ public class BallSpawnManager : MonoBehaviour {
 	TimeManager timeManager;
 	float currTime;
 	float previousTime;
-	float ballTotal = 0f;
+	public int starCount;
+	public int starLimit = 5;
 
 	void Awake() {
 		timeManager = GameObject.FindWithTag ("TimeManager").GetComponent<TimeManager> ();
@@ -22,9 +23,9 @@ public class BallSpawnManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		Debug.Log ("Star count: " + starCount);
 		currTime = timeManager.currTime;
-		if ((currTime - previousTime) > spawnInterval && ballTotal < 5f) {
-			ballTotal += 1;
+		if ((currTime - previousTime) > spawnInterval && starCount < starLimit) {
 //			Vector3 randDirection = new Vector3 (0f, Random.Range(0f, 360f), 0f);
 //			this.gameObject.transform.LookAt (randDirection);
 			spawnBall ();
@@ -33,6 +34,7 @@ public class BallSpawnManager : MonoBehaviour {
 	}
 	
 	void spawnBall() {
+		starCount += 1;
 		Instantiate(ballPrefab, new Vector3(Random.Range (-17f, 17f), 0.5f, Random.Range (-12f, 12f)), Random.rotation);
 	}
 

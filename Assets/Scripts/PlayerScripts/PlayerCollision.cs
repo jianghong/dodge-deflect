@@ -48,8 +48,9 @@ public class PlayerCollision : MonoBehaviour {
 		// If the entering collider is the player...
 		if(collision.collider.gameObject.tag == "Ball")
 		{
+			Destroy(collision.gameObject);
 			if(!isImmune) {
-				Destroy(collision.gameObject);
+
 				hitCount += 1f;
 				immuneStartTime = Time.time;
 				
