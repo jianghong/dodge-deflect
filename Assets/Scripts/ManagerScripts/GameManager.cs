@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour {
 
 	public GameObject playerPrefab;
 	public GameObject blackholePrefab;
+	public int minPlayers;
 	TimeManager timeManager;
 	int numPlayers;
 	int[] playersBitmap = {0, 0, 0, 0};
@@ -32,7 +33,7 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		// manages beginning of game
-		if (numPlayers >= 2) {
+		if (numPlayers >= minPlayers) {
 			timeManager.startTimer ();		
 		}
 		if (joiningGame) {
@@ -45,10 +46,15 @@ public class GameManager : MonoBehaviour {
 		}
 
 		// check game over
-		if (numPlayers <= 1 && beginningGame) {
-			gameOver();		
+		if (minPlayers == 1) {
+			if (numPlayers < 1 && beginningGame) {
+				gameOver ();
+			}
+		} else {
+			if (numPlayers <= 1 && beginningGame) {
+				gameOver();		
+			}
 		}
-		
 		restartGame ();
 	}
 
@@ -102,7 +108,6 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void restartGame () {
-
 		if (gameIsOver && (XCI.GetButtonUp(XboxButton.Start, 1))) {
 			Application.LoadLevel (Application.loadedLevelName);
 		}

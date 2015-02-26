@@ -116,7 +116,7 @@ public class MovePlayer : MonoBehaviour
 
 	void Move (float h, float v)
 	{
-		Vector3 moveDirection = new Vector3(h, 0f, v);
+		Vector3 moveDirection = new Vector3(h, 0.0f, v);
 		moveDirection *= speed;
 
 		controller.Move(moveDirection * Time.deltaTime);
