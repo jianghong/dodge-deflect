@@ -29,7 +29,7 @@ public class BlackHole : MonoBehaviour {
 		Debug.Log ("bh:" + other.gameObject.tag);
 		if (other.collider.gameObject.tag == "Ball") {
 			starCounter += 1;
-			this.transform.localScale *= 1.20f;
+			this.transform.localScale *= 1.5f;
 			Destroy (other.gameObject);
 		}
 	}
