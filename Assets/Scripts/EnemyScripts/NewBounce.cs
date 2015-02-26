@@ -34,9 +34,9 @@ public class NewBounce : MonoBehaviour {
 		if (collision.collider.gameObject.tag == "BlackHole" && canCollide) {
 			Destroy(this.gameObject);
 		}
-
-		if (Mathf.Abs(this.rigidbody.velocity.x) < maxVelocity) {
-			rigidbody.AddForce(rigidbody.velocity.normalized, ForceMode.Impulse);		
-		}
+//
+//		if (Mathf.Abs(this.rigidbody.velocity.x) < maxVelocity) {
+//			rigidbody.AddForce(rigidbody.velocity.normalized, ForceMode.Impulse);		
+//		}
 	}
 }
