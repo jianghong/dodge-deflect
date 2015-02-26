@@ -5,6 +5,7 @@ using XboxCtrlrInput;
 public class GameManager : MonoBehaviour {
 
 	public GameObject playerPrefab;
+	public GameObject blackholePrefab;
 	TimeManager timeManager;
 	int numPlayers;
 	int[] playersBitmap = {0, 0, 0, 0};
@@ -80,6 +81,7 @@ public class GameManager : MonoBehaviour {
 		timeManager.currTime = 0f;
 		timeManager.setCountup ();
 		Debug.Log ("num players: " + numPlayers);
+		Instantiate (blackholePrefab, new Vector3 (6f, 0.5f, 0f), Quaternion.identity);
 		spawnPlayers (numPlayers);
 	}
 

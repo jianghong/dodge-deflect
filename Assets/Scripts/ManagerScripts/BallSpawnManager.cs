@@ -17,7 +17,7 @@ public class BallSpawnManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		this.spawnBall ();
+//		this.spawnBall ();
 		previousTime = 0f;
 	}
 	
