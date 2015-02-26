@@ -37,6 +37,11 @@ public class BallSpawnManager : MonoBehaviour {
 		Instantiate(ballPrefab, new Vector3(Random.Range (-17f, 17f), 0.5f, Random.Range (-12f, 12f)), Random.rotation);
 	}
 
+	public void destroyBall(GameObject ball) {
+		Destroy (ball);
+		starCount -= 1;
+	}
+
 	public void restartSpawner() {
 		this.spawnBall ();
 		previousTime = 0f;

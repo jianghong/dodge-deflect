@@ -23,7 +23,7 @@ public class BlackHole : MonoBehaviour {
 		}
 	}
 
-	void OnCollisionEnter(Collision other)
+	void OnTriggerEnter(Collider other)
 	{
 		Debug.Log ("bh:" + other.gameObject.tag);
 		if (other.collider.gameObject.tag == "Ball") {

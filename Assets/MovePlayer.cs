@@ -146,7 +146,7 @@ public class MovePlayer : MonoBehaviour
 			createdBall.rigidbody.AddForce(createdBall.transform.forward.normalized*blockerForce, ForceMode.Impulse);
 			unsetIsHoldingProjectile();
 		}
-		if (Time.time > BlockTime + blockerTTL) {
+		if ((Time.time > BlockTime + blockerTTL) || isHoldingProjectile) {
 			blockerScript.deactivate();
 			Block.transform.localScale = new Vector3 (0.9f, 0.9f, 0.9f);
 		}

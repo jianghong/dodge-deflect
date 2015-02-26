@@ -23,21 +23,7 @@ public class NewBounce : MonoBehaviour {
 			canCollide = true;		
 		}
 	}
-
-//	void OnTriggerEnter(Collider collider) {
-//		if (collider.gameObject.tag == "Blocker") {
-//			
-//			Component[] trans = collider.gameObject.GetComponentsInChildren<Transform>();
-//			foreach (Transform tran in trans) {
-//				shooterPos = tran.position;
-//			}
-//			Vector3 newBallPos = new Vector3(shooterPos.x, 0.5f, shooterPos.z);
-//			GameObject createdBall = GameObject.Instantiate(Ball, newBallPos, collider.transform.rotation) as GameObject;
-//			createdBall.rigidbody.AddForce(createdBall.transform.forward.normalized*blockerForce, ForceMode.Impulse);
-//			Destroy(this.gameObject);
-//		}
-//	}
-
+	
 	void OnCollisionEnter(Collision collision) {
 		if (collision.collider.gameObject.tag == "Ball" && canCollide) {
 			if (this.transform.position.x > collision.transform.position.x) {

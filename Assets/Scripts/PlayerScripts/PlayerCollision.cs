@@ -11,11 +11,13 @@ public class PlayerCollision : MonoBehaviour {
 	float immuneStartTime = 0.0f;
 	bool isImmune = false;
 	MovePlayer playerMovementScript;
+	BallSpawnManager bsm;
 
 
 	void Awake() {
 		gameManager = GameObject.FindWithTag ("GameManager").GetComponent<GameManager> ();
 		playerMovementScript = this.GetComponent<MovePlayer> ();
+		bsm = GameObject.FindWithTag ("BallSpawnManager").GetComponent<BallSpawnManager> ();
 	}
 	// Use this for initialization
 	void Start () {
@@ -52,7 +54,7 @@ public class PlayerCollision : MonoBehaviour {
 		if(collision.collider.gameObject.tag == "Ball")
 		{
 			Debug.Log ("taking damage");
-			Destroy(collision.gameObject);
+			bsm.destroyBall(collision.gameObject);
 			if(!isImmune) {
 
 				hitCount += 1f;
