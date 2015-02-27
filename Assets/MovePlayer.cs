@@ -117,8 +117,8 @@ public class MovePlayer : MonoBehaviour
 	void Move (float h, float v)
 	{
 		Vector3 moveDirection = new Vector3(h, 0.0f, v);
+		this.transform.position = new Vector3 (transform.position.x, 0.5f, transform.position.z);
 		moveDirection *= speed;
-
 		controller.Move(moveDirection * Time.deltaTime);
 
 	}
@@ -137,7 +137,6 @@ public class MovePlayer : MonoBehaviour
 				Block.transform.localScale += new Vector3 (1.5f, 0f, 1.5f);
 			}
 		}
-
 		if (XCI.GetButtonUp (XboxButton.RightBumper, playerNumber) && isHoldingProjectile) {
 			shooter = collider.gameObject.GetComponentInChildren<shooterScript>();
 			shooterPos = shooter.getTransform().position;

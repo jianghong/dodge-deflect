@@ -7,6 +7,7 @@ public class PlayerCollision : MonoBehaviour {
 
 	public float invinciblityThreshold = 1f;
 	public float hitThreshold = 3f;
+	public GameObject ballPrefab;
 	float hitCount = 0.0f;
 	float immuneStartTime = 0.0f;
 	bool isImmune = false;
@@ -35,6 +36,12 @@ public class PlayerCollision : MonoBehaviour {
 	void death() {
 		int pNum = playerMovementScript.playerNumber;
 		gameManager.playerDied (pNum);
+		int starCounter = 5;
+		while (starCounter > 0) {
+			GameObject createdBall = GameObject.Instantiate(ballPrefab, this.transform.position, Random.rotation) as GameObject;
+			createdBall.rigidbody.AddForce(createdBall.transform.forward.normalized*30f, ForceMode.Impulse);
+			starCounter -= 1;
+		}
 		Destroy (this.gameObject);
 	}
 
@@ -43,9 +50,6 @@ public class PlayerCollision : MonoBehaviour {
 		{
 			death ();
 		}
-//		if (collider.gameObject.tag == "Ball") {
-//			Debug.Log ("player collided with ball");
-//		}
 	}
 
 	void OnCollisionEnter(Collision collision)
