@@ -10,7 +10,7 @@ public class NewBounce : MonoBehaviour {
 	public float TTL = 0.4f;
 	Vector3 shooterPos;
 	float spawnTime;
-	bool canCollide = false;
+	int spawnedBy;
 	
 	// Use this for initialization
 	void Start () {
@@ -19,24 +19,34 @@ public class NewBounce : MonoBehaviour {
 	}
 
 	void Update () {
-		if ((Time.time - spawnTime) > TTL) {
-			canCollide = true;		
-		}
+	}
+
+	bool canCollideWithSameSpawnedBy() {
+		return ((Time.time - spawnTime) > TTL);
+	}
+
+	public void setSpawnedBy(int i) {
+		spawnedBy = i;
+	}
+
+	public int getSpawnedBy() {
+		return spawnedBy;
 	}
 	
 	void OnCollisionEnter(Collision collision) {
-		if (collision.collider.gameObject.tag == "Ball" && canCollide) {
+		if (collision.collider.gameObject.tag == "Ball") {
+			if (collision.gameObject.GetComponent<NewBounce>().getSpawnedBy() == spawnedBy) {
+				if (!canCollideWithSameSpawnedBy()) {
+					return;
+				}
+			}
 			if (this.transform.position.x > collision.transform.position.x) {
 				Instantiate (BlackHole, new Vector3 (this.transform.position.x, 0.5f, this.transform.position.z), Quaternion.identity);
 			}
 			Destroy(this.gameObject);
 		}
-		if (collision.collider.gameObject.tag == "BlackHole" && canCollide) {
+		if (collision.collider.gameObject.tag == "BlackHole") {
 			Destroy(this.gameObject);
 		}
-//
-//		if (Mathf.Abs(this.rigidbody.velocity.x) < maxVelocity) {
-//			rigidbody.AddForce(rigidbody.velocity.normalized, ForceMode.Impulse);		
-//		}
 	}
 }

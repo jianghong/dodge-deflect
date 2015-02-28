@@ -46,8 +46,8 @@ public class GameManager : MonoBehaviour {
 		}
 
 		// check game over
-		if (minPlayers == 1) {
-			if (numPlayers < 1 && beginningGame) {
+		if (minPlayers <= 1) {
+			if (numPlayers < minPlayers && beginningGame) {
 				gameOver ();
 			}
 		} else {
