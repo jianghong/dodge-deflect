@@ -40,7 +40,7 @@ public class NewBounce : MonoBehaviour {
 					return;
 				}
 			}
-			if (this.transform.position.x > collision.transform.position.x) {
+			if (this.GetInstanceID() > collision.gameObject.GetInstanceID()) {
 				Instantiate (BlackHole, new Vector3 (this.transform.position.x, 0.5f, this.transform.position.z), Quaternion.identity);
 			}
 			Destroy(this.gameObject);

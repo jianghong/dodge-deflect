@@ -4,13 +4,17 @@ using System.Collections;
 public class BlackHole : MonoBehaviour {
 
 	public GameObject ballPrefab;
-	public float starCounter = 2f;
+	public GameObject bhPrefab;
+	public int starCounter = 2;
 	public float spawnTime = 0f;
 	public float duration = 5f;
 	BallSpawnManager ballSpawnManager;
 	
 	void Start() {
 		spawnTime = Time.time;
+		for (int i = 0 ;(i < (starCounter-2)); i++) {
+			this.transform.localScale *= 1.25f;
+		}
 	}
 
 	void Update() {
@@ -32,6 +36,15 @@ public class BlackHole : MonoBehaviour {
 			starCounter += 1;
 			this.transform.localScale *= 1.25f;
 			Destroy (other.gameObject);
+		}
+
+		if (other.gameObject.tag == "BlackHole") {
+			if (this.GetInstanceID() > other.GetInstanceID()) {
+				Debug.Log ("Creating super BH");
+				GameObject createdVoid = GameObject.Instantiate (bhPrefab, new Vector3 (this.transform.position.x, 0.5f, this.transform.position.z), Quaternion.identity) as GameObject;
+				createdVoid.GetComponent<BlackHole>().starCounter += starCounter;
+			}
+			Destroy(this.gameObject);
 		}
 	}
 }
