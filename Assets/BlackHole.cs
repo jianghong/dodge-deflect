@@ -12,8 +12,7 @@ public class BlackHole : MonoBehaviour {
 	public float scaleMultiplier = 1.25f;
 	BallSpawnManager ballSpawnManager;
 	Vector3 newScale;
-	float lerpFrac = 0f;
-	public float lerpRate = 0.1f;
+	public float lerpRate = 1f;
 	Vector3 lerpTargetScale;
 	GameObject[] playerObjs;
 
@@ -40,8 +39,7 @@ public class BlackHole : MonoBehaviour {
 		}
 
 		// lerp to target
-		lerpFrac += Time.deltaTime * lerpRate;
-		this.transform.localScale = Vector3.Lerp(this.transform.localScale, lerpTargetScale, lerpFrac);
+		this.transform.localScale = Vector3.Lerp(this.transform.localScale, lerpTargetScale, 3 * Time.deltaTime * lerpRate);
 
 		// sunction effect
 		Suction ();
