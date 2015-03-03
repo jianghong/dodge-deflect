@@ -8,13 +8,18 @@ public class BlackHole : MonoBehaviour {
 	public int starCounter = 2;
 	public float spawnTime = 0f;
 	public float duration = 5f;
-	public float maxScale = 20f;
+	public Vector3 maxScale = new Vector3(20f, 20f, 20f);
+	public float scaleMultiplier = 1.25f;
 	BallSpawnManager ballSpawnManager;
+	Vector3 newScale;
 	
 	void Start() {
 		spawnTime = Time.time;
 		for (int i = 0 ;(i < (starCounter-2)); i++) {
-			this.transform.localScale *= 1.25f;
+			newScale = this.transform.localScale * scaleMultiplier;
+			if (newScale.magnitude < maxScale.magnitude) {
+				this.transform.localScale = newScale;
+			}
 		}
 	}
 
@@ -32,11 +37,13 @@ public class BlackHole : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other)
 	{
-		Debug.Log ("bh:" + other.gameObject.tag);
 		if (other.collider.gameObject.tag == "Ball") {
 			starCounter += 1;
-			this.transform.localScale *= 1.25f;
-			duration -= 0.5f;
+			newScale = this.transform.localScale * scaleMultiplier;
+			if (newScale.magnitude < maxScale.magnitude) {
+				Debug.Log (newScale.magnitude);
+				this.transform.localScale = newScale;
+			}
 			Destroy (other.gameObject);
 		}
 
