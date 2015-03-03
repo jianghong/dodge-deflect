@@ -56,8 +56,8 @@ public class PlayerCollision : MonoBehaviour {
 		if(collision.collider.gameObject.tag == "Ball")
 		{
 			Debug.Log ("taking damage");
-			bsm.destroyBall(collision.gameObject);
-			if(!isImmune) {
+			if(!isImmune && collision.gameObject.GetComponent<NewBounce>().isHostile) {
+				bsm.destroyBall(collision.gameObject);
 				hitCount += 1f;
 				immuneStartTime = Time.time;
 				// TODO: replace temp fade for health indicator

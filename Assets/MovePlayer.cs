@@ -166,6 +166,7 @@ public class MovePlayer : MonoBehaviour
 			shooterPos = shooter.getTransform().position;
 			Vector3 newBallPos = new Vector3(shooterPos.x, 0.5f, shooterPos.z);
 			GameObject createdBall = GameObject.Instantiate(ballPrefab, newBallPos, collider.transform.rotation) as GameObject;
+			createdBall.GetComponent<NewBounce>().setIsHostile();
 			createdBall.rigidbody.AddForce(createdBall.transform.forward.normalized*deflectForce, ForceMode.Impulse);
 			deflectPressed = false;
 			unsetIsHoldingProjectile();
@@ -188,6 +189,7 @@ public class MovePlayer : MonoBehaviour
 			shooterPos = shooter.getTransform().position;
 			Vector3 newBallPos = new Vector3(shooterPos.x, 0.5f, shooterPos.z);
 			GameObject createdBall = GameObject.Instantiate(ballPrefab, newBallPos, collider.transform.rotation) as GameObject;
+			createdBall.GetComponent<NewBounce>().setIsHostile();
 			createdBall.rigidbody.AddForce(createdBall.transform.forward.normalized*blockerForce, ForceMode.Impulse);
 			unsetIsHoldingProjectile();
 		}

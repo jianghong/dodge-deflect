@@ -7,7 +7,11 @@ public class NewBounce : MonoBehaviour {
 	public float maxVelocity = 50f;
 	public GameObject Ball;
 	public GameObject voidIndicator;
+	public Material safeMat;
+	public Material hostileMat;
 	public float TTL = 0.4f;
+	public bool isHostile = false;
+	public float hostileTime = 3f;
 	Vector3 shooterPos;
 	float spawnTime;
 	int spawnedBy;
@@ -19,6 +23,9 @@ public class NewBounce : MonoBehaviour {
 	}
 
 	void Update () {
+		if ((Time.time - spawnTime) > hostileTime) {
+			this.unsetIsHostile();		
+		}
 	}
 
 	bool canCollideWithSameSpawnedBy() {
@@ -32,7 +39,17 @@ public class NewBounce : MonoBehaviour {
 	public int getSpawnedBy() {
 		return spawnedBy;
 	}
-	
+
+	public void setIsHostile () {
+		isHostile = true;
+		this.renderer.material = hostileMat;
+	}
+
+	public void unsetIsHostile () {
+		isHostile = false;
+		this.renderer.material = safeMat;
+	}
+
 	void OnCollisionEnter(Collision collision) {
 		if (collision.collider.gameObject.tag == "Ball") {
 			if (collision.gameObject.GetComponent<NewBounce>().getSpawnedBy() == spawnedBy) {
