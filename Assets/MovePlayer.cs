@@ -93,7 +93,7 @@ public class MovePlayer : MonoBehaviour
 			axisY = XCI.GetAxis (XboxAxis.RightStickY, playerNumber);
 			Rotate (axisX, axisY);
 
-			Deflect ();
+			Hold ();
 		}
 	}
 	
@@ -129,8 +129,8 @@ public class MovePlayer : MonoBehaviour
 	}
 	
 
-	void Deflect() {
-		if (XCI.GetButton(XboxButton.RightBumper, playerNumber) && !isHoldingProjectile) {
+	void Hold() {
+		if (XCI.GetButtonDown(XboxButton.RightBumper, playerNumber) && !isHoldingProjectile) {
 			if (BlockTime == 0f) {
 				BlockTime = Time.time;
 				blockerScript.activate();

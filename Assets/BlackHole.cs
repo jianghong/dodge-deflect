@@ -8,6 +8,7 @@ public class BlackHole : MonoBehaviour {
 	public int starCounter = 2;
 	public float spawnTime = 0f;
 	public float duration = 5f;
+	public float maxScale = 20f;
 	BallSpawnManager ballSpawnManager;
 	
 	void Start() {
@@ -35,6 +36,7 @@ public class BlackHole : MonoBehaviour {
 		if (other.collider.gameObject.tag == "Ball") {
 			starCounter += 1;
 			this.transform.localScale *= 1.25f;
+			duration -= 0.5f;
 			Destroy (other.gameObject);
 		}
 
