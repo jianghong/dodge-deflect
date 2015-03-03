@@ -14,7 +14,6 @@ public class PlayerCollision : MonoBehaviour {
 	MovePlayer playerMovementScript;
 	BallSpawnManager bsm;
 
-
 	void Awake() {
 		gameManager = GameObject.FindWithTag ("GameManager").GetComponent<GameManager> ();
 		playerMovementScript = this.GetComponent<MovePlayer> ();
@@ -22,9 +21,8 @@ public class PlayerCollision : MonoBehaviour {
 	}
 	// Use this for initialization
 	void Start () {
-	
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		float timeDiff = Time.time - immuneStartTime;
@@ -63,7 +61,8 @@ public class PlayerCollision : MonoBehaviour {
 
 				hitCount += 1f;
 				immuneStartTime = Time.time;
-				
+				// TODO: replace temp fade for health indicator
+				this.renderer.material.color /= 2;
 				if(hitCount >= hitThreshold) {
 					death();
 				}
