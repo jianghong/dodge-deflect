@@ -10,6 +10,7 @@ public class MovePlayer : MonoBehaviour
 	public float speed = 6f;
 	public float blockCD = 1f;
 	public float blockerForce = 50f;
+	public float deflectForce = 100f;
 
 	public int playerNumber = 0;
 	
@@ -21,6 +22,7 @@ public class MovePlayer : MonoBehaviour
 	public GameObject triggerLeftPrefab;
 	public GameObject triggerRightPrefab;
 	public float blockerTTL = 0.5f;
+	public float deflectTTL = 0.2f;
 	private static bool didQueryNumOfCtrlrs = false;
 	Vector3 shooterPos;
 	public GameObject ballPrefab;
@@ -34,6 +36,7 @@ public class MovePlayer : MonoBehaviour
 	CharacterController controller;
 	bool controllerIsEnabled = true;
 	float controllerDeadZoneThreshold = 0.25f;
+	bool deflectPressed = false;
 
 	void Awake() {
 		controller = GetComponent<CharacterController>();
@@ -93,6 +96,7 @@ public class MovePlayer : MonoBehaviour
 			Rotate (axisX, axisY);
 
 			Hold ();
+			Deflect();
 		}
 	}
 	
@@ -132,6 +136,30 @@ public class MovePlayer : MonoBehaviour
 		transform.LookAt (transform.position + new Vector3 (x, 0.0f, y), Vector3.up);
 	}
 	
+	void Deflect() {
+		if (XCI.GetButtonDown(XboxButton.LeftBumper, playerNumber) && !isHoldingProjectile) {
+			if (BlockTime == 0f) {
+				BlockTime = Time.time;
+				blockerScript.activate();
+				Block.transform.localScale += new Vector3 (0.5f, 0f, 0.5f);
+				deflectPressed = true;
+			}
+		}
+
+		if (isHoldingProjectile && deflectPressed) {
+			shooter = collider.gameObject.GetComponentInChildren<shooterScript>();
+			shooterPos = shooter.getTransform().position;
+			Vector3 newBallPos = new Vector3(shooterPos.x, 0.5f, shooterPos.z);
+			GameObject createdBall = GameObject.Instantiate(ballPrefab, newBallPos, collider.transform.rotation) as GameObject;
+			createdBall.rigidbody.AddForce(createdBall.transform.forward.normalized*deflectForce, ForceMode.Impulse);
+			deflectPressed = false;
+			unsetIsHoldingProjectile();				
+		}
+		if ((Time.time > BlockTime + deflectTTL) || isHoldingProjectile) {
+			blockerScript.deactivate();
+			Block.transform.localScale = new Vector3 (0.9f, 0.9f, 0.9f);
+		}
+	}
 
 	void Hold() {
 		if (XCI.GetButtonDown(XboxButton.RightBumper, playerNumber) && !isHoldingProjectile) {
