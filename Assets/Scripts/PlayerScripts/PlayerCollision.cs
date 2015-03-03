@@ -58,7 +58,6 @@ public class PlayerCollision : MonoBehaviour {
 			Debug.Log ("taking damage");
 			bsm.destroyBall(collision.gameObject);
 			if(!isImmune) {
-
 				hitCount += 1f;
 				immuneStartTime = Time.time;
 				// TODO: replace temp fade for health indicator
@@ -66,7 +65,6 @@ public class PlayerCollision : MonoBehaviour {
 				if(hitCount >= hitThreshold) {
 					death();
 				}
-				
 				isImmune = true;
 			} 
 		}
