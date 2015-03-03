@@ -40,8 +40,7 @@ public class BlackHole : MonoBehaviour {
 		if (other.collider.gameObject.tag == "Ball") {
 			starCounter += 1;
 			newScale = this.transform.localScale * scaleMultiplier;
-			if (newScale.magnitude < maxScale.magnitude) {
-				Debug.Log (newScale.magnitude);
+			if (newScale.magnitude < maxScale.magnitude) {		
 				this.transform.localScale = newScale;
 			}
 			Destroy (other.gameObject);

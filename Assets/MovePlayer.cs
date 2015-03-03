@@ -31,12 +31,11 @@ public class MovePlayer : MonoBehaviour
 	bool isHoldingProjectile = false;
 
 	Vector3 movement;                   // The vector to store the direction of the player's movement.
-//	Rigidbody playerRigidbody;
 	CharacterController controller;
 	bool controllerIsEnabled = true;
+	float controllerDeadZoneThreshold = 0.25f;
 
 	void Awake() {
-//		playerRigidbody = GetComponent <Rigidbody> ();
 		controller = GetComponent<CharacterController>();
 		blockerScript = Block.GetComponent<Blocker> ();
 		ballControl = this.GetComponentInChildren<BallIndicatorControl> ();
@@ -124,8 +123,13 @@ public class MovePlayer : MonoBehaviour
 	}
 
 	void Rotate(float x, float y)
-	{
-		transform.LookAt(transform.position + new Vector3(x, 0.0f, y), Vector3.up);
+	{	
+		Vector2 stickInput = new Vector2 (x, y);
+		if (stickInput.magnitude < controllerDeadZoneThreshold) {
+			x = 0f;
+			y = 0f;
+		}
+		transform.LookAt (transform.position + new Vector3 (x, 0.0f, y), Vector3.up);
 	}
 	
 
