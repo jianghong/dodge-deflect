@@ -140,8 +140,8 @@ public class MovePlayer : MonoBehaviour
 
 	void resetBlocker() {
 		TTLtype = deflectPressed ? deflectTTL : blockerTTL;
-
-		if ((Time.time > BlockTime + TTLtype) || isHoldingProjectile) {
+		bool enoughTimePassed = Time.time > BlockTime + TTLtype;
+		if (enoughTimePassed || isHoldingProjectile) {
 			blockerScript.deactivate();
 			Block.transform.localScale = new Vector3 (0.9f, 0.9f, 0.9f);
 			deflectPressed = false;
@@ -168,11 +168,14 @@ public class MovePlayer : MonoBehaviour
 			GameObject createdBall = GameObject.Instantiate(ballPrefab, newBallPos, collider.transform.rotation) as GameObject;
 			createdBall.rigidbody.AddForce(createdBall.transform.forward.normalized*deflectForce, ForceMode.Impulse);
 			deflectPressed = false;
-			unsetIsHoldingProjectile();				
+			unsetIsHoldingProjectile();
+			blockerScript.deactivate();
+			Block.transform.localScale = new Vector3 (0.9f, 0.9f, 0.9f);
 		}
 	}
 
 	void Hold() {
+
 		if (XCI.GetButtonDown(XboxButton.RightBumper, playerNumber) && !isHoldingProjectile) {
 			if (BlockTime == 0f) {
 				BlockTime = Time.time;

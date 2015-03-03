@@ -18,11 +18,9 @@ public class BlackHole : MonoBehaviour {
 
 
 	void Awake() {
-		Debug.Log ("void awake");
 		lerpTargetScale = this.transform.localScale;
 	}
 	void Start() {
-		Debug.Log ("void start");
 		spawnTime = Time.time;
 	}
 
@@ -39,7 +37,7 @@ public class BlackHole : MonoBehaviour {
 		}
 
 		// lerp to target
-		this.transform.localScale = Vector3.Lerp(this.transform.localScale, lerpTargetScale, 3 * Time.deltaTime * lerpRate);
+		this.transform.localScale = Vector3.Lerp(this.transform.localScale, lerpTargetScale, 3f * Time.deltaTime * lerpRate);
 
 		// sunction effect
 		Suction ();
@@ -87,8 +85,8 @@ public class BlackHole : MonoBehaviour {
 			if (this.GetInstanceID() > other.GetInstanceID()) {
 				Debug.Log ("Creating super BH");
 				GameObject createdVoid = GameObject.Instantiate (bhPrefab, new Vector3 (this.transform.position.x, 0.5f, this.transform.position.z), Quaternion.identity) as GameObject;
-//				createdVoid.GetComponent<BlackHole>().starCounter += starCounter;
-//				createdVoid.GetComponent<BlackHole>().starCounter += other.GetComponent<BlackHole>().starCounter;
+				createdVoid.GetComponent<BlackHole>().starCounter += starCounter;
+				createdVoid.GetComponent<BlackHole>().starCounter += other.GetComponent<BlackHole>().starCounter;
 				createdVoid.GetComponent<BlackHole>().scaleToStarCount();
 			}
 			Destroy(this.gameObject);
