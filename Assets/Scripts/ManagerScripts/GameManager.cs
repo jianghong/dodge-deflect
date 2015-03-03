@@ -129,7 +129,6 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void gameOver () {
-		Debug.Log("Game Over");
 		timeManager.stopTimer ();
 
 		GameObject[] balls = GameObject.FindGameObjectsWithTag ("Ball");

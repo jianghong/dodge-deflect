@@ -28,7 +28,7 @@ public class MovePlayer : MonoBehaviour
 	shooterScript shooter;
 	BallIndicatorControl ballControl;
 
-	bool isHoldingProjectile = false;
+	public bool isHoldingProjectile = false;
 
 	Vector3 movement;                   // The vector to store the direction of the player's movement.
 	CharacterController controller;
