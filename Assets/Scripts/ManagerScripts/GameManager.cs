@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour {
 
 	public GameObject playerPrefab;
 	public GameObject blackholePrefab;
+	public int initialVoidStarCount = 2;
 	public int minPlayers;
 	TimeManager timeManager;
 	int numPlayers;
@@ -87,7 +88,8 @@ public class GameManager : MonoBehaviour {
 		timeManager.currTime = 0f;
 		timeManager.setCountup ();
 		Debug.Log ("num players: " + numPlayers);
-		Instantiate (blackholePrefab, new Vector3 (6f, 0.5f, 0f), Quaternion.identity);
+		GameObject initVoid = GameObject.Instantiate (blackholePrefab, new Vector3 (6f, 0.5f, 0f), Quaternion.identity) as GameObject;
+		initVoid.GetComponent<BlackHole> ().starCounter = initialVoidStarCount;
 		spawnPlayers (numPlayers);
 	}
 
