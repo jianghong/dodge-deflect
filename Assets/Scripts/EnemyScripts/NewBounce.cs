@@ -5,8 +5,8 @@ public class NewBounce : MonoBehaviour {
 		
 	public float initialForce = 20f;
 	public float maxVelocity = 50f;
-	public GameObject BlackHole;
 	public GameObject Ball;
+	public GameObject voidIndicator;
 	public float TTL = 0.4f;
 	Vector3 shooterPos;
 	float spawnTime;
@@ -41,7 +41,7 @@ public class NewBounce : MonoBehaviour {
 				}
 			}
 			if (this.GetInstanceID() > collision.gameObject.GetInstanceID()) {
-				Instantiate (BlackHole, new Vector3 (this.transform.position.x, 0.5f, this.transform.position.z), Quaternion.identity);
+				Instantiate (voidIndicator, new Vector3 (this.transform.position.x, -0.6f, this.transform.position.z), Quaternion.identity);
 			}
 			Destroy(this.gameObject);
 		}
