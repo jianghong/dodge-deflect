@@ -61,7 +61,7 @@ public class PlayerCollision : MonoBehaviour {
 				hitCount += 1f;
 				immuneStartTime = Time.time;
 				// TODO: replace temp fade for health indicator
-				this.renderer.material.color /= 2;
+				this.renderer.material.color /= hitThreshold;
 				if(hitCount >= hitThreshold) {
 					death();
 				}
