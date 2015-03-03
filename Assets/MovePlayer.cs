@@ -23,6 +23,7 @@ public class MovePlayer : MonoBehaviour
 	public GameObject triggerRightPrefab;
 	public float blockerTTL = 0.5f;
 	public float deflectTTL = 0.2f;
+	float TTLtype;
 	private static bool didQueryNumOfCtrlrs = false;
 	Vector3 shooterPos;
 	public GameObject ballPrefab;
@@ -97,6 +98,7 @@ public class MovePlayer : MonoBehaviour
 
 			Hold ();
 			Deflect();
+			resetBlocker();
 		}
 	}
 	
@@ -135,7 +137,20 @@ public class MovePlayer : MonoBehaviour
 		}
 		transform.LookAt (transform.position + new Vector3 (x, 0.0f, y), Vector3.up);
 	}
-	
+
+	void resetBlocker() {
+		TTLtype = deflectPressed ? deflectTTL : blockerTTL;
+
+		if ((Time.time > BlockTime + TTLtype) || isHoldingProjectile) {
+			blockerScript.deactivate();
+			Block.transform.localScale = new Vector3 (0.9f, 0.9f, 0.9f);
+			deflectPressed = false;
+		}
+		if (Time.time > BlockTime + blockCD) {
+			BlockTime = 0f;
+		}
+	}
+
 	void Deflect() {
 		if (XCI.GetButtonDown(XboxButton.LeftBumper, playerNumber) && !isHoldingProjectile) {
 			if (BlockTime == 0f) {
@@ -155,10 +170,6 @@ public class MovePlayer : MonoBehaviour
 			deflectPressed = false;
 			unsetIsHoldingProjectile();				
 		}
-		if ((Time.time > BlockTime + deflectTTL) || isHoldingProjectile) {
-			blockerScript.deactivate();
-			Block.transform.localScale = new Vector3 (0.9f, 0.9f, 0.9f);
-		}
 	}
 
 	void Hold() {
@@ -177,14 +188,6 @@ public class MovePlayer : MonoBehaviour
 			createdBall.rigidbody.AddForce(createdBall.transform.forward.normalized*blockerForce, ForceMode.Impulse);
 			unsetIsHoldingProjectile();
 		}
-		if ((Time.time > BlockTime + blockerTTL) || isHoldingProjectile) {
-			blockerScript.deactivate();
-			Block.transform.localScale = new Vector3 (0.9f, 0.9f, 0.9f);
-		}
-		if (Time.time > BlockTime + blockCD) {
-			BlockTime = 0f;
-		}
-
 	}
 
 	public void setIsHoldingProjectile() {
