@@ -13,6 +13,7 @@ public class MovePlayer : MonoBehaviour
 	public float deflectForce = 100f;
 	public float deflectBlockSize = 7f;
 	public float holdBlockSize = 8f;
+	public float initialBlockerSize = 0.9f;
 
 	public int playerNumber = 0;
 	
@@ -151,7 +152,7 @@ public class MovePlayer : MonoBehaviour
 		bool enoughTimePassed = Time.time > BlockTime + TTLtype;
 		if (enoughTimePassed || isHoldingProjectile) {
 			blockerScript.deactivate();
-			Block.transform.localScale = new Vector3 (0.9f, 0.9f, 0.9f);
+			Block.transform.localScale = new Vector3 (initialBlockerSize, initialBlockerSize, initialBlockerSize);
 			deflectPressed = false;
 		}
 		if (Time.time > BlockTime + blockCD) {
@@ -165,7 +166,7 @@ public class MovePlayer : MonoBehaviour
 				BlockTime = Time.time;
 				blockerScript.activate();
 				animator.SetTrigger("deflectPressed");
-				Block.transform.localScale = new Vector3 (deflectBlockSize, 0f,deflectBlockSize);
+				Block.transform.localScale = new Vector3 (deflectBlockSize, deflectBlockSize,deflectBlockSize);
 				deflectPressed = true;
 			}
 		}
@@ -180,7 +181,7 @@ public class MovePlayer : MonoBehaviour
 			deflectPressed = false;
 			unsetIsHoldingProjectile();
 			blockerScript.deactivate();
-			Block.transform.localScale = new Vector3 (0.9f, 0.9f, 0.9f);
+			Block.transform.localScale = new Vector3 (initialBlockerSize, initialBlockerSize, initialBlockerSize);
 		}
 	}
 
@@ -191,7 +192,7 @@ public class MovePlayer : MonoBehaviour
 				BlockTime = Time.time;
 				blockerScript.activate();
 				Debug.Log ("button pressed");
-				Block.transform.localScale = new Vector3 (holdBlockSize, 0f, holdBlockSize);
+				Block.transform.localScale = new Vector3 (holdBlockSize, holdBlockSize, holdBlockSize);
 			}
 		}
 		if (XCI.GetButtonUp (XboxButton.RightBumper, playerNumber) && isHoldingProjectile) {

@@ -36,7 +36,7 @@ public class PlayerCollision : MonoBehaviour {
 		gameManager.playerDied (pNum);
 		int starCounter = 5;
 		while (starCounter > 0) {
-			GameObject createdBall = GameObject.Instantiate(ballPrefab, this.transform.position, Random.rotation) as GameObject;
+			GameObject createdBall = GameObject.Instantiate(ballPrefab, new Vector3(transform.position.x, 0.5f, transform.position.z), Random.rotation) as GameObject;
 			createdBall.rigidbody.AddForce(createdBall.transform.forward.normalized*30f, ForceMode.Impulse);
 			starCounter -= 1;
 		}
