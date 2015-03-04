@@ -21,6 +21,6 @@ public class VoidIndicator : MonoBehaviour {
 		}
 
 		// lerp to target
-		this.transform.localScale = Vector3.Lerp(this.transform.localScale, lerpTargetScale, Time.deltaTime * lerpRate);
+		this.transform.localScale = Vector3.Lerp(this.transform.localScale, lerpTargetScale, 3f* Time.deltaTime * lerpRate);
 	}
 }
