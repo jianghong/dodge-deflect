@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b5970b3d8065c4c0c8954460117d616f
+guid: f38cd904bfee143b08d47681a0b7b05e
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
@@ -15,13 +15,13 @@ ModelImporter:
     100018: head_snout
     100020: hoof_L
     100022: hoof_R
-    100024: ik_cont_entire_tail
-    100026: ik_cont_fin
-    100028: ik_cont_fin_tips
-    100030: ik_handle_tip_R1
-    100032: ikHandle_tail
-    100034: ikHandle_tip_1
-    100036: //RootNode
+    100024: //RootNode
+    100026: ik_cont_entire_tail
+    100028: ik_cont_fin
+    100030: ik_cont_fin_tips
+    100032: ik_handle_tip_R1
+    100034: ikHandle_tail
+    100036: ikHandle_tip_1
     100038: MAIN_CONTROL
     100040: model
     100042: neck_cont
@@ -57,13 +57,13 @@ ModelImporter:
     400018: head_snout
     400020: hoof_L
     400022: hoof_R
-    400024: ik_cont_entire_tail
-    400026: ik_cont_fin
-    400028: ik_cont_fin_tips
-    400030: ik_handle_tip_R1
-    400032: ikHandle_tail
-    400034: ikHandle_tip_1
-    400036: //RootNode
+    400024: //RootNode
+    400026: ik_cont_entire_tail
+    400028: ik_cont_fin
+    400030: ik_cont_fin_tips
+    400032: ik_handle_tip_R1
+    400034: ikHandle_tail
+    400036: ikHandle_tip_1
     400038: MAIN_CONTROL
     400040: model
     400042: neck_cont
@@ -110,8 +110,8 @@ ModelImporter:
     - serializedVersion: 16
       name: Deflect
       takeName: Take 001
-      firstFrame: 1
-      lastFrame: 20
+      firstFrame: 3.9000001
+      lastFrame: 4
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -220,7 +220,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: .5
+    globalScale: .00999999978
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1

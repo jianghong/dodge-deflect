@@ -123,8 +123,14 @@ public class MovePlayer : MonoBehaviour
 
 	void Move (float h, float v)
 	{
+		if ((h != 0) || (v != 0)) {
+			animator.SetBool("isMoving", true);
+		} else {
+			animator.SetBool ("isMoving", false);
+		}
+
 		Vector3 moveDirection = new Vector3(h, 0.0f, v);
-		this.transform.position = new Vector3 (transform.position.x, 0.5f, transform.position.z);
+		this.transform.position = new Vector3 (transform.position.x, -5f, transform.position.z);
 		moveDirection *= speed;
 		controller.Move(moveDirection * Time.deltaTime);
 	}
@@ -158,7 +164,7 @@ public class MovePlayer : MonoBehaviour
 				BlockTime = Time.time;
 				blockerScript.activate();
 				animator.SetTrigger("deflectPressed");
-				Block.transform.localScale += new Vector3 (4.5f, 0f, 4.5f);
+				Block.transform.localScale = new Vector3 (8f, 0f, 7f);
 				deflectPressed = true;
 			}
 		}
@@ -184,7 +190,7 @@ public class MovePlayer : MonoBehaviour
 				BlockTime = Time.time;
 				blockerScript.activate();
 				Debug.Log ("button pressed");
-				Block.transform.localScale += new Vector3 (5f, 0f, 5f);
+				Block.transform.localScale = new Vector3 (10f, 0f, 9f);
 			}
 		}
 		if (XCI.GetButtonUp (XboxButton.RightBumper, playerNumber) && isHoldingProjectile) {

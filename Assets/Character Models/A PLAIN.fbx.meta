@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: dc7690060b74c4d1bb1c18287c0829d3
+guid: ea798802f9c194b01bb3679d4ce91eed
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
@@ -88,6 +88,7 @@ ModelImporter:
     400080: wrist_R
     400082: wrist_R 1
     4300000: model
+    7400000: Take 001
     9500000: //RootNode
     13700000: model
   materials:
@@ -109,7 +110,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: .5
+    globalScale: .00999999978
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1

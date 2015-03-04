@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour {
 	TimeManager timeManager;
 	int numPlayers;
 	int[] playersBitmap = {0, 0, 0, 0};
-	Vector3[] playerPositions = {new Vector3(-11f, 0.5f, 17f), new Vector3(27f, 0.5f, 17f), new Vector3(25f, 0.5f, -13f), new Vector3(-9f, 0.5f, -13f)};
+	Vector3[] playerPositions = {new Vector3(-11f, -5f, 17f), new Vector3(27f, -5f, 17f), new Vector3(25f, -5f, -13f), new Vector3(-9f, 0.5f, -13f)};
 	bool joiningGame = true;
 	bool beginningGame = false;
 	bool gameIsOver = false;

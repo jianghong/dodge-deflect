@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PlayerAttributes : MonoBehaviour {
 
-	public Vector3 defaultPosition = new Vector3(5f, 0.5f, 3f);
+	public Vector3 defaultPosition = new Vector3(5f, -5f, 3f);
 
 	// Use this for initialization
 	void Start () {
