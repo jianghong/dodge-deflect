@@ -16,7 +16,6 @@ public class BlackHole : MonoBehaviour {
 	Vector3 lerpTargetScale;
 	GameObject[] playerObjs;
 
-
 	void Awake() {
 		lerpTargetScale = this.transform.localScale;
 	}
@@ -36,9 +35,10 @@ public class BlackHole : MonoBehaviour {
 			}
 			Destroy (this.gameObject);
 		}
-
+	
 		// lerp to target
 		this.transform.localScale = Vector3.Lerp(this.transform.localScale, lerpTargetScale, 3f * Time.deltaTime * lerpRate);
+
 
 		// sunction effect
 		Suction ();

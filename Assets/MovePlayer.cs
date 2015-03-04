@@ -185,7 +185,6 @@ public class MovePlayer : MonoBehaviour
 			deflectPressed = false;
 			unsetIsHoldingProjectile();
 			blockerScript.deactivate();
-			Block.transform.localScale = new Vector3 (initialBlockerSize, initialBlockerSize, initialBlockerSize);
 		}
 	}
 
