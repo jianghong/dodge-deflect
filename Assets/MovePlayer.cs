@@ -11,6 +11,8 @@ public class MovePlayer : MonoBehaviour
 	public float blockCD = 1f;
 	public float blockerForce = 50f;
 	public float deflectForce = 100f;
+	public float deflectBlockSize = 7f;
+	public float holdBlockSize = 8f;
 
 	public int playerNumber = 0;
 	
@@ -164,7 +166,7 @@ public class MovePlayer : MonoBehaviour
 				BlockTime = Time.time;
 				blockerScript.activate();
 				animator.SetTrigger("deflectPressed");
-				Block.transform.localScale = new Vector3 (8f, 0f, 7f);
+				Block.transform.localScale = new Vector3 (deflectBlockSize, 0f,deflectBlockSize);
 				deflectPressed = true;
 			}
 		}
@@ -190,7 +192,7 @@ public class MovePlayer : MonoBehaviour
 				BlockTime = Time.time;
 				blockerScript.activate();
 				Debug.Log ("button pressed");
-				Block.transform.localScale = new Vector3 (10f, 0f, 9f);
+				Block.transform.localScale = new Vector3 (holdBlockSize, 0f, holdBlockSize);
 			}
 		}
 		if (XCI.GetButtonUp (XboxButton.RightBumper, playerNumber) && isHoldingProjectile) {

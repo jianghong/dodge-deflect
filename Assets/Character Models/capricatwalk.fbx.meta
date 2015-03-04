@@ -93,6 +93,7 @@ ModelImporter:
     7400004: EndMove
     7400006: TransitToMove
     7400008: Move
+    7400010: MoveFull
     9500000: //RootNode
     13700000: model
   materials:
@@ -562,6 +563,116 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: core_spine_1
+        weight: 1
+      - path: core_spine_1/head_neck
+        weight: 1
+      - path: core_spine_1/head_neck/head_head
+        weight: 1
+      - path: core_spine_1/head_neck/head_head/head_snout
+        weight: 1
+      - path: core_spine_1/spine_2_chest
+        weight: 1
+      - path: core_spine_1/spine_2_chest/nipple_1
+        weight: 1
+      - path: core_spine_1/spine_2_chest/shoulder_L
+        weight: 1
+      - path: core_spine_1/spine_2_chest/shoulder_L/elbow_L
+        weight: 1
+      - path: core_spine_1/spine_2_chest/shoulder_L/elbow_L/wrist_L
+        weight: 1
+      - path: core_spine_1/spine_2_chest/shoulder_L/elbow_L/wrist_L/hoof_L
+        weight: 1
+      - path: core_spine_1/spine_2_chest/shoulder_R
+        weight: 1
+      - path: core_spine_1/spine_2_chest/shoulder_R/elbow_R 1
+        weight: 1
+      - path: core_spine_1/spine_2_chest/shoulder_R/elbow_R 1/wrist_R 1
+        weight: 1
+      - path: core_spine_1/spine_2_chest/shoulder_R/elbow_R 1/wrist_R 1/hoof_R
+        weight: 1
+      - path: core_spine_1/spine_2_chest/spine_3_ab
+        weight: 1
+      - path: core_spine_1/spine_2_chest/spine_3_ab/nipple_2
+        weight: 1
+      - path: core_spine_1/spine_2_chest/spine_3_ab/spine_4_pelvis
+        weight: 1
+      - path: core_spine_1/spine_2_chest/spine_3_ab/spine_4_pelvis/nipple_3
+        weight: 1
+      - path: core_spine_1/spine_2_chest/spine_3_ab/spine_4_pelvis/spine_5_knee
+        weight: 1
+      - path: core_spine_1/spine_2_chest/spine_3_ab/spine_4_pelvis/spine_5_knee/spine_6_ankle
+        weight: 1
+      - path: core_spine_1/spine_2_chest/spine_3_ab/spine_4_pelvis/spine_5_knee/spine_6_ankle/spine_7_tail
+        weight: 1
+      - path: core_spine_1/spine_2_chest/spine_3_ab/spine_4_pelvis/spine_5_knee/spine_6_ankle/spine_7_tail/spine_8_end
+        weight: 1
+      - path: core_spine_1/spine_2_chest/spine_3_ab/spine_4_pelvis/spine_5_knee/spine_6_ankle/spine_7_tail/spine_8_end/tail_L
+        weight: 1
+      - path: core_spine_1/spine_2_chest/spine_3_ab/spine_4_pelvis/spine_5_knee/spine_6_ankle/spine_7_tail/spine_8_end/tail_R
+        weight: 1
+      - path: MAIN_CONTROL
+        weight: 1
+      - path: MAIN_CONTROL/core_cont
+        weight: 1
+      - path: MAIN_CONTROL/core_cont/chest_cont
+        weight: 1
+      - path: MAIN_CONTROL/core_cont/neck_cont
+        weight: 1
+      - path: MAIN_CONTROL/ik_cont_entire_tail
+        weight: 1
+      - path: MAIN_CONTROL/ik_cont_entire_tail/ik_cont_fin
+        weight: 1
+      - path: MAIN_CONTROL/ik_cont_entire_tail/ik_cont_fin/ik_cont_fin_tips
+        weight: 1
+      - path: MAIN_CONTROL/ik_cont_entire_tail/ik_cont_fin/ik_cont_fin_tips/ik_handle_tip_R1
+        weight: 1
+      - path: MAIN_CONTROL/ik_cont_entire_tail/ik_cont_fin/ikHandle_tip_1
+        weight: 1
+      - path: MAIN_CONTROL/ik_cont_entire_tail/ikHandle_tail
+        weight: 1
+      - path: MAIN_CONTROL/shoulder_cont_L
+        weight: 1
+      - path: MAIN_CONTROL/shoulder_cont_L/elbow_cont_L
+        weight: 1
+      - path: MAIN_CONTROL/shoulder_cont_L/elbow_cont_L/wrist_cont_L
+        weight: 1
+      - path: MAIN_CONTROL/shoulder_cont_R
+        weight: 1
+      - path: MAIN_CONTROL/shoulder_cont_R/elbow_R
+        weight: 1
+      - path: MAIN_CONTROL/shoulder_cont_R/wrist_R
+        weight: 1
+      - path: model
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: MoveFull
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
