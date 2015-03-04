@@ -38,6 +38,7 @@ public class MovePlayer : MonoBehaviour
 	bool controllerIsEnabled = true;
 	float controllerDeadZoneThreshold = 0.25f;
 	bool deflectPressed = false;
+	Animator animator;
 
 	void Awake() {
 		controller = GetComponent<CharacterController>();
@@ -78,6 +79,7 @@ public class MovePlayer : MonoBehaviour
 			
 			XCI.DEBUG_LogControllerNames();
 		}
+		animator = GetComponent<Animator>();
 	}
 	
 	
@@ -125,7 +127,6 @@ public class MovePlayer : MonoBehaviour
 		this.transform.position = new Vector3 (transform.position.x, 0.5f, transform.position.z);
 		moveDirection *= speed;
 		controller.Move(moveDirection * Time.deltaTime);
-
 	}
 
 	void Rotate(float x, float y)
@@ -156,7 +157,8 @@ public class MovePlayer : MonoBehaviour
 			if (BlockTime == 0f) {
 				BlockTime = Time.time;
 				blockerScript.activate();
-				Block.transform.localScale += new Vector3 (0.5f, 0f, 0.5f);
+				animator.SetTrigger("deflectPressed");
+				Block.transform.localScale += new Vector3 (4.5f, 0f, 4.5f);
 				deflectPressed = true;
 			}
 		}
@@ -181,7 +183,8 @@ public class MovePlayer : MonoBehaviour
 			if (BlockTime == 0f) {
 				BlockTime = Time.time;
 				blockerScript.activate();
-				Block.transform.localScale += new Vector3 (1.5f, 0f, 1.5f);
+				Debug.Log ("button pressed");
+				Block.transform.localScale += new Vector3 (5f, 0f, 5f);
 			}
 		}
 		if (XCI.GetButtonUp (XboxButton.RightBumper, playerNumber) && isHoldingProjectile) {

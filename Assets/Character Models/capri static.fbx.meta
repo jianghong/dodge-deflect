@@ -1,0 +1,146 @@
+fileFormatVersion: 2
+guid: dc7690060b74c4d1bb1c18287c0829d3
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: chest_cont
+    100004: core_cont
+    100006: core_spine_1
+    100008: elbow_cont_L
+    100010: elbow_L
+    100012: elbow_R
+    100014: elbow_R 1
+    100016: head_head
+    100018: head_neck
+    100020: head_snout
+    100022: hoof_L
+    100024: hoof_R
+    100026: ik_cont_entire_tail
+    100028: ik_cont_fin
+    100030: ik_cont_fin_tips
+    100032: ik_handle_tip_R1
+    100034: ikHandle_tail
+    100036: ikHandle_tip_1
+    100038: MAIN_CONTROL
+    100040: model
+    100042: neck_cont
+    100044: nipple_1
+    100046: nipple_2
+    100048: nipple_3
+    100050: shoulder_cont_L
+    100052: shoulder_cont_R
+    100054: shoulder_L
+    100056: shoulder_R
+    100058: spine_2_chest
+    100060: spine_3_ab
+    100062: spine_4_pelvis
+    100064: spine_5_knee
+    100066: spine_6_ankle
+    100068: spine_7_tail
+    100070: spine_8_end
+    100072: tail_L
+    100074: tail_R
+    100076: wrist_cont_L
+    100078: wrist_L
+    100080: wrist_R
+    100082: wrist_R 1
+    400000: //RootNode
+    400002: chest_cont
+    400004: core_cont
+    400006: core_spine_1
+    400008: elbow_cont_L
+    400010: elbow_L
+    400012: elbow_R
+    400014: elbow_R 1
+    400016: head_head
+    400018: head_neck
+    400020: head_snout
+    400022: hoof_L
+    400024: hoof_R
+    400026: ik_cont_entire_tail
+    400028: ik_cont_fin
+    400030: ik_cont_fin_tips
+    400032: ik_handle_tip_R1
+    400034: ikHandle_tail
+    400036: ikHandle_tip_1
+    400038: MAIN_CONTROL
+    400040: model
+    400042: neck_cont
+    400044: nipple_1
+    400046: nipple_2
+    400048: nipple_3
+    400050: shoulder_cont_L
+    400052: shoulder_cont_R
+    400054: shoulder_L
+    400056: shoulder_R
+    400058: spine_2_chest
+    400060: spine_3_ab
+    400062: spine_4_pelvis
+    400064: spine_5_knee
+    400066: spine_6_ankle
+    400068: spine_7_tail
+    400070: spine_8_end
+    400072: tail_L
+    400074: tail_R
+    400076: wrist_cont_L
+    400078: wrist_L
+    400080: wrist_R
+    400082: wrist_R 1
+    4300000: model
+    9500000: //RootNode
+    13700000: model
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 

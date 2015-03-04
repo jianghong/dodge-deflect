@@ -59,13 +59,10 @@ public class BlackHole : MonoBehaviour {
 
 	}
 	public void scaleToStarCount() {
-		Debug.Log ("scale to starcount");
 		for (int i = 0 ;(i < (starCounter-2)); i++) {
 			newScale = lerpTargetScale * scaleMultiplier;
-			Debug.Log (newScale);
 			if (newScale.magnitude < maxScale.magnitude) {
 				lerpTargetScale = newScale;
-				Debug.Log (lerpTargetScale);
 			}
 		}
 
