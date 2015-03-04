@@ -4,7 +4,7 @@ using System.Collections;
 public class Blocker : MonoBehaviour {
 	
 	MovePlayer player;
-	bool isActive;
+	public bool isActive;
 
 	void Awake() {
 		isActive = false;

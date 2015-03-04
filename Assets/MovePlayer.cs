@@ -103,6 +103,10 @@ public class MovePlayer : MonoBehaviour
 			Hold ();
 			Deflect();
 			resetBlocker();
+			// lerp blocker
+			if (!blockerScript.isActive) {
+				blockerScript.transform.localScale = Vector3.Lerp(blockerScript.transform.localScale, new Vector3(initialBlockerSize, initialBlockerSize, initialBlockerSize), 2f * Time.deltaTime);
+			}
 		}
 	}
 	
@@ -152,7 +156,7 @@ public class MovePlayer : MonoBehaviour
 		bool enoughTimePassed = Time.time > BlockTime + TTLtype;
 		if (enoughTimePassed || isHoldingProjectile) {
 			blockerScript.deactivate();
-			Block.transform.localScale = new Vector3 (initialBlockerSize, initialBlockerSize, initialBlockerSize);
+//			Block.transform.localScale = new Vector3 (initialBlockerSize, initialBlockerSize, initialBlockerSize);
 			deflectPressed = false;
 		}
 		if (Time.time > BlockTime + blockCD) {
