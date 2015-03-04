@@ -6,8 +6,9 @@ public class PlayerCollision : MonoBehaviour {
 	GameManager gameManager;
 
 	public float invinciblityThreshold = 1f;
-	public float hitThreshold = 3f;
+	public int hitThreshold = 3;
 	public GameObject ballPrefab;
+	SpotlightControl spotlightControl;
 	float hitCount = 0.0f;
 	float immuneStartTime = 0.0f;
 	bool isImmune = false;
@@ -18,6 +19,7 @@ public class PlayerCollision : MonoBehaviour {
 		gameManager = GameObject.FindWithTag ("GameManager").GetComponent<GameManager> ();
 		playerMovementScript = this.GetComponent<MovePlayer> ();
 		bsm = GameObject.FindWithTag ("BallSpawnManager").GetComponent<BallSpawnManager> ();
+		spotlightControl = gameObject.GetComponentInChildren<SpotlightControl> ();
 	}
 	// Use this for initialization
 	void Start () {
@@ -61,7 +63,7 @@ public class PlayerCollision : MonoBehaviour {
 				hitCount += 1f;
 				immuneStartTime = Time.time;
 				// TODO: replace temp fade for health indicator
-				this.renderer.material.color /= hitThreshold;
+				spotlightControl.lowerIntesity (hitThreshold);
 				if(hitCount >= hitThreshold) {
 					death();
 				}
