@@ -51,15 +51,14 @@ public class MovePlayer : MonoBehaviour
 	void Start ()
 	{
 		playerNumber = Mathf.Clamp(playerNumber, 1, 4);
-		
+
 		switch(playerNumber)
 		{
-		case 1: renderer.material = matRed; break;
-		case 2: renderer.material = matGreen; break;
-		case 3: renderer.material = matBlue; break;
-		case 4: renderer.material = matYellow; break;
+		case 1: gameObject.GetComponentInChildren<SkinnedMeshRenderer> ().material = matRed; break;
+		case 2: gameObject.GetComponentInChildren<SkinnedMeshRenderer> ().material = matGreen; break;
+		case 3: gameObject.GetComponentInChildren<SkinnedMeshRenderer> ().material = matBlue; break;
+		case 4: gameObject.GetComponentInChildren<SkinnedMeshRenderer> ().material = matYellow; break;
 		}
-
 		
 		if(!didQueryNumOfCtrlrs)
 		{
