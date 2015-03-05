@@ -14,7 +14,7 @@ public class BallIndicatorControl : MonoBehaviour {
 	}
 
 	public void show() {
-		this.transform.localScale = new Vector3 (1f, 1f, 1f);
+		this.transform.localScale = new Vector3 (1.5f, 1.5f, 1.5f);
 	}
 
 	public void hide() {

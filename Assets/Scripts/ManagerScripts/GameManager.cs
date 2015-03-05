@@ -123,8 +123,11 @@ public class GameManager : MonoBehaviour {
 	}
 
 	int playerLeft() {
-		int pNumLeft = GameObject.FindGameObjectWithTag ("Player").GetComponent<MovePlayer> ().playerNumber;
-		return pNumLeft;
+		GameObject[] pNumLeft = GameObject.FindGameObjectsWithTag ("Player");
+		if (pNumLeft.Length < 2) {
+			return pNumLeft[0].GetComponent<MovePlayer> ().playerNumber;		
+		}
+		return 0;
 	}
 
 	void restartGame () {
