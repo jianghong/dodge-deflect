@@ -47,6 +47,10 @@ public class BlackHole : MonoBehaviour {
 
 		// sunction effect
 		Suction ();
+
+		//rotate
+		transform.Rotate (new Vector3 (0f, 15f, 0f) * Time.deltaTime);
+
 	}
 
 	void Suction() {
