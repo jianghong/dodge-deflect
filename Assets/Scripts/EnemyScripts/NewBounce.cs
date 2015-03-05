@@ -15,6 +15,7 @@ public class NewBounce : MonoBehaviour {
 	Vector3 shooterPos;
 	float spawnTime;
 	int spawnedBy;
+	bool deflectedStar = false;
 	
 	// Use this for initialization
 	void Start () {
@@ -48,6 +49,14 @@ public class NewBounce : MonoBehaviour {
 	public void unsetIsHostile () {
 		isHostile = false;
 		this.renderer.material = safeMat;
+	}
+
+	public void setDeflectedStar() {
+		deflectedStar = true;
+	}
+
+	public bool getDeflectedStar() {
+		return deflectedStar;
 	}
 
 	void OnCollisionEnter(Collision collision) {

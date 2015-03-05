@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour {
 	bool joiningGame = true;
 	bool beginningGame = false;
 	bool gameIsOver = false;
+	float playerDeathTime;
 
 	void Awake() {
 		timeManager = GameObject.FindWithTag ("TimeManager").GetComponent<TimeManager> ();
@@ -44,6 +45,10 @@ public class GameManager : MonoBehaviour {
 			timeManager.stopTimer();
 			joiningGame = false;
 			beginGame();
+		}
+
+		if ((Time.time - playerDeathTime) > 1f) {
+			Time.timeScale = 1f;		
 		}
 
 		// check game over
@@ -104,10 +109,11 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-	public void playerDied(int playerNum) {
+	public void playerDied(int playerNum, float timeDied) {
 		numPlayers -= 1;
 		playersBitmap [playerNum - 1] = 0;
 		Debug.Log ("num players: " + numPlayers);
+		playerDeathTime = timeDied;
 	}
 
 	void restartGame () {

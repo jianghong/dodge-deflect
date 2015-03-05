@@ -15,6 +15,7 @@ public class BlackHole : MonoBehaviour {
 	public float lerpRate = 1f;
 	Vector3 lerpTargetScale;
 	GameObject[] playerObjs;
+	public AudioClip voidExplodes;
 
 	void Awake() {
 		lerpTargetScale = this.transform.localScale;
@@ -33,6 +34,7 @@ public class BlackHole : MonoBehaviour {
 				createdBall.rigidbody.AddForce(createdBall.transform.forward.normalized*30f, ForceMode.Impulse);
 				starCounter -= 1;
 			}
+			AudioSource.PlayClipAtPoint(voidExplodes, this.transform.position);
 			Destroy (this.gameObject);
 		}
 	

@@ -13,6 +13,7 @@ public class PlayerCollision : MonoBehaviour {
 	bool isImmune = false;
 	MovePlayer playerMovementScript;
 	BallSpawnManager bsm;
+	float timeDied;
 
 	void Awake() {
 		gameManager = GameObject.FindWithTag ("GameManager").GetComponent<GameManager> ();
@@ -33,7 +34,7 @@ public class PlayerCollision : MonoBehaviour {
 
 	void death() {
 		int pNum = playerMovementScript.playerNumber;
-		gameManager.playerDied (pNum);
+		gameManager.playerDied (pNum, timeDied);
 		int starCounter = 5;
 		while (starCounter > 0) {
 			GameObject createdBall = GameObject.Instantiate(ballPrefab, new Vector3(transform.position.x, 0.5f, transform.position.z), Random.rotation) as GameObject;
@@ -55,7 +56,6 @@ public class PlayerCollision : MonoBehaviour {
 		// If the entering collider is the player...
 		if(collision.collider.gameObject.tag == "Ball")
 		{
-			Debug.Log ("taking damage");
 			if(!isImmune && collision.gameObject.GetComponent<NewBounce>().isHostile) {
 				bsm.destroyBall(collision.gameObject);
 				hitCount += 1f;
@@ -63,6 +63,7 @@ public class PlayerCollision : MonoBehaviour {
 				// TODO: replace temp fade for health indicator
 				gameObject.GetComponentInChildren<SkinnedMeshRenderer>().material.color /= 2;
 				if(hitCount >= hitThreshold) {
+					timeDied = Time.time;
 					death();
 				}
 				isImmune = true;

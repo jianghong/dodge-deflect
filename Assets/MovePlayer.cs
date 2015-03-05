@@ -156,7 +156,6 @@ public class MovePlayer : MonoBehaviour
 		bool enoughTimePassed = Time.time > BlockTime + TTLtype;
 		if (enoughTimePassed || isHoldingProjectile) {
 			blockerScript.deactivate();
-//			Block.transform.localScale = new Vector3 (initialBlockerSize, initialBlockerSize, initialBlockerSize);
 			deflectPressed = false;
 		}
 		if (Time.time > BlockTime + blockCD) {
@@ -181,6 +180,7 @@ public class MovePlayer : MonoBehaviour
 			Vector3 newBallPos = new Vector3(shooterPos.x, 0.5f, shooterPos.z);
 			GameObject createdBall = GameObject.Instantiate(ballPrefab, newBallPos, collider.transform.rotation) as GameObject;
 			createdBall.GetComponent<NewBounce>().setIsHostile();
+			createdBall.GetComponent<NewBounce>().setDeflectedStar();
 			createdBall.rigidbody.AddForce(createdBall.transform.forward.normalized*deflectForce, ForceMode.Impulse);
 			deflectPressed = false;
 			unsetIsHoldingProjectile();
