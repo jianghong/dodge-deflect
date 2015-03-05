@@ -15,6 +15,8 @@ public class MovePlayer : MonoBehaviour
 	public float holdBlockSize = 8f;
 	public float initialBlockerSize = 0.9f;
 	public AudioClip holdShootAudioClip;
+	public AudioClip[] deflectAudioClips;
+	int deflectAudioClipIndex = 0;
 	AudioSource audioSource;
 
 	public int playerNumber = 0;
@@ -187,6 +189,8 @@ public class MovePlayer : MonoBehaviour
 			createdBall.rigidbody.AddForce(createdBall.transform.forward.normalized*deflectForce, ForceMode.Impulse);
 			deflectPressed = false;
 			unsetIsHoldingProjectile();
+			playClip (deflectAudioClips[deflectAudioClipIndex]);
+			deflectAudioClipIndex = (deflectAudioClipIndex + 1) > 2 ? 0 : deflectAudioClipIndex + 1; 
 			blockerScript.deactivate();
 		}
 	}
