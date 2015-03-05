@@ -14,11 +14,14 @@ public class PlayerCollision : MonoBehaviour {
 	MovePlayer playerMovementScript;
 	BallSpawnManager bsm;
 	float timeDied;
+	public AudioClip playHitClip;
+	AudioSource ac;
 
 	void Awake() {
 		gameManager = GameObject.FindWithTag ("GameManager").GetComponent<GameManager> ();
 		playerMovementScript = this.GetComponent<MovePlayer> ();
 		bsm = GameObject.FindWithTag ("BallSpawnManager").GetComponent<BallSpawnManager> ();
+		ac = GetComponent<AudioSource> ();
 	}
 	// Use this for initialization
 	void Start () {
@@ -59,6 +62,7 @@ public class PlayerCollision : MonoBehaviour {
 			if(!isImmune && collision.gameObject.GetComponent<NewBounce>().isHostile) {
 				bsm.destroyBall(collision.gameObject);
 				hitCount += 1f;
+				AudioSource.PlayClipAtPoint(playHitClip, this.transform.position);
 				immuneStartTime = Time.time;
 				// TODO: replace temp fade for health indicator
 				gameObject.GetComponentInChildren<SkinnedMeshRenderer>().material.color /= 2;

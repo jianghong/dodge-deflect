@@ -16,12 +16,15 @@ public class BlackHole : MonoBehaviour {
 	Vector3 lerpTargetScale;
 	GameObject[] playerObjs;
 	public AudioClip voidExplodes;
+	AudioSource ac;
 
 	void Awake() {
 		lerpTargetScale = this.transform.localScale;
 	}
 	void Start() {
 		spawnTime = Time.time;
+		ac = GetComponent<AudioSource> ();
+		ac.Play ();
 	}
 
 	void Update() {

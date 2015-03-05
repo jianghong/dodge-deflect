@@ -14,6 +14,8 @@ public class MovePlayer : MonoBehaviour
 	public float deflectBlockSize = 7f;
 	public float holdBlockSize = 8f;
 	public float initialBlockerSize = 0.9f;
+	public AudioClip holdShootAudioClip;
+	AudioSource audioSource;
 
 	public int playerNumber = 0;
 	
@@ -82,6 +84,7 @@ public class MovePlayer : MonoBehaviour
 			XCI.DEBUG_LogControllerNames();
 		}
 		animator = GetComponent<Animator>();
+		audioSource = GetComponent<AudioSource> ();
 	}
 	
 	
@@ -205,10 +208,15 @@ public class MovePlayer : MonoBehaviour
 			GameObject createdBall = GameObject.Instantiate(ballPrefab, newBallPos, collider.transform.rotation) as GameObject;
 			createdBall.GetComponent<NewBounce>().setIsHostile();
 			createdBall.rigidbody.AddForce(createdBall.transform.forward.normalized*blockerForce, ForceMode.Impulse);
+			playClip(holdShootAudioClip);
 			unsetIsHoldingProjectile();
 		}
 	}
 
+	void playClip(AudioClip ac) {
+		audioSource.clip = ac;
+		audioSource.Play ();
+	}
 	public void setIsHoldingProjectile() {
 		isHoldingProjectile = true;
 		ballControl.show ();
