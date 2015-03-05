@@ -11,14 +11,20 @@ public class GameManager : MonoBehaviour {
 	TimeManager timeManager;
 	int numPlayers;
 	int[] playersBitmap = {0, 0, 0, 0};
+	int[] playersDeflectScore = {0, 0, 0, 0};
+	int[] playersHitScore = {0, 0, 0, 0};
 	Vector3[] playerPositions = {new Vector3(-11f, -5f, 17f), new Vector3(27f, -5f, 17f), new Vector3(25f, -5f, -13f), new Vector3(-9f, 0.5f, -13f)};
 	bool joiningGame = true;
 	bool beginningGame = false;
 	bool gameIsOver = false;
 	float playerDeathTime;
+	ScoreBoard scoreBoardScript;
+	WinnerScript ws;
 
 	void Awake() {
 		timeManager = GameObject.FindWithTag ("TimeManager").GetComponent<TimeManager> ();
+		ws = GameObject.FindGameObjectWithTag ("WinnerText").GetComponent<WinnerScript> ();
+		scoreBoardScript = GameObject.FindWithTag ("ScoreBoard").GetComponent<ScoreBoard> ();
 		numPlayers = GameObject.FindGameObjectsWithTag ("Player").Length;
 		for (int i = 0; i < numPlayers; i++) {
 			playersBitmap[i] = 1;
@@ -116,6 +122,11 @@ public class GameManager : MonoBehaviour {
 		playerDeathTime = timeDied;
 	}
 
+	int playerLeft() {
+		int pNumLeft = GameObject.FindGameObjectWithTag ("Player").GetComponent<MovePlayer> ().playerNumber;
+		return pNumLeft;
+	}
+
 	void restartGame () {
 		if (gameIsOver && (XCI.GetButtonUp(XboxButton.Start, 1))) {
 			Application.LoadLevel (Application.loadedLevelName);
@@ -134,6 +145,14 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
+	public void incrementScore(int pNum, bool deflectScore) {
+		if (deflectScore) {
+			playersDeflectScore[pNum-1] += 1;		
+		}
+		Debug.Log (pNum);
+		playersHitScore[pNum-1] += 1;
+	}
+
 	public void gameOver () {
 		timeManager.stopTimer ();
 
@@ -143,5 +162,10 @@ public class GameManager : MonoBehaviour {
 			Destroy(balls[i].gameObject);
 		}
 		gameIsOver = true;
+		ws.setWinnerText (playerLeft());
+		scoreBoardScript.setScoreBoard (playersDeflectScore[0], playersHitScore[0],
+		                                playersDeflectScore[1], playersHitScore[1],
+		                                playersDeflectScore[2], playersHitScore[2],
+		                                playersDeflectScore[3], playersHitScore[3]);
 	}
 }

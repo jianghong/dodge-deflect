@@ -12,6 +12,7 @@ public class NewBounce : MonoBehaviour {
 	public float TTL = 0.4f;
 	public bool isHostile = false;
 	public float hostileTime = 3f;
+	public int shotByPNum = -1; // -1 means no player shot it
 	Vector3 shooterPos;
 	float spawnTime;
 	int spawnedBy;
@@ -51,8 +52,8 @@ public class NewBounce : MonoBehaviour {
 		this.renderer.material = safeMat;
 	}
 
-	public void setDeflectedStar() {
-		deflectedStar = true;
+	public void setDeflectedStar(bool v) {
+		deflectedStar = v;
 	}
 
 	public bool getDeflectedStar() {

@@ -168,6 +168,23 @@ public class MovePlayer : MonoBehaviour
 		}
 	}
 
+	void createBall(bool isDeflect) {
+		shooter = collider.gameObject.GetComponentInChildren<shooterScript>();
+		shooterPos = shooter.getTransform().position;
+		Vector3 newBallPos = new Vector3(shooterPos.x, 0.5f, shooterPos.z);
+		GameObject createdBall = GameObject.Instantiate(ballPrefab, newBallPos, collider.transform.rotation) as GameObject;
+		NewBounce createdBallScript = createdBall.GetComponent<NewBounce> ();
+		createdBallScript.setIsHostile();
+		createdBallScript.setDeflectedStar(isDeflect);
+		createdBallScript.shotByPNum = playerNumber;
+		if (isDeflect) {
+			createdBall.rigidbody.AddForce(createdBall.transform.forward.normalized*deflectForce, ForceMode.Impulse);		
+		} else {
+			createdBall.rigidbody.AddForce(createdBall.transform.forward.normalized*blockerForce, ForceMode.Impulse);		
+		}
+
+	}
+
 	void Deflect() {
 		if (XCI.GetButtonDown(XboxButton.LeftBumper, playerNumber) && !isHoldingProjectile) {
 			if (BlockTime == 0f) {
@@ -180,13 +197,7 @@ public class MovePlayer : MonoBehaviour
 		}
 
 		if (isHoldingProjectile && deflectPressed) {
-			shooter = collider.gameObject.GetComponentInChildren<shooterScript>();
-			shooterPos = shooter.getTransform().position;
-			Vector3 newBallPos = new Vector3(shooterPos.x, 0.5f, shooterPos.z);
-			GameObject createdBall = GameObject.Instantiate(ballPrefab, newBallPos, collider.transform.rotation) as GameObject;
-			createdBall.GetComponent<NewBounce>().setIsHostile();
-			createdBall.GetComponent<NewBounce>().setDeflectedStar();
-			createdBall.rigidbody.AddForce(createdBall.transform.forward.normalized*deflectForce, ForceMode.Impulse);
+			createBall (true);
 			deflectPressed = false;
 			unsetIsHoldingProjectile();
 			playClip (deflectAudioClips[deflectAudioClipIndex]);
@@ -206,12 +217,7 @@ public class MovePlayer : MonoBehaviour
 			}
 		}
 		if (XCI.GetButtonUp (XboxButton.RightBumper, playerNumber) && isHoldingProjectile) {
-			shooter = collider.gameObject.GetComponentInChildren<shooterScript>();
-			shooterPos = shooter.getTransform().position;
-			Vector3 newBallPos = new Vector3(shooterPos.x, 0.5f, shooterPos.z);
-			GameObject createdBall = GameObject.Instantiate(ballPrefab, newBallPos, collider.transform.rotation) as GameObject;
-			createdBall.GetComponent<NewBounce>().setIsHostile();
-			createdBall.rigidbody.AddForce(createdBall.transform.forward.normalized*blockerForce, ForceMode.Impulse);
+			createBall (false);
 			playClip(holdShootAudioClip);
 			unsetIsHoldingProjectile();
 		}

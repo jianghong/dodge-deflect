@@ -59,8 +59,18 @@ public class PlayerCollision : MonoBehaviour {
 		// If the entering collider is the player...
 		if(collision.collider.gameObject.tag == "Ball")
 		{
-			if(!isImmune && collision.gameObject.GetComponent<NewBounce>().isHostile) {
+			NewBounce collidedStar = collision.gameObject.GetComponent<NewBounce>();
+			if(!isImmune && collidedStar.isHostile) {
 				bsm.destroyBall(collision.gameObject);
+				// increment hit count
+				if ((collidedStar.shotByPNum) > -1) {
+					Debug.Log ("hit by p: " + collidedStar.shotByPNum);
+					if (collidedStar.getDeflectedStar()) {
+						Debug.Log ("hit by deflected");
+					}
+
+					gameManager.incrementScore(collidedStar.shotByPNum, collidedStar.getDeflectedStar());
+				}
 				hitCount += 1f;
 				AudioSource.PlayClipAtPoint(playHitClip, this.transform.position);
 				immuneStartTime = Time.time;
