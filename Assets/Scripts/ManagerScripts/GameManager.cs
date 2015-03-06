@@ -64,6 +64,7 @@ public class GameManager : MonoBehaviour {
 			}
 		} else {
 			if (numPlayers <= 1 && beginningGame) {
+				ws.setWinnerText (playerLeft());
 				gameOver();		
 			}
 		}
@@ -165,7 +166,7 @@ public class GameManager : MonoBehaviour {
 			Destroy(balls[i].gameObject);
 		}
 		gameIsOver = true;
-		ws.setWinnerText (playerLeft());
+
 		scoreBoardScript.setScoreBoard (playersDeflectScore[0], playersHitScore[0],
 		                                playersDeflectScore[1], playersHitScore[1],
 		                                playersDeflectScore[2], playersHitScore[2],
