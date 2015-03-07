@@ -18,6 +18,7 @@ public class BlackHole : MonoBehaviour {
 	GameObject[] starObjs;
 	public AudioClip voidExplodes;
 	AudioSource ac;
+	float audioVolume;
 
 	void Awake() {
 		lerpTargetScale = this.transform.localScale;
@@ -25,10 +26,14 @@ public class BlackHole : MonoBehaviour {
 	void Start() {
 		spawnTime = Time.time;
 		ac = GetComponent<AudioSource> ();
+		audioVolume = lerpTargetScale.magnitude / maxScale.magnitude;
 		ac.Play ();
 	}
 
 	void Update() {
+		audioVolume = lerpTargetScale.magnitude/maxScale.magnitude;
+		ac.volume = audioVolume;
+		Debug.Log (ac.volume);
 		playerObjs = GameObject.FindGameObjectsWithTag ("Player");
 		starObjs = GameObject.FindGameObjectsWithTag ("Ball");
 		if (Time.time > spawnTime + duration) {
@@ -39,7 +44,7 @@ public class BlackHole : MonoBehaviour {
 				createdBall.rigidbody.AddForce(createdBall.transform.forward.normalized*30f, ForceMode.Impulse);
 				starCounter -= 1;
 			}
-			AudioSource.PlayClipAtPoint(voidExplodes, this.transform.position);
+			AudioSource.PlayClipAtPoint(voidExplodes, this.transform.position, audioVolume);
 			Destroy (this.gameObject);
 		}
 	
