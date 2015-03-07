@@ -15,6 +15,7 @@ public class BlackHole : MonoBehaviour {
 	public float lerpRate = 1f;
 	Vector3 lerpTargetScale;
 	GameObject[] playerObjs;
+	GameObject[] starObjs;
 	public AudioClip voidExplodes;
 	AudioSource ac;
 
@@ -29,6 +30,7 @@ public class BlackHole : MonoBehaviour {
 
 	void Update() {
 		playerObjs = GameObject.FindGameObjectsWithTag ("Player");
+		starObjs = GameObject.FindGameObjectsWithTag ("Ball");
 		if (Time.time > spawnTime + duration) {
 			while (starCounter > 0) {
 				GameObject createdBall = GameObject.Instantiate(ballPrefab, this.transform.position, Random.rotation) as GameObject;
@@ -58,11 +60,22 @@ public class BlackHole : MonoBehaviour {
 		for (int i = 0; (i < playerObjs.Length); i++) {
 			Vector3 playerOrigin = playerObjs[i].transform.position;
 			Vector3 toSuctionOriginFromObject = suctionOrigin - playerOrigin;
-			float suctionForce = lerpTargetScale.magnitude*0.02f;
 			float radialSize = gameObject.GetComponent<SphereCollider>().radius * lerpTargetScale.y;
 			float radialDistance = Vector3.Distance(playerOrigin, suctionOrigin) - radialSize;
-			if (radialDistance < 15f){
+			float suctionForce = (lerpTargetScale.magnitude)*0.1f / radialDistance;
+			Debug.Log(suctionForce);
+			if (radialDistance < 20f){
 				playerObjs[i].GetComponent<CharacterController>().Move(toSuctionOriginFromObject * suctionForce * Time.deltaTime);
+			}
+		}
+		for (int i = 0; (i < starObjs.Length); i++) {
+			Vector3 starOrigin = starObjs[i].transform.position;
+			Vector3 toSuctionOriginFromObject = suctionOrigin - starOrigin;
+			float radialSize = gameObject.GetComponent<SphereCollider>().radius * lerpTargetScale.y;
+			float radialDistance = Vector3.Distance(starOrigin, suctionOrigin) - radialSize;
+			float suctionForce = (lerpTargetScale.magnitude)*50f / radialDistance;
+			if (radialDistance < 30f ){
+				starObjs[i].rigidbody.AddForce(toSuctionOriginFromObject * suctionForce * Time.deltaTime);
 			}
 		}
 
