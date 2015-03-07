@@ -8,6 +8,8 @@ public class PlayerCollision : MonoBehaviour {
 	public float invinciblityThreshold = 1f;
 	public int hitThreshold = 3;
 	public GameObject ballPrefab;
+	public int maxSpawnCount = 3;
+	public int spawnCount = 1;
 	float hitCount = 0.0f;
 	float immuneStartTime = 0.0f;
 	bool isImmune = false;
@@ -35,15 +37,26 @@ public class PlayerCollision : MonoBehaviour {
 		}
 	}
 
+	void respawn() {
+
+	}
+
 	void death() {
 		int pNum = playerMovementScript.playerNumber;
-		gameManager.playerDied (pNum, timeDied);
 		int starCounter = 5;
 		while (starCounter > 0) {
 			GameObject createdBall = GameObject.Instantiate(ballPrefab, new Vector3(transform.position.x, 0.5f, transform.position.z), Random.rotation) as GameObject;
 			createdBall.rigidbody.AddForce(createdBall.transform.forward.normalized*30f, ForceMode.Impulse);
 			starCounter -= 1;
 		}
+		spawnCount += 1;
+		Debug.Log ("death: " + spawnCount);
+		if (spawnCount <= maxSpawnCount) {
+			gameManager.spawnPlayer (pNum, spawnCount);
+		} else {
+			gameManager.playerDied (pNum, timeDied);
+		}
+
 		Destroy (this.gameObject);
 	}
 

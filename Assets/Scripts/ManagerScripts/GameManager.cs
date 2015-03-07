@@ -116,6 +116,13 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
+	public void spawnPlayer(int pNum, int spawnCount) {
+		GameObject p = GameObject.Instantiate(playerPrefab, playerPositions[pNum-1], Quaternion.identity) as GameObject;
+		p.GetComponent<MovePlayer>().playerNumber = pNum;
+		p.GetComponent<PlayerCollision> ().spawnCount = spawnCount;
+
+	}
+
 	public void playerDied(int playerNum, float timeDied) {
 		numPlayers -= 1;
 		playersBitmap [playerNum - 1] = 0;

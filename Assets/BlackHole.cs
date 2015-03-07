@@ -33,7 +33,6 @@ public class BlackHole : MonoBehaviour {
 	void Update() {
 		audioVolume = lerpTargetScale.magnitude/maxScale.magnitude;
 		ac.volume = audioVolume;
-		Debug.Log (ac.volume);
 		playerObjs = GameObject.FindGameObjectsWithTag ("Player");
 		starObjs = GameObject.FindGameObjectsWithTag ("Ball");
 		if (Time.time > spawnTime + duration) {
