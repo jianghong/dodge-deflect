@@ -36,7 +36,7 @@ public class BlackHole : MonoBehaviour {
 		Debug.Log (ac.volume);
 		playerObjs = GameObject.FindGameObjectsWithTag ("Player");
 		starObjs = GameObject.FindGameObjectsWithTag ("Ball");
-		if (Time.time > spawnTime + duration) {
+		if ((Time.time > spawnTime + duration) || starCounter >= 6) {
 			while (starCounter > 0) {
 				GameObject createdBall = GameObject.Instantiate(ballPrefab, this.transform.position, Random.rotation) as GameObject;
 				createdBall.GetComponent<NewBounce>().setSpawnedBy(GetInstanceID());

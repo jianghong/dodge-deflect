@@ -21,7 +21,7 @@ public class NewBounce : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		spawnTime = Time.time;
-		this.rigidbody.AddForce(transform.forward.normalized * initialForce);
+//		this.rigidbody.AddForce(transform.forward.normalized * initialForce);
 	}
 
 	void Update () {

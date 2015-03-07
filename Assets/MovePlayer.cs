@@ -103,8 +103,8 @@ public class MovePlayer : MonoBehaviour
 			// Right stick movement
 			axisX = XCI.GetAxis (XboxAxis.RightStickX, playerNumber);
 			axisY = XCI.GetAxis (XboxAxis.RightStickY, playerNumber);
-			Rotate (axisX, axisY);
-
+//			Rotate (axisX, axisY);
+			Jaunt();
 			Hold ();
 			Deflect();
 			resetBlocker();
@@ -132,6 +132,12 @@ public class MovePlayer : MonoBehaviour
 		Gizmos.DrawCube(transform.position, new Vector3(1.2f, 1.2f, 1.2f));
 	}
 
+	void Jaunt() {
+		if (XCI.GetButtonDown (XboxButton.A, playerNumber)) {
+			Debug.Log ("jaunting..");
+			controller.Move (this.transform.forward*10f);
+		}
+	}
 	void Move (float h, float v)
 	{
 		if ((h != 0) || (v != 0)) {
@@ -144,6 +150,7 @@ public class MovePlayer : MonoBehaviour
 		this.transform.position = new Vector3 (transform.position.x, -5f, transform.position.z);
 		moveDirection *= speed;
 		controller.Move(moveDirection * Time.deltaTime);
+		transform.LookAt (transform.position + new Vector3 (h, 0.0f, v), Vector3.up);
 	}
 
 	void Rotate(float x, float y)
