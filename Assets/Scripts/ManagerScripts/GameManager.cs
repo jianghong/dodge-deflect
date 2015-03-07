@@ -132,7 +132,7 @@ public class GameManager : MonoBehaviour {
 
 	int playerLeft() {
 		GameObject[] pNumLeft = GameObject.FindGameObjectsWithTag ("Player");
-		if (pNumLeft.Length < 2) {
+		if (pNumLeft.Length > 0) {
 			return pNumLeft[0].GetComponent<MovePlayer> ().playerNumber;		
 		}
 		return 0;
