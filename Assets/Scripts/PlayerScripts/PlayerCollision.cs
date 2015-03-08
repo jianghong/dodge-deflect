@@ -9,7 +9,7 @@ public class PlayerCollision : MonoBehaviour {
 	public int hitThreshold = 3;
 	public GameObject ballPrefab;
 	public int maxSpawnCount = 3;
-	public int spawnCount = 1;
+	public int spawnCount = 0;
 	float hitCount = 0.0f;
 	float immuneStartTime = 0.0f;
 	bool isImmune = false;
@@ -18,6 +18,7 @@ public class PlayerCollision : MonoBehaviour {
 	float timeDied;
 	public AudioClip playHitClip;
 	AudioSource ac;
+	public PlayerLivesText lifeText;
 
 	void Awake() {
 		gameManager = GameObject.FindWithTag ("GameManager").GetComponent<GameManager> ();
@@ -27,18 +28,16 @@ public class PlayerCollision : MonoBehaviour {
 	}
 	// Use this for initialization
 	void Start () {
+
 	}
 
 	// Update is called once per frame
 	void Update () {
+		lifeText.setLivesText (maxSpawnCount - spawnCount);
 		float timeDiff = Time.time - immuneStartTime;
 		if(timeDiff >= invinciblityThreshold) {
 			isImmune = false;
 		}
-	}
-
-	void respawn() {
-
 	}
 
 	void death() {
@@ -50,8 +49,9 @@ public class PlayerCollision : MonoBehaviour {
 			starCounter -= 1;
 		}
 		spawnCount += 1;
+		lifeText.setLivesText (maxSpawnCount - spawnCount);
 		Debug.Log ("death: " + spawnCount);
-		if (spawnCount <= maxSpawnCount) {
+		if (spawnCount < maxSpawnCount) {
 			gameManager.spawnPlayer (pNum, spawnCount);
 		} else {
 			gameManager.playerDied (pNum, timeDied);

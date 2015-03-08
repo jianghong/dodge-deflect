@@ -106,12 +106,24 @@ public class GameManager : MonoBehaviour {
 		initVoid.GetComponent<BlackHole> ().scaleToStarCount ();
 	}
 
-
+	void setPlayerLifeText(GameObject p) {
+		GameObject[] livesText = GameObject.FindGameObjectsWithTag("LivesText");
+		int pNum = p.GetComponent<MovePlayer> ().playerNumber;
+		for (int j = 0; j < livesText.Length; j++) {
+			GameObject liveText = livesText[j];
+			if (liveText.GetComponent<PlayerLivesText>().pNum == pNum) {
+				Debug.Log (liveText.GetComponent<PlayerLivesText>().pNum);
+				p.GetComponent<PlayerCollision>().lifeText = liveText.GetComponent<PlayerLivesText>();
+			}
+		}
+	}
+	
 	void spawnPlayers(int n) {
 		for (int i = 0; i < playersBitmap.Length; i++) {
 			if (playersBitmap[i] == 1) {
 				GameObject p = GameObject.Instantiate(playerPrefab, playerPositions[i], Quaternion.identity) as GameObject;
 				p.GetComponent<MovePlayer>().playerNumber = i+1;
+				setPlayerLifeText(p);
 			}
 		}
 	}
@@ -120,7 +132,7 @@ public class GameManager : MonoBehaviour {
 		GameObject p = GameObject.Instantiate(playerPrefab, playerPositions[pNum-1], Quaternion.identity) as GameObject;
 		p.GetComponent<MovePlayer>().playerNumber = pNum;
 		p.GetComponent<PlayerCollision> ().spawnCount = spawnCount;
-
+		setPlayerLifeText (p);
 	}
 
 	public void playerDied(int playerNum, float timeDied) {
