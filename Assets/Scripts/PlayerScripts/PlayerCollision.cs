@@ -43,7 +43,7 @@ public class PlayerCollision : MonoBehaviour {
 
 	void death() {
 		int pNum = playerMovementScript.playerNumber;
-		int starCounter = 5;
+		int starCounter = 2;
 		while (starCounter > 0) {
 			GameObject createdBall = GameObject.Instantiate(ballPrefab, new Vector3(transform.position.x, 0.5f, transform.position.z), Random.rotation) as GameObject;
 			createdBall.rigidbody.AddForce(createdBall.transform.forward.normalized*30f, ForceMode.Impulse);
