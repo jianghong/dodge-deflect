@@ -6,6 +6,7 @@ public class CharacterImage : MonoBehaviour {
 
 	public int pnum;
 	ShowHide[] arrows;
+	Text t;
 
 	// Use this for initialization
 	void Start () {
@@ -13,11 +14,17 @@ public class CharacterImage : MonoBehaviour {
 		for (int i = 0; i < arrows.Length; i++) {
 			arrows[i].Hide();
 		}
+		t = GetComponentInChildren<Text> ();
+		t.text = "Player " + pnum + " press start";
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	
+	}
+
+	public void changeText(string s) {
+		t.text = s;
 	}
 
 	public void changePanelSprite(Sprite s) {

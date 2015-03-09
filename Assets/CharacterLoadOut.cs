@@ -11,47 +11,34 @@ public class CharacterLoadOut : MonoBehaviour {
 	int[] playersBitmap = {0, 0, 0, 0};
 	bool[] canSwitchCharacterImage = {true, true, true, true};
 	CharacterImage[] players_panel = new CharacterImage[4];
+	TimeManager tm;
 	// Use this for initialization
 	void Start () {
 		for (int i=0; i < maxPlayers; i++) {
 			players_panel[i] = getCharacterPanel (i+1).GetComponent<CharacterImage>();
 		}
+		tm = GameObject.FindWithTag ("TimeManager").GetComponent<TimeManager> ();
+		tm.setCountdown ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		// detect direction
-		getDirectionInput (1);
-		getDirectionInput (2);
-		getDirectionInput (3);
-		getDirectionInput (4);
-
 		// detect start
 		getStartInput (1);
 		getStartInput (2);
 		getStartInput (3);
 		getStartInput (4);
-
-		// detect direction
-		changePanel (1);
-		changePanel (2);
-		changePanel (3);
-		changePanel (4);
-//		if ((p1_axisY > 0) && playersBitmap [0] == 1) {
-//			// up pressed
-//			p1_panel.changePanelSprite(characterSprites[p1_i]);
-//			p1_i = (p1_i + 1) > 3 ? 0 : p1_i+1;
-//		} else {
-//			p1_panel.changePanelSprite(characterSprites[p1_i]);
-//			p1_i = (p1_i - 1) < 0 ? 3 : p1_i+1;
-//		}
+		if (tm.currTime < tm.maxTime) {
+			Application.LoadLevel ("scene4");
+		}
 	}
 
 	void getStartInput(int pNum) {
 		if (XCI.GetButtonUp(XboxButton.Start, pNum)) {
 			Debug.Log ("p1 pressed start");
-			players_panel[pNum-1].showArrows ();
 			playersBitmap[pNum-1] = 1;
+			players_panel[pNum-1].changePanelSprite(characterSprites[pNum-1]);
+			players_panel[pNum-1].changeText("Player " + pNum + " joined");
 		}
 	}
 	void getDirectionInput(int pNum) {
