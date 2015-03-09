@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using XboxCtrlrInput;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour {
 	float playerDeathTime;
 	ScoreBoard scoreBoardScript;
 	WinnerScript ws;
+
 
 	void Awake() {
 		timeManager = GameObject.FindWithTag ("TimeManager").GetComponent<TimeManager> ();
@@ -96,6 +98,7 @@ public class GameManager : MonoBehaviour {
 
 	void beginGame() {
 		beginningGame = true;
+		GameObject.FindWithTag ("PressStart").GetComponent<Text>().text = "";
 		timeManager.startTimer ();
 		timeManager.currTime = 0f;
 		timeManager.setCountup ();
