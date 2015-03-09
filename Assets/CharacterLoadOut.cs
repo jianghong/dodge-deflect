@@ -9,6 +9,7 @@ public class CharacterLoadOut : MonoBehaviour {
 	float[] players_axisY = {0f, 0f, 0f, 0f};
 	int[] players_index = {0, 0, 0, 0};
 	int[] playersBitmap = {0, 0, 0, 0};
+	bool[] canSwitchCharacterImage = {true, true, true, true};
 	CharacterImage[] players_panel = new CharacterImage[4];
 	// Use this for initialization
 	void Start () {
@@ -58,13 +59,17 @@ public class CharacterLoadOut : MonoBehaviour {
 	}
 
 	void changePanel(int pNum) {
-		if ((players_axisY[pNum-1] > 0) && playersBitmap [pNum-1] == 1) {
+		if ((players_axisY[pNum-1] > 0f) && playersBitmap [pNum-1] == 1 && canSwitchCharacterImage [pNum - 1]) {
 			// up pressed
 			players_panel[pNum-1].changePanelSprite(characterSprites[players_index[pNum-1]]);
 			players_index[pNum-1] = (players_index[pNum-1] + 1) > 3 ? 0 : players_index[pNum-1]+1;
-		} else if ((players_axisY[pNum-1] < 0) && playersBitmap [pNum-1] == 1){
+		} else if ((players_axisY[pNum-1] < 0f) && playersBitmap [pNum-1] == 1 && canSwitchCharacterImage [pNum - 1]){
 			players_panel[pNum-1].changePanelSprite(characterSprites[players_index[pNum-1]]);
 			players_index[pNum-1] = (players_index[pNum-1] - 1) < 0 ? 3 : players_index[pNum-1]-1;
+		}
+		canSwitchCharacterImage [pNum - 1] = false;
+		if (players_axisY [pNum - 1] == 0) {
+			canSwitchCharacterImage [pNum - 1] = true;
 		}
 	}
 	
