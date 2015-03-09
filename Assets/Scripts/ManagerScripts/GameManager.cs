@@ -35,7 +35,6 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		timeManager.currTime = 1f;
 		timeManager.setCountdown ();
 		timeManager.stopTimer ();
 	}
