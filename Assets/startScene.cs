@@ -4,7 +4,7 @@ using XboxCtrlrInput;
 
 public class startScene : MonoBehaviour {
 
-	string sceneToLoad = "scene4";
+	public string sceneToLoad = "scene4";
 	// Use this for initialization
 	void Start () {
 	
