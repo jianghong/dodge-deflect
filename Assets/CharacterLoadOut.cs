@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Linq;
 using XboxCtrlrInput;	
 
 public class CharacterLoadOut : MonoBehaviour {
@@ -28,7 +29,7 @@ public class CharacterLoadOut : MonoBehaviour {
 		getStartInput (2);
 		getStartInput (3);
 		getStartInput (4);
-		if (tm.currTime < tm.maxTime) {
+		if (tm.currTime < tm.maxTime || playersBitmap.Sum () == 4) {
 			Application.LoadLevel ("scene4");
 		}
 	}
