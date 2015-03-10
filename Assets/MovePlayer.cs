@@ -219,7 +219,7 @@ public class MovePlayer : MonoBehaviour
 				Block.transform.localScale = new Vector3 (holdBlockSize, holdBlockSize, holdBlockSize);
 			}
 		}
-		if (release && !deflectFire && isHoldingProjectile) {
+		if (release && !deflectFire && isHoldingProjectile && !blockerScript.isActive) {
 			createBall (false);
 			playClip(holdShootAudioClip);
 			unsetIsHoldingProjectile();

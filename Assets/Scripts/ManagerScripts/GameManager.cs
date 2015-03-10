@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour {
 	public GameObject playerPrefab;
 	public GameObject blackholePrefab;
 	public GameObject respawnIndicator;
+	public GameObject voidIndicatorPrefab;
 	public int initialVoidStarCount = 2;
 	public int minPlayers;
 	TimeManager timeManager;
@@ -15,9 +16,9 @@ public class GameManager : MonoBehaviour {
 	int[] playersBitmap = {0, 0, 0, 0};
 	int[] playersDeflectScore = {0, 0, 0, 0};
 	int[] playersHitScore = {0, 0, 0, 0};
-	Vector3[] playerPositions = {new Vector3(-11f, -5f, 17f), new Vector3(27f, -5f, 17f), new Vector3(25f, -5f, -13f), new Vector3(-9f, 0.5f, -13f)};
+	Vector3[] playerPositions = {new Vector3(-11f, -5f, 40f), new Vector3(39f, -5f, 40f), new Vector3(-11f, -5f, -26f), new Vector3(39f, -5f, -26f)};
 	Vector3[] respawnposition = {
-		new Vector3 (-5.1f, -5f, 15.8f),
+		new Vector3 (5.46f, -5f, 15.8f),
 		new Vector3 (24.63f, -5f, 15.8f),
 		new Vector3 (5.46f, -5f, 7.17f),
 		new Vector3 (24.32f, -5f, 7.17f)
@@ -110,9 +111,7 @@ public class GameManager : MonoBehaviour {
 		timeManager.setCountup ();
 		Debug.Log ("num players: " + numPlayers);
 		spawnPlayers (numPlayers);
-		GameObject initVoid = GameObject.Instantiate (blackholePrefab, new Vector3 (6f, 0.5f, 0f), Quaternion.identity) as GameObject;
-		initVoid.GetComponent<BlackHole>().starCounter = initialVoidStarCount;
-		initVoid.GetComponent<BlackHole> ().scaleToStarCount ();
+		GameObject initVoid = GameObject.Instantiate (voidIndicatorPrefab, new Vector3 (9.9f, 0.5f, 7.3f), Quaternion.identity) as GameObject;
 	}
 
 
