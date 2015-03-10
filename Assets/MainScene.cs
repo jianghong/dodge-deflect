@@ -10,6 +10,7 @@ public class MainScene : MonoBehaviour {
 	public GameObject respawnIndicator;
 	public GameObject voidIndicatorPrefab;
 	TimeManager timeManager;
+	public int fadeOutTime = 1;
 	int[] playersBitmap = {0, 0, 0, 0};
 	int[] playersDeflectScore = {0, 0, 0, 0};
 	int[] playersHitScore = {0, 0, 0, 0};
@@ -132,22 +133,22 @@ public class MainScene : MonoBehaviour {
 	void restartGame () {
 		if (gameIsOver && (XCI.GetButtonUp(XboxButton.Start, 1))) {
 			Destroy(gm);
-			Application.LoadLevel ("characterLoadOut");
+			AutoFade.LoadLevel("characterLoadOut", fadeOutTime, 1, Color.black);
 		}
 		
 		if (gameIsOver && (XCI.GetButtonUp(XboxButton.Start, 2))) {
 			Destroy(gm);
-			Application.LoadLevel ("characterLoadOut");
+			AutoFade.LoadLevel("characterLoadOut", fadeOutTime, 1, Color.black);
 		}
 		
 		if (gameIsOver && (XCI.GetButtonUp(XboxButton.Start, 3))) {
 			Destroy(gm);
-			Application.LoadLevel ("characterLoadOut");
+			AutoFade.LoadLevel("characterLoadOut", fadeOutTime, 1, Color.black);
 		}
 		
 		if (gameIsOver && (XCI.GetButtonUp(XboxButton.Start, 4))) {
 			Destroy(gm);
-			Application.LoadLevel ("characterLoadOut");
+			AutoFade.LoadLevel("characterLoadOut", fadeOutTime, 1, Color.black);
 		}
 		if (gameIsOver && (XCI.GetButtonUp(XboxButton.Back, 1))) {
 			numPlayers = gm.numPlayers;

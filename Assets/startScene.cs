@@ -5,6 +5,7 @@ using XboxCtrlrInput;
 public class startScene : MonoBehaviour {
 
 	public string sceneToLoad = "scene4";
+	public int fadeOutTime = 2;
 	// Use this for initialization
 	void Start () {
 	
@@ -13,16 +14,16 @@ public class startScene : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (XCI.GetButtonUp(XboxButton.Start, 1)) {
-			Application.LoadLevel(sceneToLoad);
+			AutoFade.LoadLevel(sceneToLoad, fadeOutTime, 1, Color.black);
 		}
 		if (XCI.GetButtonUp(XboxButton.Start, 2)) {
-			Application.LoadLevel(sceneToLoad);
+			AutoFade.LoadLevel(sceneToLoad, fadeOutTime, 1, Color.black);
 		}	
 		if (XCI.GetButtonUp(XboxButton.Start, 3)) {
-			Application.LoadLevel(sceneToLoad);
+			AutoFade.LoadLevel(sceneToLoad, fadeOutTime, 1, Color.black);
 		}
 		if (XCI.GetButtonUp(XboxButton.Start, 4)) {
-			Application.LoadLevel(sceneToLoad);
+			AutoFade.LoadLevel(sceneToLoad, fadeOutTime, 1, Color.black);
 		}
 	}
 }

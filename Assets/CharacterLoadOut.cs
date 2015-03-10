@@ -35,7 +35,8 @@ public class CharacterLoadOut : MonoBehaviour {
 		getStartInput (3);
 		getStartInput (4);
 		if (tm.currTime < tm.maxTime || playersBitmap.Sum () == 4) {
-			Application.LoadLevel ("scene4");
+			tm.stopTimer();
+			AutoFade.LoadLevel("scene4", 0.7f, 0.7f, Color.black);
 		}
 	}
 
