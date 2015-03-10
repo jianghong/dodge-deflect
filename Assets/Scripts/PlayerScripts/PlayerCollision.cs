@@ -2,8 +2,7 @@
 using System.Collections;
 
 public class PlayerCollision : MonoBehaviour {
-
-	GameManager gameManager;
+	
 	MainScene ms;
 	public float invinciblityThreshold = 0.5f;
 	public float defaultInvin = 0.5f;
@@ -19,15 +18,12 @@ public class PlayerCollision : MonoBehaviour {
 	BallSpawnManager bsm;
 	float timeDied;
 	public AudioClip playHitClip;
-	AudioSource ac;
 	public PlayerLivesText lifeText;
 
 	void Awake() {
-		gameManager = GameObject.FindWithTag ("GameManager").GetComponent<GameManager> ();
 		ms = GameObject.FindWithTag ("MainSceneManager").GetComponent<MainScene> ();
 		playerMovementScript = this.GetComponent<MovePlayer> ();
 		bsm = GameObject.FindWithTag ("BallSpawnManager").GetComponent<BallSpawnManager> ();
-		ac = GetComponent<AudioSource> ();
 	}
 	// Use this for initialization
 	void Start () {

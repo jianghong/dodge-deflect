@@ -9,7 +9,7 @@ public class RespawnIndicator : MonoBehaviour {
 	GameObject p;
 	public Vector3 lerpTarget;
 	float timeSpawned;
-	public bool initialSpawn;
+	public bool initialSpawn = false;
 
 	// Use this for initialization
 	void Start () {
@@ -33,7 +33,7 @@ public class RespawnIndicator : MonoBehaviour {
 			p.transform.position = Vector3.Lerp(p.transform.position, lerpTarget, 3f * Time.deltaTime * 1f);
 		}
 
-		if (!initialSpawn && (Time.time - timeSpawned) > 1.5f) {
+		if (!initialSpawn && (Time.time - timeSpawned) > 1f) {
 			p.GetComponent<CharacterController>().enabled = true;
 		}
 

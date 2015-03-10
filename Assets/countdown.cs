@@ -4,7 +4,6 @@ using System.Collections;
 
 public class countdown : MonoBehaviour {
 	MainScene ms;
-	TimeManager tm;
 	Text t;
 	public int startTime = 3;
 	public int currTime = 3;
@@ -12,7 +11,6 @@ public class countdown : MonoBehaviour {
 	bool oneTime = false;
 	// Use this for initialization
 	void Awake() {
-		tm = GameObject.FindWithTag("TimeManager").GetComponent<TimeManager>();
 		t = GetComponent<Text> ();
 		ms = GameObject.FindWithTag ("MainSceneManager").GetComponent<MainScene> ();
 		Debug.Log ("countdown");
