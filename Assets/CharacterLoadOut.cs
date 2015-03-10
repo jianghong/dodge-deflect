@@ -45,7 +45,7 @@ public class CharacterLoadOut : MonoBehaviour {
 			tm.startTimer();
 			playersBitmap[pNum-1] = 1;
 			players_panel[pNum-1].changePanelSprite(characterSprites[pNum-1]);
-			players_panel[pNum-1].changeText("Player " + pNum + " joined");
+			players_panel[pNum-1].changeText("");
 			gm.addPlayer(pNum);
 		}
 	}
