@@ -17,6 +17,7 @@ public class PlayerCollision : MonoBehaviour {
 	MovePlayer playerMovementScript;
 	BallSpawnManager bsm;
 	float timeDied;
+	Animator animator;
 	public AudioClip playHitClip;
 	public PlayerLivesText lifeText;
 
@@ -27,6 +28,7 @@ public class PlayerCollision : MonoBehaviour {
 	}
 	// Use this for initialization
 	void Start () {
+		animator = GetComponent<Animator>();
 	}
 
 
@@ -91,6 +93,7 @@ public class PlayerCollision : MonoBehaviour {
 					ms.incrementScore(collidedStar.shotByPNum, collidedStar.getDeflectedStar());
 				}
 				hitCount += 1f;
+				animator.SetTrigger("isHit");
 				AudioSource.PlayClipAtPoint(playHitClip, this.transform.position);
 				immuneStartTime = Time.time;
 				// TODO: replace temp fade for health indicator
