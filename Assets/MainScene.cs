@@ -120,6 +120,14 @@ public class MainScene : MonoBehaviour {
 		rs.spawnCount = spawnCount;
 	}
 
+	public void incrementScore(int pNum, bool deflectScore) {
+		if (deflectScore) {
+			playersDeflectScore[pNum-1] += 1;		
+		}
+		Debug.Log (pNum);
+		playersHitScore[pNum-1] += 1;
+	}
+
 
 	void restartGame () {
 		if (gameIsOver && (XCI.GetButtonUp(XboxButton.Start, 1))) {

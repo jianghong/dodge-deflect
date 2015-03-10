@@ -92,7 +92,7 @@ public class PlayerCollision : MonoBehaviour {
 						Debug.Log ("hit by deflected");
 					}
 
-					gameManager.incrementScore(collidedStar.shotByPNum, collidedStar.getDeflectedStar());
+					ms.incrementScore(collidedStar.shotByPNum, collidedStar.getDeflectedStar());
 				}
 				hitCount += 1f;
 				AudioSource.PlayClipAtPoint(playHitClip, this.transform.position);
