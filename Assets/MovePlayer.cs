@@ -142,7 +142,7 @@ public class MovePlayer : MonoBehaviour
 		}
 
 		Vector3 moveDirection = new Vector3(h, 0.0f, v);
-		this.transform.position = new Vector3 (transform.position.x, -5f, transform.position.z);
+		this.transform.position = new Vector3 (transform.position.x, 0f, transform.position.z);
 		moveDirection *= speed;
 		controller.Move(moveDirection * Time.deltaTime);
 	}
@@ -160,6 +160,9 @@ public class MovePlayer : MonoBehaviour
 	void resetBlocker() {
 		TTLtype = deflectPressed ? deflectTTL : blockerTTL;
 		bool enoughTimePassed = Time.time > BlockTime + TTLtype;
+		if (enoughTimePassed && !isHoldingProjectile) {
+			animator.SetBool ("isHolding", false);
+		}
 		if (enoughTimePassed || isHoldingProjectile) {
 			blockerScript.deactivate();
 			deflectPressed = false;
@@ -213,9 +216,9 @@ public class MovePlayer : MonoBehaviour
 		bool release = XCI.GetAxis (XboxAxis.RightTrigger, playerNumber) == 0;
 		if (fire && !isHoldingProjectile) {
 			if (BlockTime == 0f) {
+				animator.SetBool ("isHolding", true);
 				BlockTime = Time.time;
 				blockerScript.activate();
-				Debug.Log ("button pressed");
 				Block.transform.localScale = new Vector3 (holdBlockSize, holdBlockSize, holdBlockSize);
 			}
 		}
