@@ -188,7 +188,6 @@ public class MovePlayer : MonoBehaviour
 
 	void Deflect() {
 		deflectFire = (XCI.GetAxis (XboxAxis.LeftTrigger, playerNumber) > 0 && XCI.GetAxis (XboxAxis.LeftTrigger, playerNumber) != 0.5f);
-		Debug.Log ("deflect: " + XCI.GetAxis (XboxAxis.LeftTrigger, playerNumber));
 		if (deflectFire && !isHoldingProjectile) {
 			if (BlockTime == 0f) {
 				BlockTime = Time.time;
@@ -210,7 +209,6 @@ public class MovePlayer : MonoBehaviour
 	}
 
 	void Hold() {
-		Debug.Log ("hold: " + XCI.GetAxis (XboxAxis.RightTrigger, playerNumber));
 		bool fire = (XCI.GetAxis (XboxAxis.RightTrigger, playerNumber) > 0 && XCI.GetAxis (XboxAxis.RightTrigger, playerNumber) != 0.5f);
 		bool release = XCI.GetAxis (XboxAxis.RightTrigger, playerNumber) == 0;
 		if (fire && !isHoldingProjectile) {

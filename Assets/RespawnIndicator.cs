@@ -18,7 +18,7 @@ public class RespawnIndicator : MonoBehaviour {
 		p.GetComponent<MovePlayer>().playerNumber = pNum;
 		p.GetComponent<PlayerCollision> ().spawnCount = spawnCount;
 		p.GetComponent<MovePlayer>().enabled = false;
-		p.GetComponent<CharacterController> ().enabled = false;
+		p.GetComponent<PlayerCollision> ().startSpawnImmune();
 		lerpTarget = new Vector3(this.transform.position.x, -5f, this.transform.position.z);
 		setPlayerLifeText (p);
 	}
@@ -26,10 +26,12 @@ public class RespawnIndicator : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		// lerp to target
-		p.transform.position = Vector3.Lerp(p.transform.position, lerpTarget, 3f * Time.deltaTime * 1f);
-		if ((Time.time - timeSpawned) > 2f) {
+		if ((Time.time - timeSpawned) < 0.5f) {
+			p.transform.position = Vector3.Lerp(p.transform.position, lerpTarget, 3f * Time.deltaTime * 1f);
+		}
+
+		if ((Time.time - timeSpawned) > 1.5f) {
 			p.GetComponent<MovePlayer>().enabled = true;
-			p.GetComponent<CharacterController> ().enabled = true;
 			Destroy(this.gameObject);
 		}
 	}

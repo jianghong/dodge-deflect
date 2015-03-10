@@ -19,7 +19,6 @@ public class PlayerLivesText : MonoBehaviour {
 	}
 	
 	public void setLivesText(int livesLeft) {
-		Debug.Log ("setting text");
 		t.text = "P" + pNum + " lives: " + livesLeft;
 	}
 

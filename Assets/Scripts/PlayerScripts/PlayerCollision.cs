@@ -5,7 +5,9 @@ public class PlayerCollision : MonoBehaviour {
 
 	GameManager gameManager;
 
-	public float invinciblityThreshold = 1f;
+	public float invinciblityThreshold = 0.5f;
+	public float defaultInvin = 0.5f;
+	public float spawnInvin = 3f;
 	public int hitThreshold = 3;
 	public GameObject ballPrefab;
 	public int maxSpawnCount = 3;
@@ -28,15 +30,17 @@ public class PlayerCollision : MonoBehaviour {
 	}
 	// Use this for initialization
 	void Start () {
-
 	}
+
 
 	// Update is called once per frame
 	void Update () {
 		lifeText.setLivesText (maxSpawnCount - spawnCount);
 		float timeDiff = Time.time - immuneStartTime;
+		Debug.Log (timeDiff);
 		if(timeDiff >= invinciblityThreshold) {
 			isImmune = false;
+			invinciblityThreshold = defaultInvin;
 		}
 	}
 
@@ -60,8 +64,14 @@ public class PlayerCollision : MonoBehaviour {
 		Destroy (this.gameObject);
 	}
 
+	public void startSpawnImmune() {
+		invinciblityThreshold = spawnInvin;
+		immuneStartTime = Time.time;
+		isImmune = true;
+	}
+
 	void OnTriggerEnter(Collider collider) {
-		if(collider.gameObject.tag == "BlackHole")
+		if(collider.gameObject.tag == "BlackHole" && !isImmune)
 		{
 			death ();
 		}
