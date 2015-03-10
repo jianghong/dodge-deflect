@@ -6,6 +6,7 @@ using XboxCtrlrInput;
 public class CharacterLoadOut : MonoBehaviour {
 
 	public Sprite[] characterSprites;
+	GameManager gm;
 	int maxPlayers = 4;
 	float[] players_axisY = {0f, 0f, 0f, 0f};
 	int[] players_index = {0, 0, 0, 0};
@@ -13,8 +14,11 @@ public class CharacterLoadOut : MonoBehaviour {
 	bool[] canSwitchCharacterImage = {true, true, true, true};
 	CharacterImage[] players_panel = new CharacterImage[4];
 	TimeManager tm;
+
+
 	// Use this for initialization
 	void Start () {
+		gm = GameObject.FindWithTag ("GameManager").GetComponent<GameManager> ();
 		for (int i=0; i < maxPlayers; i++) {
 			players_panel[i] = getCharacterPanel (i+1).GetComponent<CharacterImage>();
 		}
@@ -40,6 +44,7 @@ public class CharacterLoadOut : MonoBehaviour {
 			playersBitmap[pNum-1] = 1;
 			players_panel[pNum-1].changePanelSprite(characterSprites[pNum-1]);
 			players_panel[pNum-1].changeText("Player " + pNum + " joined");
+			gm.addPlayer(pNum);
 		}
 	}
 	void getDirectionInput(int pNum) {

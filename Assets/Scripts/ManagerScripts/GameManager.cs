@@ -12,8 +12,8 @@ public class GameManager : MonoBehaviour {
 	public int initialVoidStarCount = 2;
 	public int minPlayers;
 	TimeManager timeManager;
-	int numPlayers;
-	int[] playersBitmap = {0, 0, 0, 0};
+	public int numPlayers;
+	public int[] playersBitmap = {0, 0, 0, 0};
 	int[] playersDeflectScore = {0, 0, 0, 0};
 	int[] playersHitScore = {0, 0, 0, 0};
 	Vector3[] playerPositions = {new Vector3(-11f, -5f, 40f), new Vector3(39f, -5f, 40f), new Vector3(-11f, -5f, -26f), new Vector3(39f, -5f, -26f)};
@@ -32,75 +32,57 @@ public class GameManager : MonoBehaviour {
 
 
 	void Awake() {
-		timeManager = GameObject.FindWithTag ("TimeManager").GetComponent<TimeManager> ();
-		ws = GameObject.FindGameObjectWithTag ("WinnerText").GetComponent<WinnerScript> ();
-		scoreBoardScript = GameObject.FindWithTag ("ScoreBoard").GetComponent<ScoreBoard> ();
-		numPlayers = GameObject.FindGameObjectsWithTag ("Player").Length;
-		for (int i = 0; i < numPlayers; i++) {
-			playersBitmap[i] = 1;
-		}
+		DontDestroyOnLoad (this);
+//		timeManager = GameObject.FindWithTag ("TimeManager").GetComponent<TimeManager> ();
+//		ws = GameObject.FindGameObjectWithTag ("WinnerText").GetComponent<WinnerScript> ();
+//		scoreBoardScript = GameObject.FindWithTag ("ScoreBoard").GetComponent<ScoreBoard> ();
+//		numPlayers = GameObject.FindGameObjectsWithTag ("Player").Length;
+//		for (int i = 0; i < numPlayers; i++) {
+//			playersBitmap[i] = 1;
+//		}
 	}
 
 	// Use this for initialization
 	void Start () {
-		timeManager.setCountdown ();
-		timeManager.stopTimer ();
+//		timeManager.setCountdown ();
+//		timeManager.stopTimer ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		// manages beginning of game
-		if (numPlayers >= minPlayers) {
-			timeManager.startTimer ();		
-		}
-		if (joiningGame) {
-			joinGamePhase ();
-		}
-		if (timeManager.currTime <= 0f) {
-			timeManager.stopTimer();
-			joiningGame = false;
-			beginGame();
-		}
-
-		if ((Time.time - playerDeathTime) > 1f) {
-			Time.timeScale = 1f;		
-		}
-
-		// check game over
-		if (minPlayers <= 1) {
-			if (numPlayers < minPlayers && beginningGame) {
-				gameOver ();
-			}
-		} else {
-			if (numPlayers <= 1 && beginningGame) {
-				ws.setWinnerText (playerLeft());
-				gameOver();		
-			}
-		}
-		restartGame ();
+//		if (numPlayers >= minPlayers) {
+//			timeManager.startTimer ();		
+//		}
+//		if (joiningGame) {
+//			joinGamePhase ();
+//		}
+//		if (timeManager.currTime <= 0f) {
+//			timeManager.stopTimer();
+//			joiningGame = false;
+//			beginGame();
+//		}
+//
+//		if ((Time.time - playerDeathTime) > 1f) {
+//			Time.timeScale = 1f;		
+//		}
+//
+//		// check game over
+//		if (minPlayers <= 1) {
+//			if (numPlayers < minPlayers && beginningGame) {
+//				gameOver ();
+//			}
+//		} else {
+//			if (numPlayers <= 1 && beginningGame) {
+//				ws.setWinnerText (playerLeft());
+//				gameOver();		
+//			}
+//		}
+//		restartGame ();
 	}
-
-	void joinGamePhase() {
-		if (XCI.GetButtonUp(XboxButton.Start, 1) && (playersBitmap[0] == 0)) {
-			numPlayers += 1;
-			playersBitmap[0] = 1;
-			Debug.Log("p1 joined");
-		}
-		if (XCI.GetButtonUp(XboxButton.Start, 2) && (playersBitmap[1] == 0)) {
-			numPlayers += 1;
-			playersBitmap[1] = 1;
-			Debug.Log("p2 joined");
-		}
-		if (XCI.GetButtonUp(XboxButton.Start, 3) && (playersBitmap[2] == 0)) {
-			numPlayers += 1;
-			playersBitmap[2] = 1;
-			Debug.Log("p3 joined");
-		}
-		if (XCI.GetButtonUp(XboxButton.Start, 4) && (playersBitmap[3] == 0)) {
-			numPlayers += 1;
-			playersBitmap[3] = 1;
-			Debug.Log("p4 joined");
-		}
+	
+	public void addPlayer(int pNum) {
+		playersBitmap[pNum-1] = 1;
 	}
 
 	void beginGame() {
@@ -124,20 +106,13 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
+
 	public void spawnPlayer(int pNum, int spawnCount) {
 		GameObject respawn = GameObject.Instantiate(respawnIndicator, respawnposition[pNum-1], Quaternion.identity) as GameObject;
 		RespawnIndicator rs = respawn.GetComponent<RespawnIndicator> ();
 		rs.pNum = pNum;
 		rs.spawnCount = spawnCount;
 	}
-
-	public void playerDied(int playerNum, float timeDied) {
-		numPlayers -= 1;
-		playersBitmap [playerNum - 1] = 0;
-		Debug.Log ("num players: " + numPlayers);
-		playerDeathTime = timeDied;
-	}
-
 	int playerLeft() {
 		GameObject[] pNumLeft = GameObject.FindGameObjectsWithTag ("Player");
 		if (pNumLeft.Length > 0) {

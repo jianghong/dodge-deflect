@@ -17,7 +17,7 @@ public class RespawnIndicator : MonoBehaviour {
 		p = GameObject.Instantiate(playerPrefab, spawnPos, Quaternion.identity) as GameObject;
 		p.GetComponent<MovePlayer>().playerNumber = pNum;
 		p.GetComponent<PlayerCollision> ().spawnCount = spawnCount;
-		p.GetComponent<MovePlayer>().enabled = false;
+		p.GetComponent<CharacterController>().enabled = false;
 		p.GetComponent<PlayerCollision> ().startSpawnImmune();
 		lerpTarget = new Vector3(this.transform.position.x, -5f, this.transform.position.z);
 		setPlayerLifeText (p);
@@ -31,7 +31,7 @@ public class RespawnIndicator : MonoBehaviour {
 		}
 
 		if ((Time.time - timeSpawned) > 1.5f) {
-			p.GetComponent<MovePlayer>().enabled = true;
+			p.GetComponent<CharacterController>().enabled = true;
 		}
 
 		if ((Time.time - timeSpawned) > p.GetComponent<PlayerCollision>().spawnInvin) {

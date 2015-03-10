@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerCollision : MonoBehaviour {
 
 	GameManager gameManager;
-
+	MainScene ms;
 	public float invinciblityThreshold = 0.5f;
 	public float defaultInvin = 0.5f;
 	public float spawnInvin = 3f;
@@ -24,6 +24,7 @@ public class PlayerCollision : MonoBehaviour {
 
 	void Awake() {
 		gameManager = GameObject.FindWithTag ("GameManager").GetComponent<GameManager> ();
+		ms = GameObject.FindWithTag ("MainSceneManager").GetComponent<MainScene> ();
 		playerMovementScript = this.GetComponent<MovePlayer> ();
 		bsm = GameObject.FindWithTag ("BallSpawnManager").GetComponent<BallSpawnManager> ();
 		ac = GetComponent<AudioSource> ();
@@ -37,7 +38,6 @@ public class PlayerCollision : MonoBehaviour {
 	void Update () {
 		lifeText.setLivesText (maxSpawnCount - spawnCount);
 		float timeDiff = Time.time - immuneStartTime;
-		Debug.Log (timeDiff);
 		if(timeDiff >= invinciblityThreshold) {
 			isImmune = false;
 			invinciblityThreshold = defaultInvin;
@@ -56,9 +56,9 @@ public class PlayerCollision : MonoBehaviour {
 		lifeText.setLivesText (maxSpawnCount - spawnCount);
 		Debug.Log ("death: " + spawnCount);
 		if (spawnCount < maxSpawnCount) {
-			gameManager.spawnPlayer (pNum, spawnCount);
+			ms.spawnPlayer (pNum, spawnCount);
 		} else {
-			gameManager.playerDied (pNum, timeDied);
+			ms.playerDied (pNum, timeDied);
 		}
 
 		Destroy (this.gameObject);
