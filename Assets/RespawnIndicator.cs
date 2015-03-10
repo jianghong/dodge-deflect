@@ -32,6 +32,9 @@ public class RespawnIndicator : MonoBehaviour {
 
 		if ((Time.time - timeSpawned) > 1.5f) {
 			p.GetComponent<MovePlayer>().enabled = true;
+		}
+
+		if ((Time.time - timeSpawned) > p.GetComponent<PlayerCollision>().spawnInvin) {
 			Destroy(this.gameObject);
 		}
 	}
