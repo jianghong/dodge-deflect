@@ -13,7 +13,8 @@ public class CharacterLoadOut : MonoBehaviour {
 	int[] playersBitmap = {0, 0, 0, 0};
 	bool[] canSwitchCharacterImage = {true, true, true, true};
 	CharacterImage[] players_panel = new CharacterImage[4];
-	TimeManager tm;
+	JoinPrompt jp;
+	bool canStartGame = false;
 
 
 	// Use this for initialization
@@ -22,9 +23,7 @@ public class CharacterLoadOut : MonoBehaviour {
 		for (int i=0; i < maxPlayers; i++) {
 			players_panel[i] = getCharacterPanel (i+1).GetComponent<CharacterImage>();
 		}
-		tm = GameObject.FindWithTag ("TimeManager").GetComponent<TimeManager> ();
-		tm.setCountdown ();
-		tm.stopTimer ();
+		jp = GameObject.FindWithTag ("JoinScreenPrompt").GetComponent<JoinPrompt> ();
 	}
 	
 	// Update is called once per frame
@@ -34,15 +33,24 @@ public class CharacterLoadOut : MonoBehaviour {
 		getStartInput (2);
 		getStartInput (3);
 		getStartInput (4);
-		if (tm.currTime < tm.maxTime || playersBitmap.Sum () == 4) {
-			tm.stopTimer();
-			AutoFade.LoadLevel("scene4", 0.7f, 0.7f, Color.black);
+		getStartGameInput (1);
+		getStartGameInput (2);
+		getStartGameInput (3);
+		getStartGameInput (4);
+
+		if (playersBitmap.Sum () == gm.minPlayers) {
+			canStartGame = true;
+			jp.allowStart();	
 		}
 	}
 
+	void getStartGameInput(int pNum) {
+		if (XCI.GetButtonUp(XboxButton.A, pNum) && canStartGame) {
+			AutoFade.LoadLevel("scene4", 0.7f, 0.7f, Color.black);
+		}		
+	}
 	void getStartInput(int pNum) {
 		if (XCI.GetButtonUp(XboxButton.Start, pNum)) {
-			tm.startTimer();
 			playersBitmap[pNum-1] = 1;
 			players_panel[pNum-1].changePanelSprite(characterSprites[pNum-1]);
 			players_panel[pNum-1].changeText("");
