@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour {
 
 	public GameObject playerPrefab;
 	public GameObject blackholePrefab;
+	public GameObject respawnIndicator;
 	public int initialVoidStarCount = 2;
 	public int minPlayers;
 	TimeManager timeManager;
@@ -15,6 +16,12 @@ public class GameManager : MonoBehaviour {
 	int[] playersDeflectScore = {0, 0, 0, 0};
 	int[] playersHitScore = {0, 0, 0, 0};
 	Vector3[] playerPositions = {new Vector3(-11f, -5f, 17f), new Vector3(27f, -5f, 17f), new Vector3(25f, -5f, -13f), new Vector3(-9f, 0.5f, -13f)};
+	Vector3[] respawnposition = {
+		new Vector3 (-5.1f, -5f, 15.8f),
+		new Vector3 (24.63f, -5f, 15.8f),
+		new Vector3 (5.46f, -5f, 7.17f),
+		new Vector3 (24.32f, -5f, 7.17f)
+	};
 	bool joiningGame = true;
 	bool beginningGame = false;
 	bool gameIsOver = false;
@@ -108,33 +115,21 @@ public class GameManager : MonoBehaviour {
 		initVoid.GetComponent<BlackHole> ().scaleToStarCount ();
 	}
 
-	void setPlayerLifeText(GameObject p) {
-		GameObject[] livesText = GameObject.FindGameObjectsWithTag("LivesText");
-		int pNum = p.GetComponent<MovePlayer> ().playerNumber;
-		for (int j = 0; j < livesText.Length; j++) {
-			GameObject liveText = livesText[j];
-			if (liveText.GetComponent<PlayerLivesText>().pNum == pNum) {
-				Debug.Log (liveText.GetComponent<PlayerLivesText>().pNum);
-				p.GetComponent<PlayerCollision>().lifeText = liveText.GetComponent<PlayerLivesText>();
-			}
-		}
-	}
-	
+
 	void spawnPlayers(int n) {
 		for (int i = 0; i < playersBitmap.Length; i++) {
 			if (playersBitmap[i] == 1) {
-				GameObject p = GameObject.Instantiate(playerPrefab, playerPositions[i], Quaternion.identity) as GameObject;
-				p.GetComponent<MovePlayer>().playerNumber = i+1;
-				setPlayerLifeText(p);
+				GameObject respawn = GameObject.Instantiate(respawnIndicator, playerPositions[i], Quaternion.identity) as GameObject;
+				respawn.GetComponent<RespawnIndicator>().pNum = i+1;
 			}
 		}
 	}
 
 	public void spawnPlayer(int pNum, int spawnCount) {
-		GameObject p = GameObject.Instantiate(playerPrefab, playerPositions[pNum-1], Quaternion.identity) as GameObject;
-		p.GetComponent<MovePlayer>().playerNumber = pNum;
-		p.GetComponent<PlayerCollision> ().spawnCount = spawnCount;
-		setPlayerLifeText (p);
+		GameObject respawn = GameObject.Instantiate(respawnIndicator, respawnposition[pNum-1], Quaternion.identity) as GameObject;
+		RespawnIndicator rs = respawn.GetComponent<RespawnIndicator> ();
+		rs.pNum = pNum;
+		rs.spawnCount = spawnCount;
 	}
 
 	public void playerDied(int playerNum, float timeDied) {
@@ -150,6 +145,18 @@ public class GameManager : MonoBehaviour {
 			return pNumLeft[0].GetComponent<MovePlayer> ().playerNumber;		
 		}
 		return 0;
+	}
+
+	void setPlayerLifeText(GameObject p) {
+		GameObject[] livesText = GameObject.FindGameObjectsWithTag("LivesText");
+		int pNum = p.GetComponent<MovePlayer> ().playerNumber;
+		for (int j = 0; j < livesText.Length; j++) {
+			GameObject liveText = livesText[j];
+			if (liveText.GetComponent<PlayerLivesText>().pNum == pNum) {
+				Debug.Log (liveText.GetComponent<PlayerLivesText>().pNum);
+				p.GetComponent<PlayerCollision>().lifeText = liveText.GetComponent<PlayerLivesText>();
+			}
+		}
 	}
 
 	void restartGame () {
