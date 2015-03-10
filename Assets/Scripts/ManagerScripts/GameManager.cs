@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour {
 	public GameObject voidIndicatorPrefab;
 	public int initialVoidStarCount = 2;
 	public int minPlayers;
-	TimeManager timeManager;
 	public int numPlayers;
 	public int[] playersBitmap = {0, 0, 0, 0};
 	int[] playersDeflectScore = {0, 0, 0, 0};
@@ -85,18 +84,6 @@ public class GameManager : MonoBehaviour {
 		playersBitmap[pNum-1] = 1;
 	}
 
-	void beginGame() {
-		beginningGame = true;
-		GameObject.FindWithTag ("PressStart").GetComponent<Text>().text = "";
-		timeManager.startTimer ();
-		timeManager.currTime = 0f;
-		timeManager.setCountup ();
-		Debug.Log ("num players: " + numPlayers);
-		spawnPlayers (numPlayers);
-		GameObject initVoid = GameObject.Instantiate (voidIndicatorPrefab, new Vector3 (9.9f, 0.5f, 7.3f), Quaternion.identity) as GameObject;
-	}
-
-
 	void spawnPlayers(int n) {
 		for (int i = 0; i < playersBitmap.Length; i++) {
 			if (playersBitmap[i] == 1) {
@@ -160,7 +147,6 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void gameOver () {
-		timeManager.stopTimer ();
 
 		GameObject[] balls = GameObject.FindGameObjectsWithTag ("Ball");
 		for(int i = 0; i < balls.Length; i++)

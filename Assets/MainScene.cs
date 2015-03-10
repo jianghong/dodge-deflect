@@ -40,6 +40,7 @@ public class MainScene : MonoBehaviour {
 		gm.numPlayers = numPlayers;
 		playersBitmap = gm.playersBitmap;
 		minPlayers = gm.minPlayers;
+		Debug.Log ("main scene");
 	}
 	
 	// Update is called once per frame
@@ -68,8 +69,9 @@ public class MainScene : MonoBehaviour {
 	public void beginGame() {
 		Debug.Log ("n : " + numPlayers);
 		spawnPlayers (numPlayers);
-		GameObject initVoid = GameObject.Instantiate (voidIndicatorPrefab, new Vector3 (9.9f, 0.5f, 7.3f), Quaternion.identity) as GameObject;
+		Instantiate (voidIndicatorPrefab, new Vector3 (9.9f, 0.5f, 7.3f), Quaternion.identity);
 	}
+
 	void spawnPlayers(int n) {
 		for (int i = 0; i < playersBitmap.Length; i++) {
 			if (playersBitmap[i] == 1) {

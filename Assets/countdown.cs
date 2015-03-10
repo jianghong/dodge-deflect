@@ -6,14 +6,19 @@ public class countdown : MonoBehaviour {
 	MainScene ms;
 	TimeManager tm;
 	Text t;
-	public int startTime = 6;
-	public int currTime = 6;
+	public int startTime = 3;
+	public int currTime = 3;
 	bool oneTime = false;
 	// Use this for initialization
-	void Start () {
+	void Awake() {
 		tm = GameObject.FindWithTag("TimeManager").GetComponent<TimeManager>();
 		t = GetComponent<Text> ();
 		ms = GameObject.FindWithTag ("MainSceneManager").GetComponent<MainScene> ();
+		Debug.Log ("countdown");
+	}
+
+	void Start () {
+
 	}
 	
 	// Update is called once per frame
@@ -24,7 +29,7 @@ public class countdown : MonoBehaviour {
 			ms.beginGame();
 			t.text = "";
 		} else {
-			currTime = startTime - Mathf.RoundToInt (Time.time);
+			currTime = startTime - Mathf.RoundToInt (Time.timeSinceLevelLoad);
 			t.text = currTime.ToString ();
 		}
 

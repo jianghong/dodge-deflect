@@ -24,6 +24,7 @@ public class CharacterLoadOut : MonoBehaviour {
 		}
 		tm = GameObject.FindWithTag ("TimeManager").GetComponent<TimeManager> ();
 		tm.setCountdown ();
+		tm.stopTimer ();
 	}
 	
 	// Update is called once per frame
@@ -40,7 +41,7 @@ public class CharacterLoadOut : MonoBehaviour {
 
 	void getStartInput(int pNum) {
 		if (XCI.GetButtonUp(XboxButton.Start, pNum)) {
-			Debug.Log ("p1 pressed start");
+			tm.startTimer();
 			playersBitmap[pNum-1] = 1;
 			players_panel[pNum-1].changePanelSprite(characterSprites[pNum-1]);
 			players_panel[pNum-1].changeText("Player " + pNum + " joined");

@@ -12,15 +12,18 @@ public class TimeManager : MonoBehaviour {
 
 	void Awake() {
 		text = gameObject.GetComponentInChildren <Text> ();
+		text.text = "";
 	}
 	// Use this for initialization
 	void Start () {
-		startTimer ();
+//		startTimer ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		text.text = this.currTime.ToString ("F2");
+		if (currTime != 0f) {
+			text.text = this.currTime.ToString ("F2");
+		}
 		if (!timeStopped && countdown) {
 			this.currTime -= Time.deltaTime;		
 		} else if (!timeStopped && !countdown){
