@@ -28,23 +28,32 @@ public class MainScene : MonoBehaviour {
 	GameManager gm;
 	int numPlayers;
 	int minPlayers;
+	countdown cd;
+	float sceneLoadedTime;
 	// Use this for initialization
 	void Awake() {
 	}
 	void Start () {
+		sceneLoadedTime = Time.timeSinceLevelLoad;
 		gm = GameObject.FindWithTag ("GameManager").GetComponent<GameManager> ();
 		timeManager = GameObject.FindWithTag ("TimeManager").GetComponent<TimeManager> ();
 		ws = GameObject.FindGameObjectWithTag ("WinnerText").GetComponent<WinnerScript> ();
 		scoreBoardScript = GameObject.FindWithTag ("ScoreBoard").GetComponent<ScoreBoard> ();
+		cd = GameObject.FindWithTag ("Countdown").GetComponent<countdown> ();
 		numPlayers = gm.playersBitmap.Sum ();
 		gm.numPlayers = numPlayers;
 		playersBitmap = gm.playersBitmap;
 		minPlayers = gm.minPlayers;
+		spawnPlayers (numPlayers);
 		Debug.Log ("main scene");
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if ((Time.timeSinceLevelLoad - sceneLoadedTime) > 3.5f) {
+			cd.Hide ();
+		}
+
 		if (minPlayers <= 1) {
 			if (numPlayers < minPlayers) {
 				gameOver ();
@@ -68,7 +77,6 @@ public class MainScene : MonoBehaviour {
 	
 	public void beginGame() {
 		Debug.Log ("n : " + numPlayers);
-		spawnPlayers (numPlayers);
 		Instantiate (voidIndicatorPrefab, new Vector3 (9.9f, 0.5f, 7.3f), Quaternion.identity);
 	}
 
@@ -77,6 +85,7 @@ public class MainScene : MonoBehaviour {
 			if (playersBitmap[i] == 1) {
 				GameObject respawn = GameObject.Instantiate(respawnIndicator, playerPositions[i], Quaternion.identity) as GameObject;
 				respawn.GetComponent<RespawnIndicator>().pNum = i+1;
+				respawn.GetComponent<RespawnIndicator>().initialSpawn = true;
 			}
 		}
 	}

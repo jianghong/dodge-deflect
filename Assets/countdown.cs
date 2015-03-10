@@ -8,6 +8,7 @@ public class countdown : MonoBehaviour {
 	Text t;
 	public int startTime = 3;
 	public int currTime = 3;
+	public string startText = "GO!";
 	bool oneTime = false;
 	// Use this for initialization
 	void Awake() {
@@ -25,14 +26,18 @@ public class countdown : MonoBehaviour {
 	void Update () {
 		if (currTime <= 0 && !oneTime) {
 			oneTime = true;
-			t.enabled = false;
+			t.text = startText;
+//			t.enabled = false;
 			ms.beginGame();
-			t.text = "";
-		} else {
+		} else if (!oneTime) {
 			currTime = startTime - Mathf.RoundToInt (Time.timeSinceLevelLoad);
 			t.text = currTime.ToString ();
 		}
 
+	}
+
+	public void Hide() {
+		t.enabled = false;
 	}
 	
 }
