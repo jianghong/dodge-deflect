@@ -26,6 +26,7 @@ public class RespawnIndicator : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		this.transform.position = p.transform.position;
 		if (initialSpawn && (Time.time - timeSpawned) > 3f) {
 			p.GetComponent<CharacterController>().enabled = true;
 		}
@@ -33,7 +34,7 @@ public class RespawnIndicator : MonoBehaviour {
 			p.transform.position = Vector3.Lerp(p.transform.position, lerpTarget, 3f * Time.deltaTime * 1f);
 		}
 
-		if (!initialSpawn && (Time.time - timeSpawned) > 1f) {
+		if (!initialSpawn && (Time.time - timeSpawned) > 0.5f) {
 			p.GetComponent<CharacterController>().enabled = true;
 		}
 
