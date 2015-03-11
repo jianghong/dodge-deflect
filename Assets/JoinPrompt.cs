@@ -16,7 +16,7 @@ public class JoinPrompt : MonoBehaviour {
 	}
 	
 	public void allowStart() {
-		GetComponent<Image>().color = new Color(0, 255f, 0);
+		GetComponent<Image>().color = new Color(0.29f, 0.61f, 0f);
 		t.text = "Press A to start game";
 	}
 }
