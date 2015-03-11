@@ -20,6 +20,7 @@ public class PlayerCollision : MonoBehaviour {
 	Animator animator;
 	public AudioClip playHitClip;
 	public PlayerLivesText lifeText;
+	LionelDeflect ld;
 
 	void Awake() {
 		ms = GameObject.FindWithTag ("MainSceneManager").GetComponent<MainScene> ();
@@ -29,6 +30,7 @@ public class PlayerCollision : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		animator = GetComponent<Animator>();
+		ld = GetComponentInChildren<LionelDeflect> ();
 	}
 
 
@@ -95,6 +97,7 @@ public class PlayerCollision : MonoBehaviour {
 
 					ms.incrementScore(collidedStar.shotByPNum, collidedStar.getDeflectedStar());
 				}
+				ld.triggerIsHit();
 				hitCount += 1f;
 				animator.SetTrigger("isHit");
 				lifeText.decreaseHealthBlock(1);

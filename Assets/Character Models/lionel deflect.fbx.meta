@@ -1,0 +1,184 @@
+fileFormatVersion: 2
+guid: 4b0f397ed9c46465d8f97b5c558ecd7d
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Deflecting
+    100002: fragment_path1
+    100004: fragment_path2
+    100006: fragment_path3
+    100008: fragment_path4
+    100010: fragment_path5
+    100012: group1
+    100014: group2
+    100016: group3
+    100018: group4
+    100020: group5
+    100022: Light_ring
+    100024: //RootNode
+    100026: Refraction
+    100028: Star_fragments1
+    100030: Star_fragments2
+    100032: Star_fragments3
+    100034: Star_fragments4
+    100036: Star_fragments5
+    400000: Deflecting
+    400002: fragment_path1
+    400004: fragment_path2
+    400006: fragment_path3
+    400008: fragment_path4
+    400010: fragment_path5
+    400012: group1
+    400014: group2
+    400016: group3
+    400018: group4
+    400020: group5
+    400022: Light_ring
+    400024: //RootNode
+    400026: Refraction
+    400028: Star_fragments1
+    400030: Star_fragments2
+    400032: Star_fragments3
+    400034: Star_fragments4
+    400036: Star_fragments5
+    2300000: Light_ring
+    2300002: Refraction
+    2300004: Star_fragments1
+    2300006: Star_fragments2
+    2300008: Star_fragments3
+    2300010: Star_fragments4
+    2300012: Star_fragments5
+    3300000: Light_ring
+    3300002: Refraction
+    3300004: Star_fragments1
+    3300006: Star_fragments2
+    3300008: Star_fragments3
+    3300010: Star_fragments4
+    3300012: Star_fragments5
+    4300000: Refraction
+    4300002: Light_ring
+    4300004: Star_fragments1
+    4300006: Star_fragments2
+    4300008: Star_fragments3
+    4300010: Star_fragments4
+    4300012: Star_fragments5
+    7400000: Hit Indicator
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Hit Indicator
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 62
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Deflecting
+        weight: 1
+      - path: Deflecting/Light_ring
+        weight: 1
+      - path: Deflecting/Refraction
+        weight: 1
+      - path: fragment_path1
+        weight: 1
+      - path: fragment_path2
+        weight: 1
+      - path: fragment_path3
+        weight: 1
+      - path: fragment_path4
+        weight: 1
+      - path: fragment_path5
+        weight: 1
+      - path: group1
+        weight: 1
+      - path: group1/Star_fragments1
+        weight: 1
+      - path: group2
+        weight: 1
+      - path: group2/Star_fragments2
+        weight: 1
+      - path: group3
+        weight: 1
+      - path: group3/Star_fragments3
+        weight: 1
+      - path: group4
+        weight: 1
+      - path: group4/Star_fragments4
+        weight: 1
+      - path: group5
+        weight: 1
+      - path: group5/Star_fragments5
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
