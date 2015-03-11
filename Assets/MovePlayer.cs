@@ -48,6 +48,9 @@ public class MovePlayer : MonoBehaviour
 	Animator animator;
 	bool deflectFire;
 
+	public float defaultColliderRadius = 2.21f;
+	public float holdColliderRadius = 3.37f;
+
 	void Awake() {
 		controller = GetComponent<CharacterController>();
 		blockerScript = Block.GetComponent<Blocker> ();
@@ -162,6 +165,7 @@ public class MovePlayer : MonoBehaviour
 		bool enoughTimePassed = Time.time > BlockTime + TTLtype;
 		if (enoughTimePassed && !isHoldingProjectile) {
 			animator.SetBool ("isHolding", false);
+			controller.radius = defaultColliderRadius;
 		}
 		if (enoughTimePassed || isHoldingProjectile) {
 			blockerScript.deactivate();
@@ -217,6 +221,7 @@ public class MovePlayer : MonoBehaviour
 		if (fire && !isHoldingProjectile) {
 			if (BlockTime == 0f) {
 				animator.SetBool ("isHolding", true);
+				controller.radius = holdColliderRadius;
 				BlockTime = Time.time;
 				blockerScript.activate();
 				Block.transform.localScale = new Vector3 (holdBlockSize, holdBlockSize, holdBlockSize);
