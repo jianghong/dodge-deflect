@@ -26,7 +26,7 @@ public class RespawnIndicator : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		this.transform.position = p.transform.position;
+		this.transform.position = new Vector3 (p.transform.position.x, -2f, p.transform.position.z);
 		if (initialSpawn && (Time.time - timeSpawned) > 3f) {
 			p.GetComponent<CharacterController>().enabled = true;
 		}
