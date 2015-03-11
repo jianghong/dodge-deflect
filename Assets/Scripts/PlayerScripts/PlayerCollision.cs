@@ -69,7 +69,11 @@ public class PlayerCollision : MonoBehaviour {
 	void OnTriggerEnter(Collider collider) {
 		if(collider.gameObject.tag == "BlackHole" && !isImmune)
 		{
-			lifeText.decreaseHealthBlock(2);
+			if (hitCount == 1.0f) {
+				lifeText.decreaseHealthBlock(1);
+			} else {
+				lifeText.decreaseHealthBlock(2);
+			}
 			death ();
 		}
 	}
