@@ -21,6 +21,7 @@ public class MainScene : MonoBehaviour {
 		new Vector3 (5.46f, -5f, 7.17f),
 		new Vector3 (24.32f, -5f, 7.17f)
 	};
+	GameObject[] playersHUD;
 	bool gameIsOver = false;
 	float playerDeathTime;
 	ScoreBoard scoreBoardScript;
@@ -36,6 +37,7 @@ public class MainScene : MonoBehaviour {
 	}
 	void Start () {
 		sceneLoadedTime = Time.timeSinceLevelLoad;
+		playersHUD = GameObject.FindGameObjectsWithTag("LivesText");
 		gm = GameObject.FindWithTag ("GameManager").GetComponent<GameManager> ();
 		timeManager = GameObject.FindWithTag ("TimeManager").GetComponent<TimeManager> ();
 		ws = GameObject.FindGameObjectWithTag ("WinnerText").GetComponent<WinnerScript> ();
@@ -87,6 +89,12 @@ public class MainScene : MonoBehaviour {
 				GameObject respawn = GameObject.Instantiate(respawnIndicator, playerPositions[i], Quaternion.identity) as GameObject;
 				respawn.GetComponent<RespawnIndicator>().pNum = i+1;
 				respawn.GetComponent<RespawnIndicator>().initialSpawn = true;
+				for (int j= 0; j < 4; j++) {
+					if (playersHUD[j].GetComponent<PlayerLivesText>().pNum-1 == i) {
+						playersHUD[j].GetComponent<PlayerLivesText>().enableHealthBlocks ();
+					}
+				}
+
 			}
 		}
 	}

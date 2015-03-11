@@ -34,7 +34,6 @@ public class PlayerCollision : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		lifeText.setLivesText (maxSpawnCount - spawnCount);
 		float timeDiff = Time.time - immuneStartTime;
 		if(timeDiff >= invinciblityThreshold) {
 			isImmune = false;
@@ -51,7 +50,6 @@ public class PlayerCollision : MonoBehaviour {
 			starCounter -= 1;
 		}
 		spawnCount += 1;
-		lifeText.setLivesText (maxSpawnCount - spawnCount);
 		Debug.Log ("death: " + spawnCount);
 		if (spawnCount < maxSpawnCount) {
 			ms.spawnPlayer (pNum, spawnCount);
@@ -71,6 +69,7 @@ public class PlayerCollision : MonoBehaviour {
 	void OnTriggerEnter(Collider collider) {
 		if(collider.gameObject.tag == "BlackHole" && !isImmune)
 		{
+			lifeText.decreaseHealthBlock(2);
 			death ();
 		}
 	}
@@ -94,6 +93,7 @@ public class PlayerCollision : MonoBehaviour {
 				}
 				hitCount += 1f;
 				animator.SetTrigger("isHit");
+				lifeText.decreaseHealthBlock(1);
 				AudioSource.PlayClipAtPoint(playHitClip, this.transform.position);
 				immuneStartTime = Time.time;
 				// TODO: replace temp fade for health indicator
