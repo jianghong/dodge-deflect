@@ -6,7 +6,7 @@ public class LionelDeflect : MonoBehaviour {
 	Animator ac;
 	Vector3 defaultScale;
 	int hitFrame;
-	public int defaultFrameCount = 55;
+	public int defaultFrameCount = 35;
 
 
 	// Use this for initialization
