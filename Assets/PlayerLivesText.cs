@@ -7,13 +7,10 @@ public class PlayerLivesText : MonoBehaviour {
 	public int pNum = 0;
 	public Color healthColor;
 	Image[] healthBlocks;
-	HealthSegment[] healthSegments;
 	int currHealth = 5;
-	int currSegment;
  
 	void Awake() {
 		healthBlocks = GetComponentsInChildren<Image> ();
-		healthSegments = GetComponentsInChildren<HealthSegment> ();
 		for (int i = 0; i < healthBlocks.Length; i++) {
 			healthBlocks[i].enabled = false;
 		}
@@ -23,7 +20,6 @@ public class PlayerLivesText : MonoBehaviour {
 	void Start () {
 		Debug.Log ("Pl " + pNum + " started");
 		currHealth = 5;
-		currSegment = 2;
 	}
 	
 	// Update is called once per frame
