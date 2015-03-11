@@ -17,6 +17,7 @@ public class NewBounce : MonoBehaviour {
 	float spawnTime;
 	int spawnedBy;
 	bool deflectedStar = false;
+
 	
 	// Use this for initialization
 	void Start () {
@@ -45,11 +46,15 @@ public class NewBounce : MonoBehaviour {
 	public void setIsHostile () {
 		isHostile = true;
 		this.renderer.material = hostileMat;
+//		transform.Find ("SafeTrail").GetComponent<TrailRenderer> ().enabled = false;
+//		transform.Find ("HostileTrail").GetComponent<TrailRenderer> ().enabled = true;
 	}
 
 	public void unsetIsHostile () {
 		isHostile = false;
 		this.renderer.material = safeMat;
+//		transform.Find ("SafeTrail").GetComponent<TrailRenderer> ().enabled = true;
+//		transform.Find ("HostileTrail").GetComponent<TrailRenderer> ().enabled = false;
 	}
 
 	public void setDeflectedStar(bool v) {
