@@ -100,8 +100,6 @@ public class PlayerCollision : MonoBehaviour {
 				lifeText.decreaseHealthBlock(1);
 				AudioSource.PlayClipAtPoint(playHitClip, this.transform.position);
 				immuneStartTime = Time.time;
-				// TODO: replace temp fade for health indicator
-				gameObject.GetComponentInChildren<SkinnedMeshRenderer>().material.color /= 2;
 				if(hitCount >= hitThreshold) {
 					timeDied = Time.time;
 					death();
