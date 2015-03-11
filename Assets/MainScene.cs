@@ -80,7 +80,7 @@ public class MainScene : MonoBehaviour {
 	
 	public void beginGame() {
 		Debug.Log ("n : " + numPlayers);
-		Instantiate (voidIndicatorPrefab, new Vector3 (9.9f, 0.5f, 7.3f), Quaternion.identity);
+//		Instantiate (voidIndicatorPrefab, new Vector3 (9.9f, 0.5f, 7.3f), Quaternion.identity);
 	}
 
 	void spawnPlayers(int n) {
