@@ -16,7 +16,7 @@ public class HeadbuttBox : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		if (other.gameObject.tag == "Player") {
 			Debug.Log ("headbutting other player");
-			other.gameObject.GetComponent<ImpactReceiver>().AddImpact(transform.forward, 250f);
+			other.gameObject.GetComponent<ImpactReceiver>().AddImpact(transform.forward, 400f);
 		}
 	}
 }
