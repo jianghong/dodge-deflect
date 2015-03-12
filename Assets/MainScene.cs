@@ -14,13 +14,8 @@ public class MainScene : MonoBehaviour {
 	int[] playersBitmap = {0, 0, 0, 0};
 	int[] playersDeflectScore = {0, 0, 0, 0};
 	int[] playersHitScore = {0, 0, 0, 0};
-	Vector3[] playerPositions = {new Vector3(-11f, -5f, 40f), new Vector3(39f, -5f, 40f), new Vector3(-11f, -5f, -26f), new Vector3(39f, -5f, -26f)};
-	Vector3[] respawnposition = {
-		new Vector3 (5.46f, -5f, 15.8f),
-		new Vector3 (24.63f, -5f, 15.8f),
-		new Vector3 (5.46f, -5f, 7.17f),
-		new Vector3 (24.32f, -5f, 7.17f)
-	};
+	Vector3[] playerPositions = new Vector3[4];
+	Vector3[] respawnposition = new Vector3[4];
 	GameObject[] playersHUD;
 	bool gameIsOver = false;
 	float playerDeathTime;
@@ -32,6 +27,7 @@ public class MainScene : MonoBehaviour {
 	int minPlayers;
 	countdown cd;
 	float sceneLoadedTime;
+	GameObject spawnCoords;
 	// Use this for initialization
 	void Awake() {
 	}
@@ -47,8 +43,14 @@ public class MainScene : MonoBehaviour {
 		gm.numPlayers = numPlayers;
 		playersBitmap = gm.playersBitmap;
 		minPlayers = gm.minPlayers;
+		spawnCoords = GameObject.FindWithTag ("SpawnCoords");
+		respawnposition [0] = spawnCoords.transform.Find ("P1Spawn").transform.position;
+		respawnposition [1] = spawnCoords.transform.Find ("P2Spawn").transform.position;
+		respawnposition [2] = spawnCoords.transform.Find ("P3Spawn").transform.position;
+		respawnposition [3] = spawnCoords.transform.Find ("P4Spawn").transform.position;
+		playerPositions = respawnposition;
+
 		spawnPlayers (numPlayers);
-		Debug.Log ("main scene");
 	}
 	
 	// Update is called once per frame

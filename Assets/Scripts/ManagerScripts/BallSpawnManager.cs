@@ -9,13 +9,26 @@ public class BallSpawnManager : MonoBehaviour {
 	float previousTime;
 	public int starCount;
 	public int starLimit = 5;
+	GameObject spawnCoords;
+	GameObject TopLeft;
+	GameObject BottomRight;
+	float leftX, rightX;
+	float topZ, bottomZ;
 
 	void Awake() {
 	}
 
 	// Use this for initialization
 	void Start () {
-//		this.spawnBall ();
+		spawnCoords = GameObject.FindWithTag ("SpawnCoords");
+		leftX = spawnCoords.transform.Find("TopLeft").transform.position.x;
+		rightX = spawnCoords.transform.Find("BottomRight").transform.position.x;
+		topZ = spawnCoords.transform.Find("TopLeft").transform.position.z;
+		bottomZ = spawnCoords.transform.Find("BottomRight").transform.position.z;
+		Debug.Log (leftX);
+		Debug.Log (rightX);
+		Debug.Log (topZ);
+		Debug.Log (bottomZ);
 		previousTime = 0f;
 	}
 	
@@ -23,8 +36,6 @@ public class BallSpawnManager : MonoBehaviour {
 	void Update () {
 		currTime = Time.time;
 		if ((currTime - previousTime) > spawnInterval && starCount < starLimit) {
-//			Vector3 randDirection = new Vector3 (0f, Random.Range(0f, 360f), 0f);
-//			this.gameObject.transform.LookAt (randDirection);
 			spawnBall ();
 			previousTime = currTime;
 		}
@@ -32,7 +43,7 @@ public class BallSpawnManager : MonoBehaviour {
 	
 	void spawnBall() {
 		starCount += 1;
-		Instantiate(ballPrefab, new Vector3(Random.Range (-16f, 38f), 0.5f, Random.Range (-22f, 41f)), Random.rotation);
+		Instantiate(ballPrefab, new Vector3(Random.Range (leftX, rightX), 0.5f, Random.Range (topZ, bottomZ)), Random.rotation);
 	}
 
 	public void destroyBall(GameObject ball) {
