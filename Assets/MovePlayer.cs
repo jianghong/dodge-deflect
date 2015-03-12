@@ -55,6 +55,7 @@ public class MovePlayer : MonoBehaviour
 
 	public float defaultColliderRadius = 2.21f;
 	public float holdColliderRadius = 3.37f;
+	Collider headbuttBox;
 
 	void Awake() {
 		controller = GetComponent<CharacterController>();
@@ -65,6 +66,7 @@ public class MovePlayer : MonoBehaviour
 	void Start ()
 	{
 		playerNumber = Mathf.Clamp(playerNumber, 1, 4);
+		headbuttBox = this.transform.Find ("HeadbuttBox").collider;
 
 		switch(playerNumber)
 		{
@@ -181,6 +183,7 @@ public class MovePlayer : MonoBehaviour
 		}
 		if (enoughTimePassed || isHoldingProjectile) {
 			blockerScript.deactivate();
+			headbuttBox.enabled = false;
 			deflectPressed = false;
 		}
 		if (Time.time > BlockTime + blockCD) {
@@ -207,6 +210,12 @@ public class MovePlayer : MonoBehaviour
 
 	void Deflect() {
 		deflectFire = (XCI.GetAxis (XboxAxis.LeftTrigger, playerNumber) > 0 && XCI.GetAxis (XboxAxis.LeftTrigger, playerNumber) != 0.5f);
+
+		// headbutt
+		if (deflectFire) {
+			headbuttBox.enabled = true;
+		}
+
 		if (deflectFire && !isHoldingProjectile) {
 			if (BlockTime == 0f) {
 				BlockTime = Time.time;
