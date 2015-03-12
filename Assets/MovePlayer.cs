@@ -25,7 +25,12 @@ public class MovePlayer : MonoBehaviour
 	public Material matGreen;
 	public Material matBlue;
 	public Material matYellow;
-	
+
+	public Material trailYellow;
+	public Material trailGreen;
+	public Material trailBlue;
+	public Material trailPink;
+
 	public GameObject triggerLeftPrefab;
 	public GameObject triggerRightPrefab;
 	public float blockerTTL = 0.5f;
@@ -63,10 +68,17 @@ public class MovePlayer : MonoBehaviour
 
 		switch(playerNumber)
 		{
-		case 1: gameObject.GetComponentInChildren<SkinnedMeshRenderer> ().material = matRed; break;
-		case 2: gameObject.GetComponentInChildren<SkinnedMeshRenderer> ().material = matGreen; break;
-		case 3: gameObject.GetComponentInChildren<SkinnedMeshRenderer> ().material = matBlue; break;
-		case 4: gameObject.GetComponentInChildren<SkinnedMeshRenderer> ().material = matYellow; break;
+			case 1: gameObject.GetComponentInChildren<SkinnedMeshRenderer> ().material = matRed; break;
+			case 2: gameObject.GetComponentInChildren<SkinnedMeshRenderer> ().material = matGreen; break;
+			case 3: gameObject.GetComponentInChildren<SkinnedMeshRenderer> ().material = matBlue; break;
+			case 4: gameObject.GetComponentInChildren<SkinnedMeshRenderer> ().material = matYellow; break;
+		}
+		switch(playerNumber)
+		{
+			case 1: gameObject.GetComponent<TrailRenderer>().material = trailYellow; break;
+			case 2: gameObject.GetComponent<TrailRenderer>().material = trailGreen; break;
+			case 3: gameObject.GetComponent<TrailRenderer>().material = trailBlue; break;
+			case 4: gameObject.GetComponent<TrailRenderer>().material = trailPink; break;
 		}
 		
 		if(!didQueryNumOfCtrlrs)

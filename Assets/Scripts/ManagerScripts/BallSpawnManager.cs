@@ -25,10 +25,6 @@ public class BallSpawnManager : MonoBehaviour {
 		rightX = spawnCoords.transform.Find("BottomRight").transform.position.x;
 		topZ = spawnCoords.transform.Find("TopLeft").transform.position.z;
 		bottomZ = spawnCoords.transform.Find("BottomRight").transform.position.z;
-		Debug.Log (leftX);
-		Debug.Log (rightX);
-		Debug.Log (topZ);
-		Debug.Log (bottomZ);
 		previousTime = 0f;
 	}
 	
