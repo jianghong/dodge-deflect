@@ -4,13 +4,14 @@ using System.Linq;
 using XboxCtrlrInput;	
 
 public class CharacterLoadOut : MonoBehaviour {
-
+	enum ControlType {Auto, Manual}
 	public Sprite[] characterSprites;
 	GameManager gm;
 	int maxPlayers = 4;
 	float[] players_axisY = {0f, 0f, 0f, 0f};
 	int[] players_index = {0, 0, 0, 0};
 	int[] playersBitmap = {0, 0, 0, 0};
+	int[] playersReadyState = {0, 0, 0, 0};
 	bool[] canSwitchCharacterImage = {true, true, true, true};
 	CharacterImage[] players_panel = new CharacterImage[4];
 	JoinPrompt jp;
@@ -33,12 +34,13 @@ public class CharacterLoadOut : MonoBehaviour {
 		getStartInput (2);
 		getStartInput (3);
 		getStartInput (4);
+		getPickControlInput (1);
 		getStartGameInput (1);
 		getStartGameInput (2);
 		getStartGameInput (3);
 		getStartGameInput (4);
 
-		if (playersBitmap.Sum () == gm.minPlayers) {
+		if (playersReadyState.Sum () == gm.minPlayers) {
 			canStartGame = true;
 			jp.allowStart();	
 		}
@@ -52,9 +54,23 @@ public class CharacterLoadOut : MonoBehaviour {
 	void getStartInput(int pNum) {
 		if (XCI.GetButtonUp(XboxButton.Start, pNum)) {
 			playersBitmap[pNum-1] = 1;
-			players_panel[pNum-1].changePanelSprite(characterSprites[pNum-1]);
-			players_panel[pNum-1].changeText("");
+			players_panel[pNum-1].startPressed(characterSprites[pNum-1], "");
 			gm.addPlayer(pNum);
+		}
+	}
+	void getPickControlInput(int pNum) {
+		bool playerReady = playersReadyState [pNum - 1] == 1;
+		if (!playerReady) {
+			if (XCI.GetButtonUp (XboxButton.B, pNum)) {
+				gm.setPlayerControl (pNum, GameManager.ControlType.Manual);
+				players_panel [pNum - 1].controlsPicked ();
+				playersReadyState[pNum-1] = 1;
+			} else if (XCI.GetButtonUp (XboxButton.X, pNum)) {
+				gm.setPlayerControl(pNum, GameManager.ControlType.Auto);
+				players_panel[pNum-1].controlsPicked();
+				playersReadyState[pNum-1] = 1;
+			}
+			playerReady = playersReadyState [pNum - 1] == 1;
 		}
 	}
 	void getDirectionInput(int pNum) {

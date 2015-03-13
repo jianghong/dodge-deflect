@@ -86,11 +86,14 @@ public class MainScene : MonoBehaviour {
 	}
 
 	void spawnPlayers(int n) {
+		RespawnIndicator rs;
 		for (int i = 0; i < playersBitmap.Length; i++) {
 			if (playersBitmap[i] == 1) {
 				GameObject respawn = GameObject.Instantiate(respawnIndicator, playerPositions[i], Quaternion.identity) as GameObject;
-				respawn.GetComponent<RespawnIndicator>().pNum = i+1;
-				respawn.GetComponent<RespawnIndicator>().initialSpawn = true;
+				rs = respawn.GetComponent<RespawnIndicator>();
+				rs.pNum = i+1;
+				rs.initialSpawn = true;
+				rs.controlType = gm.playerControls[i];
 				for (int j= 0; j < 4; j++) {
 					if (playersHUD[j].GetComponent<PlayerLivesText>().pNum-1 == i) {
 						playersHUD[j].GetComponent<PlayerLivesText>().enableHealthBlocks ();
@@ -129,6 +132,7 @@ public class MainScene : MonoBehaviour {
 		RespawnIndicator rs = respawn.GetComponent<RespawnIndicator> ();
 		rs.pNum = pNum;
 		rs.spawnCount = spawnCount;
+		rs.controlType = gm.playerControls [pNum - 1];
 	}
 
 	public void incrementScore(int pNum, bool deflectScore) {

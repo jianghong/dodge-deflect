@@ -6,20 +6,26 @@ public class RespawnIndicator : MonoBehaviour {
 	public GameObject playerPrefab;
 	public int pNum;
 	public int spawnCount;
+	public GameManager.ControlType controlType;
 	GameObject p;
 	public Vector3 lerpTarget;
 	float timeSpawned;
 	public bool initialSpawn = false;
+	MovePlayer mp;
+	PlayerCollision pc;
 
 	// Use this for initialization
 	void Start () {
 		timeSpawned = Time.time;
 		Vector3 spawnPos = new Vector3 (this.transform.position.x, this.transform.position.y-10f, this.transform.position.z);
 		p = GameObject.Instantiate(playerPrefab, spawnPos, Quaternion.identity) as GameObject;
-		p.GetComponent<MovePlayer>().playerNumber = pNum;
-		p.GetComponent<PlayerCollision> ().spawnCount = spawnCount;
+		mp = p.GetComponent<MovePlayer> ();
+		pc = p.GetComponent<PlayerCollision> ();
+		mp.playerNumber = pNum;
+		mp.controlType = controlType;
+		pc.spawnCount = spawnCount;
+		pc.startSpawnImmune();
 		p.GetComponent<CharacterController>().enabled = false;
-		p.GetComponent<PlayerCollision> ().startSpawnImmune();
 		lerpTarget = new Vector3(this.transform.position.x, -5f, this.transform.position.z);
 		setPlayerLifeText (p);
 	}

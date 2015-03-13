@@ -56,6 +56,7 @@ public class MovePlayer : MonoBehaviour
 	public float defaultColliderRadius = 2.21f;
 	public float holdColliderRadius = 3.37f;
 	Collider headbuttBox;
+	public GameManager.ControlType controlType;
 
 	void Awake() {
 		controller = GetComponent<CharacterController>();
@@ -118,10 +119,14 @@ public class MovePlayer : MonoBehaviour
 			// Left stick movement
 			Move (axisX, axisY);
 
-			// Right stick movement
-			axisX = XCI.GetAxis (XboxAxis.RightStickX, playerNumber);
-			axisY = XCI.GetAxis (XboxAxis.RightStickY, playerNumber);
-			Rotate (axisX, axisY);
+			if (controlType == GameManager.ControlType.Auto) {
+				AutoRotate(axisX, axisY);
+			} else if (controlType == GameManager.ControlType.Manual) {
+				// Right stick movement
+				axisX = XCI.GetAxis (XboxAxis.RightStickX, playerNumber);
+				axisY = XCI.GetAxis (XboxAxis.RightStickY, playerNumber);
+				ManualRotate(axisX, axisY);
+			}
 
 			Hold ();
 			Deflect();
@@ -150,6 +155,10 @@ public class MovePlayer : MonoBehaviour
 		Gizmos.DrawCube(transform.position, new Vector3(1.2f, 1.2f, 1.2f));
 	}
 
+	void AutoRotate(float h, float v) {
+		transform.LookAt (transform.position + new Vector3 (h, 0.0f, v), Vector3.up);
+	}
+
 	void Move (float h, float v)
 	{
 		if ((h != 0) || (v != 0)) {
@@ -164,7 +173,7 @@ public class MovePlayer : MonoBehaviour
 		controller.Move(moveDirection * Time.deltaTime);
 	}
 
-	void Rotate(float x, float y)
+	void ManualRotate(float x, float y)
 	{	
 		Vector2 stickInput = new Vector2 (x, y);
 		if (stickInput.magnitude < controllerDeadZoneThreshold) {

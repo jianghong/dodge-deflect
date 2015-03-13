@@ -4,10 +4,11 @@ using XboxCtrlrInput;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
-	
+	public enum ControlType {Auto, Manual}
 	public int minPlayers;
 	public int numPlayers;
 	public int[] playersBitmap = {0, 0, 0, 0};
+	public ControlType[] playerControls = {ControlType.Auto, ControlType.Auto, ControlType.Auto, ControlType.Auto};
 
 	void Awake() {
 		DontDestroyOnLoad (this);
@@ -23,5 +24,9 @@ public class GameManager : MonoBehaviour {
 	
 	public void addPlayer(int pNum) {
 		playersBitmap[pNum-1] = 1;
+	}
+
+	public void setPlayerControl(int pNum, ControlType controlType) {
+		playerControls [pNum - 1] = controlType;
 	}
 }
