@@ -16,6 +16,7 @@ public class CharacterLoadOut : MonoBehaviour {
 	CharacterImage[] players_panel = new CharacterImage[4];
 	JoinPrompt jp;
 	bool canStartGame = false;
+	ChangeText minPlayerCount;
 
 
 	// Use this for initialization
@@ -25,6 +26,8 @@ public class CharacterLoadOut : MonoBehaviour {
 			players_panel[i] = getCharacterPanel (i+1).GetComponent<CharacterImage>();
 		}
 		jp = GameObject.FindWithTag ("JoinScreenPrompt").GetComponent<JoinPrompt> ();
+		minPlayerCount = GameObject.FindWithTag ("MinPlayerCount").GetComponent<ChangeText> ();
+		minPlayerCount.setText (gm.minPlayers.ToString());
 	}
 	
 	// Update is called once per frame
@@ -35,14 +38,20 @@ public class CharacterLoadOut : MonoBehaviour {
 		getStartInput (3);
 		getStartInput (4);
 		getPickControlInput (1);
+		getPickControlInput (2);
+		getPickControlInput (3);
+		getPickControlInput (4);
 		getStartGameInput (1);
 		getStartGameInput (2);
 		getStartGameInput (3);
 		getStartGameInput (4);
-
+		getChangeMinPlayerInput (1);
 		if (playersReadyState.Sum () == gm.minPlayers) {
 			canStartGame = true;
-			jp.allowStart();	
+			jp.allowStart ();	
+		} else {
+			canStartGame = false;
+			jp.disallowStart();
 		}
 	}
 
@@ -75,6 +84,16 @@ public class CharacterLoadOut : MonoBehaviour {
 	}
 	void getDirectionInput(int pNum) {
 		players_axisY[pNum-1] = XCI.GetAxis (XboxAxis.LeftStickY, pNum);
+	}
+
+	void getChangeMinPlayerInput(int pNum) {
+		if (XCI.GetButtonDown(XboxButton.LeftBumper, pNum)) {
+			gm.minPlayers = Mathf.Max(1, --gm.minPlayers);
+			minPlayerCount.setText(gm.minPlayers.ToString());
+		} else if (XCI.GetButtonDown(XboxButton.RightBumper, pNum)) {
+			gm.minPlayers = Mathf.Min (4, ++gm.minPlayers);
+			minPlayerCount.setText(gm.minPlayers.ToString());
+		}
 	}
 
 	void changePanel(int pNum) {
