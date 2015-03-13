@@ -46,7 +46,7 @@ public class CharacterLoadOut : MonoBehaviour {
 		getStartGameInput (3);
 		getStartGameInput (4);
 		getChangeMinPlayerInput (1);
-		if (playersReadyState.Sum () == gm.minPlayers) {
+		if (playersReadyState.Sum () >= gm.minPlayers) {
 			canStartGame = true;
 			jp.allowStart ();	
 		} else {
@@ -56,10 +56,13 @@ public class CharacterLoadOut : MonoBehaviour {
 	}
 
 	void getStartGameInput(int pNum) {
-		if (XCI.GetButtonUp(XboxButton.A, pNum) && canStartGame) {
-			AutoFade.LoadLevel("scene4", 0.7f, 0.7f, Color.black);
-		}		
+		if (playersReadyState [pNum - 1] == 1) {
+			if (XCI.GetButtonUp(XboxButton.A, pNum) && canStartGame) {
+				AutoFade.LoadLevel("scene4", 0.7f, 0.7f, Color.black);
+			}		
+		}
 	}
+
 	void getStartInput(int pNum) {
 		if (XCI.GetButtonUp(XboxButton.Start, pNum)) {
 			playersBitmap[pNum-1] = 1;
