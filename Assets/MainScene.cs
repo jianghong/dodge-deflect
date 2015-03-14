@@ -9,6 +9,7 @@ public class MainScene : MonoBehaviour {
 	public GameObject playerPrefab;
 	public GameObject respawnIndicator;
 	public GameObject voidIndicatorPrefab;
+	RoundManager rm;
 	TimeManager timeManager;
 	public int fadeOutTime = 1;
 	int[] playersBitmap = {0, 0, 0, 0};
@@ -41,7 +42,7 @@ public class MainScene : MonoBehaviour {
 		cd = GameObject.FindWithTag ("Countdown").GetComponent<countdown> ();
 		numPlayers = gm.playersBitmap.Sum ();
 		gm.numPlayers = numPlayers;
-		playersBitmap = gm.playersBitmap;
+		playersBitmap =  (int[])gm.playersBitmap.Clone ();
 		minPlayers = gm.minPlayers;
 		spawnCoords = GameObject.FindWithTag ("SpawnCoords");
 		respawnposition [0] = spawnCoords.transform.Find ("P1Spawn").transform.position;
@@ -82,7 +83,6 @@ public class MainScene : MonoBehaviour {
 	
 	public void beginGame() {
 		Debug.Log ("n : " + numPlayers);
-//		Instantiate (voidIndicatorPrefab, new Vector3 (9.9f, 0.5f, 7.3f), Quaternion.identity);
 	}
 
 	void spawnPlayers(int n) {
@@ -105,15 +105,7 @@ public class MainScene : MonoBehaviour {
 	}
 
 	public void gameOver () {
-		timeManager.stopTimer ();
-		
-		GameObject[] balls = GameObject.FindGameObjectsWithTag ("Ball");
-		for(int i = 0; i < balls.Length; i++)
-		{
-			Destroy(balls[i].gameObject);
-		}
 		gameIsOver = true;
-		
 		scoreBoardScript.setScoreBoard (playersDeflectScore[0], playersHitScore[0],
 		                                playersDeflectScore[1], playersHitScore[1],
 		                                playersDeflectScore[2], playersHitScore[2],
@@ -124,7 +116,7 @@ public class MainScene : MonoBehaviour {
 		numPlayers -= 1;
 		playersBitmap [playerNum - 1] = 0;
 		Debug.Log ("num players: " + numPlayers);
-		playerDeathTime = timeDied;
+//		playerDeathTime = timeDied;
 	}
 
 	public void spawnPlayer(int pNum, int spawnCount) {
@@ -146,8 +138,8 @@ public class MainScene : MonoBehaviour {
 
 	void restartGame () {
 		if (gameIsOver && (XCI.GetButtonUp(XboxButton.Start, 1))) {
-			Destroy(gm);
-			AutoFade.LoadLevel("characterLoadOut", fadeOutTime, 1, Color.black);
+			gm.newRound();
+//			AutoFade.LoadLevel("characterLoadOut", fadeOutTime, 1, Color.black);
 		}
 		
 		if (gameIsOver && (XCI.GetButtonUp(XboxButton.Start, 2))) {

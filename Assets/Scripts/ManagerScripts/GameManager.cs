@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour {
 	public int numPlayers;
 	public int[] playersBitmap = {0, 0, 0, 0};
 	public ControlType[] playerControls = {ControlType.Manual, ControlType.Manual, ControlType.Manual, ControlType.Manual};
+	public int roundCount = 3;
 
 	void Awake() {
 		DontDestroyOnLoad (this);
@@ -28,5 +29,12 @@ public class GameManager : MonoBehaviour {
 
 	public void setPlayerControl(int pNum, ControlType controlType) {
 		playerControls [pNum - 1] = controlType;
+	}
+
+	public void newRound() {
+		if (roundCount > 1) {
+			roundCount -= 1;
+			Application.LoadLevel("scene4");
+		} 
 	}
 }
