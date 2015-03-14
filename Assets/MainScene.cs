@@ -94,12 +94,15 @@ public class MainScene : MonoBehaviour {
 				rs.pNum = i+1;
 				rs.initialSpawn = true;
 				rs.controlType = gm.playerControls[i];
+				if (gm.isFinalRound){
+					rs.isFinalRound = true;
+					rs.healthSegments = gm.playersRoundScore[i];
+				}
 				for (int j= 0; j < 4; j++) {
 					if (playersHUD[j].GetComponent<PlayerLivesText>().pNum-1 == i) {
 						playersHUD[j].GetComponent<PlayerLivesText>().enableHealthBlocks ();
 					}
 				}
-
 			}
 		}
 	}
@@ -116,7 +119,6 @@ public class MainScene : MonoBehaviour {
 		numPlayers -= 1;
 		playersBitmap [playerNum - 1] = 0;
 		Debug.Log ("num players: " + numPlayers);
-//		playerDeathTime = timeDied;
 	}
 
 	public void spawnPlayer(int pNum, int spawnCount) {
@@ -138,23 +140,23 @@ public class MainScene : MonoBehaviour {
 
 	void restartGame () {
 		if (gameIsOver && (XCI.GetButtonUp(XboxButton.Start, 1))) {
+			gm.playersRoundScore[playerLeft() - 1] += 1;
 			gm.newRound();
-//			AutoFade.LoadLevel("characterLoadOut", fadeOutTime, 1, Color.black);
 		}
 		
 		if (gameIsOver && (XCI.GetButtonUp(XboxButton.Start, 2))) {
-			Destroy(gm);
-			AutoFade.LoadLevel("characterLoadOut", fadeOutTime, 1, Color.black);
+			gm.playersRoundScore[playerLeft() - 1] += 1;
+			gm.newRound();
 		}
 		
 		if (gameIsOver && (XCI.GetButtonUp(XboxButton.Start, 3))) {
-			Destroy(gm);
-			AutoFade.LoadLevel("characterLoadOut", fadeOutTime, 1, Color.black);
+			gm.playersRoundScore[playerLeft() - 1] += 1;
+			gm.newRound();
 		}
 		
 		if (gameIsOver && (XCI.GetButtonUp(XboxButton.Start, 4))) {
-			Destroy(gm);
-			AutoFade.LoadLevel("characterLoadOut", fadeOutTime, 1, Color.black);
+			gm.playersRoundScore[playerLeft() - 1] += 1;
+			gm.newRound();
 		}
 		if (gameIsOver && (XCI.GetButtonUp(XboxButton.Back, 1))) {
 			numPlayers = gm.numPlayers;

@@ -2,14 +2,17 @@
 using System.Collections;
 using XboxCtrlrInput;
 using UnityEngine.UI;
+using System.Linq;
 
 public class GameManager : MonoBehaviour {
 	public enum ControlType {Auto, Manual}
 	public int minPlayers;
 	public int numPlayers;
 	public int[] playersBitmap = {0, 0, 0, 0};
+	public int[] playersRoundScore = {0, 0, 0, 0};
 	public ControlType[] playerControls = {ControlType.Manual, ControlType.Manual, ControlType.Manual, ControlType.Manual};
 	public int roundCount = 3;
+	public bool isFinalRound = false;
 
 	void Awake() {
 		DontDestroyOnLoad (this);
@@ -31,10 +34,31 @@ public class GameManager : MonoBehaviour {
 		playerControls [pNum - 1] = controlType;
 	}
 
+	public void finalRound() {
+		// init players bitmap for final round
+		for (int i = 0; i < playersRoundScore.Length; i++) {
+			if (playersRoundScore[i] > 0) {
+				playersBitmap[i] = 1;
+			} else {
+				playersBitmap[i] = 0;
+			}
+		}
+		isFinalRound = true;
+		Application.LoadLevel ("scene4");
+
+	}
+	void resetParameters() {
+
+	}
 	public void newRound() {
 		if (roundCount > 1) {
 			roundCount -= 1;
-			Application.LoadLevel("scene4");
-		} 
+			Application.LoadLevel ("scene4");
+		} else if (roundCount == 1 && !isFinalRound) {
+			finalRound ();
+		} else {
+			Application.LoadLevel("characterLoadOut");
+			Destroy (this);			
+		}
 	}
 }

@@ -68,6 +68,11 @@ public class PlayerCollision : MonoBehaviour {
 		isImmune = true;
 	}
 
+	public void setSpawnCount(int n) {
+		spawnCount = maxSpawnCount - n;
+		lifeText.decreaseHealthBlock (6 - (2*n));
+	}
+
 	void OnTriggerEnter(Collider collider) {
 		if(collider.gameObject.tag == "BlackHole" && !isImmune)
 		{

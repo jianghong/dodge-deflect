@@ -13,6 +13,8 @@ public class RespawnIndicator : MonoBehaviour {
 	public bool initialSpawn = false;
 	MovePlayer mp;
 	PlayerCollision pc;
+	public int healthSegments;
+	public bool isFinalRound;
 
 	// Use this for initialization
 	void Start () {
@@ -28,6 +30,9 @@ public class RespawnIndicator : MonoBehaviour {
 		p.GetComponent<CharacterController>().enabled = false;
 		lerpTarget = new Vector3(this.transform.position.x, -5f, this.transform.position.z);
 		setPlayerLifeText (p);
+		if (isFinalRound) {
+			pc.setSpawnCount(healthSegments);
+		}
 	}
 	
 	// Update is called once per frame
@@ -52,6 +57,7 @@ public class RespawnIndicator : MonoBehaviour {
 	public GameObject getPlayer() {
 		return p;
 	}
+
 
 	void setPlayerLifeText(GameObject p) {
 		GameObject[] livesText = GameObject.FindGameObjectsWithTag("LivesText");
