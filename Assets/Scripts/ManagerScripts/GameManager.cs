@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour {
 	public int minPlayers;
 	public int numPlayers;
 	public int[] playersBitmap = {0, 0, 0, 0};
-	public ControlType[] playerControls = {ControlType.Auto, ControlType.Auto, ControlType.Auto, ControlType.Auto};
+	public ControlType[] playerControls = {ControlType.Manual, ControlType.Manual, ControlType.Manual, ControlType.Manual};
 
 	void Awake() {
 		DontDestroyOnLoad (this);
