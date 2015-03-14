@@ -39,7 +39,7 @@ public class BlackHole : MonoBehaviour {
 			while (starCounter > 0) {
 				GameObject createdBall = GameObject.Instantiate(ballPrefab, this.transform.position, Random.rotation) as GameObject;
 				createdBall.GetComponent<NewBounce>().setSpawnedBy(GetInstanceID());
-				createdBall.GetComponent<NewBounce>().setIsHostile();
+//				createdBall.GetComponent<NewBounce>().setIsHostile();
 				createdBall.rigidbody.AddForce(createdBall.transform.forward.normalized*30f, ForceMode.Impulse);
 				starCounter -= 1;
 			}

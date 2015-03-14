@@ -7,12 +7,14 @@ public class NewBounce : MonoBehaviour {
 	public float maxVelocity = 50f;
 	public GameObject Ball;
 	public GameObject voidIndicator;
-	public Material safeMat;
-	public Material hostileMat;
+//	public Material safeMat;
+//	public Material hostileMat;
 	public float TTL = 0.4f;
-	public bool isHostile = false;
+	public bool isHostile = true;
 	public float hostileTime = 3f;
 	public int shotByPNum = -1; // -1 means no player shot it
+
+	public Material p1Trail, p2Trail, p3Trail, p4Trail;
 	Vector3 shooterPos;
 	float spawnTime;
 	int spawnedBy;
@@ -25,8 +27,19 @@ public class NewBounce : MonoBehaviour {
 	}
 
 	void Update () {
-		if ((Time.time - spawnTime) > hostileTime) {
-			this.unsetIsHostile();		
+//		if ((Time.time - spawnTime) > hostileTime) {
+//			this.unsetIsHostile();		
+//		}
+	}
+
+	public void setTrail(int pNum) {
+		Debug.Log ("Trail p: " + pNum);
+		switch(pNum)
+		{
+			case 1: gameObject.GetComponent<TrailRenderer>().material = p1Trail; break;
+			case 2: gameObject.GetComponent<TrailRenderer>().material = p2Trail; break;
+			case 3: gameObject.GetComponent<TrailRenderer>().material = p3Trail; break;
+			case 4: gameObject.GetComponent<TrailRenderer>().material = p4Trail; break;
 		}
 	}
 
@@ -41,16 +54,16 @@ public class NewBounce : MonoBehaviour {
 	public int getSpawnedBy() {
 		return spawnedBy;
 	}
-
-	public void setIsHostile () {
-		isHostile = true;
-		this.renderer.material = hostileMat;
-	}
-
-	public void unsetIsHostile () {
-		isHostile = false;
-		this.renderer.material = safeMat;
-	}
+//
+//	public void setIsHostile () {
+//		isHostile = true;
+//		this.renderer.material = hostileMat;
+//	}
+//
+//	public void unsetIsHostile () {
+//		isHostile = false;
+//		this.renderer.material = safeMat;
+//	}
 
 	public void setDeflectedStar(bool v) {
 		deflectedStar = v;
