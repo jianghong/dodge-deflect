@@ -2043,6 +2043,7 @@ MonoBehaviour:
   startTime: 3
   currTime: 3
   startText: GO!
+  roundCount: 0
 --- !u!114 &364025363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2068,7 +2069,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Countdown
+  m_Text: Round 1
 --- !u!222 &364025364
 CanvasRenderer:
   m_ObjectHideFlags: 0
