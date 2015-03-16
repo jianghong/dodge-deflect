@@ -11,6 +11,7 @@ public class PlayerCollision : MonoBehaviour {
 	public GameObject ballPrefab;
 	public int maxSpawnCount = 3;
 	public int spawnCount = 0;
+	public GameObject[] deathParticlePrefabs;
 	float hitCount = 0.0f;
 	float immuneStartTime = 0.0f;
 	bool isImmune = false;
@@ -29,6 +30,7 @@ public class PlayerCollision : MonoBehaviour {
 	}
 	// Use this for initialization
 	void Start () {
+		int pNum = playerMovementScript.playerNumber;
 		animator = GetComponent<Animator>();
 		ld = GetComponentInChildren<LionelDeflect> ();
 	}
@@ -58,7 +60,7 @@ public class PlayerCollision : MonoBehaviour {
 		} else {
 			ms.playerDied (pNum, timeDied);
 		}
-
+		Instantiate (deathParticlePrefabs [pNum - 1], transform.position, Quaternion.identity);
 		Destroy (this.gameObject);
 	}
 

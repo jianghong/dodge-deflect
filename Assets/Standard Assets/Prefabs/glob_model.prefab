@@ -3564,6 +3564,11 @@ MonoBehaviour:
   ballPrefab: {fileID: 132010, guid: 62df3abe6b40949ac9843c4ddf0bb771, type: 2}
   maxSpawnCount: 3
   spawnCount: 0
+  deathParticlePrefabs:
+  - {fileID: 179956, guid: c56b834c6fc9e43548953549c24c06f4, type: 2}
+  - {fileID: 194898, guid: 505c09c06499145a8a4d8efa6a29d28e, type: 2}
+  - {fileID: 131556, guid: 7b51ee6a9f6134029917c45365aba4cb, type: 2}
+  - {fileID: 122668, guid: 284edd8d388004fe49a6e3e0691e296a, type: 2}
   playHitClip: {fileID: 8300000, guid: 56cff2d32bdfe4d95ad834dc1038297a, type: 3}
   lifeText: {fileID: 0}
 --- !u!114 &11457982
