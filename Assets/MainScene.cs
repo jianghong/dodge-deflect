@@ -70,6 +70,7 @@ public class MainScene : MonoBehaviour {
 				if (oneTime) {
 					pleft = playerLeft ();
 					oneTime = false;
+					gm.incrementRoundScore(pleft);
 				}
 				ws.setWinnerText (pleft);
 				gameOver();
@@ -116,6 +117,7 @@ public class MainScene : MonoBehaviour {
 
 	public void gameOver () {
 		gameIsOver = true;
+//		gm.roundBoard.SetActive (true);
 		scoreBoardScript.setScoreBoard (playersDeflectScore[0], playersHitScore[0],
 		                                playersDeflectScore[1], playersHitScore[1],
 		                                playersDeflectScore[2], playersHitScore[2],
@@ -147,22 +149,18 @@ public class MainScene : MonoBehaviour {
 
 	void restartGame () {
 		if (gameIsOver && (XCI.GetButtonUp(XboxButton.Start, 1))) {
-			gm.playersRoundScore[pleft - 1] += 1;
 			gm.newRound();
 		}
 		
 		if (gameIsOver && (XCI.GetButtonUp(XboxButton.Start, 2))) {
-			gm.playersRoundScore[pleft - 1] += 1;
 			gm.newRound();
 		}
 		
 		if (gameIsOver && (XCI.GetButtonUp(XboxButton.Start, 3))) {
-			gm.playersRoundScore[pleft - 1] += 1;
 			gm.newRound();
 		}
 		
 		if (gameIsOver && (XCI.GetButtonUp(XboxButton.Start, 4))) {
-			gm.playersRoundScore[pleft - 1] += 1;
 			gm.newRound();
 		}
 		if (gameIsOver && (XCI.GetButtonUp(XboxButton.Back, 1))) {

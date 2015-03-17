@@ -9,7 +9,6 @@ public class HeadbuttBox : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		mp = this.GetComponentInParent<MovePlayer> ();
-		Debug.Log (mp);
 	}
 	
 	// Update is called once per frame
