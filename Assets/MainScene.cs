@@ -103,11 +103,13 @@ public class MainScene : MonoBehaviour {
 					rs.isFinalRound = true;
 					rs.healthSegments = gm.playersRoundScore[i];
 				}
-				for (int j= 0; j < 4; j++) {
-					if (playersHUD[j].GetComponent<PlayerLivesText>().pNum-1 == i) {
-						playersHUD[j].GetComponent<PlayerLivesText>().enableHealthBlocks ();
-					}
-				}
+			}
+		}
+		for (int j= 0; j < 4; j++) {
+			if (playersBitmap[playersHUD[j].GetComponent<PlayerLivesText>().pNum-1] == 1) {
+				playersHUD[j].GetComponent<PlayerLivesText>().enableHealthBlocks ();
+			} else {
+				playersHUD[j].SetActive(false);
 			}
 		}
 	}
