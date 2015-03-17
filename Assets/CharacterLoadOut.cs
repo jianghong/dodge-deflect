@@ -68,6 +68,7 @@ public class CharacterLoadOut : MonoBehaviour {
 			playersBitmap[pNum-1] = 1;
 			players_panel[pNum-1].startPressed(characterSprites[pNum-1], "");
 			gm.addPlayer(pNum);
+			playersReadyState[pNum-1] = 1;
 		}
 	}
 	void getPickControlInput(int pNum) {
@@ -75,11 +76,9 @@ public class CharacterLoadOut : MonoBehaviour {
 		if (!playerReady) {
 			if (XCI.GetButtonUp (XboxButton.B, pNum)) {
 				gm.setPlayerControl (pNum, GameManager.ControlType.Manual);
-				players_panel [pNum - 1].controlsPicked ();
 				playersReadyState[pNum-1] = 1;
 			} else if (XCI.GetButtonUp (XboxButton.X, pNum)) {
 				gm.setPlayerControl(pNum, GameManager.ControlType.Auto);
-				players_panel[pNum-1].controlsPicked();
 				playersReadyState[pNum-1] = 1;
 			}
 			playerReady = playersReadyState [pNum - 1] == 1;
