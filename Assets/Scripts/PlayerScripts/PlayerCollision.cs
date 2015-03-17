@@ -54,7 +54,6 @@ public class PlayerCollision : MonoBehaviour {
 			starCounter -= 1;
 		}
 		spawnCount += 1;
-		Debug.Log ("death: " + spawnCount);
 		if (spawnCount < maxSpawnCount) {
 			ms.spawnPlayer (pNum, spawnCount);
 		} else {

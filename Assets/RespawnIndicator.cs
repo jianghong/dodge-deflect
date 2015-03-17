@@ -65,7 +65,6 @@ public class RespawnIndicator : MonoBehaviour {
 		for (int j = 0; j < livesText.Length; j++) {
 			GameObject liveText = livesText[j];
 			if (liveText.GetComponent<PlayerLivesText>().pNum == pNum) {
-				Debug.Log (liveText.GetComponent<PlayerLivesText>().pNum);
 				p.GetComponent<PlayerCollision>().lifeText = liveText.GetComponent<PlayerLivesText>();
 			}
 		}

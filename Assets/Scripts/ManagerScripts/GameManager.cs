@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour {
 	public ControlType[] playerControls = {ControlType.Manual, ControlType.Manual, ControlType.Manual, ControlType.Manual};
 	public int roundCount = 3;
 	public bool isFinalRound = false;
+	public GameObject roundBoard;
 
 	void Awake() {
 		DontDestroyOnLoad (this);
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
 	}
 	
 	// Update is called once per frame
@@ -50,6 +52,24 @@ public class GameManager : MonoBehaviour {
 	void resetParameters() {
 
 	}
+
+	public void incrementRoundScore(int pNum) {
+		playersRoundScore [pNum - 1] += 1;
+		string playerRow;
+		switch (pNum)
+		{
+			case 1:		playerRow = "P1Row"; break;
+			case 2:		playerRow = "P2Row"; break;
+			case 3:		playerRow = "P3Row"; break;
+			case 4:		playerRow = "P4Row"; break;
+			default: 	playerRow = "P1Row"; break;
+		}
+//		GameObject pRow = roundBoard.transform.Find (playerRow).gameObject;
+//		Debug.Log (pRow);
+//		Debug.Log (pRow.GetComponentsInChildren<RoundPoint> ().Length);
+//		pRow.GetComponentsInChildren<Image> () [playersRoundScore [pNum - 1]].enabled = true;
+	}
+
 	public void newRound() {
 		if (roundCount > 1) {
 			roundCount -= 1;

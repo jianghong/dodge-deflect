@@ -42,6 +42,7 @@ public class MovePlayer : MonoBehaviour
 	Blocker blockerScript;
 	shooterScript shooter;
 	BallIndicatorControl ballControl;
+	float flickCheck = 0f;
 
 	public bool isHoldingProjectile = false;
 
@@ -52,6 +53,7 @@ public class MovePlayer : MonoBehaviour
 	bool deflectPressed = false;
 	Animator animator;
 	bool deflectFire;
+	Vector2  stickInput;
 
 	public float defaultColliderRadius = 2.21f;
 	public float holdColliderRadius = 3.37f;
@@ -115,18 +117,29 @@ public class MovePlayer : MonoBehaviour
 		if (controllerIsEnabled) {
 			float axisX = XCI.GetAxis (XboxAxis.LeftStickX, playerNumber);
 			float axisY = XCI.GetAxis (XboxAxis.LeftStickY, playerNumber);
+			float rAxisX = XCI.GetAxis (XboxAxis.RightStickX, playerNumber);
+			float rAxisY = XCI.GetAxis (XboxAxis.RightStickY, playerNumber);
 
 			// Left stick movement
 			Move (axisX, axisY);
-
-			if (controlType == GameManager.ControlType.Auto) {
-				AutoRotate(axisX, axisY);
-			} else if (controlType == GameManager.ControlType.Manual) {
-				// Right stick movement
-				axisX = XCI.GetAxis (XboxAxis.RightStickX, playerNumber);
-				axisY = XCI.GetAxis (XboxAxis.RightStickY, playerNumber);
-				ManualRotate(axisX, axisY);
+//			if (controlType == GameManager.ControlType.Auto) {
+//				AutoRotate(axisX, axisY);
+//			} else if (controlType == GameManager.ControlType.Manual) {
+//				// Right stick movement
+//
+//				ManualRotate(axisX, axisY);
+//			}
+			stickInput = new Vector2 (rAxisX, rAxisY);
+			if (stickInput.magnitude < controllerDeadZoneThreshold) {
+				rAxisX = 0f;
+				rAxisY = 0f;
 			}
+			if (rAxisX+rAxisY != 0) {
+				ManualRotate(rAxisX, rAxisY);
+				flickCheck = Time.time;
+			} else if (Time.time - flickCheck > 1f){
+				AutoRotate(axisX, axisY);
+			} 
 
 			Hold ();
 			Deflect();
@@ -175,11 +188,6 @@ public class MovePlayer : MonoBehaviour
 
 	void ManualRotate(float x, float y)
 	{	
-		Vector2 stickInput = new Vector2 (x, y);
-		if (stickInput.magnitude < controllerDeadZoneThreshold) {
-			x = 0f;
-			y = 0f;
-		}
 		transform.LookAt (transform.position + new Vector3 (x, 0.0f, y), Vector3.up);
 	}
 

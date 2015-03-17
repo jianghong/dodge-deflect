@@ -36,7 +36,6 @@ public class PlayerLivesText : MonoBehaviour {
 	}
 
 	public void decreaseHealthBlock(int loseHealth) {
-		Debug.Log ("loseHealth: " + loseHealth);
 		for (int i = currHealth; i > currHealth-loseHealth; i--) {
 			healthBlocks [i].enabled = false;
 		}
