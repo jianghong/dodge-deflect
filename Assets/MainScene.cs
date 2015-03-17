@@ -22,13 +22,14 @@ public class MainScene : MonoBehaviour {
 	float playerDeathTime;
 	ScoreBoard scoreBoardScript;
 	WinnerScript ws;
-
+	bool oneTime = true;
 	GameManager gm;
 	int numPlayers;
 	int minPlayers;
 	countdown cd;
 	float sceneLoadedTime;
 	GameObject spawnCoords;
+	int pleft = 0;
 	// Use this for initialization
 	void Awake() {
 	}
@@ -66,11 +67,15 @@ public class MainScene : MonoBehaviour {
 			}
 		} else {
 			if (numPlayers <= 1) {
-				ws.setWinnerText (playerLeft());
-				gameOver();		
+				if (oneTime) {
+					pleft = playerLeft ();
+					oneTime = false;
+				}
+				ws.setWinnerText (pleft);
+				gameOver();
 			}
 		}
-		restartGame ();	
+		restartGame ();
 	}
 
 	int playerLeft() {
@@ -140,22 +145,22 @@ public class MainScene : MonoBehaviour {
 
 	void restartGame () {
 		if (gameIsOver && (XCI.GetButtonUp(XboxButton.Start, 1))) {
-			gm.playersRoundScore[playerLeft() - 1] += 1;
+			gm.playersRoundScore[pleft - 1] += 1;
 			gm.newRound();
 		}
 		
 		if (gameIsOver && (XCI.GetButtonUp(XboxButton.Start, 2))) {
-			gm.playersRoundScore[playerLeft() - 1] += 1;
+			gm.playersRoundScore[pleft - 1] += 1;
 			gm.newRound();
 		}
 		
 		if (gameIsOver && (XCI.GetButtonUp(XboxButton.Start, 3))) {
-			gm.playersRoundScore[playerLeft() - 1] += 1;
+			gm.playersRoundScore[pleft - 1] += 1;
 			gm.newRound();
 		}
 		
 		if (gameIsOver && (XCI.GetButtonUp(XboxButton.Start, 4))) {
-			gm.playersRoundScore[playerLeft() - 1] += 1;
+			gm.playersRoundScore[pleft - 1] += 1;
 			gm.newRound();
 		}
 		if (gameIsOver && (XCI.GetButtonUp(XboxButton.Back, 1))) {
