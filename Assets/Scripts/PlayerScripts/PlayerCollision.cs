@@ -55,7 +55,7 @@ public class PlayerCollision : MonoBehaviour {
 		}
 		spawnCount += 1;
 		if (spawnCount < maxSpawnCount) {
-			ms.spawnPlayer (pNum, spawnCount);
+			ms.spawnPlayerStarter (pNum, spawnCount);
 		} else {
 			ms.playerDied (pNum, timeDied);
 		}

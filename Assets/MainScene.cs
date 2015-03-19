@@ -30,6 +30,8 @@ public class MainScene : MonoBehaviour {
 	float sceneLoadedTime;
 	GameObject spawnCoords;
 	int pleft = 0;
+	float deathDelay = 3f;
+
 	// Use this for initialization
 	void Awake() {
 	}
@@ -130,7 +132,13 @@ public class MainScene : MonoBehaviour {
 		Debug.Log ("num players: " + numPlayers);
 	}
 
-	public void spawnPlayer(int pNum, int spawnCount) {
+	public void spawnPlayerStarter(int pNum, int spawnCount) {
+		StartCoroutine (spawnPlayer (pNum, spawnCount));
+	}
+
+	IEnumerator spawnPlayer(int pNum, int spawnCount) {
+		yield return new WaitForSeconds (deathDelay);
+		float playerDeath = Time.time;
 		GameObject respawn = GameObject.Instantiate(respawnIndicator, respawnposition[pNum-1], Quaternion.identity) as GameObject;
 		RespawnIndicator rs = respawn.GetComponent<RespawnIndicator> ();
 		rs.pNum = pNum;
