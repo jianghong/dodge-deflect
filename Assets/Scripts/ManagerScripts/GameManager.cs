@@ -14,9 +14,11 @@ public class GameManager : MonoBehaviour {
 	public int roundCount = 3;
 	public bool isFinalRound = false;
 	public GameObject roundBoard;
+	public StatTracking tracking;
 
 	void Awake() {
 		DontDestroyOnLoad (this);
+		tracking = GetComponent<StatTracking> ();
 	}
 
 	// Use this for initialization

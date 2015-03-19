@@ -22,8 +22,11 @@ public class PlayerCollision : MonoBehaviour {
 	public AudioClip playHitClip;
 	public PlayerLivesText lifeText;
 	LionelDeflect ld;
+	GameManager gm;
+	public float lastHitTime;
 
 	void Awake() {
+		gm = GameObject.FindWithTag ("GameManager").GetComponent<GameManager> ();
 		ms = GameObject.FindWithTag ("MainSceneManager").GetComponent<MainScene> ();
 		playerMovementScript = this.GetComponent<MovePlayer> ();
 		bsm = GameObject.FindWithTag ("BallSpawnManager").GetComponent<BallSpawnManager> ();
@@ -47,6 +50,11 @@ public class PlayerCollision : MonoBehaviour {
 
 	void death() {
 		int pNum = playerMovementScript.playerNumber;
+		// voidlover
+		gm.tracking.addToStat ("VoidLover", pNum, 1);
+
+		addToAvoider();
+
 		int starCounter = 2;
 		while (starCounter > 0) {
 			GameObject createdBall = GameObject.Instantiate(ballPrefab, new Vector3(transform.position.x, 0.5f, transform.position.z), Random.rotation) as GameObject;
@@ -86,6 +94,13 @@ public class PlayerCollision : MonoBehaviour {
 		}
 	}
 
+	void addToAvoider() {
+		int avoiderTime = (int)(Time.time - lastHitTime);
+		if (gm.tracking.getStat("Avoider")[playerMovementScript.playerNumber-1] < avoiderTime) {
+			gm.tracking.addToStat("Avoider", playerMovementScript.playerNumber, avoiderTime);
+		}
+		lastHitTime = Time.time;
+	}
 	void OnCollisionEnter(Collision collision)
 	{
 		// If the entering collider is the player...
@@ -103,6 +118,7 @@ public class PlayerCollision : MonoBehaviour {
 
 					ms.incrementScore(collidedStar.shotByPNum, collidedStar.getDeflectedStar());
 				}
+				addToAvoider();
 				ld.triggerIsHit();
 				hitCount += 1f;
 				animator.SetTrigger("isHit");

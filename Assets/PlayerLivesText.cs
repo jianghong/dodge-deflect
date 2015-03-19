@@ -30,7 +30,6 @@ public class PlayerLivesText : MonoBehaviour {
 	}
 
 	public void showRespawningText() {
-		Debug.Log (transform.parent.position);
 		rt.setText ("Respawning ..");
 	}
 

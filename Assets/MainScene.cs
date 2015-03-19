@@ -93,6 +93,10 @@ public class MainScene : MonoBehaviour {
 		Debug.Log ("n : " + numPlayers);
 	}
 
+	public void addToVoidLover(int pNum) {
+	
+	}
+
 	void spawnPlayers(int n) {
 		RespawnIndicator rs;
 		for (int i = 0; i < playersBitmap.Length; i++) {
@@ -119,6 +123,7 @@ public class MainScene : MonoBehaviour {
 
 	public void gameOver () {
 		gameIsOver = true;
+		Debug.Log (gm.tracking.getStat("VoidLover"));
 //		gm.roundBoard.SetActive (true);
 		scoreBoardScript.setScoreBoard (playersDeflectScore[0], playersHitScore[0],
 		                                playersDeflectScore[1], playersHitScore[1],

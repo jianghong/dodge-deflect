@@ -58,9 +58,10 @@ public class MovePlayer : MonoBehaviour
 	public float defaultColliderRadius = 2.21f;
 	public float holdColliderRadius = 3.37f;
 	Collider headbuttBox;
-	public GameManager.ControlType controlType;
+	GameManager gm;
 
 	void Awake() {
+		gm = GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ();
 		controller = GetComponent<CharacterController>();
 		blockerScript = Block.GetComponent<Blocker> ();
 		ballControl = this.GetComponentInChildren<BallIndicatorControl> ();
@@ -240,6 +241,7 @@ public class MovePlayer : MonoBehaviour
 				BlockTime = Time.time;
 				blockerScript.activate();
 				animator.SetTrigger("deflectPressed");
+				gm.tracking.addToStat("Headbutter", playerNumber, 1);
 				Block.transform.localScale = new Vector3 (deflectBlockSize, deflectBlockSize,deflectBlockSize);
 				deflectPressed = true;
 			}

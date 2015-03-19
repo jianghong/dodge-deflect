@@ -5,8 +5,10 @@ public class Blocker : MonoBehaviour {
 	
 	MovePlayer player;
 	public bool isActive;
+	GameManager gm;
 
 	void Awake() {
+		gm = GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ();
 		isActive = false;
 		player = this.gameObject.GetComponentInParent<MovePlayer>();
 	}
@@ -15,6 +17,7 @@ public class Blocker : MonoBehaviour {
 		if (collision.gameObject.tag == "Ball") {
 			if (isActive) {
 				Destroy(collision.gameObject);
+				gm.tracking.addToStat("StarHoarder", player.playerNumber, 1);
 				player.setIsHoldingProjectile();
 			}
 		}

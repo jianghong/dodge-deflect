@@ -23,8 +23,8 @@ public class RespawnIndicator : MonoBehaviour {
 		p = GameObject.Instantiate(playerPrefab, spawnPos, Quaternion.identity) as GameObject;
 		mp = p.GetComponent<MovePlayer> ();
 		pc = p.GetComponent<PlayerCollision> ();
+		pc.lastHitTime = Time.time;
 		mp.playerNumber = pNum;
-		mp.controlType = controlType;
 		pc.spawnCount = spawnCount;
 		pc.startSpawnImmune();
 		p.GetComponent<CharacterController>().enabled = false;
