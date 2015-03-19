@@ -7,10 +7,12 @@ public class PlayerLivesText : MonoBehaviour {
 	public int pNum = 0;
 	public Color healthColor;
 	Image[] healthBlocks;
+	RespawnText rt;
 	int currHealth = 5;
  
 	void Awake() {
 		healthBlocks = GetComponentsInChildren<Image> ();
+		rt = transform.parent.FindChild ("RespawningText").GetComponent<RespawnText> ();
 		for (int i = 0; i < healthBlocks.Length; i++) {
 			healthBlocks[i].enabled = false;
 		}
@@ -27,6 +29,14 @@ public class PlayerLivesText : MonoBehaviour {
 
 	}
 
+	public void showRespawningText() {
+		Debug.Log (transform.parent.position);
+		rt.setText ("Respawning ..");
+	}
+
+	public void hideRespawningText() {
+		rt.setText ("");
+	}
 
 	public void enableHealthBlocks() {
 		for (int i = 0; i < healthBlocks.Length; i++) {

@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour {
 		Application.LoadLevel ("scene4");
 
 	}
+
 	void resetParameters() {
 
 	}

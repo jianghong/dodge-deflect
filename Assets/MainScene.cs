@@ -30,7 +30,7 @@ public class MainScene : MonoBehaviour {
 	float sceneLoadedTime;
 	GameObject spawnCoords;
 	int pleft = 0;
-	float deathDelay = 3f;
+	float deathDelay = 2.7f;
 
 	// Use this for initialization
 	void Awake() {
@@ -134,6 +134,16 @@ public class MainScene : MonoBehaviour {
 
 	public void spawnPlayerStarter(int pNum, int spawnCount) {
 		StartCoroutine (spawnPlayer (pNum, spawnCount));
+		getPlayerHUD(pNum).GetComponent<PlayerLivesText> ().showRespawningText ();
+	}
+
+	GameObject getPlayerHUD(int pNum) {
+		for (int j= 0; j < 4; j++) {
+			if (playersHUD [j].GetComponent<PlayerLivesText> ().pNum == pNum) {
+				return playersHUD [j];
+			}
+		}
+		return playersHUD [0];
 	}
 
 	IEnumerator spawnPlayer(int pNum, int spawnCount) {
@@ -144,6 +154,7 @@ public class MainScene : MonoBehaviour {
 		rs.pNum = pNum;
 		rs.spawnCount = spawnCount;
 		rs.controlType = gm.playerControls [pNum - 1];
+		getPlayerHUD(pNum).GetComponent<PlayerLivesText> ().hideRespawningText ();
 	}
 
 	public void incrementScore(int pNum, bool deflectScore) {
