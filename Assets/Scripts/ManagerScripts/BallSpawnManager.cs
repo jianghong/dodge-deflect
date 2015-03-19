@@ -8,18 +8,20 @@ public class BallSpawnManager : MonoBehaviour {
 	float currTime;
 	float previousTime;
 	public int starCount;
-	public int starLimit = 5;
+	public int starLimit = 7;
 	GameObject spawnCoords;
 	GameObject TopLeft;
 	GameObject BottomRight;
 	float leftX, rightX;
 	float topZ, bottomZ;
+	GameManager gm;
 
 	void Awake() {
 	}
 
 	// Use this for initialization
 	void Start () {
+		gm = GameObject.FindWithTag ("GameManager").GetComponent<GameManager> ();
 		spawnCoords = GameObject.FindWithTag ("SpawnCoords");
 		leftX = spawnCoords.transform.Find("TopLeft").transform.position.x;
 		rightX = spawnCoords.transform.Find("BottomRight").transform.position.x;
@@ -34,6 +36,9 @@ public class BallSpawnManager : MonoBehaviour {
 		if ((currTime - previousTime) > spawnInterval && starCount < starLimit) {
 			spawnBall ();
 			previousTime = currTime;
+		}
+		if (gm.isFinalRound) {
+			starLimit = 14;
 		}
 	}
 	
