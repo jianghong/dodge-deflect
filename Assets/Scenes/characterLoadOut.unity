@@ -783,6 +783,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1172729849}
   - 114: {fileID: 1172729848}
+  - 114: {fileID: 1172729850}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -810,6 +811,7 @@ MonoBehaviour:
   roundCount: 3
   isFinalRound: 0
   roundBoard: {fileID: 0}
+  tracking: {fileID: 0}
 --- !u!4 &1172729849
 Transform:
   m_ObjectHideFlags: 0
@@ -822,6 +824,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!114 &1172729850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1172729847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcec1ef47384e42529260b6488f7d282, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1227536169
 GameObject:
   m_ObjectHideFlags: 0

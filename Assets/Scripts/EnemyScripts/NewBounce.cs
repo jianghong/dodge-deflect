@@ -15,11 +15,15 @@ public class NewBounce : MonoBehaviour {
 	public int shotByPNum = -1; // -1 means no player shot it
 
 	public Material p1Trail, p2Trail, p3Trail, p4Trail;
+	GameManager gm;
 	Vector3 shooterPos;
 	float spawnTime;
 	int spawnedBy;
 	bool deflectedStar = false;
-	
+
+	void Awake() {
+		gm = GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ();
+	}
 	// Use this for initialization
 	void Start () {
 		spawnTime = Time.time;
@@ -81,6 +85,9 @@ public class NewBounce : MonoBehaviour {
 				}
 			}
 			if (this.GetInstanceID() > collision.gameObject.GetInstanceID()) {
+				if (getSpawnedBy() >= 0) {
+					gm.tracking.addToStat("VoidLover", getSpawnedBy()+1, 1);
+				}
 				Instantiate (voidIndicator, new Vector3 (this.transform.position.x, -0.6f, this.transform.position.z), Quaternion.identity);
 			}
 			Destroy(this.gameObject);

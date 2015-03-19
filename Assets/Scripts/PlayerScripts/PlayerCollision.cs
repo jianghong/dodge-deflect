@@ -50,8 +50,6 @@ public class PlayerCollision : MonoBehaviour {
 
 	void death() {
 		int pNum = playerMovementScript.playerNumber;
-		// voidlover
-		gm.tracking.addToStat ("VoidLover", pNum, 1);
 
 		addToAvoider();
 
@@ -90,6 +88,8 @@ public class PlayerCollision : MonoBehaviour {
 			} else {
 				lifeText.decreaseHealthBlock(2);
 			}
+			// voidlover
+//			gm.tracking.addToStat ("VoidLover", playerMovementScript.playerNumber, 1);
 			death ();
 		}
 	}
