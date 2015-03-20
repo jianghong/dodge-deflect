@@ -31,6 +31,7 @@ public class MainScene : MonoBehaviour {
 	GameObject spawnCoords;
 	int pleft = 0;
 	float deathDelay = 2.7f;
+	public GameObject roundBoard;
 
 	// Use this for initialization
 	void Awake() {
@@ -69,13 +70,15 @@ public class MainScene : MonoBehaviour {
 			}
 		} else {
 			if (numPlayers <= 1) {
-				if (oneTime) {
-					pleft = playerLeft ();
-					oneTime = false;
-					gm.incrementRoundScore(pleft);
+				if (playerLeft () > 0) {
+					if (oneTime) {
+						oneTime = false;
+						incrementRoundScore(playerLeft ());
+						ws.setWinnerText (pleft);
+					}
+					gameOver();
 				}
-				ws.setWinnerText (pleft);
-				gameOver();
+
 			}
 		}
 		restartGame ();
@@ -86,9 +89,16 @@ public class MainScene : MonoBehaviour {
 		if (pNumLeft.Length > 0) {
 			return pNumLeft[0].GetComponent<MovePlayer> ().playerNumber;		
 		}
-		return 0;
+		return -1;
 	}
-	
+
+	public void incrementRoundScore(int pNum) {
+		gm.incrementRoundScore (pNum);
+		roundBoard.SetActive (true);
+		roundBoard.transform.FindChild("Row").GetComponent<RoundBoard> ().setRoundVictor ();
+	}
+
+
 	public void beginGame() {
 		Debug.Log ("n : " + numPlayers);
 	}
@@ -123,8 +133,6 @@ public class MainScene : MonoBehaviour {
 
 	public void gameOver () {
 		gameIsOver = true;
-		Debug.Log (gm.tracking.getStat("VoidLover"));
-//		gm.roundBoard.SetActive (true);
 		scoreBoardScript.setScoreBoard (playersDeflectScore[0], playersHitScore[0],
 		                                playersDeflectScore[1], playersHitScore[1],
 		                                playersDeflectScore[2], playersHitScore[2],
