@@ -223,6 +223,7 @@ public class MovePlayer : MonoBehaviour
 		if (isDeflect) {
 			createdBall.rigidbody.AddForce(createdBall.transform.forward.normalized*deflectForce, ForceMode.Impulse);		
 		} else {
+			gm.tracking.addToStat("StarHoarder", playerNumber, 1);
 			createdBall.rigidbody.AddForce(createdBall.transform.forward.normalized*blockerForce, ForceMode.Impulse);		
 		}
 

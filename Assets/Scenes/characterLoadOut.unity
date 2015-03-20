@@ -719,10 +719,10 @@ MonoBehaviour:
   numPlayers: 0
   playersBitmap: 00000000000000000000000000000000
   playersRoundScore: 00000000000000000000000000000000
+  roundScores: 00000000000000000000000000000000
   playerControls: 01000000010000000100000001000000
   roundCount: 3
   isFinalRound: 0
-  roundBoard: {fileID: 0}
   tracking: {fileID: 0}
 --- !u!4 &1172729849
 Transform:

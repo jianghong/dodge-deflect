@@ -17,7 +17,6 @@ public class Blocker : MonoBehaviour {
 		if (collision.gameObject.tag == "Ball") {
 			if (isActive) {
 				Destroy(collision.gameObject);
-				gm.tracking.addToStat("StarHoarder", player.playerNumber, 1);
 				player.setIsHoldingProjectile();
 			}
 		}
