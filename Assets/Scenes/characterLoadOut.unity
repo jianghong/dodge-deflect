@@ -446,7 +446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 26
@@ -459,7 +459,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Player 1 Press Start
+  m_Text: 'HOLD
+
+    RT
+
+    TO JOIN'
 --- !u!222 &780573436
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -663,7 +667,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 26
@@ -676,7 +680,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Player 1 Press Start
+  m_Text: 'HOLD
+
+    RT
+
+    TO JOIN'
 --- !u!222 &879967391
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -798,7 +806,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: 3adf3307790605242b71835327692810, type: 2}
-  m_Color: {r: 1, g: .308823526, b: .308823526, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Sprite: {fileID: 21300000, guid: 55fdae26d78b9489a999a7c94b7b37ff, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -842,6 +850,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dd8dcbe22a9642d1ac70e74db353533, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  readyBox: {fileID: 21300000, guid: aab72fca2b67e4e1b9402b811040e7eb, type: 3}
+  unreadyBox: {fileID: 21300000, guid: 55fdae26d78b9489a999a7c94b7b37ff, type: 3}
 --- !u!114 &1018069165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1130,7 +1140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 26
@@ -1143,7 +1153,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Player 1 Press Start
+  m_Text: 'HOLD
+
+    RT
+
+    TO JOIN'
 --- !u!222 &1265745466
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1551,7 +1565,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 26
@@ -1564,7 +1578,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Player 1 Press Start
+  m_Text: 'HOLD
+
+    RT
+
+    TO JOIN'
 --- !u!222 &1739906286
 CanvasRenderer:
   m_ObjectHideFlags: 0

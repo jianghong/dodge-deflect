@@ -64,7 +64,7 @@ public class CharacterLoadOut : MonoBehaviour {
 	}
 
 	void getStartInput(int pNum) {
-		if (XCI.GetButtonUp(XboxButton.Start, pNum)) {
+		if ((XCI.GetAxis(XboxAxis.RightTrigger, pNum) > 0) && (XCI.GetAxis(XboxAxis.RightTrigger, pNum) != 0.5f)) {
 			playersBitmap[pNum-1] = 1;
 			players_panel[pNum-1].startPressed(characterSprites[pNum-1], "");
 			gm.addPlayer(pNum);

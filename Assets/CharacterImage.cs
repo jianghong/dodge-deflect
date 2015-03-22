@@ -10,7 +10,6 @@ public class CharacterImage : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		t = GetComponentInChildren<Text> ();
-		t.text = "Player " + pnum + " press start";
 	}
 	
 	// Update is called once per frame

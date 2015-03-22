@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class JoinPrompt : MonoBehaviour {
 
+	public Sprite readyBox;
+	public Sprite unreadyBox;
 	Text t;
 	// Use this for initialization
 	void Start () {
@@ -16,12 +18,12 @@ public class JoinPrompt : MonoBehaviour {
 	}
 	
 	public void allowStart() {
-		GetComponent<Image>().color = new Color(0.29f, 0.61f, 0f);
-		t.text = "Press A to start game";
+		GetComponent<Image> ().sprite = readyBox;
+		t.text = "HEADBUTT (TAP LT) TO START!";
 	}
 
 	public void disallowStart() {
-		GetComponent<Image>().color = new Color(1.0f, 78/255, 78/255);
+		GetComponent<Image> ().sprite = unreadyBox;
 		t.text = "Waiting for players";
 	}
 }
