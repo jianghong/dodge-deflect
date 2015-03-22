@@ -65,8 +65,7 @@ Shader "Shader Forge/BlackHoleShader" {
                 float3 indirectDiffuse = float3(0,0,0);
                 float3 directDiffuse = max( 0.0, NdotL) * attenColor;
                 indirectDiffuse += UNITY_LIGHTMODEL_AMBIENT.rgb; // Ambient Light
-                float node_1895 = pow(1.0-max(0,dot(normalDirection, viewDirection)),_OutsideEdge);
-                float3 diffuse = (directDiffuse + indirectDiffuse) * (node_1895*_node_3105.rgb);
+                float3 diffuse = (directDiffuse + indirectDiffuse) * (pow(1.0-max(0,dot(normalDirection, viewDirection)),_OutsideEdge)*_node_3105.rgb);
 /// Final Color:
                 float3 finalColor = diffuse;
                 return fixed4(finalColor,1);
@@ -126,8 +125,7 @@ Shader "Shader Forge/BlackHoleShader" {
 /////// Diffuse:
                 float NdotL = max(0.0,dot( normalDirection, lightDirection ));
                 float3 directDiffuse = max( 0.0, NdotL) * attenColor;
-                float node_1895 = pow(1.0-max(0,dot(normalDirection, viewDirection)),_OutsideEdge);
-                float3 diffuse = directDiffuse * (node_1895*_node_3105.rgb);
+                float3 diffuse = directDiffuse * (pow(1.0-max(0,dot(normalDirection, viewDirection)),_OutsideEdge)*_node_3105.rgb);
 /// Final Color:
                 float3 finalColor = diffuse;
                 return fixed4(finalColor * 1,0);

@@ -182,7 +182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: .257352948, g: .385395557, b: 1, a: 1}
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: c9931d6410ba044a3a5e2fafb0ef7710, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -379,8 +379,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: d0722dc5407b442608dd47869eda545c, type: 3}
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -955,8 +955,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: d0722dc5407b442608dd47869eda545c, type: 3}
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1281,6 +1281,8 @@ GameObject:
   - 114: {fileID: 1897071628}
   - 114: {fileID: 1897071627}
   - 114: {fileID: 1897071630}
+  - 222: {fileID: 1897071632}
+  - 114: {fileID: 1897071631}
   m_Layer: 5
   m_Name: Character Selection Canvas
   m_TagString: Untagged
@@ -1377,6 +1379,33 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 13056e5fcc2f64e88ac66be6799c80c3, type: 3}
   - {fileID: 21300000, guid: ab3b59900b4474dc288e19be54b114c2, type: 3}
   - {fileID: 21300000, guid: 66cb749bbb18a464081821724b16d653, type: 3}
+--- !u!114 &1897071631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1897071625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: a9e5da3014d524a1781cdba7652e41be, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1897071632
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1897071625}
 --- !u!1 &1994658915
 GameObject:
   m_ObjectHideFlags: 0
@@ -1426,8 +1455,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: d0722dc5407b442608dd47869eda545c, type: 3}
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1483,8 +1512,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: d0722dc5407b442608dd47869eda545c, type: 3}
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
