@@ -12,13 +12,13 @@ public class CharacterLoadOut : MonoBehaviour {
 	int[] players_index = {0, 0, 0, 0};
 	int[] playersBitmap = {0, 0, 0, 0};
 	int[] playersReadyState = {0, 0, 0, 0};
+	int[] readiedUp = {0, 0, 0, 0};
 	bool[] canSwitchCharacterImage = {true, true, true, true};
 	CharacterImage[] players_panel = new CharacterImage[4];
 	JoinPrompt jp;
 	bool canStartGame = false;
 	ChangeText minPlayerCount;
-
-
+	
 	// Use this for initialization
 	void Start () {
 		gm = GameObject.FindWithTag ("GameManager").GetComponent<GameManager> ();
@@ -57,9 +57,13 @@ public class CharacterLoadOut : MonoBehaviour {
 
 	void getStartGameInput(int pNum) {
 		if (playersReadyState [pNum - 1] == 1) {
-			if (XCI.GetButtonUp(XboxButton.A, pNum) && canStartGame) {
-				AutoFade.LoadLevel("scene4", 0.7f, 0.7f, Color.black);
-			}		
+			if (((XCI.GetAxis(XboxAxis.LeftTrigger, pNum) > 0) && (XCI.GetAxis(XboxAxis.LeftTrigger, pNum) != 0.5f)) && canStartGame) {
+				if (readiedUp.Sum() == playersBitmap.Sum()) {
+					AutoFade.LoadLevel("scene4", 0.7f, 0.7f, Color.black);
+				} else {
+					readiedUp[pNum-1] = 1;
+				}
+			}
 		}
 	}
 
@@ -71,6 +75,7 @@ public class CharacterLoadOut : MonoBehaviour {
 			playersReadyState[pNum-1] = 1;
 		}
 	}
+
 	void getPickControlInput(int pNum) {
 		bool playerReady = playersReadyState [pNum - 1] == 1;
 		if (!playerReady) {
@@ -84,6 +89,7 @@ public class CharacterLoadOut : MonoBehaviour {
 			playerReady = playersReadyState [pNum - 1] == 1;
 		}
 	}
+
 	void getDirectionInput(int pNum) {
 		players_axisY[pNum-1] = XCI.GetAxis (XboxAxis.LeftStickY, pNum);
 	}
