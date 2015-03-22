@@ -67,6 +67,9 @@ public class RespawnIndicator : MonoBehaviour {
 			if (liveText.GetComponentInChildren<PlayerLivesText>().pNum == pNum) {
 				p.GetComponent<PlayerCollision>().lifeText = liveText.GetComponent<PlayerLivesText>();
 				liveText.GetComponent<PlayerLivesText>().enableHealthBlocks();
+				if (isFinalRound) {
+					liveText.GetComponent<PlayerLivesText>().decreaseRespawnCount(healthSegments.ToString());
+				}
 			}
 		}
 	}
