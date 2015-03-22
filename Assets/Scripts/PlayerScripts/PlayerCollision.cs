@@ -77,17 +77,12 @@ public class PlayerCollision : MonoBehaviour {
 
 	public void setSpawnCount(int n) {
 		spawnCount = maxSpawnCount - n;
-		lifeText.decreaseHealthBlock (6 - (2*n));
 	}
 
 	void OnTriggerEnter(Collider collider) {
 		if(collider.gameObject.tag == "BlackHole" && !isImmune)
 		{
-			if (hitCount == 1.0f) {
-				lifeText.decreaseHealthBlock(1);
-			} else {
-				lifeText.decreaseHealthBlock(2);
-			}
+			lifeText.decreaseHealthBlock();
 			// voidlover
 //			gm.tracking.addToStat ("VoidLover", playerMovementScript.playerNumber, 1);
 			death ();
@@ -107,7 +102,6 @@ public class PlayerCollision : MonoBehaviour {
 		if(collision.collider.gameObject.tag == "Ball")
 		{
 			NewBounce collidedStar = collision.gameObject.GetComponent<NewBounce>();
-			Debug.Log ("hit by p: " + collidedStar.shotByPNum);
 			if(!isImmune && (collidedStar.shotByPNum != playerMovementScript.playerNumber)) {
 				bsm.destroyBall(collision.gameObject);
 				// increment hit count
@@ -123,7 +117,7 @@ public class PlayerCollision : MonoBehaviour {
 				ld.triggerIsHit();
 				hitCount += 1f;
 				animator.SetTrigger("isHit");
-				lifeText.decreaseHealthBlock(1);
+				lifeText.decreaseHealthBlock();
 				AudioSource.PlayClipAtPoint(playHitClip, this.transform.position);
 				immuneStartTime = Time.time;
 				if(hitCount >= hitThreshold) {

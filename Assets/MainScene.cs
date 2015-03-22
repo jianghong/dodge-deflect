@@ -126,7 +126,7 @@ public class MainScene : MonoBehaviour {
 			if (playersBitmap[playersHUD[j].GetComponent<PlayerLivesText>().pNum-1] == 1) {
 				playersHUD[j].GetComponent<PlayerLivesText>().enableHealthBlocks ();
 			} else {
-				playersHUD[j].SetActive(false);
+				playersHUD[j].transform.parent.gameObject.SetActive(false);
 			}
 		}
 	}
