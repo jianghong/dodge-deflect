@@ -5,13 +5,12 @@ using System.Collections;
 public class PlayerLivesText : MonoBehaviour {
 
 	public int pNum = 0;
-	public Color healthColor;
-	Image[] healthBlocks;
+	RawImage[] healthBlocks;
 	RespawnText rt;
-	int currHealth = 5;
+	int currHealth = 0;
  
 	void Awake() {
-		healthBlocks = GetComponentsInChildren<Image> ();
+		healthBlocks = GetComponentsInChildren<RawImage> ();
 		rt = transform.parent.FindChild ("RespawningText").GetComponent<RespawnText> ();
 		for (int i = 0; i < healthBlocks.Length; i++) {
 			healthBlocks[i].enabled = false;
@@ -21,7 +20,6 @@ public class PlayerLivesText : MonoBehaviour {
 
 	void Start () {
 		Debug.Log ("Pl " + pNum + " started");
-		currHealth = 5;
 	}
 	
 	// Update is called once per frame
@@ -39,16 +37,28 @@ public class PlayerLivesText : MonoBehaviour {
 
 	public void enableHealthBlocks() {
 		for (int i = 0; i < healthBlocks.Length; i++) {
-			healthBlocks[i].color = healthColor;
 			healthBlocks[i].enabled = true;
 		}
+		currHealth = 0;
+	}
+
+	public void disableHealthBlocks() {
+		for (int i = 0; i < healthBlocks.Length; i++) {
+			healthBlocks[i].enabled = false;
+		}
+		currHealth = 0;
 	}
 
 	public void decreaseHealthBlock(int loseHealth) {
-		for (int i = currHealth; i > currHealth-loseHealth; i--) {
-			healthBlocks [i].enabled = false;
+		if (loseHealth == 1) {
+			healthBlocks [currHealth].enabled = false;
+			currHealth = currHealth + loseHealth > 1 ? 0 : 1;
+		} else {
+			disableHealthBlocks();
 		}
-		currHealth -= loseHealth;
 	}
 
+	public void decreaseRespawnCount(string s) {
+		GetComponentInChildren<ChangeText> ().setText (s);
+	}
 }

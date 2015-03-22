@@ -66,6 +66,7 @@ public class RespawnIndicator : MonoBehaviour {
 			GameObject liveText = livesText[j];
 			if (liveText.GetComponentInChildren<PlayerLivesText>().pNum == pNum) {
 				p.GetComponent<PlayerCollision>().lifeText = liveText.GetComponent<PlayerLivesText>();
+				liveText.GetComponent<PlayerLivesText>().enableHealthBlocks();
 			}
 		}
 	}
