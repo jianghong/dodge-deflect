@@ -84,10 +84,12 @@ public class NewBounce : MonoBehaviour {
 					return;
 				}
 			}
+			Debug.Log ("VoidLover: " + shotByPNum);
+			if (shotByPNum > -1) {
+				gm.tracking.addToStat("VoidLover", shotByPNum, 1);
+			}
+
 			if (this.GetInstanceID() > collision.gameObject.GetInstanceID()) {
-				if (getSpawnedBy() >= 0 && getSpawnedBy() <= 4) {
-					gm.tracking.addToStat("VoidLover", getSpawnedBy()+1, 1);
-				}
 				Instantiate (voidIndicator, new Vector3 (this.transform.position.x, -0.6f, this.transform.position.z), Quaternion.identity);
 			}
 			Destroy(this.gameObject);
