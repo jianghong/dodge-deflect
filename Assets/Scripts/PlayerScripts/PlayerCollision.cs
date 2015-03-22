@@ -107,11 +107,12 @@ public class PlayerCollision : MonoBehaviour {
 		if(collision.collider.gameObject.tag == "Ball")
 		{
 			NewBounce collidedStar = collision.gameObject.GetComponent<NewBounce>();
-			if(!isImmune) {
+			Debug.Log ("hit by p: " + collidedStar.shotByPNum);
+			if(!isImmune && (collidedStar.shotByPNum != playerMovementScript.playerNumber)) {
 				bsm.destroyBall(collision.gameObject);
 				// increment hit count
 				if ((collidedStar.shotByPNum) > -1) {
-					Debug.Log ("hit by p: " + collidedStar.shotByPNum);
+
 					if (collidedStar.getDeflectedStar()) {
 						Debug.Log ("hit by deflected");
 					}
