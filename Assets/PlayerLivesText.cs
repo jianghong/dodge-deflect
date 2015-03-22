@@ -39,11 +39,26 @@ public class PlayerLivesText : MonoBehaviour {
 		for (int i = 0; i < healthBlocks.Length; i++) {
 			healthBlocks[i].enabled = true;
 		}
+		currHealth = 0;
 	}
 
-	public void decreaseHealthBlock() {
-		healthBlocks [currHealth].enabled = false;
-		currHealth = currHealth + 1 > 1 ? 0  : 1;
+	public void disableHealthBlocks() {
+		for (int i = 0; i < healthBlocks.Length; i++) {
+			healthBlocks[i].enabled = false;
+		}
+		currHealth = 0;
 	}
 
+	public void decreaseHealthBlock(int loseHealth) {
+		if (loseHealth == 1) {
+			healthBlocks [currHealth].enabled = false;
+			currHealth = currHealth + loseHealth > 1 ? 0 : 1;
+		} else {
+			disableHealthBlocks();
+		}
+	}
+
+	public void decreaseRespawnCount(string s) {
+		GetComponentInChildren<ChangeText> ().setText (s);
+	}
 }
