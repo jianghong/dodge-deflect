@@ -1,14 +1,16 @@
 // Shader created with Shader Forge v1.05 
 // Shader Forge (c) Neat Corporation / Joachim Holmer - http://www.acegikmo.com/shaderforge/
 // Note: Manually altering this data may prevent you from opening it in Shader Forge
-/*SF_DATA;ver:1.05;sub:START;pass:START;ps:flbk:,lico:1,lgpr:1,nrmq:1,limd:1,uamb:True,mssp:True,lmpd:False,lprd:False,rprd:False,enco:False,frtr:True,vitr:True,dbil:False,rmgx:True,rpth:0,hqsc:True,hqlp:False,tesm:0,blpr:0,bsrc:0,bdst:1,culm:0,dpts:2,wrdp:False,dith:0,ufog:True,aust:True,igpj:True,qofs:0,qpre:3,rntp:2,fgom:False,fgoc:False,fgod:False,fgor:False,fgmd:0,fgcr:0.5,fgcg:0.5,fgcb:0.5,fgca:1,fgde:0.01,fgrn:0,fgrf:300,ofsf:0,ofsu:0,f2p0:False;n:type:ShaderForge.SFN_Final,id:851,x:34581,y:32479,varname:node_851,prsc:2|diff-3157-OUT,spec-3882-OUT,gloss-4927-OUT,normal-7289-OUT,transm-7727-OUT,lwrap-7727-OUT,alpha-1569-OUT,refract-5097-OUT;n:type:ShaderForge.SFN_Slider,id:5811,x:33708,y:32880,ptovrint:False,ptlb:Refraction Intensity,ptin:_RefractionIntensity,varname:_RefractionIntensity,prsc:2,min:0,cur:0.2279934,max:1;n:type:ShaderForge.SFN_Multiply,id:5097,x:34273,y:32852,varname:node_5097,prsc:2|A-5772-OUT,B-1708-OUT;n:type:ShaderForge.SFN_ComponentMask,id:5772,x:34103,y:32779,varname:node_5772,prsc:2,cc1:0,cc2:1,cc3:-1,cc4:-1|IN-4690-RGB;n:type:ShaderForge.SFN_Vector1,id:1569,x:34273,y:32779,varname:node_1569,prsc:2,v1:0.3;n:type:ShaderForge.SFN_Tex2d,id:4690,x:33865,y:32694,ptovrint:False,ptlb:Refraction,ptin:_Refraction,varname:_Refraction,prsc:2,tex:bbab0a6f7bae9cf42bf057d8ee2755f6,ntxv:3,isnm:True|UVIN-7753-OUT;n:type:ShaderForge.SFN_TexCoord,id:3556,x:33507,y:32633,varname:node_3556,prsc:2,uv:0;n:type:ShaderForge.SFN_Multiply,id:7753,x:33678,y:32694,varname:node_7753,prsc:2|A-3556-UVOUT,B-5701-OUT;n:type:ShaderForge.SFN_Vector1,id:5701,x:33507,y:32790,varname:node_5701,prsc:2,v1:0.2;n:type:ShaderForge.SFN_Vector1,id:7727,x:34273,y:32705,varname:node_7727,prsc:2,v1:1;n:type:ShaderForge.SFN_Vector1,id:3882,x:34273,y:32558,varname:node_3882,prsc:2,v1:6;n:type:ShaderForge.SFN_Vector1,id:4927,x:34273,y:32614,varname:node_4927,prsc:2,v1:0.8;n:type:ShaderForge.SFN_Lerp,id:7289,x:34103,y:32652,varname:node_7289,prsc:2|A-4145-OUT,B-4690-RGB,T-5811-OUT;n:type:ShaderForge.SFN_Vector3,id:4145,x:33865,y:32573,varname:node_4145,prsc:2,v1:0,v2:0,v3:1;n:type:ShaderForge.SFN_Fresnel,id:3445,x:33871,y:32226,varname:node_3445,prsc:2|EXP-3793-OUT;n:type:ShaderForge.SFN_ConstantLerp,id:3157,x:34273,y:32412,varname:node_3157,prsc:2,a:0.01,b:4|IN-1472-OUT;n:type:ShaderForge.SFN_Multiply,id:1708,x:34103,y:32931,varname:node_1708,prsc:2|A-5811-OUT,B-2580-OUT;n:type:ShaderForge.SFN_Vector1,id:2580,x:33865,y:32959,varname:node_2580,prsc:2,v1:0.2;n:type:ShaderForge.SFN_Color,id:140,x:33871,y:32366,ptovrint:False,ptlb:OuterColour,ptin:_OuterColour,varname:node_1995,prsc:2,glob:False,c1:0.3607843,c2:0,c3:0,c4:0.1019608;n:type:ShaderForge.SFN_Multiply,id:1472,x:34076,y:32342,varname:node_1472,prsc:2|A-3445-OUT,B-140-RGB;n:type:ShaderForge.SFN_Slider,id:3793,x:33735,y:32140,ptovrint:False,ptlb:OuterColourStrength,ptin:_OuterColourStrength,varname:node_824,prsc:2,min:0,cur:1.616566,max:20;proporder:140-3793-5811-4690;pass:END;sub:END;*/
+/*SF_DATA;ver:1.05;sub:START;pass:START;ps:flbk:,lico:1,lgpr:1,nrmq:1,limd:1,uamb:True,mssp:True,lmpd:False,lprd:False,rprd:False,enco:False,frtr:True,vitr:True,dbil:False,rmgx:True,rpth:0,hqsc:True,hqlp:False,tesm:0,blpr:1,bsrc:3,bdst:7,culm:0,dpts:2,wrdp:False,dith:0,ufog:False,aust:True,igpj:True,qofs:0,qpre:3,rntp:2,fgom:False,fgoc:False,fgod:False,fgor:False,fgmd:0,fgcr:0.5,fgcg:0.5,fgcb:0.5,fgca:1,fgde:0.01,fgrn:0,fgrf:300,ofsf:0,ofsu:0,f2p0:False;n:type:ShaderForge.SFN_Final,id:851,x:34581,y:32479,varname:node_851,prsc:2|spec-5483-OUT,gloss-7062-OUT,normal-7289-OUT,emission-1472-OUT,alpha-1569-OUT,refract-5097-OUT;n:type:ShaderForge.SFN_Slider,id:5811,x:33599,y:32925,ptovrint:False,ptlb:Refraction Intensity,ptin:_RefractionIntensity,varname:_RefractionIntensity,prsc:0,min:0,cur:4.813501,max:5;n:type:ShaderForge.SFN_Multiply,id:5097,x:34315,y:32946,varname:node_5097,prsc:2|A-5772-OUT,B-1708-OUT;n:type:ShaderForge.SFN_ComponentMask,id:5772,x:34103,y:32796,varname:node_5772,prsc:2,cc1:0,cc2:1,cc3:-1,cc4:-1|IN-4690-RGB;n:type:ShaderForge.SFN_Vector1,id:1569,x:34291,y:32874,varname:node_1569,prsc:2,v1:0.2;n:type:ShaderForge.SFN_Tex2d,id:4690,x:33865,y:32694,ptovrint:False,ptlb:Refraction,ptin:_Refraction,varname:_Refraction,prsc:2,tex:bca146bbc5499414c9cd51c7b9b671d8,ntxv:2,isnm:False|UVIN-7753-OUT;n:type:ShaderForge.SFN_TexCoord,id:3556,x:33479,y:32530,varname:node_3556,prsc:2,uv:1;n:type:ShaderForge.SFN_Multiply,id:7753,x:33678,y:32694,varname:node_7753,prsc:2|A-3556-UVOUT,B-5701-OUT;n:type:ShaderForge.SFN_Vector1,id:5701,x:33507,y:32790,varname:node_5701,prsc:2,v1:0.2;n:type:ShaderForge.SFN_Lerp,id:7289,x:34103,y:32619,varname:node_7289,prsc:2|A-5679-OUT,B-4690-RGB,T-5811-OUT;n:type:ShaderForge.SFN_Fresnel,id:3445,x:33780,y:32164,varname:node_3445,prsc:2|NRM-6898-OUT,EXP-1792-OUT;n:type:ShaderForge.SFN_Multiply,id:1708,x:34079,y:32991,varname:node_1708,prsc:2|A-5811-OUT,B-2580-OUT;n:type:ShaderForge.SFN_Vector1,id:2580,x:33882,y:33035,varname:node_2580,prsc:2,v1:0.1;n:type:ShaderForge.SFN_Color,id:140,x:33750,y:32304,ptovrint:False,ptlb:OuterColour,ptin:_OuterColour,varname:_OuterColour,prsc:2,glob:False,c1:1,c2:0,c3:0,c4:0.1019608;n:type:ShaderForge.SFN_Multiply,id:1472,x:34103,y:32240,varname:node_1472,prsc:2|A-3445-OUT,B-140-RGB,C-140-A;n:type:ShaderForge.SFN_ValueProperty,id:54,x:34103,y:32463,ptovrint:False,ptlb:Specularity,ptin:_Specularity,varname:_Specularity,prsc:0,glob:False,v1:1;n:type:ShaderForge.SFN_ValueProperty,id:7062,x:34268,y:32686,ptovrint:False,ptlb:Gloss,ptin:_Gloss,varname:_Gloss,prsc:0,glob:False,v1:1;n:type:ShaderForge.SFN_NormalVector,id:6898,x:33524,y:32106,prsc:2,pt:False;n:type:ShaderForge.SFN_Slider,id:1792,x:33450,y:32273,ptovrint:False,ptlb:Outer Glow Strength,ptin:_OuterGlowStrength,varname:_OuterGlowStrength,prsc:0,min:0,cur:0,max:20;n:type:ShaderForge.SFN_Multiply,id:5483,x:34316,y:32479,varname:node_5483,prsc:2|A-54-OUT,B-7289-OUT;n:type:ShaderForge.SFN_Vector3,id:5679,x:33872,y:32496,varname:node_5679,prsc:2,v1:0,v2:0,v3:0;proporder:140-5811-4690-54-7062-1792;pass:END;sub:END;*/
 
 Shader "Shader Forge/RefractionHole" {
     Properties {
-        _OuterColour ("OuterColour", Color) = (0.3607843,0,0,0.1019608)
-        _OuterColourStrength ("OuterColourStrength", Range(0, 20)) = 1.616566
-        _RefractionIntensity ("Refraction Intensity", Range(0, 1)) = 0.2279934
-        _Refraction ("Refraction", 2D) = "bump" {}
+        _OuterColour ("OuterColour", Color) = (1,0,0,0.1019608)
+        _RefractionIntensity ("Refraction Intensity", Range(0, 5)) = 4.813501
+        _Refraction ("Refraction", 2D) = "black" {}
+        _Specularity ("Specularity", Float ) = 1
+        _Gloss ("Gloss", Float ) = 1
+        _OuterGlowStrength ("Outer Glow Strength", Range(0, 20)) = 0
         [HideInInspector]_Cutoff ("Alpha cutoff", Range(0,1)) = 0.5
     }
     SubShader {
@@ -23,8 +25,10 @@ Shader "Shader Forge/RefractionHole" {
             Tags {
                 "LightMode"="ForwardBase"
             }
+            Blend SrcAlpha OneMinusSrcAlpha
             ZWrite Off
             
+            Fog {Mode Off}
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
@@ -35,19 +39,21 @@ Shader "Shader Forge/RefractionHole" {
             #pragma target 3.0
             uniform float4 _LightColor0;
             uniform sampler2D _GrabTexture;
-            uniform float _RefractionIntensity;
+            uniform fixed _RefractionIntensity;
             uniform sampler2D _Refraction; uniform float4 _Refraction_ST;
             uniform float4 _OuterColour;
-            uniform float _OuterColourStrength;
+            uniform fixed _Specularity;
+            uniform fixed _Gloss;
+            uniform fixed _OuterGlowStrength;
             struct VertexInput {
                 float4 vertex : POSITION;
                 float3 normal : NORMAL;
                 float4 tangent : TANGENT;
-                float2 texcoord0 : TEXCOORD0;
+                float2 texcoord1 : TEXCOORD1;
             };
             struct VertexOutput {
                 float4 pos : SV_POSITION;
-                float2 uv0 : TEXCOORD0;
+                float2 uv1 : TEXCOORD0;
                 float4 posWorld : TEXCOORD1;
                 float3 normalDir : TEXCOORD2;
                 float3 tangentDir : TEXCOORD3;
@@ -56,7 +62,7 @@ Shader "Shader Forge/RefractionHole" {
             };
             VertexOutput vert (VertexInput v) {
                 VertexOutput o = (VertexOutput)0;
-                o.uv0 = v.texcoord0;
+                o.uv1 = v.texcoord1;
                 o.normalDir = mul(_Object2World, float4(v.normal,0)).xyz;
                 o.tangentDir = normalize( mul( _Object2World, float4( v.tangent.xyz, 0.0 ) ).xyz );
                 o.binormalDir = normalize(cross(o.normalDir, o.tangentDir) * v.tangent.w);
@@ -75,14 +81,15 @@ Shader "Shader Forge/RefractionHole" {
                 i.normalDir = normalize(i.normalDir);
                 i.screenPos = float4( i.screenPos.xy / i.screenPos.w, 0, 0 );
                 i.screenPos.y *= _ProjectionParams.x;
-                float2 node_7753 = (i.uv0*0.2);
-                float3 _Refraction_var = UnpackNormal(tex2D(_Refraction,TRANSFORM_TEX(node_7753, _Refraction)));
-                float2 sceneUVs = float2(1,grabSign)*i.screenPos.xy*0.5+0.5 + (_Refraction_var.rgb.rg*(_RefractionIntensity*0.2));
+                float2 node_7753 = (i.uv1*0.2);
+                float4 _Refraction_var = tex2D(_Refraction,TRANSFORM_TEX(node_7753, _Refraction));
+                float2 sceneUVs = float2(1,grabSign)*i.screenPos.xy*0.5+0.5 + (_Refraction_var.rgb.rg*(_RefractionIntensity*0.1));
                 float4 sceneColor = tex2D(_GrabTexture, sceneUVs);
                 float3x3 tangentTransform = float3x3( i.tangentDir, i.binormalDir, i.normalDir);
 /////// Vectors:
                 float3 viewDirection = normalize(_WorldSpaceCameraPos.xyz - i.posWorld.xyz);
-                float3 normalLocal = lerp(float3(0,0,1),_Refraction_var.rgb,_RefractionIntensity);
+                float3 node_7289 = lerp(float3(0,0,0),_Refraction_var.rgb,_RefractionIntensity);
+                float3 normalLocal = node_7289;
                 float3 normalDirection = normalize(mul( normalLocal, tangentTransform )); // Perturbed normals
                 float3 lightDirection = normalize(_WorldSpaceLightPos0.xyz);
                 float3 lightColor = _LightColor0.rgb;
@@ -91,28 +98,19 @@ Shader "Shader Forge/RefractionHole" {
                 float attenuation = 1;
                 float3 attenColor = attenuation * _LightColor0.xyz;
 ///////// Gloss:
-                float gloss = 0.8;
+                float gloss = _Gloss;
                 float specPow = exp2( gloss * 10.0+1.0);
 ////// Specular:
                 float NdotL = max(0, dot( normalDirection, lightDirection ));
-                float node_3882 = 6.0;
-                float3 specularColor = float3(node_3882,node_3882,node_3882);
+                float3 specularColor = (_Specularity*node_7289);
                 float3 directSpecular = (floor(attenuation) * _LightColor0.xyz) * pow(max(0,dot(halfDirection,normalDirection)),specPow);
                 float3 specular = directSpecular * specularColor;
-/////// Diffuse:
-                NdotL = dot( normalDirection, lightDirection );
-                float node_7727 = 1.0;
-                float3 w = float3(node_7727,node_7727,node_7727)*0.5; // Light wrapping
-                float3 NdotLWrap = NdotL * ( 1.0 - w );
-                float3 forwardLight = max(float3(0.0,0.0,0.0), NdotLWrap + w );
-                float3 backLight = max(float3(0.0,0.0,0.0), -NdotLWrap + w ) * float3(node_7727,node_7727,node_7727);
-                float3 indirectDiffuse = float3(0,0,0);
-                float3 directDiffuse = (forwardLight+backLight) * attenColor;
-                indirectDiffuse += UNITY_LIGHTMODEL_AMBIENT.rgb; // Ambient Light
-                float3 diffuse = (directDiffuse + indirectDiffuse) * lerp(0.01,4,(pow(1.0-max(0,dot(normalDirection, viewDirection)),_OuterColourStrength)*_OuterColour.rgb));
+////// Emissive:
+                float3 node_1472 = (pow(1.0-max(0,dot(i.normalDir, viewDirection)),_OuterGlowStrength)*_OuterColour.rgb*_OuterColour.a);
+                float3 emissive = node_1472;
 /// Final Color:
-                float3 finalColor = diffuse + specular;
-                return fixed4(lerp(sceneColor.rgb, finalColor,0.3),1);
+                float3 finalColor = specular + emissive;
+                return fixed4(lerp(sceneColor.rgb, finalColor,0.2),1);
             }
             ENDCG
         }
@@ -136,19 +134,21 @@ Shader "Shader Forge/RefractionHole" {
             #pragma target 3.0
             uniform float4 _LightColor0;
             uniform sampler2D _GrabTexture;
-            uniform float _RefractionIntensity;
+            uniform fixed _RefractionIntensity;
             uniform sampler2D _Refraction; uniform float4 _Refraction_ST;
             uniform float4 _OuterColour;
-            uniform float _OuterColourStrength;
+            uniform fixed _Specularity;
+            uniform fixed _Gloss;
+            uniform fixed _OuterGlowStrength;
             struct VertexInput {
                 float4 vertex : POSITION;
                 float3 normal : NORMAL;
                 float4 tangent : TANGENT;
-                float2 texcoord0 : TEXCOORD0;
+                float2 texcoord1 : TEXCOORD1;
             };
             struct VertexOutput {
                 float4 pos : SV_POSITION;
-                float2 uv0 : TEXCOORD0;
+                float2 uv1 : TEXCOORD0;
                 float4 posWorld : TEXCOORD1;
                 float3 normalDir : TEXCOORD2;
                 float3 tangentDir : TEXCOORD3;
@@ -158,7 +158,7 @@ Shader "Shader Forge/RefractionHole" {
             };
             VertexOutput vert (VertexInput v) {
                 VertexOutput o = (VertexOutput)0;
-                o.uv0 = v.texcoord0;
+                o.uv1 = v.texcoord1;
                 o.normalDir = mul(_Object2World, float4(v.normal,0)).xyz;
                 o.tangentDir = normalize( mul( _Object2World, float4( v.tangent.xyz, 0.0 ) ).xyz );
                 o.binormalDir = normalize(cross(o.normalDir, o.tangentDir) * v.tangent.w);
@@ -178,14 +178,15 @@ Shader "Shader Forge/RefractionHole" {
                 i.normalDir = normalize(i.normalDir);
                 i.screenPos = float4( i.screenPos.xy / i.screenPos.w, 0, 0 );
                 i.screenPos.y *= _ProjectionParams.x;
-                float2 node_7753 = (i.uv0*0.2);
-                float3 _Refraction_var = UnpackNormal(tex2D(_Refraction,TRANSFORM_TEX(node_7753, _Refraction)));
-                float2 sceneUVs = float2(1,grabSign)*i.screenPos.xy*0.5+0.5 + (_Refraction_var.rgb.rg*(_RefractionIntensity*0.2));
+                float2 node_7753 = (i.uv1*0.2);
+                float4 _Refraction_var = tex2D(_Refraction,TRANSFORM_TEX(node_7753, _Refraction));
+                float2 sceneUVs = float2(1,grabSign)*i.screenPos.xy*0.5+0.5 + (_Refraction_var.rgb.rg*(_RefractionIntensity*0.1));
                 float4 sceneColor = tex2D(_GrabTexture, sceneUVs);
                 float3x3 tangentTransform = float3x3( i.tangentDir, i.binormalDir, i.normalDir);
 /////// Vectors:
                 float3 viewDirection = normalize(_WorldSpaceCameraPos.xyz - i.posWorld.xyz);
-                float3 normalLocal = lerp(float3(0,0,1),_Refraction_var.rgb,_RefractionIntensity);
+                float3 node_7289 = lerp(float3(0,0,0),_Refraction_var.rgb,_RefractionIntensity);
+                float3 normalLocal = node_7289;
                 float3 normalDirection = normalize(mul( normalLocal, tangentTransform )); // Perturbed normals
                 float3 lightDirection = normalize(lerp(_WorldSpaceLightPos0.xyz, _WorldSpaceLightPos0.xyz - i.posWorld.xyz,_WorldSpaceLightPos0.w));
                 float3 lightColor = _LightColor0.rgb;
@@ -194,26 +195,16 @@ Shader "Shader Forge/RefractionHole" {
                 float attenuation = LIGHT_ATTENUATION(i);
                 float3 attenColor = attenuation * _LightColor0.xyz;
 ///////// Gloss:
-                float gloss = 0.8;
+                float gloss = _Gloss;
                 float specPow = exp2( gloss * 10.0+1.0);
 ////// Specular:
                 float NdotL = max(0, dot( normalDirection, lightDirection ));
-                float node_3882 = 6.0;
-                float3 specularColor = float3(node_3882,node_3882,node_3882);
+                float3 specularColor = (_Specularity*node_7289);
                 float3 directSpecular = attenColor * pow(max(0,dot(halfDirection,normalDirection)),specPow);
                 float3 specular = directSpecular * specularColor;
-/////// Diffuse:
-                NdotL = dot( normalDirection, lightDirection );
-                float node_7727 = 1.0;
-                float3 w = float3(node_7727,node_7727,node_7727)*0.5; // Light wrapping
-                float3 NdotLWrap = NdotL * ( 1.0 - w );
-                float3 forwardLight = max(float3(0.0,0.0,0.0), NdotLWrap + w );
-                float3 backLight = max(float3(0.0,0.0,0.0), -NdotLWrap + w ) * float3(node_7727,node_7727,node_7727);
-                float3 directDiffuse = (forwardLight+backLight) * attenColor;
-                float3 diffuse = directDiffuse * lerp(0.01,4,(pow(1.0-max(0,dot(normalDirection, viewDirection)),_OuterColourStrength)*_OuterColour.rgb));
 /// Final Color:
-                float3 finalColor = diffuse + specular;
-                return fixed4(finalColor * 0.3,0);
+                float3 finalColor = specular;
+                return fixed4(finalColor * 0.2,0);
             }
             ENDCG
         }

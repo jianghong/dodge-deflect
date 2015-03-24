@@ -3561,7 +3561,7 @@ MonoBehaviour:
   defaultInvin: .5
   spawnInvin: 3
   hitThreshold: 2
-  ballPrefab: {fileID: 132010, guid: 62df3abe6b40949ac9843c4ddf0bb771, type: 2}
+  ballPrefab: {fileID: 179648, guid: 5fe552d41b39c4f48aa053676e9d3b9b, type: 2}
   maxSpawnCount: 3
   spawnCount: 0
   deathParticlePrefabs:
@@ -3622,7 +3622,7 @@ MonoBehaviour:
   triggerRightPrefab: {fileID: 0}
   blockerTTL: .5
   deflectTTL: .300000012
-  ballPrefab: {fileID: 132010, guid: 62df3abe6b40949ac9843c4ddf0bb771, type: 2}
+  ballPrefab: {fileID: 179648, guid: 5fe552d41b39c4f48aa053676e9d3b9b, type: 2}
   isHoldingProjectile: 0
   defaultColliderRadius: 2.21000004
   holdColliderRadius: 3.36999989

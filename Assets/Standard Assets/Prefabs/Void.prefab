@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d545213736670460794643ccb0c3887f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballPrefab: {fileID: 132010, guid: 62df3abe6b40949ac9843c4ddf0bb771, type: 2}
+  ballPrefab: {fileID: 179648, guid: 5fe552d41b39c4f48aa053676e9d3b9b, type: 2}
   bhPrefab: {fileID: 122202}
   starCounter: 2
   spawnTime: 0

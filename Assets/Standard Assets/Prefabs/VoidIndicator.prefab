@@ -69,7 +69,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeTilVoid: .699999988
-  Void: {fileID: 122202, guid: b4564aa6c70854114b3ca8ded633c7ef, type: 2}
+  Void: {fileID: 123106, guid: 26b552ba51f1d1047b98fcc93a97eb3c, type: 2}
   lerpTargetScale: {x: 1, y: 1, z: 1}
 --- !u!1001 &100100000
 Prefab:

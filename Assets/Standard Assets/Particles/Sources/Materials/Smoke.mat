@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Smoke
-  m_Shader: {fileID: 203, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 200, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
   m_SavedProperties:
@@ -17,14 +17,25 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: 08f28e42a647e2a4cbd32e793359aa3c, type: 3}
+          m_Texture: {fileID: 2800000, guid: 053df09f5fc72894285dce7c8579b91f, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Illum
+        second:
+          m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
       data:
         first:
           name: _InvFade
-        second: 1
+        second: .490535706
+      data:
+        first:
+          name: _EmissionLM
+        second: 0
     m_Colors:
       data:
         first:
@@ -33,7 +44,11 @@ Material:
       data:
         first:
           name: _TintColor
-        second: {r: .537313461, g: .537313461, b: .537313461, a: .811764717}
+        second: {r: .713235259, g: .87223351, b: 1, a: .811764717}
+      data:
+        first:
+          name: _EmisColor
+        second: {r: .200000003, g: .200000003, b: .200000003, a: 0}
 --- !u!1002 &2100001
 EditorExtensionImpl:
   serializedVersion: 6
