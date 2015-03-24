@@ -3565,12 +3565,13 @@ MonoBehaviour:
   maxSpawnCount: 3
   spawnCount: 0
   deathParticlePrefabs:
-  - {fileID: 179956, guid: c56b834c6fc9e43548953549c24c06f4, type: 2}
-  - {fileID: 141674, guid: 2873dd404bac445d4b05db58453efa66, type: 2}
-  - {fileID: 131556, guid: 7b51ee6a9f6134029917c45365aba4cb, type: 2}
-  - {fileID: 122668, guid: 284edd8d388004fe49a6e3e0691e296a, type: 2}
+  - {fileID: 136200, guid: 63999cdc2d2f14b748294d9f6d9167a0, type: 2}
+  - {fileID: 120958, guid: 8752a86928ba14aa2abcd2527c6355ea, type: 2}
+  - {fileID: 112518, guid: 4582421cf70c44bd6a5898a4f5cd2549, type: 2}
+  - {fileID: 163866, guid: d5ee2fb62c6fd449798ba7d373c26b99, type: 2}
   playHitClip: {fileID: 8300000, guid: 56cff2d32bdfe4d95ad834dc1038297a, type: 3}
   lifeText: {fileID: 0}
+  lastHitTime: 0
 --- !u!114 &11457982
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3625,7 +3626,6 @@ MonoBehaviour:
   isHoldingProjectile: 0
   defaultColliderRadius: 2.21000004
   holdColliderRadius: 3.36999989
-  controlType: 0
 --- !u!114 &11482990
 MonoBehaviour:
   m_ObjectHideFlags: 1

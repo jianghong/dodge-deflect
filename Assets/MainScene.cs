@@ -74,7 +74,6 @@ public class MainScene : MonoBehaviour {
 					if (oneTime) {
 						oneTime = false;
 						incrementRoundScore(playerLeft ());
-						ws.setWinnerText (pleft);
 					}
 					gameOver();
 				}
@@ -133,10 +132,10 @@ public class MainScene : MonoBehaviour {
 
 	public void gameOver () {
 		gameIsOver = true;
-		scoreBoardScript.setScoreBoard (playersDeflectScore[0], playersHitScore[0],
-		                                playersDeflectScore[1], playersHitScore[1],
-		                                playersDeflectScore[2], playersHitScore[2],
-		                                playersDeflectScore[3], playersHitScore[3]);
+//		scoreBoardScript.setScoreBoard (playersDeflectScore[0], playersHitScore[0],
+//		                                playersDeflectScore[1], playersHitScore[1],
+//		                                playersDeflectScore[2], playersHitScore[2],
+//		                                playersDeflectScore[3], playersHitScore[3]);
 	}
 
 	public void playerDied(int playerNum, float timeDied) {
