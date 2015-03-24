@@ -125,8 +125,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 123108}
   m_LocalRotation: {x: 0, y: -0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: .0244929865}
-  m_LocalScale: {x: .691492379, y: .691492379, z: .691492379}
+  m_LocalPosition: {x: -9.35300022e-07, y: 0, z: .024495}
+  m_LocalScale: {x: 3.42108989, y: 3.42108917, z: 3.42108917}
   m_Children: []
   m_Father: {fileID: 423106}
   m_RootOrder: 0
@@ -338,7 +338,7 @@ MonoBehaviour:
   starCounter: 2
   spawnTime: 0
   duration: 3
-  maxScale: {x: 50, y: 50, z: 50}
+  maxScale: {x: 2.5, y: 2.5, z: 2.5}
   scaleMultiplier: 1.25
   lerpRate: 1
   voidExplodes: {fileID: 8300000, guid: ba44ac658b3f04950a9ffff93877a609, type: 3}
