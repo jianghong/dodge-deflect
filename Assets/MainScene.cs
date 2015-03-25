@@ -15,13 +15,13 @@ public class MainScene : MonoBehaviour {
 	int[] playersBitmap = {0, 0, 0, 0};
 	int[] playersDeflectScore = {0, 0, 0, 0};
 	int[] playersHitScore = {0, 0, 0, 0};
+	float[] longestLifeSpan = {0f, 0f, 0f, 0f};
+	float[] shortLifeSpan = {0f, 0f, 0f, 0f};
 	Vector3[] playerPositions = new Vector3[4];
 	Vector3[] respawnposition = new Vector3[4];
 	GameObject[] playersHUD;
 	bool gameIsOver = false;
 	float playerDeathTime;
-	ScoreBoard scoreBoardScript;
-	WinnerScript ws;
 	bool oneTime = true;
 	GameManager gm;
 	int numPlayers;
@@ -41,8 +41,6 @@ public class MainScene : MonoBehaviour {
 		playersHUD = GameObject.FindGameObjectsWithTag("LivesText");
 		gm = GameObject.FindWithTag ("GameManager").GetComponent<GameManager> ();
 		timeManager = GameObject.FindWithTag ("TimeManager").GetComponent<TimeManager> ();
-		ws = GameObject.FindGameObjectWithTag ("WinnerText").GetComponent<WinnerScript> ();
-		scoreBoardScript = GameObject.FindWithTag ("ScoreBoard").GetComponent<ScoreBoard> ();
 		cd = GameObject.FindWithTag ("Countdown").GetComponent<countdown> ();
 		numPlayers = gm.playersBitmap.Sum ();
 		gm.numPlayers = numPlayers;
@@ -132,10 +130,6 @@ public class MainScene : MonoBehaviour {
 
 	public void gameOver () {
 		gameIsOver = true;
-//		scoreBoardScript.setScoreBoard (playersDeflectScore[0], playersHitScore[0],
-//		                                playersDeflectScore[1], playersHitScore[1],
-//		                                playersDeflectScore[2], playersHitScore[2],
-//		                                playersDeflectScore[3], playersHitScore[3]);
 	}
 
 	public void playerDied(int playerNum, float timeDied) {
