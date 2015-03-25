@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd03c45261f7d47cea5e73bdfa4f30c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeTilVoid: .699999988
+  timeTilVoid: .800000012
   Void: {fileID: 123106, guid: 26b552ba51f1d1047b98fcc93a97eb3c, type: 2}
   lerpTargetScale: {x: 1, y: 1, z: 1}
 --- !u!1001 &100100000

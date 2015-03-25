@@ -252,7 +252,7 @@ MonoBehaviour:
   initialForce: 500
   maxVelocity: 15
   Ball: {fileID: 179648}
-  voidIndicator: {fileID: 144776, guid: f6f0da41d040d4fa782f28ed9d81de2f, type: 2}
+  voidIndicator: {fileID: 124830, guid: 5cdb9cf19796cce4f989a34dda12ffcf, type: 2}
   TTL: .100000001
   isHostile: 1
   hostileTime: 3

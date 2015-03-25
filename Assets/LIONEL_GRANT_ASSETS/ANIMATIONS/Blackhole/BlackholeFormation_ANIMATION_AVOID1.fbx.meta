@@ -1,0 +1,202 @@
+fileFormatVersion: 2
+guid: b16287d1d3b4a3343882bf7b0c8f33cf
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: BLAST1
+    100004: BLAST2
+    100006: BLAST3
+    100008: BLAST4
+    100010: BLAST5
+    100012: BLAST6
+    100014: BLAST7
+    100016: BLAST_Particle1
+    100018: BLAST_Particle2
+    100020: BLAST_Particle3
+    100022: BLAST_Particle4
+    100024: BLAST_Particle5
+    100026: BLAST_Particle6
+    100028: BLAST_Particle7
+    100030: BLAST_path1
+    100032: BLAST_path2
+    100034: BLAST_path3
+    100036: BLAST_path4
+    100038: BLAST_path5
+    100040: BLAST_path6
+    100042: BLAST_path7
+    100044: Shockwave_Ring
+    400000: //RootNode
+    400002: BLAST1
+    400004: BLAST2
+    400006: BLAST3
+    400008: BLAST4
+    400010: BLAST5
+    400012: BLAST6
+    400014: BLAST7
+    400016: BLAST_Particle1
+    400018: BLAST_Particle2
+    400020: BLAST_Particle3
+    400022: BLAST_Particle4
+    400024: BLAST_Particle5
+    400026: BLAST_Particle6
+    400028: BLAST_Particle7
+    400030: BLAST_path1
+    400032: BLAST_path2
+    400034: BLAST_path3
+    400036: BLAST_path4
+    400038: BLAST_path5
+    400040: BLAST_path6
+    400042: BLAST_path7
+    400044: Shockwave_Ring
+    2300000: BLAST_Particle1
+    2300002: BLAST_Particle2
+    2300004: BLAST_Particle3
+    2300006: BLAST_Particle4
+    2300008: BLAST_Particle5
+    2300010: BLAST_Particle6
+    2300012: BLAST_Particle7
+    3300000: BLAST_Particle1
+    3300002: BLAST_Particle2
+    3300004: BLAST_Particle3
+    3300006: BLAST_Particle4
+    3300008: BLAST_Particle5
+    3300010: BLAST_Particle6
+    3300012: BLAST_Particle7
+    4300000: Shockwave_Ring
+    4300002: BLAST_Particle1
+    4300004: BLAST_Particle2
+    4300006: BLAST_Particle3
+    4300008: BLAST_Particle4
+    4300010: BLAST_Particle5
+    4300012: BLAST_Particle6
+    4300014: BLAST_Particle7
+    7400000: Formation
+    9500000: //RootNode
+    13700000: Shockwave_Ring
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Formation
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 49
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: BLAST1
+        weight: 1
+      - path: BLAST1/BLAST_Particle1
+        weight: 1
+      - path: BLAST2
+        weight: 1
+      - path: BLAST2/BLAST_Particle2
+        weight: 1
+      - path: BLAST3
+        weight: 1
+      - path: BLAST3/BLAST_Particle3
+        weight: 1
+      - path: BLAST4
+        weight: 1
+      - path: BLAST4/BLAST_Particle4
+        weight: 1
+      - path: BLAST5
+        weight: 1
+      - path: BLAST5/BLAST_Particle5
+        weight: 1
+      - path: BLAST6
+        weight: 1
+      - path: BLAST6/BLAST_Particle6
+        weight: 1
+      - path: BLAST7
+        weight: 1
+      - path: BLAST7/BLAST_Particle7
+        weight: 1
+      - path: BLAST_path1
+        weight: 1
+      - path: BLAST_path2
+        weight: 1
+      - path: BLAST_path3
+        weight: 1
+      - path: BLAST_path4
+        weight: 1
+      - path: BLAST_path5
+        weight: 1
+      - path: BLAST_path6
+        weight: 1
+      - path: BLAST_path7
+        weight: 1
+      - path: Shockwave_Ring
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
