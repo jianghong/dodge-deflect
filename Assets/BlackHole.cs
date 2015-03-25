@@ -77,7 +77,6 @@ public class BlackHole : MonoBehaviour {
 			float radialSize = gameObject.GetComponent<SphereCollider>().radius * lerpTargetScale.y;
 			float radialDistance = Vector3.Distance(starOrigin, suctionOrigin) - radialSize;
 			float suctionForce = (lerpTargetScale.magnitude)*60f / radialDistance;
-			Debug.Log (suctionForce);
 			if (radialDistance < 15f ){
 				starObjs[i].rigidbody.AddForce(toSuctionOriginFromObject * suctionForce * Time.deltaTime);
 			}
