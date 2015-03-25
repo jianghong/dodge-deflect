@@ -8,8 +8,10 @@ public class PlayerLivesText : MonoBehaviour {
 	RawImage[] healthBlocks;
 	RespawnText rt;
 	int currHealth = 0;
+	PlayerPortrait playerPortrait;
  
 	void Awake() {
+		playerPortrait = transform.parent.Find ("Portrait").GetComponent<PlayerPortrait> ();
 		healthBlocks = GetComponentsInChildren<RawImage> ();
 		rt = transform.parent.FindChild ("RespawningText").GetComponent<RespawnText> ();
 		for (int i = 0; i < healthBlocks.Length; i++) {
@@ -56,6 +58,7 @@ public class PlayerLivesText : MonoBehaviour {
 		} else {
 			disableHealthBlocks();
 		}
+//		playerPortrait.changePortrait ("hit");
 	}
 
 	public void decreaseRespawnCount(string s) {

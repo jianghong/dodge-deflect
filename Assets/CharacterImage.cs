@@ -23,7 +23,6 @@ public class CharacterImage : MonoBehaviour {
 
 	public void changePanelSprite(Sprite s) {
 		transform.FindChild ("CharacterImage").GetComponent<Image> ().enabled = true;
-//		GetComponentInChildren<Image> ().enabled = true;
 	}	
 
 	public void startPressed(Sprite spr, string str) {
