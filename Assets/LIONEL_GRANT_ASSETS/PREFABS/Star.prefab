@@ -2350,7 +2350,7 @@ ParticleSystem:
   InitialModule:
     enabled: 1
     startLifetime:
-      scalar: 2.75
+      scalar: 2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2577,7 +2577,7 @@ ParticleSystem:
       minMaxState: 0
     gravityModifier: 0
     inheritVelocity: .0500000007
-    maxNumParticles: 247
+    maxNumParticles: 150
   ShapeModule:
     serializedVersion: 2
     enabled: 1
