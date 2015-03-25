@@ -12,6 +12,7 @@ public class PlayerCollision : MonoBehaviour {
 	public int maxSpawnCount = 3;
 	public int spawnCount = 0;
 	public GameObject[] deathParticlePrefabs;
+	public GameObject[] finalDeathParticlePrefabs;
 	float hitCount = 0.0f;
 	float immuneStartTime = 0.0f;
 	bool isImmune = false;
@@ -63,11 +64,13 @@ public class PlayerCollision : MonoBehaviour {
 		if (spawnCount < maxSpawnCount) {
 			ms.spawnPlayerStarter (pNum, spawnCount);
 			lifeText.decreaseRespawnCount((maxSpawnCount - spawnCount).ToString());
+			Instantiate (deathParticlePrefabs [pNum - 1], transform.position, Quaternion.identity);
 		} else {
 			lifeText.decreaseRespawnCount((maxSpawnCount - spawnCount).ToString());
+			Instantiate (finalDeathParticlePrefabs [pNum - 1], transform.position, Quaternion.identity);
 			ms.playerDied (pNum, timeDied);
 		}
-		Instantiate (deathParticlePrefabs [pNum - 1], transform.position, Quaternion.identity);
+
 		Destroy (this.gameObject);
 	}
 
