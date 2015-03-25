@@ -318,9 +318,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823180a9b89ca42ce881ca95e5759264, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minPlayers: 4
-  numPlayers: 4
-  playersBitmap: 01000000010000000100000001000000
+  minPlayers: 2
+  numPlayers: 2
+  playersBitmap: 01000000010000000000000000000000
   playersRoundScore: 00000000000000000000000000000000
   roundScores: 00000000000000000000000000000000
   playerControls: 01000000010000000100000001000000
@@ -1941,8 +1941,8 @@ Transform:
   m_PrefabParentObject: {fileID: 443502, guid: 5c756c9f134d04826bc7a45c127b0282, type: 2}
   m_PrefabInternal: {fileID: 1870829228}
   m_GameObject: {fileID: 491541053}
-  m_LocalRotation: {x: .570211887, y: 0, z: 0, w: .821497738}
-  m_LocalPosition: {x: 2.9000001, y: 67.5, z: -27.7000008}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106709}
+  m_LocalPosition: {x: 2.9000001, y: 67.5, z: -5.0999999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2362,6 +2362,7 @@ GameObject:
   - 224: {fileID: 553588830}
   - 222: {fileID: 553588832}
   - 114: {fileID: 553588831}
+  - 114: {fileID: 553588833}
   m_Layer: 5
   m_Name: Portrait
   m_TagString: Untagged
@@ -2415,6 +2416,20 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 1838088736}
   m_GameObject: {fileID: 553588829}
+--- !u!114 &553588833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 553588829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3d4736d382bb4f0a905f38baeb5fcb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultPortrait: {fileID: 2800000, guid: ebb55522a90894535b5ff2893e12fd57, type: 3}
+  hitPortrait: {fileID: 2800000, guid: a9a2a52311468421f9db060979c555fb, type: 3}
+  deadPortrait: {fileID: 2800000, guid: a956fa0ae6b8a442092a5ebe6052af02, type: 3}
 --- !u!1 &554105759
 GameObject:
   m_ObjectHideFlags: 0
@@ -2837,6 +2852,7 @@ GameObject:
   - 224: {fileID: 708478139}
   - 222: {fileID: 708478141}
   - 114: {fileID: 708478140}
+  - 114: {fileID: 708478142}
   m_Layer: 5
   m_Name: Portrait
   m_TagString: Untagged
@@ -2890,6 +2906,20 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 1838088736}
   m_GameObject: {fileID: 708478138}
+--- !u!114 &708478142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 708478138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3d4736d382bb4f0a905f38baeb5fcb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultPortrait: {fileID: 2800000, guid: 07ab63a30f3444910bef0b849c771b6c, type: 3}
+  hitPortrait: {fileID: 2800000, guid: 0247c3383290d4b5e87bc2849ee80e1c, type: 3}
+  deadPortrait: {fileID: 2800000, guid: e8cd4bfa4749e4ce5a6db939bb847d94, type: 3}
 --- !u!1 &717709700
 GameObject:
   m_ObjectHideFlags: 0
@@ -5133,11 +5163,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11492550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
       propertyPath: minPlayers
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11492550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
       propertyPath: numPlayers
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11492550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
       propertyPath: playersBitmap.Array.data[0]
@@ -5149,11 +5179,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11492550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
       propertyPath: playersBitmap.Array.data[2]
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11492550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
       propertyPath: playersBitmap.Array.data[3]
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11492550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
       propertyPath: roundBoard
@@ -6093,11 +6123,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 443502, guid: 5c756c9f134d04826bc7a45c127b0282, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -27.7000008
+      value: -5.0999999
       objectReference: {fileID: 0}
     - target: {fileID: 443502, guid: 5c756c9f134d04826bc7a45c127b0282, type: 2}
       propertyPath: m_LocalRotation.x
-      value: .570211887
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 443502, guid: 5c756c9f134d04826bc7a45c127b0282, type: 2}
       propertyPath: m_LocalRotation.y
@@ -6109,7 +6139,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 443502, guid: 5c756c9f134d04826bc7a45c127b0282, type: 2}
       propertyPath: m_LocalRotation.w
-      value: .821497738
+      value: .707106709
       objectReference: {fileID: 0}
     - target: {fileID: 443502, guid: 5c756c9f134d04826bc7a45c127b0282, type: 2}
       propertyPath: m_RootOrder
@@ -6445,6 +6475,7 @@ GameObject:
   - 224: {fileID: 2012509349}
   - 222: {fileID: 2012509351}
   - 114: {fileID: 2012509350}
+  - 114: {fileID: 2012509352}
   m_Layer: 5
   m_Name: Portrait
   m_TagString: Untagged
@@ -6498,6 +6529,20 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 1838088736}
   m_GameObject: {fileID: 2012509348}
+--- !u!114 &2012509352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2012509348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3d4736d382bb4f0a905f38baeb5fcb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultPortrait: {fileID: 2800000, guid: 58c6d0a7c31504f5d8e7afdb6a6c7070, type: 3}
+  hitPortrait: {fileID: 2800000, guid: df78b2a445b9f4929b85f1d5d455a98c, type: 3}
+  deadPortrait: {fileID: 2800000, guid: 1bf2266801c944d11b063d8f08095f09, type: 3}
 --- !u!1 &2016220262
 GameObject:
   m_ObjectHideFlags: 0

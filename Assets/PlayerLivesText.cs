@@ -18,6 +18,7 @@ public class PlayerLivesText : MonoBehaviour {
 			healthBlocks[i].enabled = false;
 		}
 	}
+
 	// Use this for initialization
 
 	void Start () {
@@ -42,6 +43,7 @@ public class PlayerLivesText : MonoBehaviour {
 			healthBlocks[i].enabled = true;
 		}
 		currHealth = 0;
+		playerPortrait.changeToDefault();
 	}
 
 	public void disableHealthBlocks() {
@@ -55,10 +57,15 @@ public class PlayerLivesText : MonoBehaviour {
 		if (loseHealth == 1) {
 			healthBlocks [currHealth].enabled = false;
 			currHealth = currHealth + loseHealth > 1 ? 0 : 1;
+			if (currHealth == 1) {
+				playerPortrait.changeToHitStarter();
+			} else {
+				playerPortrait.changeToDead();
+			}
 		} else {
 			disableHealthBlocks();
+			playerPortrait.changeToDead();
 		}
-//		playerPortrait.changePortrait ("hit");
 	}
 
 	public void decreaseRespawnCount(string s) {

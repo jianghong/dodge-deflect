@@ -9,9 +9,9 @@ EditorBuildSettings:
     path: Assets/gameMeun/meun_Scenes/imenu.unity
   - enabled: 0
     path: Assets/Scenes/startScene.unity
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/startScenev2.unity
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/characterLoadOut.unity
   - enabled: 1
     path: Assets/Scenes/scene4.unity

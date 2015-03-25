@@ -16,21 +16,22 @@ public class PlayerPortrait : MonoBehaviour {
 	void Update () {
 		
 	}
-
 	
-	public void changePortrait(string s) {
-		StartCoroutine (changeTo(s));
+	public void changeToHitStarter() {
+		StartCoroutine (changeToHit());
 	}
 
-	IEnumerator changeTo(string s) {
-		Texture switchTo;
-		switch (s) {
-			case "hit": switchTo = hitPortrait; break;
-			case "dead": switchTo = deadPortrait; break;
-			default: switchTo = defaultPortrait; break;
-		}
-		GetComponent<RawImage> ().texture = switchTo;
-		yield return new WaitForSeconds (0.5f);
+	public void changeToDead() {
+		GetComponent<RawImage> ().texture = deadPortrait;
+	}
+
+	public void changeToDefault() {
+		GetComponent<RawImage> ().texture = defaultPortrait;
+	}
+
+	IEnumerator changeToHit() {
+		GetComponent<RawImage> ().texture = hitPortrait;
+		yield return new WaitForSeconds (0.75f);
 		GetComponent<RawImage> ().texture = defaultPortrait;
 	}
 }
