@@ -239,6 +239,7 @@ MonoBehaviour:
   voidIndicatorPrefab: {fileID: 144776, guid: f6f0da41d040d4fa782f28ed9d81de2f, type: 2}
   fadeOutTime: 1
   roundBoard: {fileID: 1183049481}
+  scoreBoard: {fileID: 777162846}
 --- !u!4 &10044785
 Transform:
   m_ObjectHideFlags: 0
@@ -470,14 +471,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823180a9b89ca42ce881ca95e5759264, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minPlayers: 4
-  numPlayers: 4
-  playersBitmap: 01000000010000000100000001000000
+  minPlayers: 2
+  numPlayers: 2
+  playersBitmap: 01000000010000000000000000000000
   playersRoundScore: 00000000000000000000000000000000
   roundScores: 00000000000000000000000000000000
   playerControls: 01000000010000000100000001000000
+  longestLifeSpan:
+  - 0
+  - 0
+  - 0
+  - 0
+  shortestLifeSpan:
+  - Infinity
+  - Infinity
+  - Infinity
+  - Infinity
   roundCount: 3
-  isFinalRound: 0
+  isFinalRound: 1
   tracking: {fileID: 0}
 --- !u!4 &60520270
 Transform:
@@ -1201,7 +1212,7 @@ GameObject:
   - 222: {fileID: 179341992}
   - 114: {fileID: 179341991}
   m_Layer: 5
-  m_Name: Text
+  m_Name: LongestTime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2930,7 +2941,7 @@ GameObject:
   - 222: {fileID: 467867467}
   - 114: {fileID: 467867466}
   m_Layer: 5
-  m_Name: Text
+  m_Name: ShortestTime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4556,7 +4567,7 @@ GameObject:
   - 222: {fileID: 603864395}
   - 114: {fileID: 603864394}
   m_Layer: 5
-  m_Name: Text
+  m_Name: ShortestTime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5570,7 +5581,7 @@ GameObject:
   - 222: {fileID: 707462632}
   - 114: {fileID: 707462631}
   m_Layer: 5
-  m_Name: Text
+  m_Name: LongestTime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6041,7 +6052,9 @@ GameObject:
   - 223: {fileID: 777162851}
   - 114: {fileID: 777162850}
   - 114: {fileID: 777162849}
+  - 222: {fileID: 777162852}
   - 114: {fileID: 777162848}
+  - 114: {fileID: 777162853}
   m_Layer: 5
   m_Name: Character Score Canvas
   m_TagString: ScoreBoard
@@ -6071,20 +6084,24 @@ RectTransform:
 --- !u!114 &777162848
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11434344, guid: 6f9c48e95d5fa4f3c80715ac8d87fb2f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1865652392}
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 777162846}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b5e0de8daa9b4175a2768123c5769a8, type: 3}
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterSprites:
-  - {fileID: 21300000, guid: f63a3fee707094cf29c48d239c0d79be, type: 3}
-  - {fileID: 21300000, guid: 13056e5fcc2f64e88ac66be6799c80c3, type: 3}
-  - {fileID: 21300000, guid: ab3b59900b4474dc288e19be54b114c2, type: 3}
-  - {fileID: 21300000, guid: 66cb749bbb18a464081821724b16d653, type: 3}
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: .650980413}
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
 --- !u!114 &777162849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6142,6 +6159,28 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
+--- !u!222 &777162852
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 777162846}
+--- !u!114 &777162853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 777162846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cbd7cb0255fb42278d9a52c6bea7b49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerScoreContainer:
+  - {fileID: 1486188287}
+  - {fileID: 642402649}
+  - {fileID: 597316269}
+  - {fileID: 349619416}
 --- !u!1 &793555965
 GameObject:
   m_ObjectHideFlags: 0
@@ -6526,7 +6565,7 @@ GameObject:
   - 222: {fileID: 885175100}
   - 114: {fileID: 885175099}
   m_Layer: 5
-  m_Name: Text
+  m_Name: LongestTime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6950,7 +6989,7 @@ GameObject:
   - 222: {fileID: 956658387}
   - 114: {fileID: 956658386}
   m_Layer: 5
-  m_Name: Text
+  m_Name: ShortestTime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9917,7 +9956,7 @@ GameObject:
   - 222: {fileID: 1466882459}
   - 114: {fileID: 1466882458}
   m_Layer: 5
-  m_Name: Text
+  m_Name: ShortestTime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10559,11 +10598,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11492550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
       propertyPath: minPlayers
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11492550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
       propertyPath: numPlayers
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11492550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
       propertyPath: playersBitmap.Array.data[0]
@@ -10575,11 +10614,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11492550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
       propertyPath: playersBitmap.Array.data[2]
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11492550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
       propertyPath: playersBitmap.Array.data[3]
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11492550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
       propertyPath: roundBoard
@@ -10595,7 +10634,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11492550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
       propertyPath: isFinalRound
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
@@ -11066,7 +11105,7 @@ GameObject:
   - 222: {fileID: 1587862730}
   - 114: {fileID: 1587862729}
   m_Layer: 5
-  m_Name: Text
+  m_Name: LongestTime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12466,7 +12505,40 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 185120, guid: 6f9c48e95d5fa4f3c80715ac8d87fb2f, type: 2}
+      propertyPath: m_Name
+      value: LongestTime
+      objectReference: {fileID: 0}
+    - target: {fileID: 185114, guid: 6f9c48e95d5fa4f3c80715ac8d87fb2f, type: 2}
+      propertyPath: m_Name
+      value: ShortestTime
+      objectReference: {fileID: 0}
+    - target: {fileID: 185088, guid: 6f9c48e95d5fa4f3c80715ac8d87fb2f, type: 2}
+      propertyPath: m_Name
+      value: LongestTime
+      objectReference: {fileID: 0}
+    - target: {fileID: 134338, guid: 6f9c48e95d5fa4f3c80715ac8d87fb2f, type: 2}
+      propertyPath: m_Name
+      value: LongestTime
+      objectReference: {fileID: 0}
+    - target: {fileID: 185106, guid: 6f9c48e95d5fa4f3c80715ac8d87fb2f, type: 2}
+      propertyPath: m_Name
+      value: LongestTime
+      objectReference: {fileID: 0}
+    - target: {fileID: 185112, guid: 6f9c48e95d5fa4f3c80715ac8d87fb2f, type: 2}
+      propertyPath: m_Name
+      value: ShortestTime
+      objectReference: {fileID: 0}
+    - target: {fileID: 185082, guid: 6f9c48e95d5fa4f3c80715ac8d87fb2f, type: 2}
+      propertyPath: m_Name
+      value: ShortestTime
+      objectReference: {fileID: 0}
+    - target: {fileID: 134332, guid: 6f9c48e95d5fa4f3c80715ac8d87fb2f, type: 2}
+      propertyPath: m_Name
+      value: ShortestTime
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 11434344, guid: 6f9c48e95d5fa4f3c80715ac8d87fb2f, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 6f9c48e95d5fa4f3c80715ac8d87fb2f, type: 2}
   m_RootGameObject: {fileID: 777162846}
   m_IsPrefabParent: 0

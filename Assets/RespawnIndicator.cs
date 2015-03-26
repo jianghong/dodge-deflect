@@ -24,6 +24,7 @@ public class RespawnIndicator : MonoBehaviour {
 		mp = p.GetComponent<MovePlayer> ();
 		pc = p.GetComponent<PlayerCollision> ();
 		pc.lastHitTime = Time.time;
+		pc.playerSpawnTime = Time.time;
 		mp.playerNumber = pNum;
 		pc.spawnCount = spawnCount;
 		pc.startSpawnImmune();

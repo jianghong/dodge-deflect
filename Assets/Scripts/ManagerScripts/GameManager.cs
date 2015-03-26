@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour {
 	public int[] playersRoundScore = {0, 0, 0, 0};
 	public int[] roundScores = {0, 0, 0, 0};
 	public ControlType[] playerControls = {ControlType.Manual, ControlType.Manual, ControlType.Manual, ControlType.Manual};
+	public float[] longestLifeSpan = {0f, 0f, 0f, 0f};
+	public float[] shortestLifeSpan = {Mathf.Infinity, Mathf.Infinity, Mathf.Infinity, Mathf.Infinity};
 	public int roundCount = 3;
 	public bool isFinalRound = false;
 	public StatTracking tracking;
@@ -70,6 +72,16 @@ public class GameManager : MonoBehaviour {
 		} else {
 			Application.LoadLevel("characterLoadOut");
 			Destroy (this);			
+		}
+	}
+
+	public void updateLifespan(int pNum, float timeValue) {
+		if (timeValue < shortestLifeSpan [pNum - 1]) {
+			shortestLifeSpan[pNum-1] = timeValue;
+		}
+		
+		if (timeValue > longestLifeSpan [pNum - 1]) {
+			longestLifeSpan[pNum-1] = timeValue;
 		}
 	}
 }

@@ -25,6 +25,7 @@ public class PlayerCollision : MonoBehaviour {
 	LionelDeflect ld;
 	GameManager gm;
 	public float lastHitTime;
+	public float playerSpawnTime;
 
 	void Awake() {
 		gm = GameObject.FindWithTag ("GameManager").GetComponent<GameManager> ();
@@ -61,6 +62,7 @@ public class PlayerCollision : MonoBehaviour {
 			starCounter -= 1;
 		}
 		spawnCount += 1;
+
 		if (spawnCount < maxSpawnCount) {
 			ms.spawnPlayerStarter (pNum, spawnCount);
 			lifeText.decreaseRespawnCount((maxSpawnCount - spawnCount).ToString());
@@ -70,6 +72,9 @@ public class PlayerCollision : MonoBehaviour {
 			Instantiate (finalDeathParticlePrefabs [pNum - 1], transform.position, Quaternion.identity);
 			ms.playerDied (pNum, timeDied);
 		}
+
+		float lifespan = Time.time - playerSpawnTime;
+		gm.updateLifespan (pNum, lifespan);
 
 		Destroy (this.gameObject);
 	}
@@ -88,8 +93,6 @@ public class PlayerCollision : MonoBehaviour {
 		if(collider.gameObject.tag == "BlackHole" && !isImmune)
 		{
 			lifeText.decreaseHealthBlock(2);
-			// voidlover
-//			gm.tracking.addToStat ("VoidLover", playerMovementScript.playerNumber, 1);
 			death ();
 		}
 	}

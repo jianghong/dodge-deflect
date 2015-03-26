@@ -13,7 +13,6 @@ public class ChangeText : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
 	}
 	
 	public void setText(string s) {

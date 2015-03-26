@@ -15,8 +15,6 @@ public class MainScene : MonoBehaviour {
 	int[] playersBitmap = {0, 0, 0, 0};
 	int[] playersDeflectScore = {0, 0, 0, 0};
 	int[] playersHitScore = {0, 0, 0, 0};
-	float[] longestLifeSpan = {0f, 0f, 0f, 0f};
-	float[] shortLifeSpan = {0f, 0f, 0f, 0f};
 	Vector3[] playerPositions = new Vector3[4];
 	Vector3[] respawnposition = new Vector3[4];
 	GameObject[] playersHUD;
@@ -32,10 +30,12 @@ public class MainScene : MonoBehaviour {
 	int pleft = 0;
 	float deathDelay = 2.7f;
 	public GameObject roundBoard;
+	public GameObject scoreBoard;
 
 	// Use this for initialization
 	void Awake() {
 	}
+
 	void Start () {
 		sceneLoadedTime = Time.timeSinceLevelLoad;
 		playersHUD = GameObject.FindGameObjectsWithTag("LivesText");
@@ -71,14 +71,25 @@ public class MainScene : MonoBehaviour {
 				if (playerLeft () > 0) {
 					if (oneTime) {
 						oneTime = false;
-						incrementRoundScore(playerLeft ());
+						if (gm.isFinalRound) {
+							showScoreBoard();
+						} else {
+							incrementRoundScore(playerLeft ());
+							gameOver();
+						}
 					}
-					gameOver();
 				}
-
 			}
 		}
 		restartGame ();
+	}
+
+	void showScoreBoard() {
+		scoreBoard.SetActive (true);
+		float playerLeftSpawnTime = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerCollision> ().playerSpawnTime;
+		gm.updateLifespan (playerLeft (), Time.time - playerLeftSpawnTime);
+		scoreBoard.GetComponent<ScoreBoard> ().disablePlayerContainers (gm.playersBitmap);
+		scoreBoard.GetComponent<ScoreBoard>().setLifeSpans (gm.longestLifeSpan, gm.shortestLifeSpan);
 	}
 
 	int playerLeft() {
@@ -98,10 +109,6 @@ public class MainScene : MonoBehaviour {
 
 	public void beginGame() {
 		Debug.Log ("n : " + numPlayers);
-	}
-
-	public void addToVoidLover(int pNum) {
-	
 	}
 
 	void spawnPlayers(int n) {
@@ -167,11 +174,9 @@ public class MainScene : MonoBehaviour {
 		if (deflectScore) {
 			playersDeflectScore[pNum-1] += 1;		
 		}
-		Debug.Log (pNum);
 		playersHitScore[pNum-1] += 1;
 	}
-
-
+	
 	void restartGame () {
 		if (gameIsOver && (XCI.GetButtonUp(XboxButton.Start, 1))) {
 			gm.newRound();

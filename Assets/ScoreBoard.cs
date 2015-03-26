@@ -4,12 +4,9 @@ using System.Collections;
 
 public class ScoreBoard : MonoBehaviour {
 
-	Text scoreText;
-	
+	public GameObject[] PlayerScoreContainer;
 	// Use this for initialization
 	void Start () {
-		scoreText = GetComponent<Text> ();
-		scoreText.text = "";
 
 	}
 	
@@ -18,10 +15,21 @@ public class ScoreBoard : MonoBehaviour {
 	
 	}
 
-	public void setScoreBoard(int p1D, int p1T, int p2D, int p2T, int p3D, int p3T, int p4D, int p4T) {
-		scoreText.text = "Player 1 landed " + p1D + " deflected shots." + p1T + " Total shots\n" +
-						"Player 2 landed " + p2D + " deflected shots." + p2T + " Total shots\n" +
-						"Player 3 landed " + p3D + " deflected shots." + p3T + " Total shots\n" +
-						"Player 4 landed " + p4D + " deflected shots." + p4T + " Total shots\n";
+	public void setLifeSpans(float[] longestLifespans, float[] shortestLifespans) {
+		for (int i=0; i<PlayerScoreContainer.Length; i++) {
+			if (PlayerScoreContainer[i].activeSelf) {
+				PlayerScoreContainer[i].transform.Find("Score Container").transform.Find ("Longest Life Span").transform.Find("LongestTime").GetComponent<Text>().text = longestLifespans[i].ToString("F2") + "s";
+				PlayerScoreContainer[i].transform.Find("Score Container").transform.Find ("Shortest Life Span").transform.Find("ShortestTime").GetComponent<Text>().text = shortestLifespans[i].ToString("F2") + "s";
+			}
+
+		}
+	}
+
+	public void disablePlayerContainers(int[] playerBitmap) {
+		for (int i=0; i<playerBitmap.Length; i++) {
+			if (playerBitmap[i] == 0) {
+				PlayerScoreContainer[i].SetActive(false);
+			}
+		}
 	}
 }
