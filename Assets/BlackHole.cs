@@ -17,6 +17,7 @@ public class BlackHole : MonoBehaviour {
 	GameObject[] playerObjs;
 	GameObject[] starObjs;
 	public AudioClip voidExplodes;
+	public GameObject explosionParticle;
 	AudioSource ac;
 	float audioVolume;
 
@@ -44,6 +45,7 @@ public class BlackHole : MonoBehaviour {
 				starCounter -= 1;
 			}
 			AudioSource.PlayClipAtPoint(voidExplodes, this.transform.position, audioVolume);
+			Instantiate (explosionParticle, transform.position, Quaternion.identity);
 			Destroy (this.gameObject);
 		}
 	

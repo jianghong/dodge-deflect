@@ -488,7 +488,7 @@ MonoBehaviour:
   - Infinity
   - Infinity
   roundCount: 3
-  isFinalRound: 1
+  isFinalRound: 0
   tracking: {fileID: 0}
 --- !u!4 &60520270
 Transform:
@@ -10810,7 +10810,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11492550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
       propertyPath: isFinalRound
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
