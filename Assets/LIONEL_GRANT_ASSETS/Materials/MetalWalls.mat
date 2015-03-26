@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: lambert1
-  m_Shader: {fileID: 4800000, guid: 83fa200f7dc982945bb08501dfa26223, type: 3}
+  m_Name: MetalWalls
+  m_Shader: {fileID: 4800000, guid: fc00ac9031aab294c9b47652ad8407d3, type: 3}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
   m_SavedProperties:
@@ -22,7 +22,7 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _Refraction
+          name: _BumpMap
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
@@ -30,42 +30,38 @@ Material:
     m_Floats:
       data:
         first:
-          name: _Cutoff
-        second: .5
-      data:
-        first:
-          name: _RefractionIntensity
-        second: .227993399
-      data:
-        first:
           name: _Shininess
         second: .078125
       data:
         first:
-          name: _OuterColourStrength
-        second: 1.61656594
+          name: _speclevel
+        second: 2.72000003
       data:
         first:
-          name: _OutsideEdge
-        second: 18.9532051
+          name: _LightDiffuse
+        second: 1.19000006
+      data:
+        first:
+          name: _node_2431
+        second: 0
+      data:
+        first:
+          name: _node_2104
+        second: 0
     m_Colors:
       data:
         first:
           name: _Color
-        second: {r: .29411763, g: .29411763, b: .29411763, a: .309803933}
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _color
+        second: {r: .439932942, g: .545887947, b: .580882311, a: 1}
       data:
         first:
           name: _SpecColor
         second: {r: .5, g: .5, b: .5, a: 1}
       data:
         first:
-          name: _OuterColour
-        second: {r: .360784292, g: 0, b: 0, a: .101960801}
-      data:
-        first:
-          name: _node_3105
-        second: {r: 3, g: .300000012, b: .5, a: 1}
-      data:
-        first:
-          name: _Colour
-        second: {r: 1, g: 0, b: 0, a: 1}
+          name: _node_1560
+        second: {r: .5, g: .5, b: .5, a: 1}

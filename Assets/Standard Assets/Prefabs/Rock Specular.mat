@@ -30,7 +30,7 @@ Material:
       data:
         first:
           name: _colour
-        second: {r: .073691614, g: .186429247, b: .345588207, a: 1}
+        second: {r: .463235319, g: .282357424, b: .20096238, a: 1}
       data:
         first:
           name: _node_213
@@ -42,4 +42,4 @@ Material:
       data:
         first:
           name: _SpecularityColour
-        second: {r: .492647052, g: .191987455, b: .191987455, a: 1}
+        second: {r: .404411793, g: .315162301, b: .202205896, a: 1}
