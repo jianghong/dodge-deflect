@@ -15,6 +15,7 @@ public class MainScene : MonoBehaviour {
 	int[] playersBitmap = {0, 0, 0, 0};
 	int[] playersDeflectScore = {0, 0, 0, 0};
 	int[] playersHitScore = {0, 0, 0, 0};
+	bool[] hasBadge = {false, false, false, false};
 	Vector3[] playerPositions = new Vector3[4];
 	Vector3[] respawnposition = new Vector3[4];
 	GameObject[] playersHUD;
@@ -90,6 +91,33 @@ public class MainScene : MonoBehaviour {
 		gm.updateLifespan (playerLeft (), Time.time - playerLeftSpawnTime);
 		scoreBoard.GetComponent<ScoreBoard> ().disablePlayerContainers (gm.playersBitmap);
 		scoreBoard.GetComponent<ScoreBoard>().setLifeSpans (gm.longestLifeSpan, gm.shortestLifeSpan);
+
+		// assign badges
+
+		int[] vl = gm.tracking.getStat ("VoidLover");
+		int[] hb = gm.tracking.getStat ("Headbutter");
+		int[] sh = gm.tracking.getStat ("StarHoarder");
+		int[] av = gm.tracking.getStat ("Avoider");
+		int[][] stats = {vl, hb, sh, av};
+		for (int i=0; i < stats.Length; i++) {
+			int max = stats[i].Max ();
+			int badgeVictor =  stats[i].ToList ().IndexOf (max);
+			if (i == gm.playersBitmap.Sum()) {
+				for (int j=0; j < hasBadge.Length; j ++) {
+					hasBadge[j] = false;
+				}
+			}
+			for (int k=0; k<gm.playersBitmap.Length; k++) {
+				max = stats[i].Max ();
+				badgeVictor =  stats[i].ToList ().IndexOf (max);
+				if (!hasBadge[badgeVictor]) {
+					scoreBoard.GetComponent<ScoreBoard>().assignBadge(badgeVictor, i);
+					hasBadge[badgeVictor] = true;
+				} else {
+					stats[i][badgeVictor] = -1;
+				}
+			}
+		}
 	}
 
 	int playerLeft() {

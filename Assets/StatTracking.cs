@@ -43,4 +43,17 @@ public class StatTracking : MonoBehaviour {
 			default: 	        Debug.Log ("default"); break;
 		}
 	}
+
+	public int getStatVictor(string stat) {
+		int[] result;
+		switch (stat) {
+		case "VoidLover":   result = voidLover; break;
+		case "Headbutter":  result = headbutter; break;
+		case "StarHoarder": result = starHoarder; break;
+		case "Avoider":		result = avoider; break;
+		default: 	        result = voidLover; break;
+		}
+		int max = result.Max ();
+		return result.ToList ().IndexOf (max);
+	}
 }
