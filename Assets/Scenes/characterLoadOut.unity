@@ -957,6 +957,16 @@ MonoBehaviour:
   playersRoundScore: 00000000000000000000000000000000
   roundScores: 00000000000000000000000000000000
   playerControls: 01000000010000000100000001000000
+  longestLifeSpan:
+  - 0
+  - 0
+  - 0
+  - 0
+  shortestLifeSpan:
+  - Infinity
+  - Infinity
+  - Infinity
+  - Infinity
   roundCount: 3
   isFinalRound: 0
   tracking: {fileID: 0}

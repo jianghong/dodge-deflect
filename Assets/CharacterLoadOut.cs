@@ -59,7 +59,7 @@ public class CharacterLoadOut : MonoBehaviour {
 		if (playersReadyState [pNum - 1] == 1) {
 			if (((XCI.GetAxis(XboxAxis.LeftTrigger, pNum) > 0) && (XCI.GetAxis(XboxAxis.LeftTrigger, pNum) != 0.5f)) && canStartGame) {
 				if (readiedUp.Sum() == playersBitmap.Sum()) {
-					AutoFade.LoadLevel("scene4", 0.7f, 0.7f, Color.black);
+					AutoFade.LoadLevel("try_large_scene", 0.7f, 0.7f, Color.black);
 				} else {
 					readiedUp[pNum-1] = 1;
 				}

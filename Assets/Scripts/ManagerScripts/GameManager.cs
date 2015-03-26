@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour {
 			}
 		}
 		isFinalRound = true;
-		Application.LoadLevel ("scene4");
+		Application.LoadLevel ("try_large_scene");
 
 	}
 
@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour {
 	public void newRound() {
 		if (roundCount > 1) {
 			roundCount -= 1;
-			Application.LoadLevel ("scene4");
+			Application.LoadLevel ("try_large_scene");
 		} else if (roundCount == 1 && !isFinalRound) {
 			finalRound ();
 		} else {
