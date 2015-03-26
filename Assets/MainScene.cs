@@ -43,9 +43,19 @@ public class MainScene : MonoBehaviour {
 		gm = GameObject.FindWithTag ("GameManager").GetComponent<GameManager> ();
 		timeManager = GameObject.FindWithTag ("TimeManager").GetComponent<TimeManager> ();
 		cd = GameObject.FindWithTag ("Countdown").GetComponent<countdown> ();
-		numPlayers = gm.playersBitmap.Sum ();
+		if (gm.isFinalRound) {
+			for (int i = 0; i < gm.playersRoundScore.Length; i++) {
+				if (gm.playersRoundScore [i] > 0) {
+					playersBitmap [i] = 1;
+				} else {
+					playersBitmap [i] = 0;
+				}
+			}
+		} else {
+			playersBitmap =  (int[])gm.playersBitmap.Clone ();
+		}
+		numPlayers = playersBitmap.Sum ();
 		gm.numPlayers = numPlayers;
-		playersBitmap =  (int[])gm.playersBitmap.Clone ();
 		minPlayers = gm.minPlayers;
 		spawnCoords = GameObject.FindWithTag ("SpawnCoords");
 		respawnposition [0] = spawnCoords.transform.Find ("P1Spawn").transform.position;

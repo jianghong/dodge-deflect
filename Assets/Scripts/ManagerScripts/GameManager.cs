@@ -42,13 +42,13 @@ public class GameManager : MonoBehaviour {
 
 	public void finalRound() {
 		// init players bitmap for final round
-		for (int i = 0; i < playersRoundScore.Length; i++) {
-			if (playersRoundScore[i] > 0) {
-				playersBitmap[i] = 1;
-			} else {
-				playersBitmap[i] = 0;
-			}
-		}
+//		for (int i = 0; i < playersRoundScore.Length; i++) {
+//			if (playersRoundScore[i] > 0) {
+//				playersBitmap[i] = 1;
+//			} else {
+//				playersBitmap[i] = 0;
+//			}
+//		}
 		isFinalRound = true;
 		Application.LoadLevel ("try_large_scene");
 
