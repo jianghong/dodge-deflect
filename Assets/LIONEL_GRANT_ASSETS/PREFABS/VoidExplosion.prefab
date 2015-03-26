@@ -60,7 +60,7 @@ GameObject:
   - 198: {fileID: 19865922}
   - 199: {fileID: 19965922}
   m_Layer: 0
-  m_Name: Smoke
+  m_Name: frags
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2448,7 +2448,7 @@ ParticleSystem:
         rgba: 4294967295
       minMaxState: 0
     startSize:
-      scalar: 6
+      scalar: 4
       maxCurve:
         serializedVersion: 2
         m_Curve:
