@@ -74,6 +74,7 @@ public class MainScene : MonoBehaviour {
 						oneTime = false;
 						if (gm.isFinalRound) {
 							showScoreBoard();
+							gameOver();
 						} else {
 							incrementRoundScore(playerLeft ());
 							gameOver();
