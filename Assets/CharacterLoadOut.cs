@@ -23,7 +23,7 @@ public class CharacterLoadOut : MonoBehaviour {
 	ChangeText minPlayerCount;
 	
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		gm = GameObject.FindWithTag ("GameManager").GetComponent<GameManager> ();
 		for (int i=0; i < maxPlayers; i++) {
 			players_panel[i] = getCharacterPanel (i+1).GetComponent<CharacterImage>();

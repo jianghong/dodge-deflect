@@ -6,7 +6,7 @@ public class ChangeText : MonoBehaviour {
 	public string startText;
 	Text t;
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		t = GetComponent<Text> ();
 		t.text = startText;
 	}
