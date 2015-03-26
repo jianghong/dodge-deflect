@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Rock Specular
+  m_Shader: {fileID: 4800000, guid: b42e121666a0bc44d9e288c726f06375, type: 3}
+  m_ShaderKeywords: []
+  m_CustomRenderQueue: -1
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs: {}
+    m_Floats:
+      data:
+        first:
+          name: _glossiness
+        second: 11.6071453
+      data:
+        first:
+          name: _specularity
+        second: 6.30357122
+      data:
+        first:
+          name: _node_1182
+        second: 0
+      data:
+        first:
+          name: _Diffusionpower
+        second: .928571403
+    m_Colors:
+      data:
+        first:
+          name: _node_2261
+        second: {r: .200000003, g: .5, b: .699999988, a: 1}
+      data:
+        first:
+          name: _colour
+        second: {r: .551470578, g: .158142284, b: .158142284, a: 1}
+      data:
+        first:
+          name: _node_213
+        second: {r: 0, g: 0, b: 0, a: 1}
+      data:
+        first:
+          name: _node_6198
+        second: {r: .5, g: .5, b: .5, a: 1}
+      data:
+        first:
+          name: _SpecularityColour
+        second: {r: .725490212, g: .34117648, b: .176470593, a: 1}
