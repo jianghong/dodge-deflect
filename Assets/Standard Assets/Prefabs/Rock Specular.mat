@@ -22,6 +22,14 @@ Material:
         first:
           name: _specularity
         second: 2.76785731
+      data:
+        first:
+          name: _node_4282
+        second: 0
+      data:
+        first:
+          name: _diffusepower
+        second: 1.92857146
     m_Colors:
       data:
         first:
@@ -30,7 +38,7 @@ Material:
       data:
         first:
           name: _colour
-        second: {r: .463235319, g: .282357424, b: .20096238, a: 1}
+        second: {r: .16911763, g: .0945069119, b: .167059422, a: 1}
       data:
         first:
           name: _node_213
@@ -42,4 +50,4 @@ Material:
       data:
         first:
           name: _SpecularityColour
-        second: {r: .404411793, g: .315162301, b: .202205896, a: 1}
+        second: {r: .875, g: .76140976, b: .617647052, a: 1}
