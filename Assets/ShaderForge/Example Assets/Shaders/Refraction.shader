@@ -80,8 +80,8 @@ Shader "LIONEL_GRANT_ASSETS/SHADERS/RefractionHoleNew" {
                 #endif
                 i.screenPos = float4( i.screenPos.xy / i.screenPos.w, 0, 0 );
                 i.screenPos.y *= _ProjectionParams.x;
-                float4 node_8378 = _Time + _TimeEditor;
-                float2 node_27 = ((i.uv0+node_8378.g*float2(0,1))*4.0);
+                float4 node_2698 = _Time + _TimeEditor;
+                float2 node_27 = ((i.uv0+node_2698.g*float2(0,1))*4.0);
                 float4 _Refraction_var = tex2D(_Refraction,TRANSFORM_TEX(node_27, _Refraction));
                 float2 sceneUVs = float2(1,grabSign)*i.screenPos.xy*0.5+0.5 + (_Refraction_var.rgb.rg*(_RefractionIntensity*0.1));
                 float4 sceneColor = tex2D(_GrabTexture, sceneUVs);
@@ -190,8 +190,8 @@ Shader "LIONEL_GRANT_ASSETS/SHADERS/RefractionHoleNew" {
                 #endif
                 i.screenPos = float4( i.screenPos.xy / i.screenPos.w, 0, 0 );
                 i.screenPos.y *= _ProjectionParams.x;
-                float4 node_7135 = _Time + _TimeEditor;
-                float2 node_27 = ((i.uv0+node_7135.g*float2(0,1))*4.0);
+                float4 node_8844 = _Time + _TimeEditor;
+                float2 node_27 = ((i.uv0+node_8844.g*float2(0,1))*4.0);
                 float4 _Refraction_var = tex2D(_Refraction,TRANSFORM_TEX(node_27, _Refraction));
                 float2 sceneUVs = float2(1,grabSign)*i.screenPos.xy*0.5+0.5 + (_Refraction_var.rgb.rg*(_RefractionIntensity*0.1));
                 float4 sceneColor = tex2D(_GrabTexture, sceneUVs);
