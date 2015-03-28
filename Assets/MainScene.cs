@@ -30,6 +30,7 @@ public class MainScene : MonoBehaviour {
 	GameObject spawnCoords;
 	int pleft = 0;
 	float deathDelay = 2.7f;
+	float gameOverTime;
 	public GameObject roundBoard;
 	public GameObject scoreBoard;
 
@@ -93,7 +94,6 @@ public class MainScene : MonoBehaviour {
 				}
 			}
 		}
-		restartGame ();
 	}
 
 	void showScoreBoard() {

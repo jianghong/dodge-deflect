@@ -6012,8 +6012,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 258.399994, y: -76.9000015}
-  m_SizeDelta: {x: 516.799988, y: 76.5}
+  m_AnchoredPosition: {x: 500, y: -76.9000015}
+  m_SizeDelta: {x: 943.799988, y: 83.6999969}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &528947795
 MonoBehaviour:
@@ -6035,7 +6035,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 21
-    m_Alignment: 1
+    m_Alignment: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
@@ -8729,8 +8729,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 379.549988, y: -140.399994}
-  m_SizeDelta: {x: 759.099976, y: 26.7999992}
+  m_AnchoredPosition: {x: 500, y: -140.399994}
+  m_SizeDelta: {x: 950, y: 26.7999992}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &724503136
 MonoBehaviour:
@@ -8752,7 +8752,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 21
-    m_Alignment: 1
+    m_Alignment: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
@@ -15117,10 +15117,10 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 6
+  m_ChildAlignment: 7
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 759.099976, y: 26.7999992}
+  m_CellSize: {x: 950, y: 26.7999992}
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
@@ -15380,10 +15380,10 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 3
+  m_ChildAlignment: 4
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 516.799988, y: 76.5}
+  m_CellSize: {x: 943.799988, y: 83.6999969}
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2

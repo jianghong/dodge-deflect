@@ -8,7 +8,11 @@ public class RoundBoard : MonoBehaviour {
 	public Texture[] r2Textures;
 	public Texture[] r3Textures;
 	public GameObject plusOne;
+	bool startCountDown = false;
+	float timeStart;
 	GameManager gm;
+	bool oneTime = false;
+
 	void Awake() {
 		gm = GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ();
 	}
@@ -20,7 +24,13 @@ public class RoundBoard : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if (startCountDown) {
+			transform.FindChild ("CountdownRow").GetComponentInChildren<Text>().text =  "PROCEEDING TO NEXT ROUND... " + (5 - (Time.time - timeStart)).ToString ("F0");
+			if ((Time.time - timeStart >= 4) && !oneTime) {
+				gm.newRound();
+				oneTime = true;
+			}
+		}
 	}
 
 	public void setRoundVictor() {
@@ -67,5 +77,8 @@ public class RoundBoard : MonoBehaviour {
 		Transform roundObject = transform.FindChild ("TextureRow").FindChild (roundName);
 		GameObject plusOneUI = GameObject.Instantiate (plusOne, roundObject.position, Quaternion.identity) as GameObject;
 		plusOneUI.transform.SetParent (roundObject.transform);
+
+		timeStart = Time.time;
+		startCountDown = true;
 	}
 }

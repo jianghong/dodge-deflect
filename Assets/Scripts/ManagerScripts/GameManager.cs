@@ -41,17 +41,8 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void finalRound() {
-		// init players bitmap for final round
-//		for (int i = 0; i < playersRoundScore.Length; i++) {
-//			if (playersRoundScore[i] > 0) {
-//				playersBitmap[i] = 1;
-//			} else {
-//				playersBitmap[i] = 0;
-//			}
-//		}
 		isFinalRound = true;
-		Application.LoadLevel ("try_large_scene");
-
+		AutoFade.LoadLevel("try_large_scene", 0.7f, 0.7f, Color.black);
 	}
 
 	void resetParameters() {
@@ -66,11 +57,11 @@ public class GameManager : MonoBehaviour {
 	public void newRound() {
 		if (roundCount > 1) {
 			roundCount -= 1;
-			Application.LoadLevel ("try_large_scene");
+			AutoFade.LoadLevel("try_large_scene", 0.7f, 0.7f, Color.black);
 		} else if (roundCount == 1 && !isFinalRound) {
 			finalRound ();
 		} else {
-			Application.LoadLevel("characterLoadOut");
+			AutoFade.LoadLevel("characterLoadOut", 0.7f, 0.7f, Color.black);
 			Destroy (this);			
 		}
 	}
