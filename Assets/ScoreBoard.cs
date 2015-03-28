@@ -42,13 +42,12 @@ public class ScoreBoard : MonoBehaviour {
 		Texture toAssign;
 
 		switch (badge) {
-			case 0: toAssign = VoidLover;break;
-			case 1: toAssign = Headbutter;break;
-			case 2: toAssign = StarHoarder;break;
-			case 3: toAssign = Avoider;break;
-			default: toAssign = VoidLover; break;
+			case 0: toAssign = Avoider;break;
+			case 1: toAssign = VoidLover;break;
+			case 2: toAssign = Headbutter;break;
+			case 3: toAssign = StarHoarder;break;
+			default: toAssign = Avoider; break;
 		}
 		PlayerScoreContainer [pNum].transform.Find ("Score Container").transform.Find ("Badges").GetComponent<BadgeManager> ().setBadge(toAssign);
-//		PlayerScoreContainer [pNum].transform.Find ("Score Container").transform.Find ("Badges").GetComponent<BadgeManager> ().setBadge (toAssign);
 	}
 }

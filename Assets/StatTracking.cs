@@ -10,9 +10,10 @@ public class StatTracking : MonoBehaviour {
 	int[] headbutter = {0, 0, 0, 0};
 	int[] starHoarder = {0, 0, 0, 0};
 	int[] avoider = {0, 0, 0, 0};
+	GameManager gm;
 	// Use this for initialization
 	void Start () {
-	
+		gm = GameObject.FindWithTag ("GameManager").GetComponent<GameManager> ();
 	}
 	
 	// Update is called once per frame
@@ -34,7 +35,6 @@ public class StatTracking : MonoBehaviour {
 
 	public void addToStat(string stat, int pNum, int value) {
 		int i = pNum - 1;
-		Debug.Log (stat);
 		switch (stat) {
 			case "VoidLover":   voidLover[i] += value; break;
 			case "Headbutter":  headbutter[i] += value; break;
@@ -44,3 +44,4 @@ public class StatTracking : MonoBehaviour {
 		}
 	}
 }
+
