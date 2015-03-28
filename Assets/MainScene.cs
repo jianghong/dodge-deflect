@@ -142,7 +142,7 @@ public class MainScene : MonoBehaviour {
 	public void incrementRoundScore(int pNum) {
 		gm.incrementRoundScore (pNum);
 		roundBoard.SetActive (true);
-		roundBoard.transform.FindChild("Row").GetComponent<RoundBoard> ().setRoundVictor ();
+		roundBoard.transform.FindChild("RowFrame").GetComponent<RoundBoard> ().setRoundVictor ();
 	}
 
 
