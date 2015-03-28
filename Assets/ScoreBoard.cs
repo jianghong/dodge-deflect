@@ -9,6 +9,7 @@ public class ScoreBoard : MonoBehaviour {
 	public Texture Headbutter;
 	public Texture Avoider;
 	public Texture StarHoarder;
+	public GameObject winnerText;
 
 	// Use this for initialization
 	void Start () {
@@ -49,5 +50,18 @@ public class ScoreBoard : MonoBehaviour {
 			default: toAssign = Avoider; break;
 		}
 		PlayerScoreContainer [pNum].transform.Find ("Score Container").transform.Find ("Badges").GetComponent<BadgeManager> ().setBadge(toAssign);
+	}
+
+	public void displayWinner(int pNum) {
+		string winner;
+		switch (pNum) {
+			case 1: winner = "Yellow" ;break;
+			case 2: winner = "Green" ;break;
+			case 3: winner = "Blue" ;break;
+			case 4: winner = "Pink" ;break;
+			default : winner = "Yellow" ;break;
+		}
+		winnerText.GetComponent<Text> ().text = winner + " wins!";
+		PlayerScoreContainer [pNum - 1].transform.Find ("WinnerBorder").GetComponent<Image> ().enabled = true;
 	}
 }

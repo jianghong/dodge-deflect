@@ -106,7 +106,7 @@ public class MainScene : MonoBehaviour {
 		gm.updateLifespan (playerLeft (), Time.time - playerLeftSpawnTime);
 		scoreBoard.GetComponent<ScoreBoard> ().disablePlayerContainers (gm.playersBitmap);
 		scoreBoard.GetComponent<ScoreBoard>().setLifeSpans (gm.longestLifeSpan, gm.shortestLifeSpan);
-
+		scoreBoard.GetComponent<ScoreBoard> ().displayWinner (playerLeft ());
 		// assign badges
 		// TODO: fix edge case for 3 players LOW PRIORITY
 		int maxBadge = gm.playersBitmap.Sum () == 4 ? 1 : 2;
