@@ -7,6 +7,7 @@ public class RoundBoard : MonoBehaviour {
 	public Texture[] r1Textures;
 	public Texture[] r2Textures;
 	public Texture[] r3Textures;
+	public GameObject plusOne;
 	GameManager gm;
 	void Awake() {
 		gm = GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ();
@@ -42,5 +43,29 @@ public class RoundBoard : MonoBehaviour {
 				transform.FindChild ("TextureRow").FindChild(roundObjectName).GetComponent<RawImage>().texture = roundTextures[gm.roundScores[i]-1];
 			}
 		}
+
+		string winnerText;
+		int latestRound = (3 - gm.roundCount);
+		switch(gm.roundScores[latestRound]) {
+		case 1: winnerText = "YELLOW WINS ROUND " + (latestRound + 1).ToString() + "!";break;
+		case 2: winnerText = "GREEN WINS ROUND " + (latestRound + 1).ToString() + "!";break;
+		case 3: winnerText = "BLUE WINS ROUND " + (latestRound + 1).ToString() + "!";break;
+		case 4: winnerText = "PINK WINS ROUND " + (latestRound + 1).ToString() + "!";break;
+		default: winnerText = "YELLOW WINS ROUND " + (latestRound + 1).ToString() + "!";break;
+		}
+		transform.FindChild("WinnerRow").GetComponentInChildren<Text>().text = winnerText;
+
+		string roundName;
+
+		switch (latestRound) {
+		case 0:	roundName = "Round1Point"; break;
+		case 1: roundName = "Round2Point"; break;
+		case 2: roundName = "Round3Point"; break;
+		default: roundName = "TrophyRoundPoint"; break;
+		}
+
+		Transform roundObject = transform.FindChild ("TextureRow").FindChild (roundName);
+		GameObject plusOneUI = GameObject.Instantiate (plusOne, roundObject.position, Quaternion.identity) as GameObject;
+		plusOneUI.transform.SetParent (roundObject.transform);
 	}
 }
