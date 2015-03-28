@@ -9,7 +9,7 @@ public class StatTracking : MonoBehaviour {
 	int[] voidLover = {0, 0, 0, 0};
 	int[] headbutter = {0, 0, 0, 0};
 	int[] starHoarder = {0, 0, 0, 0};
-	int[] avoider = {0, 0, 0, 0};
+	public int[] avoider = {0, 0, 0, 0};
 	GameManager gm;
 	// Use this for initialization
 	void Start () {

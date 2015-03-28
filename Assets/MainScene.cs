@@ -84,7 +84,9 @@ public class MainScene : MonoBehaviour {
 					if (oneTime) {
 						oneTime = false;
 						GameObject[] pNumLeft = GameObject.FindGameObjectsWithTag ("Player");
+						Debug.Log ("p left: " + pNumLeft[0].GetComponent<MovePlayer>().playerNumber);
 						pNumLeft[0].GetComponent<PlayerCollision>().addToAvoider();
+						gm.tracking.avoider[playerLeft ()-1] += 5;
 						if (gm.isFinalRound) {
 							showScoreBoard();
 							gameOver();
@@ -115,8 +117,6 @@ public class MainScene : MonoBehaviour {
 		int[][] stats = {av, vl, hb, sh};
 		for (int stat_i=0; stat_i < stats.Length; stat_i++) {
 			int badgeVictor = getVictor (stats[stat_i], maxBadge);
-			Debug.Log ("stat_i: " + stat_i);
-			Debug.Log ("potential badge victor: " + badgeVictor);
 			for (int p_i=0; p_i < gm.playersBitmap.Length; p_i++) {
 				if (hasBadge[badgeVictor] < maxBadge) {
 					if (stats[stat_i][badgeVictor] <= 0) {
@@ -124,10 +124,8 @@ public class MainScene : MonoBehaviour {
 					}
 					scoreBoard.GetComponent<ScoreBoard>().assignBadge(badgeVictor, stat_i);
 					hasBadge[badgeVictor] += 1;
-					Debug.Log ("badge victor: " + badgeVictor);
 					break;
 				} else {
-					Debug.Log ("badge victor failed: " + badgeVictor);
 					stats[stat_i][p_i] = -1;
 					badgeVictor = getVictor (stats[stat_i], maxBadge);
 					continue;
