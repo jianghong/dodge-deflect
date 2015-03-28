@@ -84,7 +84,6 @@ public class NewBounce : MonoBehaviour {
 					return;
 				}
 			}
-			Debug.Log ("VoidLover: " + shotByPNum);
 			if (shotByPNum > -1) {
 				gm.tracking.addToStat("VoidLover", shotByPNum, 1);
 			}

@@ -83,6 +83,8 @@ public class MainScene : MonoBehaviour {
 				if (playerLeft () > 0) {
 					if (oneTime) {
 						oneTime = false;
+						GameObject[] pNumLeft = GameObject.FindGameObjectsWithTag ("Player");
+						pNumLeft[0].GetComponent<PlayerCollision>().addToAvoider();
 						if (gm.isFinalRound) {
 							showScoreBoard();
 							gameOver();
@@ -104,6 +106,7 @@ public class MainScene : MonoBehaviour {
 		scoreBoard.GetComponent<ScoreBoard>().setLifeSpans (gm.longestLifeSpan, gm.shortestLifeSpan);
 
 		// assign badges
+		// TODO: fix edge case for 3 players LOW PRIORITY
 		int maxBadge = gm.playersBitmap.Sum () == 4 ? 1 : 2;
 		int[] vl = gm.tracking.getStat ("VoidLover");
 		int[] hb = gm.tracking.getStat ("Headbutter");
@@ -116,6 +119,9 @@ public class MainScene : MonoBehaviour {
 			Debug.Log ("potential badge victor: " + badgeVictor);
 			for (int p_i=0; p_i < gm.playersBitmap.Length; p_i++) {
 				if (hasBadge[badgeVictor] < maxBadge) {
+					if (stats[stat_i][badgeVictor] <= 0) {
+						break;
+					}
 					scoreBoard.GetComponent<ScoreBoard>().assignBadge(badgeVictor, stat_i);
 					hasBadge[badgeVictor] += 1;
 					Debug.Log ("badge victor: " + badgeVictor);
@@ -128,51 +134,6 @@ public class MainScene : MonoBehaviour {
 				}
 			}
 		}
-
-//		int vlVictor = getVictor (vl);
-//		scoreBoard.GetComponent<ScoreBoard>().assignBadge(vlVictor, 0);
-//		hasBadge [vlVictor] += 1;
-//		int badgeVictor;
-//		for (int i=1; i < stats.Length; i++) {
-//			badgeVictor =  stats[i].ToList ().IndexOf (stats[i].Max ());
-//			for (int j=0; i < gm.playersBitmap.Length; i++) {
-//				if (gm.playersBitmap[j] == 0) {
-//					continue;
-//				}
-//				if (hasBadge[badgeVictor] >= maxBadge) {
-//					stats[i][badgeVictor] = -1;
-//					badgeVictor = getVictor (stats[i]);
-//				} else {
-//					scoreBoard.GetComponent<ScoreBoard>().assignBadge(badgeVictor, i);
-//					hasBadge [badgeVictor] = 1;
-//					break;
-//				}
-//			}
-//			if (hasBadge.Sum () == gm.playersBitmap.Sum ()) {
-//				for (int j=0; j < hasBadge.Length; j ++) {
-//					hasBadge[j] = 0;
-//				}
-//			}
-//		}
-//		for (int i=0; i < stats.Length; i++) {
-//			int max = stats[i].Max ();
-//			int badgeVictor =  stats[i].ToList ().IndexOf (max);
-//			if (i == gm.playersBitmap.Sum()) {
-//				for (int j=0; j < hasBadge.Length; j ++) {
-//					hasBadge[j] = false;
-//				}
-//			}
-//			for (int k=0; k<gm.playersBitmap.Length; k++) {
-//				max = stats[i].Max ();
-//				badgeVictor =  stats[i].ToList ().IndexOf (max);
-//				if (!hasBadge[badgeVictor]) {
-//					scoreBoard.GetComponent<ScoreBoard>().assignBadge(badgeVictor, i);
-//					hasBadge[badgeVictor] = true;
-//				} else {
-//					stats[i][badgeVictor] = -1;
-//				}
-//			}
-//		}
 	}
 
 	public int getVictor(int[] stat, int maxBadge) {

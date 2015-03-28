@@ -35,6 +35,7 @@ public class StatTracking : MonoBehaviour {
 
 	public void addToStat(string stat, int pNum, int value) {
 		int i = pNum - 1;
+		Debug.Log (stat);
 		switch (stat) {
 			case "VoidLover":   voidLover[i] += value; break;
 			case "Headbutter":  headbutter[i] += value; break;

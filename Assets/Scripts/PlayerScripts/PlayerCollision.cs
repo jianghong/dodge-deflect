@@ -97,7 +97,7 @@ public class PlayerCollision : MonoBehaviour {
 		}
 	}
 
-	void addToAvoider() {
+	public void addToAvoider() {
 		int avoiderTime = (int)(Time.time - lastHitTime);
 		if (gm.tracking.getStat("Avoider")[playerMovementScript.playerNumber-1] < avoiderTime) {
 			gm.tracking.addToStat("Avoider", playerMovementScript.playerNumber, avoiderTime);
