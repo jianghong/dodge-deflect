@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Linq;
 
 public class BallSpawnManager : MonoBehaviour {
 
 	public GameObject ballPrefab;
-	public float spawnInterval = 7f;
+	public float spawnInterval = 1.3f;
 	float currTime;
 	float previousTime;
 	public int starCount;
@@ -48,6 +49,12 @@ public class BallSpawnManager : MonoBehaviour {
 		}
 		if (gm.isFinalRound) {
 			starLimit = 14;
+		}
+
+		if (gm.playersBitmap.Sum () == 2) {
+			spawnInterval = 1.3f;
+		} else {
+			spawnInterval = 1.5f;
 		}
 
 		rotateRightSpawner ();
