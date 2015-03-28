@@ -158,6 +158,8 @@ public class MainScene : MonoBehaviour {
 
 	public void incrementRoundScore(int pNum) {
 		gm.incrementRoundScore (pNum);
+		float playerLeftSpawnTime = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerCollision> ().playerSpawnTime;
+		gm.updateLifespan (playerLeft (), Time.time - playerLeftSpawnTime);
 		roundBoard.SetActive (true);
 		roundBoard.transform.FindChild("RowFrame").GetComponent<RoundBoard> ().setRoundVictor ();
 	}

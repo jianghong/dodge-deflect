@@ -26,7 +26,7 @@ public class RoundBoard : MonoBehaviour {
 	void Update () {
 		if (startCountDown) {
 			transform.FindChild ("CountdownRow").GetComponentInChildren<Text>().text =  "PROCEEDING TO NEXT ROUND... " + (5 - (Time.time - timeStart)).ToString ("F0");
-			if ((Time.time - timeStart >= 4) && !oneTime) {
+			if ((Time.time - timeStart >= 6) && !oneTime) {
 				gm.newRound();
 				oneTime = true;
 			}
