@@ -6400,6 +6400,9 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 0fff9c5ad5ec54970b32f331d81e9bbc, type: 3}
   - {fileID: 2800000, guid: 9617b09d0ac1746ac827d1abedfcbcef, type: 3}
   plusOne: {fileID: 115080, guid: bdff1dcacea494bb8b53098c6b0081f2, type: 2}
+  entryTexture: {fileID: 2800000, guid: 14c87c5e27137406a9d868d4e4c854cb, type: 3}
+  flawlessTexture: {fileID: 2800000, guid: bcf4248f9e17f4d9db9de8eeeddedd16, type: 3}
+  trophyRound: {fileID: 2800000, guid: 4d46760003bfb413a9c736e0ebfe32b3, type: 3}
 --- !u!114 &529208777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10430,7 +10433,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cca80c3bf714947c1b531d16e4046768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  extra: {fileID: 789711738}
 --- !u!1 &848982712
 GameObject:
   m_ObjectHideFlags: 0
@@ -12693,7 +12695,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cca80c3bf714947c1b531d16e4046768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  extra: {fileID: 1093129163}
 --- !u!1001 &1078602905
 Prefab:
   m_ObjectHideFlags: 0
@@ -14616,7 +14617,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cca80c3bf714947c1b531d16e4046768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  extra: {fileID: 282833029}
 --- !u!224 &1256463513
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18657,7 +18657,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cca80c3bf714947c1b531d16e4046768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  extra: {fileID: 1084739646}
 --- !u!1 &1667895926
 GameObject:
   m_ObjectHideFlags: 0
