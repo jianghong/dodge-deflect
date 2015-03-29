@@ -780,7 +780,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &60520269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -796,7 +796,7 @@ MonoBehaviour:
   minPlayers: 2
   numPlayers: 2
   playersBitmap: 01000000010000000000000000000000
-  playersRoundScore: 00000000000000000000000000000000
+  playersRoundScore: 01000000010000000000000000000000
   roundScores: 00000000000000000000000000000000
   playerControls: 01000000010000000100000001000000
   longestLifeSpan:
@@ -9427,6 +9427,7 @@ MonoBehaviour:
   StarHoarder: {fileID: 2800000, guid: c3fb6510cc54c4d2589362fc020feb6e, type: 3}
   Flawless: {fileID: 2800000, guid: 79a199ed66d32449f817ee072a240a37, type: 3}
   winnerText: {fileID: 1362260667}
+  promptText: {fileID: 2119640588}
 --- !u!114 &761087370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14687,7 +14688,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: e78f0b3faf78d4e41aa5ff8b3cebe5ae, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0, g: .66896534, b: 1, a: 1}
   m_Sprite: {fileID: 21300000, guid: c9931d6410ba044a3a5e2fafb0ef7710, type: 3}
   m_Type: 0
@@ -17223,7 +17224,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 192550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11492550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
       propertyPath: isFinalRound
@@ -17231,11 +17232,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11492550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
       propertyPath: playersRoundScore.Array.data[0]
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11492550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
       propertyPath: playersRoundScore.Array.data[1]
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11492550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
       propertyPath: playersRoundScore.Array.data[2]
@@ -21305,6 +21306,14 @@ Prefab:
       propertyPath: extra
       value: 
       objectReference: {fileID: 282833029}
+    - target: {fileID: 134346, guid: 6f9c48e95d5fa4f3c80715ac8d87fb2f, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11476540, guid: 6f9c48e95d5fa4f3c80715ac8d87fb2f, type: 2}
+      propertyPath: promptText
+      value: 
+      objectReference: {fileID: 2119640588}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6f9c48e95d5fa4f3c80715ac8d87fb2f, type: 2}
   m_RootGameObject: {fileID: 761087367}
@@ -22518,7 +22527,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: e78f0b3faf78d4e41aa5ff8b3cebe5ae, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: .303853929, g: .411764681, b: 0, a: 1}
   m_Sprite: {fileID: 21300000, guid: aab72fca2b67e4e1b9402b811040e7eb, type: 3}
   m_Type: 0
@@ -22757,7 +22766,7 @@ Transform:
   m_PrefabParentObject: {fileID: 467470, guid: aac3b25da1adb4de48b481ee1d50e55b, type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2009531522}
-  m_LocalRotation: {x: -.519332767, y: -.851110518, z: .0765289664, w: -.00691499608}
+  m_LocalRotation: {x: -.519332707, y: -.851110399, z: .076528959, w: -.00691499515}
   m_LocalPosition: {x: 3.79296875, y: 76.4765625, z: -10.859375}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []

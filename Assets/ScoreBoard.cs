@@ -1,6 +1,8 @@
-﻿	using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using XboxCtrlrInput;
+using System.Linq;
 
 public class ScoreBoard : MonoBehaviour {
 
@@ -11,15 +13,50 @@ public class ScoreBoard : MonoBehaviour {
 	public Texture StarHoarder;
 	public Texture Flawless;
 	public GameObject winnerText;
+	public GameObject promptText;
+	GameManager gm;
+	int[] playersReadyState = {0, 0, 0, 0};
+	float countdownStart;
 
 	// Use this for initialization
 	void Start () {
-
+		gm = GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if (isActiveAndEnabled) {
+			for (int i=0; i<gm.playersBitmap.Length;i++) {
+				if (gm.playersBitmap[i] == 1) {
+					getReadyInput(i+1);
+				}
+			}
+		}
+		countdownToNextScene ();
+	}
+
+	void getReadyInput(int pNum) {
+		if (playersReadyState [pNum - 1] == 0) {
+			if (((XCI.GetAxis(XboxAxis.LeftTrigger, pNum) > 0) && (XCI.GetAxis(XboxAxis.LeftTrigger, pNum) != 0.5f))) {
+				playersReadyState[pNum-1] = 1;
+				if (playersReadyState.Sum() == gm.numPlayers) {
+					countdownStart = Time.time;
+				}
+			}
+		}
+	}
+
+	void countdownToNextScene() {
+		if (playersReadyState.Sum () == gm.numPlayers) {
+			float timer = (5f - (Time.time - countdownStart));
+			promptText.GetComponent<Text>().text = "Returning to start screen ... " + timer.ToString("F0");
+			StartCoroutine(goToStart());
+		}
+	}
+
+	IEnumerator goToStart() {
+		yield return new WaitForSeconds (4);
+		AutoFade.LoadLevel("FINAL_startScene", 0.7f, 0.7f, Color.black);
 	}
 
 	public void setLifeSpans(float[] longestLifespans, float[] shortestLifespans) {

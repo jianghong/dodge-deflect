@@ -309,7 +309,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5d92078e411a44026a2eb829922854ac, type: 3}
   - {fileID: 21300000, guid: 6dfd00c437b3743208b5dab98422d45f, type: 3}
   - {fileID: 21300000, guid: e75ca75eca415424aa143ed458299354, type: 3}
-  startEndLoopFrame:
+  startEndLoopFrames:
   - {fileID: 21300000, guid: 5d92078e411a44026a2eb829922854ac, type: 3}
   - {fileID: 21300000, guid: 6dfd00c437b3743208b5dab98422d45f, type: 3}
   - {fileID: 21300000, guid: e75ca75eca415424aa143ed458299354, type: 3}

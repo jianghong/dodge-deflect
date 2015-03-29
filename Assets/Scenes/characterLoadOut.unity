@@ -1209,6 +1209,10 @@ Prefab:
       value: 
       objectReference: {fileID: 12800000, guid: ad798f8842ae64bcaa7737c2b9d4f4d5,
         type: 3}
+    - target: {fileID: 11439880, guid: 6958fb34cd0404973b1c6ab47607ecba, type: 2}
+      propertyPath: promptText
+      value: 
+      objectReference: {fileID: 1456286570}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6958fb34cd0404973b1c6ab47607ecba, type: 2}
   m_RootGameObject: {fileID: 1897071625}
@@ -2124,6 +2128,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 05d67019bfdae4918b555f9cb6c3611a, type: 3}
   - {fileID: 21300000, guid: 78bead034dc0c40028eb1923929166b5, type: 3}
   - {fileID: 21300000, guid: 9e3285ad0f1dd4ba4821a509eba626d3, type: 3}
+  promptText: {fileID: 1456286570}
 --- !u!114 &1897071631
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Linq;
-using XboxCtrlrInput;	
+using XboxCtrlrInput;
+using UnityEngine.UI;
 
 public class CharacterLoadOut : MonoBehaviour {
 	enum ControlType {Auto, Manual}
@@ -9,6 +10,8 @@ public class CharacterLoadOut : MonoBehaviour {
 	public Sprite[] releaseSprites;
 	public Sprite[] headbuttSprites;
 	public Sprite[] idleSprites;
+	public GameObject promptText;
+	float countdownStart;
 	GameManager gm;
 	int maxPlayers = 4;
 	float[] players_axisY = {0f, 0f, 0f, 0f};
@@ -56,6 +59,7 @@ public class CharacterLoadOut : MonoBehaviour {
 			canStartGame = false;
 			jp.disallowStart();
 		}
+		countdownToNextScene ();
 	}
 
 	void getStartGameInput(int pNum) {
@@ -63,7 +67,7 @@ public class CharacterLoadOut : MonoBehaviour {
 			if (((XCI.GetAxis(XboxAxis.LeftTrigger, pNum) > 0) && (XCI.GetAxis(XboxAxis.LeftTrigger, pNum) != 0.5f)) && canStartGame) {
 				players_panel[pNum-1].startPressed(headbuttSprites[pNum-1], "");
 				if (readiedUp.Sum() == playersBitmap.Sum()) {
-					AutoFade.LoadLevel("try_large_scene", 0.7f, 0.7f, Color.black);
+					countdownStart = Time.time;
 				} else {
 					readiedUp[pNum-1] = 1;
 				}
@@ -82,6 +86,20 @@ public class CharacterLoadOut : MonoBehaviour {
 		if ((XCI.GetAxis (XboxAxis.RightTrigger, pNum) <= 0f) && playersReadyState[pNum-1] == 1) {
 			players_panel[pNum-1].startPressed(releaseSprites[pNum-1], "");
 		}
+	}
+
+
+	void countdownToNextScene() {
+		if (readiedUp.Sum () == gm.minPlayers) {
+			float timer = (10f - (Time.time - countdownStart));
+			promptText.GetComponent<Text>().text = "Game starting in " + timer.ToString("F0");
+			StartCoroutine(goToGame());
+		}
+	}
+
+	IEnumerator goToGame() {
+		yield return new WaitForSeconds (9);
+		AutoFade.LoadLevel("try_large_scene", 0.7f, 0.7f, Color.black);
 	}
 
 	void getPickControlInput(int pNum) {
