@@ -12,7 +12,7 @@ SceneSettings:
     backfaceThreshold: 100
 --- !u!104 &2
 RenderSettings:
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 1
   m_FogDensity: 1
@@ -788,7 +788,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1511549077}
   m_GameObject: {fileID: 60520268}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 823180a9b89ca42ce881ca95e5759264, type: 3}
   m_Name: 
@@ -810,7 +810,7 @@ MonoBehaviour:
   - Infinity
   - Infinity
   roundCount: 3
-  isFinalRound: 0
+  isFinalRound: 1
   tracking: {fileID: 0}
 --- !u!4 &60520270
 Transform:
@@ -3667,7 +3667,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 282833029}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 059a229134894436cbc993018b188f84, type: 3}
+  m_Script: {fileID: 11500000, guid: c617eaf1fae254caab34f87309864cc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &282833032
@@ -9753,7 +9753,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 789711738}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 059a229134894436cbc993018b188f84, type: 3}
+  m_Script: {fileID: 11500000, guid: c617eaf1fae254caab34f87309864cc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &789711741
@@ -12800,7 +12800,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1084739646}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 059a229134894436cbc993018b188f84, type: 3}
+  m_Script: {fileID: 11500000, guid: c617eaf1fae254caab34f87309864cc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1084739649
@@ -12958,7 +12958,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1093129163}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 059a229134894436cbc993018b188f84, type: 3}
+  m_Script: {fileID: 11500000, guid: c617eaf1fae254caab34f87309864cc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1093129166
@@ -14688,7 +14688,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: e78f0b3faf78d4e41aa5ff8b3cebe5ae, type: 2}
   m_Color: {r: 0, g: .66896534, b: 1, a: 1}
   m_Sprite: {fileID: 21300000, guid: c9931d6410ba044a3a5e2fafb0ef7710, type: 3}
   m_Type: 0
@@ -17228,7 +17228,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11492550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
       propertyPath: isFinalRound
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11492550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
       propertyPath: playersRoundScore.Array.data[0]
@@ -17244,6 +17244,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11492550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
       propertyPath: playersRoundScore.Array.data[3]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11492550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -20172,7 +20176,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &1784209142
 Renderer:
   m_ObjectHideFlags: 0
@@ -22527,7 +22531,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: e78f0b3faf78d4e41aa5ff8b3cebe5ae, type: 2}
   m_Color: {r: .303853929, g: .411764681, b: 0, a: 1}
   m_Sprite: {fileID: 21300000, guid: aab72fca2b67e4e1b9402b811040e7eb, type: 3}
   m_Type: 0
@@ -22766,7 +22770,7 @@ Transform:
   m_PrefabParentObject: {fileID: 467470, guid: aac3b25da1adb4de48b481ee1d50e55b, type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2009531522}
-  m_LocalRotation: {x: -.519332707, y: -.851110399, z: .076528959, w: -.00691499515}
+  m_LocalRotation: {x: -.519332767, y: -.851110518, z: .0765289664, w: -.00691499608}
   m_LocalPosition: {x: 3.79296875, y: 76.4765625, z: -10.859375}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []

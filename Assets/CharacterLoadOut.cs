@@ -66,10 +66,9 @@ public class CharacterLoadOut : MonoBehaviour {
 		if (playersReadyState [pNum - 1] == 1) {
 			if (((XCI.GetAxis(XboxAxis.LeftTrigger, pNum) > 0) && (XCI.GetAxis(XboxAxis.LeftTrigger, pNum) != 0.5f)) && canStartGame) {
 				players_panel[pNum-1].startPressed(headbuttSprites[pNum-1], "");
+				readiedUp[pNum-1] = 1;
 				if (readiedUp.Sum() == playersBitmap.Sum()) {
 					countdownStart = Time.time;
-				} else {
-					readiedUp[pNum-1] = 1;
 				}
 			}
 		}

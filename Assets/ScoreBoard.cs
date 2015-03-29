@@ -47,7 +47,7 @@ public class ScoreBoard : MonoBehaviour {
 	}
 
 	void countdownToNextScene() {
-		if (playersReadyState.Sum () == gm.numPlayers) {
+		if (playersReadyState.Sum () == 1) {
 			float timer = (5f - (Time.time - countdownStart));
 			promptText.GetComponent<Text>().text = "Returning to start screen ... " + timer.ToString("F0");
 			StartCoroutine(goToStart());
@@ -56,6 +56,7 @@ public class ScoreBoard : MonoBehaviour {
 
 	IEnumerator goToStart() {
 		yield return new WaitForSeconds (4);
+		Destroy (gm);
 		AutoFade.LoadLevel("FINAL_startScene", 0.7f, 0.7f, Color.black);
 	}
 

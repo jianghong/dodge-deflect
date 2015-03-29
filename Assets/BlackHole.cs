@@ -69,7 +69,7 @@ public class BlackHole : MonoBehaviour {
 			float radialSize = gameObject.GetComponent<SphereCollider>().radius * lerpTargetScale.y;
 			float radialDistance = Vector3.Distance(playerOrigin, suctionOrigin) - radialSize;
 			float suctionForce = (lerpTargetScale.magnitude)*0.3f;
-			if (radialDistance < 25f){
+			if (radialDistance < 20f){
 				playerObjs[i].GetComponent<CharacterController>().Move(toSuctionOriginFromObject * suctionForce * Time.deltaTime);
 			}
 		}
