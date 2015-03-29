@@ -9,6 +9,8 @@ public class RoundBoard : MonoBehaviour {
 	public Texture[] r2Textures;
 	public Texture[] r3Textures;
 	public GameObject plusOne;
+	public Texture entryTexture;
+	public Texture flawlessTexture;
 	bool startCountDown = false;
 	float timeStart;
 	GameManager gm;
@@ -81,6 +83,16 @@ public class RoundBoard : MonoBehaviour {
 
 		Transform roundObject = transform.FindChild ("TextureRow").FindChild (roundName);
 		GameObject plusOneUI = GameObject.Instantiate (plusOne, roundObject.position, Quaternion.identity) as GameObject;
+		bool firstWin = true;
+		for (int rs=0; rs<gm.roundScores.Length; rs++) {
+			if ((gm.roundScores[rs] == latestRoundVictor) && (rs != latestRound)) {
+				firstWin = false;
+			}
+		}
+		if (firstWin) {
+			plusOneUI.GetComponent<RawImage>().texture = entryTexture;
+		}
+
 		plusOneUI.transform.SetParent (roundObject.transform);
 
 		timeStart = Time.time;
