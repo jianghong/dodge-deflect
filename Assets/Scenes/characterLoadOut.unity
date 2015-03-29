@@ -1195,6 +1195,20 @@ Prefab:
       propertyPath: m_SizeDelta.y
       value: 360
       objectReference: {fileID: 0}
+    - target: {fileID: 11439906, guid: 6958fb34cd0404973b1c6ab47607ecba, type: 2}
+      propertyPath: m_Text
+      value: Trophy Mode
+      objectReference: {fileID: 0}
+    - target: {fileID: 11439906, guid: 6958fb34cd0404973b1c6ab47607ecba, type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: ad798f8842ae64bcaa7737c2b9d4f4d5,
+        type: 3}
+    - target: {fileID: 11439890, guid: 6958fb34cd0404973b1c6ab47607ecba, type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: ad798f8842ae64bcaa7737c2b9d4f4d5,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6958fb34cd0404973b1c6ab47607ecba, type: 2}
   m_RootGameObject: {fileID: 1897071625}
@@ -1375,6 +1389,18 @@ Prefab:
       propertyPath: roundCount
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 11492550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
+      propertyPath: isFinalRound
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11492550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
+      propertyPath: playersRoundScore.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11492550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
+      propertyPath: playersRoundScore.Array.data[2]
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
   m_RootGameObject: {fileID: 1172729847}
@@ -1430,7 +1456,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: ad798f8842ae64bcaa7737c2b9d4f4d5, type: 3}
     m_FontSize: 42
     m_FontStyle: 0
     m_BestFit: 0
@@ -1441,7 +1467,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Versus Mode
+  m_Text: Trophy Mode
 --- !u!222 &1227536172
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1812,7 +1838,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: ad798f8842ae64bcaa7737c2b9d4f4d5, type: 3}
     m_FontSize: 27
     m_FontStyle: 0
     m_BestFit: 0
