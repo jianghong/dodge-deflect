@@ -24,8 +24,8 @@ public class ScoreBoard : MonoBehaviour {
 	public void setLifeSpans(float[] longestLifespans, float[] shortestLifespans) {
 		for (int i=0; i<PlayerScoreContainer.Length; i++) {
 			if (PlayerScoreContainer[i].activeSelf) {
-				PlayerScoreContainer[i].transform.Find("Score Container").transform.Find ("Longest Life Span").transform.Find("LongestTime").GetComponent<Text>().text = longestLifespans[i].ToString("F2");
-				PlayerScoreContainer[i].transform.Find("Score Container").transform.Find ("Shortest Life Span").transform.Find("ShortestTime").GetComponent<Text>().text = shortestLifespans[i].ToString("F2");
+				PlayerScoreContainer[i].transform.Find("Score Container").transform.Find ("Longest Life Span").transform.Find("LongestTime").GetComponent<Text>().text = longestLifespans[i].ToString("F1");
+				PlayerScoreContainer[i].transform.Find("Score Container").transform.Find ("Shortest Life Span").transform.Find("ShortestTime").GetComponent<Text>().text = shortestLifespans[i].ToString("F1");
 			}
 
 		}
@@ -63,5 +63,6 @@ public class ScoreBoard : MonoBehaviour {
 		}
 		winnerText.GetComponent<Text> ().text = winner + " wins!";
 		PlayerScoreContainer [pNum - 1].transform.Find ("WinnerBorder").GetComponent<Image> ().enabled = true;
+		PlayerScoreContainer [pNum - 1].transform.Find ("Trophy").GetComponent<Image> ().enabled = true;
 	}
 }
