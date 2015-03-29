@@ -25,8 +25,8 @@ public class RoundBoard : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (startCountDown) {
-			transform.FindChild ("CountdownRow").GetComponentInChildren<Text>().text =  "PROCEEDING TO NEXT ROUND... " + (5 - (Time.time - timeStart)).ToString ("F0");
-			if ((Time.time - timeStart >= 6) && !oneTime) {
+			transform.FindChild ("CountdownRow").GetComponentInChildren<Text>().text =  "PROCEEDING TO NEXT ROUND... " + (8 - (Time.time - timeStart)).ToString ("F0");
+			if ((Time.time - timeStart >= 8) && !oneTime) {
 				gm.newRound();
 				oneTime = true;
 			}
