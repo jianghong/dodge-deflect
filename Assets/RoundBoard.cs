@@ -3,7 +3,8 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class RoundBoard : MonoBehaviour {
-	
+
+	public Sprite[] frameTextures;
 	public Texture[] r1Textures;
 	public Texture[] r2Textures;
 	public Texture[] r3Textures;
@@ -12,6 +13,7 @@ public class RoundBoard : MonoBehaviour {
 	float timeStart;
 	GameManager gm;
 	bool oneTime = false;
+	int timeToNextRound = 12;
 
 	void Awake() {
 		gm = GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ();
@@ -25,8 +27,8 @@ public class RoundBoard : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (startCountDown) {
-			transform.FindChild ("CountdownRow").GetComponentInChildren<Text>().text =  "PROCEEDING TO NEXT ROUND... " + (8 - (Time.time - timeStart)).ToString ("F0");
-			if ((Time.time - timeStart >= 8) && !oneTime) {
+			transform.FindChild ("CountdownRow").GetComponentInChildren<Text>().text =  "PROCEEDING TO NEXT ROUND... " + (timeToNextRound - (Time.time - timeStart)).ToString ("F0");
+			if ((Time.time - timeStart >= (timeToNextRound-1)) && !oneTime) {
 				gm.newRound();
 				oneTime = true;
 			}
@@ -34,6 +36,7 @@ public class RoundBoard : MonoBehaviour {
 	}
 
 	public void setRoundVictor() {
+
 		for (int i=0; i < gm.roundScores.Length; i++) {
 			string roundObjectName;
 			Texture[] roundTextures;
@@ -56,7 +59,8 @@ public class RoundBoard : MonoBehaviour {
 
 		string winnerText;
 		int latestRound = (3 - gm.roundCount);
-		switch(gm.roundScores[latestRound]) {
+		int latestRoundVictor = gm.roundScores [latestRound];
+		switch(latestRoundVictor) {
 		case 1: winnerText = "YELLOW WINS ROUND " + (latestRound + 1).ToString() + "!";break;
 		case 2: winnerText = "GREEN WINS ROUND " + (latestRound + 1).ToString() + "!";break;
 		case 3: winnerText = "BLUE WINS ROUND " + (latestRound + 1).ToString() + "!";break;
@@ -64,14 +68,15 @@ public class RoundBoard : MonoBehaviour {
 		default: winnerText = "YELLOW WINS ROUND " + (latestRound + 1).ToString() + "!";break;
 		}
 		transform.FindChild("WinnerRow").GetComponentInChildren<Text>().text = winnerText;
+		GetComponent<Image> ().sprite = frameTextures [latestRoundVictor - 1];
 
 		string roundName;
 
 		switch (latestRound) {
-		case 0:	roundName = "Round1Point"; break;
-		case 1: roundName = "Round2Point"; break;
-		case 2: roundName = "Round3Point"; break;
-		default: roundName = "TrophyRoundPoint"; break;
+			case 0:	roundName = "Round1Point"; break;
+			case 1: roundName = "Round2Point"; break;
+			case 2: roundName = "Round3Point"; break;
+			default: roundName = "TrophyRoundPoint"; break;
 		}
 
 		Transform roundObject = transform.FindChild ("TextureRow").FindChild (roundName);
@@ -80,5 +85,7 @@ public class RoundBoard : MonoBehaviour {
 
 		timeStart = Time.time;
 		startCountDown = true;
+
+		transform.parent.Find ("TipsBox").GetComponentInChildren<TipsManager> ().setTip (latestRound);
 	}
 }
