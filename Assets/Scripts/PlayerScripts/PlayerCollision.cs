@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using XboxCtrlrInput;
 
 public class PlayerCollision : MonoBehaviour {
 	
@@ -48,8 +49,16 @@ public class PlayerCollision : MonoBehaviour {
 			isImmune = false;
 			invinciblityThreshold = defaultInvin;
 		}
+
+		destroySelf ();
 	}
 
+	void destroySelf() {
+		if (XCI.GetButton (XboxButton.A, playerMovementScript.playerNumber)) {
+			death();
+		}
+	}
+	
 	void death() {
 		int pNum = playerMovementScript.playerNumber;
 

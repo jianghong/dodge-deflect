@@ -9,6 +9,7 @@ public class ScoreBoard : MonoBehaviour {
 	public Texture Headbutter;
 	public Texture Avoider;
 	public Texture StarHoarder;
+	public Texture Flawless;
 	public GameObject winnerText;
 
 	// Use this for initialization
@@ -50,6 +51,10 @@ public class ScoreBoard : MonoBehaviour {
 			default: toAssign = Avoider; break;
 		}
 		PlayerScoreContainer [pNum].transform.Find ("Score Container").transform.Find ("Badges").GetComponent<BadgeManager> ().setBadge(toAssign);
+	}
+
+	public void setFlawless(int pNum) {
+		PlayerScoreContainer [pNum-1].transform.Find ("Score Container").transform.Find ("Badges").GetComponent<BadgeManager> ().setExtraBadge(Flawless);
 	}
 
 	public void displayWinner(int pNum) {

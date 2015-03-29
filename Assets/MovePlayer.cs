@@ -30,9 +30,7 @@ public class MovePlayer : MonoBehaviour
 	public Material trailGreen;
 	public Material trailBlue;
 	public Material trailPink;
-
-	public GameObject triggerLeftPrefab;
-	public GameObject triggerRightPrefab;
+	
 	public float blockerTTL = 0.5f;
 	public float deflectTTL = 0.2f;
 	float TTLtype;
@@ -151,7 +149,7 @@ public class MovePlayer : MonoBehaviour
 			}
 		}
 	}
-	
+
 	// Gizmo Drawing
 	void OnDrawGizmos()
 	{

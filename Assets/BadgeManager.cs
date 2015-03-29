@@ -3,9 +3,9 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class BadgeManager : MonoBehaviour {
-
+	
 	Badge[] badges;
-	int currBadge = 0;
+	int currBadge = 1;
 
 	// Use this for initialization
 	void Awake () {
@@ -21,5 +21,10 @@ public class BadgeManager : MonoBehaviour {
 		badges [currBadge].setBadge(t);
 		badges [currBadge].showBadge ();
 		currBadge += 1;
+	}
+
+	public void setExtraBadge(Texture t) {
+		badges [0].setBadge (t);
+		badges [0].showBadge ();
 	}
 }

@@ -5,8 +5,7 @@ using UnityEngine.UI;
 using System.Linq;
 
 public class MainScene : MonoBehaviour {
-
-	public GameObject playerPrefab;
+	
 	public GameObject respawnIndicator;
 	public GameObject voidIndicatorPrefab;
 	RoundManager rm;
@@ -80,18 +79,18 @@ public class MainScene : MonoBehaviour {
 			}
 		} else {
 			if (numPlayers <= 1) {
-				if (playerLeft () > 0) {
+				int pNumLeft = playerLeft ();
+				if (pNumLeft > 0) {
 					if (oneTime) {
 						oneTime = false;
-						GameObject[] pNumLeft = GameObject.FindGameObjectsWithTag ("Player");
-						Debug.Log ("p left: " + pNumLeft[0].GetComponent<MovePlayer>().playerNumber);
-						pNumLeft[0].GetComponent<PlayerCollision>().addToAvoider();
-						gm.tracking.avoider[playerLeft ()-1] += 5;
+						GameObject[] pLeft = GameObject.FindGameObjectsWithTag ("Player");
+						pLeft[0].GetComponent<PlayerCollision>().addToAvoider();
+						gm.tracking.avoider[pNumLeft-1] += 5;
 						if (gm.isFinalRound) {
-							showScoreBoard();
+							showScoreBoard(pNumLeft);
 							gameOver();
 						} else {
-							incrementRoundScore(playerLeft ());
+							incrementRoundScore(pNumLeft);
 							gameOver();
 						}
 					}
@@ -100,13 +99,18 @@ public class MainScene : MonoBehaviour {
 		}
 	}
 
-	void showScoreBoard() {
+	void showScoreBoard(int pWinner) {
 		scoreBoard.SetActive (true);
 		float playerLeftSpawnTime = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerCollision> ().playerSpawnTime;
 		gm.updateLifespan (playerLeft (), Time.time - playerLeftSpawnTime);
 		scoreBoard.GetComponent<ScoreBoard> ().disablePlayerContainers (gm.playersBitmap);
 		scoreBoard.GetComponent<ScoreBoard>().setLifeSpans (gm.longestLifeSpan, gm.shortestLifeSpan);
-		scoreBoard.GetComponent<ScoreBoard> ().displayWinner (playerLeft ());
+		scoreBoard.GetComponent<ScoreBoard> ().displayWinner (pWinner);
+		// check for flawless
+		if ((pWinner * 3) == gm.roundScores.Sum ()) {
+			scoreBoard.GetComponent<ScoreBoard>().setFlawless(pWinner);
+		}
+
 		// assign badges
 		// TODO: fix edge case for 3 players LOW PRIORITY
 		int maxBadge = gm.playersBitmap.Sum () == 4 ? 1 : 2;
