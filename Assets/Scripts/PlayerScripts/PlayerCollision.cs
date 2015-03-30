@@ -64,12 +64,9 @@ public class PlayerCollision : MonoBehaviour {
 
 		addToAvoider();
 
-		int starCounter = 1;
-		while (starCounter > 0) {
-			GameObject createdBall = GameObject.Instantiate(ballPrefab, new Vector3(transform.position.x, 0.5f, transform.position.z), Random.rotation) as GameObject;
-			createdBall.rigidbody.AddForce(createdBall.transform.forward.normalized*30f, ForceMode.Impulse);
-			starCounter -= 1;
-		}
+		GameObject createdBall = GameObject.Instantiate(ballPrefab, new Vector3(transform.position.x, 0.5f, transform.position.z), Random.rotation) as GameObject;
+		createdBall.rigidbody.AddForce(createdBall.transform.forward.normalized*30f, ForceMode.Impulse);
+
 		spawnCount += 1;
 
 		if (spawnCount < maxSpawnCount) {

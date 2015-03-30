@@ -4,6 +4,7 @@ using System.Collections;
 public class RespawnIndicator : MonoBehaviour {
 
 	public GameObject playerPrefab;
+	public Sprite[] pIndicators;
 	public int pNum;
 	public int spawnCount;
 	public GameManager.ControlType controlType;
@@ -63,6 +64,7 @@ public class RespawnIndicator : MonoBehaviour {
 	void setPlayerLifeText(GameObject p) {
 		GameObject[] livesText = GameObject.FindGameObjectsWithTag("LivesText");
 		int pNum = p.GetComponent<MovePlayer> ().playerNumber;
+		transform.Find ("PlayerIndicator").GetComponent<SpriteRenderer> ().sprite = pIndicators [pNum - 1];
 		for (int j = 0; j < livesText.Length; j++) {
 			GameObject liveText = livesText[j];
 			if (liveText.GetComponentInChildren<PlayerLivesText>().pNum == pNum) {

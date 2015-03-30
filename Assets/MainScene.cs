@@ -8,6 +8,8 @@ public class MainScene : MonoBehaviour {
 	
 	public GameObject respawnIndicator;
 	public GameObject voidIndicatorPrefab;
+	public GameObject[] spawnPIndicators;
+	public 
 	RoundManager rm;
 	TimeManager timeManager;
 	public int fadeOutTime = 1;
@@ -208,6 +210,7 @@ public class MainScene : MonoBehaviour {
 	}
 
 	public void spawnPlayerStarter(int pNum, int spawnCount) {
+		spawnPIndicators [pNum - 1].GetComponent<SpriteRenderer> ().enabled = true;
 		StartCoroutine (spawnPlayer (pNum, spawnCount));
 		getPlayerHUD(pNum).GetComponent<PlayerLivesText> ().showRespawningText ();
 	}
@@ -230,6 +233,7 @@ public class MainScene : MonoBehaviour {
 		rs.spawnCount = spawnCount;
 		rs.controlType = gm.playerControls [pNum - 1];
 		getPlayerHUD(pNum).GetComponent<PlayerLivesText> ().hideRespawningText ();
+		spawnPIndicators [pNum - 1].GetComponent<SpriteRenderer> ().enabled = false;
 	}
 
 	public void incrementScore(int pNum, bool deflectScore) {
