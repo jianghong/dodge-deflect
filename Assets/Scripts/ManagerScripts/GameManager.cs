@@ -37,10 +37,10 @@ public class GameManager : MonoBehaviour {
 	void Update () {
 	}
 
-	public void playBattleBGM(float delay) {
+	public void playBattleBGM(float fadeOut, float fadeIn) {
 		AudioClip c = bgms[bgm_i];
 		bgm_i = bgm_i + 1 >= bgms.Length ? 0 : bgm_i + 1;
-		audioM.setClip(c, delay, delay);
+		audioM.setClip(c, fadeOut, fadeIn);
 		Invoke("playBattleBGM", audioM.getClipLength());
 	}
 	
