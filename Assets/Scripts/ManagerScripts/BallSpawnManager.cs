@@ -4,6 +4,7 @@ using System.Collections;
 public class BallSpawnManager : MonoBehaviour {
 
 	public GameObject ballPrefab;
+	public GameObject[] StaticBallSpawns;
 	public float spawnInterval = 7f;
 	float currTime;
 	float previousTime;
@@ -44,8 +45,36 @@ public class BallSpawnManager : MonoBehaviour {
 	
 	void spawnBall() {
 		starCount += 1;
-		Instantiate(ballPrefab, new Vector3(Random.Range (leftX, rightX), 0.5f, Random.Range (topZ, bottomZ)), Random.rotation);
+		Vector3 spawnPos = new Vector3 (Random.Range (leftX, rightX), 0.5f, Random.Range (topZ, bottomZ));
+		GameObject[] playerObjs = GameObject.FindGameObjectsWithTag ("Player");
+		bool canSpawn = true;
+		bool canSpawnStatic = true;
+		for (int i=0; i < playerObjs.Length; i++) {
+			if (spawnPos.Equals(playerObjs[i].transform.position)) {
+				canSpawn = false;
+			}
+		}
+
+		if (canSpawn) {
+			Instantiate (ballPrefab, spawnPos, Random.rotation);
+		} else {
+			for (int j=0; j < StaticBallSpawns.Length; j++) {
+				canSpawnStatic = true;
+				for (int k=0; k < playerObjs.Length; k++) {
+					if (spawnPos.Equals(playerObjs[k].transform.position)) {
+						canSpawnStatic = false;
+						break;
+					}
+				}
+				if (canSpawnStatic) {
+					Debug.Log ("Used static spawn");
+					Instantiate (ballPrefab, StaticBallSpawns[j].transform.position, Random.rotation);
+					break;
+				}
+			}
+		}
 	}
+
 
 	public void destroyBall(GameObject ball) {
 		Destroy (ball);
