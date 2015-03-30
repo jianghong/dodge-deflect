@@ -10,11 +10,11 @@ public class ArenaCentreManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		gm = GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ();
-		if (gm.roundCount == 3) {
+		if (gm.roundCount == 3 && !gm.isFinalRound) {
 			houseCentre.SetActive (true);
-		} else if (gm.roundCount == 2) {
+		} else if (gm.roundCount == 2 && !gm.isFinalRound) {
 			doubleWallCentre.SetActive (true);
-		} else if (gm.roundCount == 1) {
+		} else if (gm.roundCount == 1 && !gm.isFinalRound) {
 			houseCentre.SetActive (true);
 		} else if (gm.isFinalRound) {
 			islandCentre.SetActive(true);
