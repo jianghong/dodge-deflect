@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void updateLifespan(int pNum, float timeValue) {
-		if (timeValue < shortestLifeSpan [pNum - 1]) {
+		if ((timeValue < shortestLifeSpan [pNum - 1]) && timeValue >= 3f) {
 			shortestLifeSpan[pNum-1] = timeValue;
 		}
 		

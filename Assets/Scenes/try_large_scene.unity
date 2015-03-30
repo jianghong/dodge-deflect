@@ -821,8 +821,8 @@ MonoBehaviour:
   - Infinity
   - Infinity
   - Infinity
-  roundCount: 1
-  isFinalRound: 1
+  roundCount: 3
+  isFinalRound: 0
   tracking: {fileID: 0}
 --- !u!4 &60520270
 Transform:
@@ -16470,7 +16470,7 @@ Prefab:
       objectReference: {fileID: 1183049481}
     - target: {fileID: 11492550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
       propertyPath: roundCount
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 192550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
       propertyPath: m_IsActive
@@ -16478,7 +16478,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11492550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
       propertyPath: isFinalRound
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11492550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
       propertyPath: playersRoundScore.Array.data[0]
