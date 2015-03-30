@@ -12,7 +12,7 @@ SceneSettings:
     backfaceThreshold: 100
 --- !u!104 &2
 RenderSettings:
-  m_Fog: 1
+  m_Fog: 0
   m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 1
   m_FogDensity: 1
@@ -780,7 +780,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &60520269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -795,8 +795,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minPlayers: 2
   numPlayers: 2
-  playersBitmap: 01000000010000000000000000000000
-  playersRoundScore: 01000000010000000000000000000000
+  playersBitmap: 01000000000000000100000000000000
+  playersRoundScore: 00000000000000000000000000000000
   roundScores: 00000000000000000000000000000000
   playerControls: 01000000010000000100000001000000
   longestLifeSpan:
@@ -810,7 +810,7 @@ MonoBehaviour:
   - Infinity
   - Infinity
   roundCount: 3
-  isFinalRound: 1
+  isFinalRound: 0
   tracking: {fileID: 0}
 --- !u!4 &60520270
 Transform:
@@ -17204,11 +17204,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11492550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
       propertyPath: playersBitmap.Array.data[1]
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11492550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
       propertyPath: playersBitmap.Array.data[2]
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11492550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
       propertyPath: playersBitmap.Array.data[3]
@@ -17224,19 +17224,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 192550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11492550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
       propertyPath: isFinalRound
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11492550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
       propertyPath: playersRoundScore.Array.data[0]
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11492550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
       propertyPath: playersRoundScore.Array.data[1]
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11492550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
       propertyPath: playersRoundScore.Array.data[2]

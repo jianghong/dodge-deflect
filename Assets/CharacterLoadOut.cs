@@ -24,6 +24,7 @@ public class CharacterLoadOut : MonoBehaviour {
 	JoinPrompt jp;
 	bool canStartGame = false;
 	ChangeText minPlayerCount;
+	bool oneTime = false;
 	
 	// Use this for initialization
 	void Awake () {
@@ -67,7 +68,8 @@ public class CharacterLoadOut : MonoBehaviour {
 			if (((XCI.GetAxis(XboxAxis.LeftTrigger, pNum) > 0) && (XCI.GetAxis(XboxAxis.LeftTrigger, pNum) != 0.5f)) && canStartGame) {
 				players_panel[pNum-1].startPressed(headbuttSprites[pNum-1], "");
 				readiedUp[pNum-1] = 1;
-				if (readiedUp.Sum() == playersBitmap.Sum()) {
+				if (readiedUp.Sum() == playersBitmap.Sum() && (!oneTime)) {
+					oneTime = true;
 					countdownStart = Time.time;
 				}
 			}
