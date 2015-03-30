@@ -47,7 +47,7 @@ public class ScoreBoard : MonoBehaviour {
 	}
 
 	void countdownToNextScene() {
-		if (playersReadyState.Sum () == gm.numPlayers) {
+		if (playersReadyState.Sum () == gm.playersBitmap.Sum ()) {
 			float timer = (5f - (Time.time - countdownStart));
 			promptText.GetComponent<Text>().text = "Returning to start screen ... " + timer.ToString("F0");
 			StartCoroutine(goToStart());
