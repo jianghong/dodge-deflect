@@ -18,10 +18,14 @@ public class GameManager : MonoBehaviour {
 	public int roundCount = 3;
 	public bool isFinalRound = false;
 	public StatTracking tracking;
+	AudioManager audioM;
+	public AudioClip[] bgms;
+	int bgm_i = 0;
 
 	void Awake() {
 		DontDestroyOnLoad (this);
 		tracking = GetComponent<StatTracking> ();
+		audioM = GameObject.FindGameObjectWithTag ("AudioManager").GetComponent<AudioManager> ();
 	}
 
 	// Use this for initialization
@@ -32,6 +36,14 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	}
+
+	public void playBattleBGM(float delay) {
+		AudioClip c = bgms[bgm_i];
+		bgm_i = bgm_i + 1 >= bgms.Length ? 0 : bgm_i + 1;
+		audioM.setClip(c, delay, delay);
+		Invoke("playBattleBGM", audioM.getClipLength());
+	}
+	
 	
 	public void addPlayer(int pNum) {
 		playersBitmap[pNum-1] = 1;

@@ -1213,6 +1213,10 @@ Prefab:
       propertyPath: promptText
       value: 
       objectReference: {fileID: 1456286570}
+    - target: {fileID: 11439880, guid: 6958fb34cd0404973b1c6ab47607ecba, type: 2}
+      propertyPath: bgm
+      value: 
+      objectReference: {fileID: 8300000, guid: ddd4e6436409e4745b901cb0af77d59b, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6958fb34cd0404973b1c6ab47607ecba, type: 2}
   m_RootGameObject: {fileID: 1897071625}
@@ -1310,6 +1314,7 @@ MonoBehaviour:
   numPlayers: 0
   playersBitmap: 00000000000000000000000000000000
   playersRoundScore: 00000000000000000000000000000000
+  playersHitScore: 00000000000000000000000000000000
   roundScores: 00000000000000000000000000000000
   playerControls: 01000000010000000100000001000000
   longestLifeSpan:
@@ -1325,6 +1330,8 @@ MonoBehaviour:
   roundCount: 3
   isFinalRound: 0
   tracking: {fileID: 0}
+  bgms:
+  - {fileID: 8300000, guid: 1a4ecfffb6e78482d9e3385faec41668, type: 3}
 --- !u!4 &1172729849
 Transform:
   m_ObjectHideFlags: 0
@@ -1357,6 +1364,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11492550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
+      propertyPath: bgms.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 492550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
       propertyPath: m_LocalPosition.x
       value: -.894690335
@@ -1405,6 +1416,10 @@ Prefab:
       propertyPath: playersRoundScore.Array.data[2]
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11492550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
+      propertyPath: bgms.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1a4ecfffb6e78482d9e3385faec41668, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
   m_RootGameObject: {fileID: 1172729847}
@@ -2129,6 +2144,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 78bead034dc0c40028eb1923929166b5, type: 3}
   - {fileID: 21300000, guid: 9e3285ad0f1dd4ba4821a509eba626d3, type: 3}
   promptText: {fileID: 1456286570}
+  bgm: {fileID: 8300000, guid: ddd4e6436409e4745b901cb0af77d59b, type: 3}
 --- !u!114 &1897071631
 MonoBehaviour:
   m_ObjectHideFlags: 0

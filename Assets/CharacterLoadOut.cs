@@ -25,9 +25,12 @@ public class CharacterLoadOut : MonoBehaviour {
 	bool canStartGame = false;
 	ChangeText minPlayerCount;
 	bool oneTime = false;
+	public AudioClip bgm;
+	AudioManager audioM;
 	
 	// Use this for initialization
 	void Awake () {
+		audioM = GameObject.FindGameObjectWithTag ("AudioManager").GetComponent<AudioManager> ();
 		gm = GameObject.FindWithTag ("GameManager").GetComponent<GameManager> ();
 		for (int i=0; i < maxPlayers; i++) {
 			players_panel[i] = getCharacterPanel (i+1).GetComponent<CharacterImage>();
@@ -35,6 +38,10 @@ public class CharacterLoadOut : MonoBehaviour {
 		jp = GameObject.FindWithTag ("JoinScreenPrompt").GetComponent<JoinPrompt> ();
 		minPlayerCount = GameObject.FindWithTag ("MinPlayerCount").GetComponent<ChangeText> ();
 		minPlayerCount.setText (gm.minPlayers.ToString());
+	}
+
+	void Start() {
+		audioM.setClip (bgm, 2f, 1f);
 	}
 	
 	// Update is called once per frame
@@ -100,6 +107,7 @@ public class CharacterLoadOut : MonoBehaviour {
 
 	IEnumerator goToGame() {
 		yield return new WaitForSeconds (9);
+		gm.playBattleBGM (10);
 		AutoFade.LoadLevel("try_large_scene", 0.7f, 0.7f, Color.black);
 	}
 

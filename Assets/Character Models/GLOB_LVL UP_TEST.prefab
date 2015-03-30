@@ -7180,7 +7180,7 @@ AudioSource:
   serializedVersion: 3
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: .500999987
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -7549,7 +7549,7 @@ ParticleSystem:
   looping: 0
   prewarm: 0
   playOnAwake: 1
-  moveWithTransform: 0
+  moveWithTransform: 1
   InitialModule:
     enabled: 1
     startLifetime:
@@ -7576,7 +7576,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 3
     startSpeed:
-      scalar: 5
+      scalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -7703,7 +7703,7 @@ ParticleSystem:
         rgba: 4294967295
       minMaxState: 0
     startSize:
-      scalar: 10
+      scalar: 17
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -7718,7 +7718,7 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: .100000001
+          value: .588235319
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -7749,8 +7749,8 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 3
     gravityModifier: 0
-    inheritVelocity: .5
-    maxNumParticles: 10
+    inheritVelocity: 0
+    maxNumParticles: 2
   ShapeModule:
     serializedVersion: 2
     enabled: 1
@@ -7763,7 +7763,7 @@ ParticleSystem:
     boxZ: 1
     placementMode: 0
     m_Mesh: {fileID: 0}
-    randomDirection: 0
+    randomDirection: 1
   EmissionModule:
     enabled: 1
     m_Type: 0
@@ -7800,7 +7800,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
       minMaxState: 0
-    cnt0: 5
+    cnt0: 2
     cnt1: 30
     cnt2: 30
     cnt3: 30
@@ -7820,6 +7820,31 @@ ParticleSystem:
           value: 1
           inSlope: -2
           outSlope: -2
+          tangentMode: 0
+        - time: .231781736
+          value: .85135138
+          inSlope: -1.65253878
+          outSlope: -1.65253878
+          tangentMode: 0
+        - time: .357810438
+          value: .013513512
+          inSlope: -1.8065691
+          outSlope: -1.8065691
+          tangentMode: 0
+        - time: .483848721
+          value: 0
+          inSlope: -.0973297805
+          outSlope: -.0973297805
+          tangentMode: 0
+        - time: .646349132
+          value: .486486435
+          inSlope: -2.0635128
+          outSlope: -2.0635128
+          tangentMode: 0
+        - time: .787129104
+          value: .0945945829
+          inSlope: -2.579391
+          outSlope: -2.579391
           tangentMode: 0
         - time: 1
           value: 0
@@ -7880,18 +7905,18 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
   ColorModule:
-    enabled: 1
+    enabled: 0
     gradient:
       maxGradient:
         key0:
           serializedVersion: 2
-          rgba: 4294967295
+          rgba: 4289271476
         key1:
           serializedVersion: 2
-          rgba: 4294967295
+          rgba: 4291410331
         key2:
           serializedVersion: 2
-          rgba: 16777215
+          rgba: 13220251
         key3:
           serializedVersion: 2
           rgba: 13220251
@@ -7908,8 +7933,8 @@ ParticleSystem:
           serializedVersion: 2
           rgba: 16777215
         ctime0: 0
-        ctime1: 10794
-        ctime2: 20432
+        ctime1: 65535
+        ctime2: 65535
         ctime3: 65535
         ctime4: 65535
         ctime5: 65535
@@ -7923,7 +7948,7 @@ ParticleSystem:
         atime5: 0
         atime6: 0
         atime7: 0
-        m_NumColorKeys: 4
+        m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minGradient:
         key0:

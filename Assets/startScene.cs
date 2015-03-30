@@ -19,8 +19,12 @@ public class startScene : MonoBehaviour {
 	float lastFrameTime;
 	bool startPressed = false;
 	bool oneTime = false;
+	AudioManager audioM;
+	public AudioClip bgm;
 	// Use this for initialization
 	void Start () {
+		audioM = GameObject.FindGameObjectWithTag ("AudioManager").GetComponent<AudioManager> ();
+		audioM.setClip (bgm, 0f, 0f);
 		lastFrameTime = Time.time;	
 	}
 	

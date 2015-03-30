@@ -29,6 +29,7 @@ TagManager:
   - RoundBoard
   - RoundPoint
   - LivesTextContainer
+  - AudioManager
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

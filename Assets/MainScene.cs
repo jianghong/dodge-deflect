@@ -32,6 +32,8 @@ public class MainScene : MonoBehaviour {
 	float gameOverTime;
 	public GameObject roundBoard;
 	public GameObject scoreBoard;
+	AudioManager audioM;
+	public AudioClip bgClip;
 
 	// Use this for initialization
 	void Awake() {
@@ -39,6 +41,7 @@ public class MainScene : MonoBehaviour {
 
 	void Start () {
 		sceneLoadedTime = Time.timeSinceLevelLoad;
+		audioM = GameObject.FindGameObjectWithTag ("AudioManager").GetComponent<AudioManager> ();
 		playersHUD = GameObject.FindGameObjectsWithTag("LivesText");
 		gm = GameObject.FindWithTag ("GameManager").GetComponent<GameManager> ();
 		timeManager = GameObject.FindWithTag ("TimeManager").GetComponent<TimeManager> ();
@@ -65,6 +68,8 @@ public class MainScene : MonoBehaviour {
 		playerPositions = respawnposition;
 
 		spawnPlayers (numPlayers);
+
+
 	}
 	
 	// Update is called once per frame
