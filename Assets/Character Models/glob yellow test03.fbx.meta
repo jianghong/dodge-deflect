@@ -1,0 +1,497 @@
+fileFormatVersion: 2
+guid: d622613a9012049999aea191dca0ccc0
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: BackHip_L
+    100002: BackHip_R
+    100004: Backleg_L
+    100006: Backleg_R
+    100008: BackToe_L
+    100010: BackToe_R
+    100012: CORE_CNT
+    100014: Core_JT
+    100016: FrontHip_L
+    100018: FrontHip_R
+    100020: Frontleg_L
+    100022: Frontleg_R
+    100024: FrontToe_L
+    100026: FrontToe_R
+    100028: //RootNode
+    100030: group
+    100032: group1
+    100034: group10
+    100036: group11
+    100038: group12
+    100040: group13
+    100042: group14
+    100044: group18
+    100046: group2
+    100048: group3
+    100050: group4
+    100052: group5
+    100054: group6
+    100056: group7
+    100058: group8
+    100060: group9
+    100062: HIP_BACK_L
+    100064: HIP_BACK_R
+    100066: HIP_FRONT_L
+    100068: HIP_FRONT_R
+    100070: HIP_MID_L
+    100072: HIP_MID_R
+    100074: ik_b_l
+    100076: ik_b_r
+    100078: IK_BACK_L
+    100080: IK_BACK_R
+    100082: ik_f_l
+    100084: ik_f_r
+    100086: IK_FRONT_L
+    100088: IK_FRONT_R
+    100090: ik_m_l
+    100092: IK_MID_L
+    100094: IK_MID_R
+    100096: ik_mid_r
+    100098: MAIN_CONTROL
+    100100: Mid_L
+    100102: MID_L_CNT
+    100104: Mid_R
+    100106: MID_R_CNT
+    100108: MidBack
+    100110: MIDBACK_CNT
+    100112: Middle_JT
+    100114: MidFront
+    100116: MIDFRONT_CNT
+    100118: MidHip_L
+    100120: MidHip_R
+    100122: MIDJOINT_CNT
+    100124: Midleg_L
+    100126: Midleg_R
+    100128: MidToe_L
+    100130: MidToe_R
+    100132: NECK_CNT
+    100134: Neck_JT
+    100136: pasted__group11
+    100138: pasted__group13
+    100140: pasted__group14
+    100142: pasted__group2
+    100144: pasted__group5
+    100146: pasted__group5 1
+    100148: pasted__group5 2
+    100150: pasted__group5 3
+    100152: pasted__group5 4
+    100154: pasted__group7
+    100156: pasted__group9
+    100158: pasted__group9 1
+    100160: pasted__MAIN_CONTROL
+    100162: pasted__MID_L_CNT
+    100164: pasted__MODEL
+    100166: pasted__pasted__group5
+    100168: pasted__pasted__group5 1
+    100170: pasted__pasted__group5 2
+    100172: pasted__pasted__group5 3
+    100174: pasted__pasted__group9
+    100176: pasted__pasted__MAIN_CONTROL
+    100178: pasted__pasted__pasted__group5
+    100180: pasted__pasted__pasted__pasted__pPyramid1
+    100182: pasted__pasted__pasted__pasted__pPyramid1 1
+    100184: pasted__pasted__pasted__polySurface9
+    100186: pasted__pasted__pasted__pPyramid1
+    100188: pasted__pasted__pasted__pPyramid1 1
+    100190: pasted__pasted__pasted__pPyramid1 2
+    100192: pasted__pasted__pasted__pPyramid1 3
+    100194: pasted__pasted__pasted__pPyramid1 4
+    100196: pasted__pasted__pasted__pPyramid1 5
+    100198: pasted__pasted__pasted__pPyramid1 6
+    100200: pasted__pasted__pasted__transform16
+    100202: pasted__pasted__pasted__transform17
+    100204: pasted__pasted__pCube15
+    100206: pasted__pasted__pCube16
+    100208: pasted__pasted__polySurface9
+    100210: pasted__pasted__polySurface9 1
+    100212: pasted__pasted__polySurface9 2
+    100214: pasted__pasted__polySurface9 3
+    100216: pasted__pasted__pPyramid1
+    100218: pasted__pasted__pPyramid1 1
+    100220: pasted__pasted__pPyramid1 2
+    100222: pasted__pasted__pPyramid1 3
+    100224: pasted__pasted__pPyramid1 4
+    100226: pasted__pasted__pPyramid1 5
+    100228: pasted__pasted__pPyramid1 6
+    100230: pasted__pasted__transform16
+    100232: pasted__pasted__transform16 1
+    100234: pasted__pasted__transform16 2
+    100236: pasted__pasted__transform16 3
+    100238: pasted__pasted__transform17
+    100240: pasted__pasted__transform17 1
+    100242: pasted__pasted__transform17 2
+    100244: pasted__pasted__transform17 3
+    100246: pasted__pCube15
+    100248: pasted__pCube16
+    100250: pasted__pCube16 1
+    100252: pasted__pCube16 2
+    100254: pasted__pCube17
+    100256: pasted__polySurface10
+    100258: pasted__polySurface11
+    100260: pasted__polySurface12
+    100262: pasted__polySurface7
+    100264: pasted__polySurface7 1
+    100266: pasted__polySurface8
+    100268: pasted__polySurface9
+    100270: pasted__polySurface9 1
+    100272: pasted__polySurface9 2
+    100274: pasted__polySurface9 3
+    100276: pasted__pPyramid1
+    100278: pasted__pPyramid1 1
+    100280: pasted__pSphere1
+    100282: pasted__transform13
+    100284: pasted__transform14
+    100286: pasted__transform15
+    100288: pasted__transform16
+    100290: pasted__transform16 1
+    100292: pasted__transform16 2
+    100294: pasted__transform16 3
+    100296: pasted__transform17
+    100298: pasted__transform17 1
+    100300: pasted__transform17 2
+    100302: pasted__transform17 3
+    100304: pCube10
+    100306: pCube11
+    100308: pCube14
+    100310: pCube16
+    100312: pCube17
+    100314: pCube18
+    100316: pCube2
+    100318: pCube3
+    100320: pCube4
+    100322: pCube6
+    100324: pCube7
+    100326: polySurface10
+    100328: polySurface11
+    100330: polySurface12
+    100332: polySurface14
+    100334: polySurface15
+    100336: polySurface16
+    100338: polySurface17
+    100340: polySurface18
+    100342: polySurface19
+    100344: polySurface2
+    100346: polySurface20
+    100348: polySurface21
+    100350: polySurface22
+    100352: polySurface3
+    100354: polySurface8
+    100356: polySurface9
+    100358: Tooth
+    100360: tooth_tip
+    100362: TOP_CNT
+    100364: Top_JT
+    100366: transform11
+    100368: transform12
+    100370: transform14
+    100372: transform15
+    100374: transform16
+    100376: transform17
+    100378: transform18
+    100380: transform19
+    100382: transform2
+    100384: transform20
+    100386: transform21
+    100388: transform22
+    100390: transform23
+    100392: transform24
+    100394: transform25
+    100396: transform26
+    100398: transform27
+    100400: transform28
+    100402: transform29
+    100404: transform30
+    100406: transform31
+    100408: transform32
+    100410: transform33
+    100412: transform34
+    100414: transform35
+    100416: transform36
+    100418: transform37
+    100420: transform4
+    100422: transform5
+    100424: transform6
+    100426: transform7
+    100428: transform8
+    100430: transform9
+    400000: BackHip_L
+    400002: BackHip_R
+    400004: Backleg_L
+    400006: Backleg_R
+    400008: BackToe_L
+    400010: BackToe_R
+    400012: CORE_CNT
+    400014: Core_JT
+    400016: FrontHip_L
+    400018: FrontHip_R
+    400020: Frontleg_L
+    400022: Frontleg_R
+    400024: FrontToe_L
+    400026: FrontToe_R
+    400028: //RootNode
+    400030: group
+    400032: group1
+    400034: group10
+    400036: group11
+    400038: group12
+    400040: group13
+    400042: group14
+    400044: group18
+    400046: group2
+    400048: group3
+    400050: group4
+    400052: group5
+    400054: group6
+    400056: group7
+    400058: group8
+    400060: group9
+    400062: HIP_BACK_L
+    400064: HIP_BACK_R
+    400066: HIP_FRONT_L
+    400068: HIP_FRONT_R
+    400070: HIP_MID_L
+    400072: HIP_MID_R
+    400074: ik_b_l
+    400076: ik_b_r
+    400078: IK_BACK_L
+    400080: IK_BACK_R
+    400082: ik_f_l
+    400084: ik_f_r
+    400086: IK_FRONT_L
+    400088: IK_FRONT_R
+    400090: ik_m_l
+    400092: IK_MID_L
+    400094: IK_MID_R
+    400096: ik_mid_r
+    400098: MAIN_CONTROL
+    400100: Mid_L
+    400102: MID_L_CNT
+    400104: Mid_R
+    400106: MID_R_CNT
+    400108: MidBack
+    400110: MIDBACK_CNT
+    400112: Middle_JT
+    400114: MidFront
+    400116: MIDFRONT_CNT
+    400118: MidHip_L
+    400120: MidHip_R
+    400122: MIDJOINT_CNT
+    400124: Midleg_L
+    400126: Midleg_R
+    400128: MidToe_L
+    400130: MidToe_R
+    400132: NECK_CNT
+    400134: Neck_JT
+    400136: pasted__group11
+    400138: pasted__group13
+    400140: pasted__group14
+    400142: pasted__group2
+    400144: pasted__group5
+    400146: pasted__group5 1
+    400148: pasted__group5 2
+    400150: pasted__group5 3
+    400152: pasted__group5 4
+    400154: pasted__group7
+    400156: pasted__group9
+    400158: pasted__group9 1
+    400160: pasted__MAIN_CONTROL
+    400162: pasted__MID_L_CNT
+    400164: pasted__MODEL
+    400166: pasted__pasted__group5
+    400168: pasted__pasted__group5 1
+    400170: pasted__pasted__group5 2
+    400172: pasted__pasted__group5 3
+    400174: pasted__pasted__group9
+    400176: pasted__pasted__MAIN_CONTROL
+    400178: pasted__pasted__pasted__group5
+    400180: pasted__pasted__pasted__pasted__pPyramid1
+    400182: pasted__pasted__pasted__pasted__pPyramid1 1
+    400184: pasted__pasted__pasted__polySurface9
+    400186: pasted__pasted__pasted__pPyramid1
+    400188: pasted__pasted__pasted__pPyramid1 1
+    400190: pasted__pasted__pasted__pPyramid1 2
+    400192: pasted__pasted__pasted__pPyramid1 3
+    400194: pasted__pasted__pasted__pPyramid1 4
+    400196: pasted__pasted__pasted__pPyramid1 5
+    400198: pasted__pasted__pasted__pPyramid1 6
+    400200: pasted__pasted__pasted__transform16
+    400202: pasted__pasted__pasted__transform17
+    400204: pasted__pasted__pCube15
+    400206: pasted__pasted__pCube16
+    400208: pasted__pasted__polySurface9
+    400210: pasted__pasted__polySurface9 1
+    400212: pasted__pasted__polySurface9 2
+    400214: pasted__pasted__polySurface9 3
+    400216: pasted__pasted__pPyramid1
+    400218: pasted__pasted__pPyramid1 1
+    400220: pasted__pasted__pPyramid1 2
+    400222: pasted__pasted__pPyramid1 3
+    400224: pasted__pasted__pPyramid1 4
+    400226: pasted__pasted__pPyramid1 5
+    400228: pasted__pasted__pPyramid1 6
+    400230: pasted__pasted__transform16
+    400232: pasted__pasted__transform16 1
+    400234: pasted__pasted__transform16 2
+    400236: pasted__pasted__transform16 3
+    400238: pasted__pasted__transform17
+    400240: pasted__pasted__transform17 1
+    400242: pasted__pasted__transform17 2
+    400244: pasted__pasted__transform17 3
+    400246: pasted__pCube15
+    400248: pasted__pCube16
+    400250: pasted__pCube16 1
+    400252: pasted__pCube16 2
+    400254: pasted__pCube17
+    400256: pasted__polySurface10
+    400258: pasted__polySurface11
+    400260: pasted__polySurface12
+    400262: pasted__polySurface7
+    400264: pasted__polySurface7 1
+    400266: pasted__polySurface8
+    400268: pasted__polySurface9
+    400270: pasted__polySurface9 1
+    400272: pasted__polySurface9 2
+    400274: pasted__polySurface9 3
+    400276: pasted__pPyramid1
+    400278: pasted__pPyramid1 1
+    400280: pasted__pSphere1
+    400282: pasted__transform13
+    400284: pasted__transform14
+    400286: pasted__transform15
+    400288: pasted__transform16
+    400290: pasted__transform16 1
+    400292: pasted__transform16 2
+    400294: pasted__transform16 3
+    400296: pasted__transform17
+    400298: pasted__transform17 1
+    400300: pasted__transform17 2
+    400302: pasted__transform17 3
+    400304: pCube10
+    400306: pCube11
+    400308: pCube14
+    400310: pCube16
+    400312: pCube17
+    400314: pCube18
+    400316: pCube2
+    400318: pCube3
+    400320: pCube4
+    400322: pCube6
+    400324: pCube7
+    400326: polySurface10
+    400328: polySurface11
+    400330: polySurface12
+    400332: polySurface14
+    400334: polySurface15
+    400336: polySurface16
+    400338: polySurface17
+    400340: polySurface18
+    400342: polySurface19
+    400344: polySurface2
+    400346: polySurface20
+    400348: polySurface21
+    400350: polySurface22
+    400352: polySurface3
+    400354: polySurface8
+    400356: polySurface9
+    400358: Tooth
+    400360: tooth_tip
+    400362: TOP_CNT
+    400364: Top_JT
+    400366: transform11
+    400368: transform12
+    400370: transform14
+    400372: transform15
+    400374: transform16
+    400376: transform17
+    400378: transform18
+    400380: transform19
+    400382: transform2
+    400384: transform20
+    400386: transform21
+    400388: transform22
+    400390: transform23
+    400392: transform24
+    400394: transform25
+    400396: transform26
+    400398: transform27
+    400400: transform28
+    400402: transform29
+    400404: transform30
+    400406: transform31
+    400408: transform32
+    400410: transform33
+    400412: transform34
+    400414: transform35
+    400416: transform36
+    400418: transform37
+    400420: transform4
+    400422: transform5
+    400424: transform6
+    400426: transform7
+    400428: transform8
+    400430: transform9
+    2300000: pCube14
+    3300000: pCube14
+    4300000: pasted__pCube16
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: pasted__pCube16
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1.5
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 

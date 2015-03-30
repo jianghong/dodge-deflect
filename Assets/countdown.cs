@@ -24,7 +24,7 @@ public class countdown : MonoBehaviour {
 
 	void Start () {
 		if (gm.isFinalRound) {
-			t.text = "Final Round!";
+			t.text = "Trophy Round!";
 		} else {
 			roundCount = 4 - gm.roundCount;
 			t.text = "Round " + roundCount.ToString();
