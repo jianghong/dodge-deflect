@@ -39,7 +39,7 @@ public class ScoreBoard : MonoBehaviour {
 		if (playersReadyState [pNum - 1] == 0) {
 			if (((XCI.GetAxis(XboxAxis.LeftTrigger, pNum) > 0) && (XCI.GetAxis(XboxAxis.LeftTrigger, pNum) != 0.5f))) {
 				playersReadyState[pNum-1] = 1;
-				if (playersReadyState.Sum() == gm.numPlayers) {
+				if (playersReadyState.Sum() == gm.playersBitmap.Sum ()) {
 					countdownStart = Time.time;
 				}
 			}

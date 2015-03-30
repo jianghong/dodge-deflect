@@ -40,6 +40,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcec1ef47384e42529260b6488f7d282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  avoider: 00000000000000000000000000000000
 --- !u!114 &11492550
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -55,11 +56,24 @@ MonoBehaviour:
   numPlayers: 0
   playersBitmap: 00000000000000000000000000000000
   playersRoundScore: 00000000000000000000000000000000
+  playersHitScore: 00000000000000000000000000000000
+  roundScores: 00000000000000000000000000000000
   playerControls: 01000000010000000100000001000000
+  longestLifeSpan:
+  - 0
+  - 0
+  - 0
+  - 0
+  shortestLifeSpan:
+  - Infinity
+  - Infinity
+  - Infinity
+  - Infinity
   roundCount: 3
   isFinalRound: 0
-  roundBoard: {fileID: 0}
   tracking: {fileID: 0}
+  bgms:
+  - {fileID: 8300000, guid: 1a4ecfffb6e78482d9e3385faec41668, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

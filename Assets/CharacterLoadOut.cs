@@ -101,13 +101,13 @@ public class CharacterLoadOut : MonoBehaviour {
 		if (readiedUp.Sum () == gm.minPlayers) {
 			float timer = (10f - (Time.time - countdownStart));
 			promptText.GetComponent<Text>().text = "Game starting in " + timer.ToString("F0");
-			gm.playBattleBGM (11f, 1f);
 			StartCoroutine(goToGame());
 		}
 	}
 
 	IEnumerator goToGame() {
 		yield return new WaitForSeconds (9);
+		gm.playBattleBGM (2f, 1f);
 		AutoFade.LoadLevel("try_large_scene", 0.7f, 0.7f, Color.black);
 	}
 

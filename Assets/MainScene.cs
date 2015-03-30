@@ -33,7 +33,7 @@ public class MainScene : MonoBehaviour {
 	public GameObject roundBoard;
 	public GameObject scoreBoard;
 	AudioManager audioM;
-	public AudioClip bgClip;
+	public AudioClip victoryClip;
 
 	// Use this for initialization
 	void Awake() {
@@ -106,6 +106,7 @@ public class MainScene : MonoBehaviour {
 
 	void showScoreBoard(int pWinner) {
 		scoreBoard.SetActive (true);
+		audioM.setClip (victoryClip, 1f, 1f);
 		float playerLeftSpawnTime = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerCollision> ().playerSpawnTime;
 		gm.updateLifespan (playerLeft (), Time.time - playerLeftSpawnTime);
 		scoreBoard.GetComponent<ScoreBoard> ().disablePlayerContainers (gm.playersBitmap);
