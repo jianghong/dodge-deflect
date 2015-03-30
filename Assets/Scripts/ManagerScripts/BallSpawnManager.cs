@@ -50,7 +50,7 @@ public class BallSpawnManager : MonoBehaviour {
 		bool canSpawn = true;
 		bool canSpawnStatic = true;
 		for (int i=0; i < playerObjs.Length; i++) {
-			if (spawnPos.Equals(playerObjs[i].transform.position)) {
+			if (isCloseToPlayer(spawnPos, playerObjs[i].transform.position)) {
 				canSpawn = false;
 			}
 		}
@@ -75,6 +75,9 @@ public class BallSpawnManager : MonoBehaviour {
 		}
 	}
 
+	bool isCloseToPlayer(Vector3 starPos, Vector3 playerPos) {
+		return (((starPos.x - playerPos.x) <= 2f) && ((starPos.z - playerPos.z) <= 2));
+	}
 
 	public void destroyBall(GameObject ball) {
 		Destroy (ball);
