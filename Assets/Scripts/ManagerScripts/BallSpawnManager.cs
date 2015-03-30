@@ -76,7 +76,7 @@ public class BallSpawnManager : MonoBehaviour {
 	}
 
 	bool isCloseToPlayer(Vector3 starPos, Vector3 playerPos) {
-		return (((starPos.x - playerPos.x) <= 2f) && ((starPos.z - playerPos.z) <= 2));
+		return (((starPos.x - playerPos.x) <= 2f) && ((starPos.z - playerPos.z) <= 2f));
 	}
 
 	public void destroyBall(GameObject ball) {
