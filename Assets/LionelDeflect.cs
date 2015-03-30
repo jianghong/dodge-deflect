@@ -27,5 +27,6 @@ public class LionelDeflect : MonoBehaviour {
 		this.transform.localScale = defaultScale;
 		ac.SetTrigger ("isHit");
 		hitFrame = Time.frameCount;
+		transform.Find ("hit mini particles").GetComponent<ParticleSystem> ().Play ();
 	}
 }
