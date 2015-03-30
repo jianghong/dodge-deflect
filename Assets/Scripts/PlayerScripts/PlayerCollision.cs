@@ -120,12 +120,7 @@ public class PlayerCollision : MonoBehaviour {
 				bsm.destroyBall(collision.gameObject);
 				// increment hit count
 				if ((collidedStar.shotByPNum) > - 1) {
-
-					if (collidedStar.getDeflectedStar()) {
-						Debug.Log ("hit by deflected");
-					}
-
-					ms.incrementScore(collidedStar.shotByPNum, collidedStar.getDeflectedStar());
+					gm.incrementScore(collidedStar.shotByPNum);
 				}
 				addToAvoider();
 				ld.triggerIsHit();

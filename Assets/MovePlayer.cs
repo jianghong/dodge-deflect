@@ -214,10 +214,10 @@ public class MovePlayer : MonoBehaviour
 		GameObject createdBall = GameObject.Instantiate(ballPrefab, newBallPos, collider.transform.rotation) as GameObject;
 		NewBounce createdBallScript = createdBall.GetComponent<NewBounce> ();
 		createdBallScript.setDeflectedStar(isDeflect);
+		createdBallScript.shotByPNum = playerNumber;
 		if (isDeflect) {
 			createdBall.rigidbody.AddForce(createdBall.transform.forward.normalized*deflectForce, ForceMode.Impulse);		
 		} else {
-			createdBallScript.shotByPNum = playerNumber;
 			createdBall.GetComponent<TrailRenderer> ().material = gameObject.GetComponent<TrailRenderer> ().material;
 			gm.tracking.addToStat("StarHoarder", playerNumber, 1);
 			createdBall.rigidbody.AddForce(createdBall.transform.forward.normalized*blockerForce, ForceMode.Impulse);		

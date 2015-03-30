@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour {
 	public int numPlayers;
 	public int[] playersBitmap = {0, 0, 0, 0};
 	public int[] playersRoundScore = {0, 0, 0, 0};
+	public int[] playersHitScore = {0, 0, 0, 0};
 	public int[] roundScores = {0, 0, 0, 0};
 	public ControlType[] playerControls = {ControlType.Manual, ControlType.Manual, ControlType.Manual, ControlType.Manual};
 	public float[] longestLifeSpan = {0f, 0f, 0f, 0f};
@@ -74,5 +75,9 @@ public class GameManager : MonoBehaviour {
 		if (timeValue > longestLifeSpan [pNum - 1]) {
 			longestLifeSpan[pNum-1] = timeValue;
 		}
+	}
+
+	public void incrementScore(int pNum) {
+		playersHitScore[pNum-1] += 1;
 	}
 }

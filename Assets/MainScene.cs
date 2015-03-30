@@ -14,8 +14,6 @@ public class MainScene : MonoBehaviour {
 	TimeManager timeManager;
 	public int fadeOutTime = 1;
 	int[] playersBitmap = {0, 0, 0, 0};
-	int[] playersDeflectScore = {0, 0, 0, 0};
-	int[] playersHitScore = {0, 0, 0, 0};
 	int[] hasBadge = {0, 0, 0, 0};
 	Vector3[] playerPositions = new Vector3[4];
 	Vector3[] respawnposition = new Vector3[4];
@@ -106,7 +104,7 @@ public class MainScene : MonoBehaviour {
 		float playerLeftSpawnTime = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerCollision> ().playerSpawnTime;
 		gm.updateLifespan (playerLeft (), Time.time - playerLeftSpawnTime);
 		scoreBoard.GetComponent<ScoreBoard> ().disablePlayerContainers (gm.playersBitmap);
-		scoreBoard.GetComponent<ScoreBoard>().setLifeSpans (gm.longestLifeSpan, gm.shortestLifeSpan);
+		scoreBoard.GetComponent<ScoreBoard>().setLifeSpans (gm.longestLifeSpan, gm.playersHitScore);
 		scoreBoard.GetComponent<ScoreBoard> ().displayWinner (pWinner);
 		// check for flawless
 		if ((pWinner * 3) == gm.roundScores.Sum ()) {
@@ -236,13 +234,6 @@ public class MainScene : MonoBehaviour {
 		spawnPIndicators [pNum - 1].GetComponent<SpriteRenderer> ().enabled = false;
 	}
 
-	public void incrementScore(int pNum, bool deflectScore) {
-		if (deflectScore) {
-			playersDeflectScore[pNum-1] += 1;		
-		}
-		playersHitScore[pNum-1] += 1;
-	}
-	
 	void restartGame () {
 		if (gameIsOver && (XCI.GetButtonUp(XboxButton.Start, 1))) {
 			gm.newRound();

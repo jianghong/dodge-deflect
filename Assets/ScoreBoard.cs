@@ -47,7 +47,7 @@ public class ScoreBoard : MonoBehaviour {
 	}
 
 	void countdownToNextScene() {
-		if (playersReadyState.Sum () == 1) {
+		if (playersReadyState.Sum () == gm.numPlayers) {
 			float timer = (5f - (Time.time - countdownStart));
 			promptText.GetComponent<Text>().text = "Returning to start screen ... " + timer.ToString("F0");
 			StartCoroutine(goToStart());
@@ -60,11 +60,11 @@ public class ScoreBoard : MonoBehaviour {
 		AutoFade.LoadLevel("FINAL_startScene", 0.7f, 0.7f, Color.black);
 	}
 
-	public void setLifeSpans(float[] longestLifespans, float[] shortestLifespans) {
+	public void setLifeSpans(float[] longestLifespans, int[] hitScores) {
 		for (int i=0; i<PlayerScoreContainer.Length; i++) {
 			if (PlayerScoreContainer[i].activeSelf) {
 				PlayerScoreContainer[i].transform.Find("Score Container").transform.Find ("Longest Life Span").transform.Find("LongestTime").GetComponent<Text>().text = longestLifespans[i].ToString("F1");
-				PlayerScoreContainer[i].transform.Find("Score Container").transform.Find ("Shortest Life Span").transform.Find("ShortestTime").GetComponent<Text>().text = shortestLifespans[i].ToString("F1");
+				PlayerScoreContainer[i].transform.Find("Score Container").transform.Find ("Hits On Players").transform.Find("Hits").GetComponent<Text>().text = hitScores[i].ToString();
 			}
 
 		}
