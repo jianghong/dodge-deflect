@@ -5,7 +5,7 @@ using System.Linq;
 
 public class TipsManager : MonoBehaviour {
 	string[] beginnerTips = {
-		"Win an entry into the trophy round by winning a round",
+		"Win a round to enter the glorious trophy round.",
 		"Form Voids strategically by shooting a star into another",
 		"Use the Right Stick to manually aim at your desired target",
 		"Be careful of the gravity when close to voids",
