@@ -30,9 +30,12 @@ public class RockCentre : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerEnter(Collider collision) {
-		if (collision.gameObject.tag == "Player") {
-			Debug.Log ("collided player");
+	void OnTriggerEnter(Collider col){
+		
+		if (col.tag == "Player"){
+			Vector3 dir = (col.transform.position - transform.position).normalized;
+			CharacterController charMotor = col.GetComponent<CharacterController>();
+			charMotor.Move(dir*3f);
 		}
 	}
 }

@@ -793,7 +793,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &60520269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4298,7 +4298,6 @@ GameObject:
   - 33: {fileID: 336019487}
   - 23: {fileID: 336019486}
   - 64: {fileID: 336019485}
-  - 114: {fileID: 336019488}
   m_Layer: 0
   m_Name: pCube1
   m_TagString: Untagged
@@ -4361,18 +4360,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 310013064}
   m_GameObject: {fileID: 336019483}
   m_Mesh: {fileID: 4300000, guid: 1aaf6fbccb10bfa42967545d2d52b693, type: 3}
---- !u!114 &336019488
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 336019483}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c73b955bf1ee4e7c819438a69c11aea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 1
 --- !u!1001 &346137526
 Prefab:
   m_ObjectHideFlags: 0
@@ -4948,7 +4935,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 155056, guid: ac500045902974ea999c4afec9bab0e1, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ac500045902974ea999c4afec9bab0e1, type: 2}
@@ -6892,7 +6879,6 @@ GameObject:
   - 33: {fileID: 580165358}
   - 23: {fileID: 580165357}
   - 64: {fileID: 580165356}
-  - 114: {fileID: 580165359}
   m_Layer: 0
   m_Name: pCube21
   m_TagString: Untagged
@@ -6955,18 +6941,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 310013064}
   m_GameObject: {fileID: 580165354}
   m_Mesh: {fileID: 4300004, guid: 1aaf6fbccb10bfa42967545d2d52b693, type: 3}
---- !u!114 &580165359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 580165354}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c73b955bf1ee4e7c819438a69c11aea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 1
 --- !u!1 &590074370
 GameObject:
   m_ObjectHideFlags: 0
@@ -11381,7 +11355,6 @@ GameObject:
   - 33: {fileID: 969179917}
   - 23: {fileID: 969179916}
   - 64: {fileID: 969179915}
-  - 114: {fileID: 969179918}
   m_Layer: 0
   m_Name: pCube2
   m_TagString: Untagged
@@ -11444,18 +11417,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 310013064}
   m_GameObject: {fileID: 969179913}
   m_Mesh: {fileID: 4300002, guid: 1aaf6fbccb10bfa42967545d2d52b693, type: 3}
---- !u!114 &969179918
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 969179913}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c73b955bf1ee4e7c819438a69c11aea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 1
 --- !u!1 &980176143
 GameObject:
   m_ObjectHideFlags: 0
@@ -16819,7 +16780,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 192550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11492550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
       propertyPath: isFinalRound
@@ -18174,7 +18135,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1658771913
 MonoBehaviour:
   m_ObjectHideFlags: 0
