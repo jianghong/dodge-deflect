@@ -285,7 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86b83232f0645054483a2daf0f6919b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialForce: 1000
+  initialForce: 500
   maxVelocity: 15
   Ball: {fileID: 179648}
   voidIndicator: {fileID: 124830, guid: 5cdb9cf19796cce4f989a34dda12ffcf, type: 2}

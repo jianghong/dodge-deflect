@@ -16,7 +16,7 @@ public class BallSpawnManager : MonoBehaviour {
 	float leftX, rightX;
 	float topZ, bottomZ;
 	GameManager gm;
-
+	int spawn_i = 0;
 	void Awake() {
 	}
 
@@ -45,34 +45,11 @@ public class BallSpawnManager : MonoBehaviour {
 	
 	void spawnBall() {
 		starCount += 1;
-		Vector3 spawnPos = new Vector3 (Random.Range (leftX, rightX), 0.5f, Random.Range (topZ, bottomZ));
-		GameObject[] playerObjs = GameObject.FindGameObjectsWithTag ("Player");
-		bool canSpawn = false;
-		bool canSpawnStatic = true;
-//		for (int i=0; i < playerObjs.Length; i++) {
-//			if (isCloseToPlayer(spawnPos, playerObjs[i].transform.position)) {
-//				canSpawn = false;
-//			}
-//		}
-
-		if (canSpawn) {
-			Instantiate (ballPrefab, spawnPos, Random.rotation);
-		} else {
-			for (int j=0; j < StaticBallSpawns.Length; j++) {
-				canSpawnStatic = true;
-				for (int k=0; k < playerObjs.Length; k++) {
-					if (spawnPos.Equals(playerObjs[k].transform.position)) {
-						canSpawnStatic = false;
-						break;
-					}
-				}
-				if (canSpawnStatic) {
-					Debug.Log ("Used static spawn");
-					Instantiate (ballPrefab, StaticBallSpawns[j].transform.position, -StaticBallSpawns[j].transform.forward);
-					break;
-				}
-			}
-		}
+		GameObject spawnedStar = GameObject.Instantiate (ballPrefab, StaticBallSpawns[spawn_i].transform.position, StaticBallSpawns[spawn_i].transform.rotation) as GameObject;
+		spawnedStar.rigidbody.AddForce(StaticBallSpawns[spawn_i].transform.forward*100f, ForceMode.Impulse);
+		StaticBallSpawns[spawn_i].GetComponentInParent<Cannon>().bang();
+		spawn_i = spawn_i + 1 >= StaticBallSpawns.Length ? 0 : spawn_i + 1;
+	
 	}
 
 	bool isCloseToPlayer(Vector3 starPos, Vector3 playerPos) {
