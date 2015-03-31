@@ -1,0 +1,175 @@
+fileFormatVersion: 2
+guid: e3121f9ae007c484f80e4445cfd1c869
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Cannon_Axis
+    100004: Cannon_Axis 1
+    100006: Cannon_EndShaft
+    100008: Cannon_Shaft
+    100010: Cannon_StartShaft
+    100012: Control_Axis
+    100014: Control_HorizontalArm
+    100016: Control_VerticalArm
+    100018: Platform_Base
+    100020: Platform_SecondaryBase
+    100022: Platform_Shaft
+    100024: transform1
+    100026: transform2
+    100028: transform3
+    100030: transform4
+    100032: transform5
+    100034: transform6
+    100036: transform7
+    400000: //RootNode
+    400002: Cannon_Axis
+    400004: Cannon_Axis 1
+    400006: Cannon_EndShaft
+    400008: Cannon_Shaft
+    400010: Cannon_StartShaft
+    400012: Control_Axis
+    400014: Control_HorizontalArm
+    400016: Control_VerticalArm
+    400018: Platform_Base
+    400020: Platform_SecondaryBase
+    400022: Platform_Shaft
+    400024: transform1
+    400026: transform2
+    400028: transform3
+    400030: transform4
+    400032: transform5
+    400034: transform6
+    400036: transform7
+    2300000: Cannon_Axis
+    2300002: Platform_Base
+    2300004: Platform_SecondaryBase
+    2300006: Platform_Shaft
+    3300000: Cannon_Axis
+    3300002: Platform_Base
+    3300004: Platform_SecondaryBase
+    3300006: Platform_Shaft
+    4300000: Platform_Base
+    4300002: Platform_SecondaryBase
+    4300004: Platform_Shaft
+    4300006: Cannon_Axis
+    7400000: Bang
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Bang
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Cannon_Axis
+        weight: 1
+      - path: Platform_Base
+        weight: 1
+      - path: Platform_SecondaryBase
+        weight: 1
+      - path: Platform_Shaft
+        weight: 1
+      - path: Platform_Shaft/Cannon_Axis 1
+        weight: 1
+      - path: Platform_Shaft/Cannon_Axis 1/Cannon_EndShaft
+        weight: 1
+      - path: Platform_Shaft/Cannon_Axis 1/Cannon_EndShaft/transform6
+        weight: 1
+      - path: Platform_Shaft/Cannon_Axis 1/Cannon_Shaft
+        weight: 1
+      - path: Platform_Shaft/Cannon_Axis 1/Cannon_Shaft/transform5
+        weight: 1
+      - path: Platform_Shaft/Cannon_Axis 1/Cannon_StartShaft
+        weight: 1
+      - path: Platform_Shaft/Cannon_Axis 1/Cannon_StartShaft/transform4
+        weight: 1
+      - path: Platform_Shaft/Cannon_Axis 1/Control_Axis
+        weight: 1
+      - path: Platform_Shaft/Cannon_Axis 1/Control_Axis/transform3
+        weight: 1
+      - path: Platform_Shaft/Cannon_Axis 1/Control_HorizontalArm
+        weight: 1
+      - path: Platform_Shaft/Cannon_Axis 1/Control_HorizontalArm/transform1
+        weight: 1
+      - path: Platform_Shaft/Cannon_Axis 1/Control_VerticalArm
+        weight: 1
+      - path: Platform_Shaft/Cannon_Axis 1/Control_VerticalArm/transform2
+        weight: 1
+      - path: Platform_Shaft/Cannon_Axis 1/transform7
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 

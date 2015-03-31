@@ -47,13 +47,13 @@ public class BallSpawnManager : MonoBehaviour {
 		starCount += 1;
 		Vector3 spawnPos = new Vector3 (Random.Range (leftX, rightX), 0.5f, Random.Range (topZ, bottomZ));
 		GameObject[] playerObjs = GameObject.FindGameObjectsWithTag ("Player");
-		bool canSpawn = true;
+		bool canSpawn = false;
 		bool canSpawnStatic = true;
-		for (int i=0; i < playerObjs.Length; i++) {
-			if (isCloseToPlayer(spawnPos, playerObjs[i].transform.position)) {
-				canSpawn = false;
-			}
-		}
+//		for (int i=0; i < playerObjs.Length; i++) {
+//			if (isCloseToPlayer(spawnPos, playerObjs[i].transform.position)) {
+//				canSpawn = false;
+//			}
+//		}
 
 		if (canSpawn) {
 			Instantiate (ballPrefab, spawnPos, Random.rotation);
@@ -68,7 +68,7 @@ public class BallSpawnManager : MonoBehaviour {
 				}
 				if (canSpawnStatic) {
 					Debug.Log ("Used static spawn");
-					Instantiate (ballPrefab, StaticBallSpawns[j].transform.position, Random.rotation);
+					Instantiate (ballPrefab, StaticBallSpawns[j].transform.position, -StaticBallSpawns[j].transform.forward);
 					break;
 				}
 			}
