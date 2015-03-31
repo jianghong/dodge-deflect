@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour {
 	public int minPlayers;
 	public int numPlayers;
 	public int[] playersBitmap = {0, 0, 0, 0};
-	public int[] playersRoundScore = {1, 1, 1, 1};
+	public int[] playersRoundScore = {0, 0, 0, 0};
 	public int[] playersHitScore = {0, 0, 0, 0};
 	public int[] roundScores = {0, 0, 0, 0};
 	public ControlType[] playerControls = {ControlType.Manual, ControlType.Manual, ControlType.Manual, ControlType.Manual};
@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour {
 	
 	public void addPlayer(int pNum) {
 		playersBitmap[pNum-1] = 1;
+		playersRoundScore [pNum - 1] = 1;
 	}
 
 	public void setPlayerControl(int pNum, ControlType controlType) {

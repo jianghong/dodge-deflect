@@ -808,8 +808,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minPlayers: 2
   numPlayers: 2
-  playersBitmap: 01000000010000000100000001000000
-  playersRoundScore: 01000000010000000100000001000000
+  playersBitmap: 01000000010000000000000000000000
+  playersRoundScore: 00000000000000000000000000000000
   playersHitScore: 00000000000000000000000000000000
   roundScores: 00000000000000000000000000000000
   playerControls: 01000000010000000100000001000000
@@ -8048,6 +8048,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11476540, guid: 6f9c48e95d5fa4f3c80715ac8d87fb2f, type: 2}
+      propertyPath: Falafel
+      value: 
+      objectReference: {fileID: 2800000, guid: cc9312c8b0a7546a89482bd00528b8c4, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6f9c48e95d5fa4f3c80715ac8d87fb2f, type: 2}
   m_RootGameObject: {fileID: 761087367}
@@ -9393,6 +9397,7 @@ MonoBehaviour:
   Avoider: {fileID: 2800000, guid: faae819c4038a4535bd8e4995806ceef, type: 3}
   StarHoarder: {fileID: 2800000, guid: c3fb6510cc54c4d2589362fc020feb6e, type: 3}
   Flawless: {fileID: 2800000, guid: 79a199ed66d32449f817ee072a240a37, type: 3}
+  Falafel: {fileID: 2800000, guid: cc9312c8b0a7546a89482bd00528b8c4, type: 3}
   winnerText: {fileID: 1362260667}
   promptText: {fileID: 2119640588}
 --- !u!114 &761087370
@@ -16747,11 +16752,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11492550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
       propertyPath: playersBitmap.Array.data[2]
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11492550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
       propertyPath: playersBitmap.Array.data[3]
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11492550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
       propertyPath: roundBoard
@@ -16771,19 +16776,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11492550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
       propertyPath: playersRoundScore.Array.data[0]
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11492550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
       propertyPath: playersRoundScore.Array.data[1]
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11492550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
       propertyPath: playersRoundScore.Array.data[2]
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11492550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
       propertyPath: playersRoundScore.Array.data[3]
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11492550, guid: 139d4f17f5c2342aea4596084cb29c8c, type: 2}
       propertyPath: m_Enabled

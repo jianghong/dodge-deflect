@@ -12,6 +12,7 @@ public class ScoreBoard : MonoBehaviour {
 	public Texture Avoider;
 	public Texture StarHoarder;
 	public Texture Flawless;
+	public Texture Falafel;
 	public GameObject winnerText;
 	public GameObject promptText;
 	GameManager gm;
@@ -94,6 +95,11 @@ public class ScoreBoard : MonoBehaviour {
 	public void setFlawless(int pNum) {
 		PlayerScoreContainer [pNum-1].transform.Find ("Score Container").transform.Find ("Badges").GetComponent<BadgeManager> ().setExtraBadge(Flawless);
 	}
+
+	public void setFalafel(int pNum) {
+		PlayerScoreContainer [pNum-1].transform.Find ("Score Container").transform.Find ("Badges").GetComponent<BadgeManager> ().setExtraBadge(Falafel);
+	}
+
 
 	public void displayWinner(int pNum) {
 		string winner;

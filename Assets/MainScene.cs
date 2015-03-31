@@ -117,6 +117,15 @@ public class MainScene : MonoBehaviour {
 			scoreBoard.GetComponent<ScoreBoard>().setFlawless(pWinner);
 		}
 
+		// check for falafel
+		int shortestLifeSpan = gm.longestLifeSpan.ToList ().IndexOf (gm.longestLifeSpan.Min ());
+		int lowestHitScore = gm.longestLifeSpan.ToList ().IndexOf (gm.longestLifeSpan.Min ());
+		if (shortestLifeSpan == lowestHitScore) {
+			if (gm.roundScores[shortestLifeSpan] <= 1) {
+				scoreBoard.GetComponent<ScoreBoard>().setFalafel(shortestLifeSpan+1);
+			}
+		}
+
 		// assign badges
 		// TODO: fix edge case for 3 players LOW PRIORITY
 		int maxBadge = gm.playersBitmap.Sum () == 4 ? 1 : 2;
