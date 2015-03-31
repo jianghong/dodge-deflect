@@ -22,6 +22,17 @@ public class RockCentre : MonoBehaviour {
 		} else {
 			transform.Translate (new Vector3 (1f, 0f, -1f) * moveSpeed * Time.deltaTime);
 		}
+	}
 
+	void OnCollisionEnter(Collision collision) {
+		if (collision.gameObject.tag == "Player") {
+			Debug.Log ("collided player");
+		}
+	}
+
+	void OnTriggerEnter(Collider collision) {
+		if (collision.gameObject.tag == "Player") {
+			Debug.Log ("collided player");
+		}
 	}
 }
