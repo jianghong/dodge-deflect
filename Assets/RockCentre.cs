@@ -34,8 +34,8 @@ public class RockCentre : MonoBehaviour {
 		
 		if (col.tag == "Player"){
 			Vector3 dir = (col.transform.position - transform.position).normalized;
-			CharacterController charMotor = col.GetComponent<CharacterController>();
-			charMotor.Move(dir*3f);
+			ImpactReceiver charMotor = col.GetComponent<ImpactReceiver>();
+			charMotor.AddImpact(dir, 200);
 		}
 	}
 }
