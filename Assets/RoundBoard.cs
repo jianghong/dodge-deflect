@@ -85,15 +85,16 @@ public class RoundBoard : MonoBehaviour {
 		
 		Transform roundObject = transform.FindChild ("TextureRow").FindChild (roundName);
 		GameObject plusOneUI = GameObject.Instantiate (plusOne, roundObject.position, Quaternion.identity) as GameObject;
-		bool firstWin = true;
+//		bool firstWin = true;
 		for (int rs=0; rs<gm.roundScores.Length; rs++) {
 			if ((gm.roundScores[rs] == latestRoundVictor) && (rs != latestRound)) {
-				firstWin = false;
+//				firstWin = false;
 			}
 		}
-		if (firstWin) {
-			plusOneUI.GetComponent<RawImage>().texture = entryTexture;
-		}
+//		if (firstWin) {
+//			plusOneUI.GetComponent<RawImage>().texture = entryTexture;
+//		}
+
 		plusOneUI.transform.SetParent (roundObject.transform);
 		
 		if ((latestRound == 2) && (latestRoundVictor * 3 == gm.roundScores.Sum ())) {
