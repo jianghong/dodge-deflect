@@ -76,7 +76,8 @@ public class BallSpawnManager : MonoBehaviour {
 	}
 
 	bool isCloseToPlayer(Vector3 starPos, Vector3 playerPos) {
-		return (((starPos.x - playerPos.x) <= 2f) && ((starPos.z - playerPos.z) <= 2f));
+		float d = Vector3.Distance (starPos, playerPos);
+		return (d <= 5f);
 	}
 
 	public void destroyBall(GameObject ball) {
