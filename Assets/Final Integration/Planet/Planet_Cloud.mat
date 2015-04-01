@@ -35,7 +35,7 @@ Material:
       data:
         first:
           name: _EdgeWidth
-        second: 1
+        second: 6.35714293
     m_Colors:
       data:
         first:
@@ -44,4 +44,4 @@ Material:
       data:
         first:
           name: _ColourofClouds
-        second: {r: 1, g: 1, b: 1, a: 1}
+        second: {r: .713725507, g: .713725507, b: .713725507, a: 1}

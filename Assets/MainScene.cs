@@ -47,6 +47,12 @@ public class MainScene : MonoBehaviour {
 		timeManager = GameObject.FindWithTag ("TimeManager").GetComponent<TimeManager> ();
 		cd = GameObject.FindWithTag ("Countdown").GetComponent<countdown> ();
 		if (gm.isFinalRound) {
+			if ((gm.roundScores[0] * 3) == gm.roundScores.Sum ()) {
+				for (int i = 0; i < playersBitmap.Length; i++) {
+					gm.playersRoundScore[i] = 0;
+				}
+				gm.playersRoundScore[gm.roundScores[0]-1] = 1;
+			} 
 			for (int i = 0; i < gm.playersRoundScore.Length; i++) {
 				if (gm.playersRoundScore [i] > 0) {
 					playersBitmap [i] = 1;

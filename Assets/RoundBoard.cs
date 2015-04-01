@@ -17,7 +17,7 @@ public class RoundBoard : MonoBehaviour {
 	float timeStart;
 	GameManager gm;
 	bool oneTime = false;
-	int timeToNextRound = 10;
+	int timeToNextRound = 6;
 	
 	void Awake() {
 		gm = GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ();
