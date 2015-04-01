@@ -8,16 +8,26 @@ public class Cannon : MonoBehaviour {
 	float rotateSpeed = 0.5f;
 	public float leftBound = 310f;
 	public float rightBound = 203f;
+	bool stop;
+	float stopDelay = 1f;
+	float bangTime;
 	Animator ac;
+	ParticleSystem ps;
 
 	// Use this for initialization
 	void Start () {
 		ac = GetComponent<Animator> ();
+		ps = transform.Find ("HoldParticles").GetComponent<ParticleSystem> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		rotateRightSpawner ();
+		if (!stop) {
+			rotateRightSpawner ();
+		}
+		if ((Time.time - bangTime) >= stopDelay) {
+			stop = false;
+		}
 	}
 
 	
@@ -38,7 +48,18 @@ public class Cannon : MonoBehaviour {
 		}
 	}
 
-	public void bang() {
+	IEnumerator startBang(GameObject spawnObj, GameObject ballPrefab) {
+		yield return new WaitForSeconds (stopDelay);
+		GameObject spawnedStar = GameObject.Instantiate (ballPrefab, spawnObj.transform.position, spawnObj.transform.rotation) as GameObject;
+		spawnedStar.rigidbody.AddForce(spawnObj.transform.forward*100f, ForceMode.Impulse);
+		ps.Stop ();
 		ac.SetTrigger ("bang");
+	}
+
+	public void bang(GameObject spawnObj, GameObject ballPrefab) {
+		ps.Play ();
+		StartCoroutine (startBang (spawnObj, ballPrefab));
+		stop = true;
+		bangTime = Time.time;
 	}
 }

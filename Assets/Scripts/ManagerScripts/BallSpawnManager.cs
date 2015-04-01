@@ -45,9 +45,7 @@ public class BallSpawnManager : MonoBehaviour {
 	
 	void spawnBall() {
 		starCount += 1;
-		GameObject spawnedStar = GameObject.Instantiate (ballPrefab, StaticBallSpawns[spawn_i].transform.position, StaticBallSpawns[spawn_i].transform.rotation) as GameObject;
-		spawnedStar.rigidbody.AddForce(StaticBallSpawns[spawn_i].transform.forward*100f, ForceMode.Impulse);
-		StaticBallSpawns[spawn_i].GetComponentInParent<Cannon>().bang();
+		StaticBallSpawns[spawn_i].GetComponentInParent<Cannon>().bang(StaticBallSpawns[spawn_i], ballPrefab);
 		spawn_i = spawn_i + 1 >= StaticBallSpawns.Length ? 0 : spawn_i + 1;
 	
 	}
