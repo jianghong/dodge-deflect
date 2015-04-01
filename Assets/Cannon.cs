@@ -6,8 +6,8 @@ public class Cannon : MonoBehaviour {
 	bool rightSpawnRotateLeft = false;
 	bool leftSpawnRotateLeft = false;
 	float rotateSpeed = 0.5f;
-	public float leftBound = 310f;
-	public float rightBound = 203f;
+	public float leftBound;
+	public float rightBound;
 	bool stop;
 	float stopDelay = 1f;
 	float bangTime;
@@ -18,6 +18,9 @@ public class Cannon : MonoBehaviour {
 	void Start () {
 		ac = GetComponent<Animator> ();
 		ps = transform.Find ("HoldParticles").GetComponent<ParticleSystem> ();
+		float randY = Random.Range (leftBound, rightBound);
+		transform.localEulerAngles = new Vector3 (0f, randY, 0f);
+		Debug.Log (transform.localRotation.eulerAngles);
 	}
 	
 	// Update is called once per frame
